@@ -119,19 +119,31 @@ export default function Index() {
         </div>
       </section>
 
-      {/* News Section with Juicer Integration */}
+      {/* News Section */}
       <section id="actualites" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <div className="flex items-center mb-8">
             <Newspaper className="h-6 w-6 text-primary mr-3" />
             <h2 className="text-2xl font-semibold">Actualités</h2>
           </div>
-          <div className="h-[800px] w-full">
-            <iframe 
-              src="https://www.juicer.io/api/feeds/YOUR-FEED-ID/iframe" 
-              className="w-full h-full border-0 rounded-xl"
-              title="Fil d'actualités IDÉE"
-            ></iframe>
+          <div className="grid md:grid-cols-3 gap-6">
+            {newsItems.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <span className="text-sm text-gray-500">{item.date}</span>
+                <h3 className="text-lg font-semibold mt-2 mb-3">{item.title}</h3>
+                <p className="text-gray-600 mb-4">{item.description}</p>
+                <a
+                  href="#"
+                  className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
+                >
+                  Lire plus <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
