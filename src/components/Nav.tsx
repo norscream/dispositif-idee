@@ -23,6 +23,9 @@ export const Nav = () => {
             <a href="#ressources" className="nav-link">
               Ressources
             </a>
+            <a href="#equipe" className="nav-link">
+              Équipe
+            </a>
             <a href="#faq" className="nav-link">
               FAQ
             </a>
@@ -61,6 +64,12 @@ export const Nav = () => {
                 className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
               >
                 Ressources
+              </a>
+              <a
+                href="#equipe"
+                className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                Équipe
               </a>
               <a
                 href="#faq"

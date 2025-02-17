@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import {
   ChevronRight,
@@ -6,6 +5,8 @@ import {
   FileText,
   HelpCircle,
   ArrowRight,
+  Users,
+  Mail,
 } from "lucide-react";
 import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -44,6 +45,51 @@ export default function Index() {
       question: "Comment contacter l'équipe support ?",
       answer: "Vous pouvez contacter notre équipe support par email ou via le formulaire de contact disponible sur le site...",
     },
+  ];
+
+  const teamMembers = [
+    {
+      image: "/lovable-uploads/de82411e-460f-4eef-9f76-1b8cd77492f4.png",
+      name: "Marie Dupont",
+      role: "Chef de projet",
+      email: "marie.dupont@idee.fr"
+    },
+    {
+      image: "/lovable-uploads/fc888979-d140-483c-82ec-4c976c1be588.png",
+      name: "Sophie Martin",
+      role: "Responsable pédagogique",
+      email: "sophie.martin@idee.fr"
+    },
+    {
+      image: "/lovable-uploads/1d7f478b-967c-4c57-b2fa-7a57ce7ff060.png",
+      name: "Pierre Dubois",
+      role: "Coordinateur",
+      email: "pierre.dubois@idee.fr"
+    },
+    {
+      image: "/lovable-uploads/80178065-322a-4a85-9708-9ff2cef122e6.png",
+      name: "Claire Bernard",
+      role: "Chargée de mission",
+      email: "claire.bernard@idee.fr"
+    },
+    {
+      image: "/lovable-uploads/21c3b237-9012-4d66-ac3a-0a207d832af5.png",
+      name: "Thomas Moreau",
+      role: "Responsable innovation",
+      email: "thomas.moreau@idee.fr"
+    },
+    {
+      image: "/lovable-uploads/726944d2-c6f0-4866-a030-734bc6b93f1d.png",
+      name: "Anne Petit",
+      role: "Chargée de communication",
+      email: "anne.petit@idee.fr"
+    },
+    {
+      image: "/lovable-uploads/34478c1f-75ee-4e13-9a72-4e28d99a3069.png",
+      name: "Nicolas Laurent",
+      role: "Responsable développement",
+      email: "nicolas.laurent@idee.fr"
+    }
   ];
 
   return (
@@ -127,6 +173,46 @@ export default function Index() {
                 </div>
               )
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section id="equipe" className="py-16 px-4">
+        <div className="container mx-auto">
+          <div className="flex items-center mb-12">
+            <Users className="h-6 w-6 text-primary mr-3" />
+            <h2 className="text-2xl font-semibold">Notre équipe</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="aspect-square overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-light/20 to-secondary-light/20 z-10" />
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-lg mb-1">{member.name}</h3>
+                  <p className="text-gray-600 text-sm mb-3">{member.role}</p>
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="inline-flex items-center text-sm text-primary hover:text-primary-dark transition-colors"
+                  >
+                    <Mail className="h-4 w-4 mr-1" />
+                    Contact
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
