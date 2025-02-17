@@ -1,3 +1,4 @@
+
 import { Nav } from "@/components/Nav";
 import {
   ChevronRight,
@@ -103,7 +104,7 @@ export default function Index() {
             Bienvenue sur IDÉE
           </span>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            Innovation et Développement de l'Éducation
+            Innovons et Développons l'Esprit d'Engagement
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Découvrez nos ressources et outils pour transformer l'éducation
