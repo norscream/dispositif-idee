@@ -10,8 +10,12 @@ export const Nav = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="/" className="text-lg font-semibold text-primary">
-              IDÉE
+            <a href="/" className="h-8">
+              <img 
+                src="/lovable-uploads/bc160d8a-3124-44e1-b43d-725c8f2f2e29.png" 
+                alt="IDÉE - Engager la jeunesse pour l'avenir" 
+                className="h-full w-auto"
+              />
             </a>
           </div>
 
