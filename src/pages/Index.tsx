@@ -151,31 +151,31 @@ export default function Index() {
       <section id="actions" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Nos champs d'action</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center">
-            {actions.map((action, index) => (
-              <a
-                key={index}
-                href={action.href}
-                className={`group flex flex-col items-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in w-full max-w-sm ${
-                  index >= 3 ? "md:col-span-1.5" : ""
-                }`}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
-                  <action.icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="text-xl font-semibold text-center mb-2">{action.title}</h3>
-                <p className="text-gray-600 text-center">{action.description}</p>
-                <div className="mt-4 inline-flex items-center text-primary group-hover:text-primary-dark transition-colors">
-                  En savoir plus <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
-              </a>
-            ))}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
+              {actions.map((action, index) => (
+                <a
+                  key={index}
+                  href={action.href}
+                  className="group flex flex-col items-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in w-full"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+                    <action.icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-center mb-2">{action.title}</h3>
+                  <p className="text-gray-600 text-center">{action.description}</p>
+                  <div className="mt-4 inline-flex items-center text-primary group-hover:text-primary-dark transition-colors">
+                    En savoir plus <ArrowRight className="ml-2 h-4 w-4" />
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* News Section - LinkedIn Feed */}
+      {/* News Section */}
       <section id="actualites" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <div className="flex items-center justify-between mb-8">
