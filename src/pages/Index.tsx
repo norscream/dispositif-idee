@@ -151,12 +151,14 @@ export default function Index() {
       <section id="actions" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Nos champs d'action</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center">
             {actions.map((action, index) => (
               <a
                 key={index}
                 href={action.href}
-                className="group flex flex-col items-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in"
+                className={`group flex flex-col items-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in w-full max-w-sm ${
+                  index >= 3 ? "md:col-span-1.5" : ""
+                }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
