@@ -84,31 +84,31 @@ export default function Index() {
       icon: Info,
       title: "Informer et promouvoir",
       description: "l'éducation à l'entrepreneuriat",
-      href: "#informer",
+      href: "/informer",
     },
     {
       icon: BookOpen,
       title: "Accompagner et former",
       description: "conseiller et former les enseignants",
-      href: "#accompagner",
+      href: "/accompagner",
     },
     {
       icon: Puzzle,
       title: "Créer des ressources",
       description: "pédagogiques innovantes",
-      href: "#ressources",
+      href: "/ressources",
     },
     {
       icon: Network,
       title: "Mettre en lien",
       description: "les acteurs territoriaux de la pédagogie entrepreneuriale",
-      href: "#reseau",
+      href: "/reseau",
     },
     {
       icon: Trophy,
       title: "Célébrer et valoriser",
       description: "les actions des élèves",
-      href: "#valoriser",
+      href: "/valoriser",
     },
   ];
 
