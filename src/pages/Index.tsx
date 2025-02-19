@@ -19,24 +19,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export default function Index() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const newsItems = [
-    {
-      title: "Nouveau programme d'innovation pédagogique",
-      date: "15 Mars 2024",
-      description: "Découvrez les nouvelles initiatives pour transformer l'éducation.",
-    },
-    {
-      title: "Lancement des projets collaboratifs",
-      date: "12 Mars 2024",
-      description: "Participez aux nouveaux projets inter-établissements.",
-    },
-    {
-      title: "Formations numériques disponibles",
-      date: "10 Mars 2024",
-      description: "Accédez aux nouvelles formations en ligne.",
-    },
-  ];
-
   const faqItems = [
     {
       question: "Comment participer aux projets collaboratifs ?",
@@ -191,31 +173,51 @@ export default function Index() {
         </div>
       </section>
 
-      {/* News Section */}
+      {/* News Section - LinkedIn Feed */}
       <section id="actualites" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
-          <div className="flex items-center mb-8">
-            <Newspaper className="h-6 w-6 text-primary mr-3" />
-            <h2 className="text-2xl font-semibold">Actualités</h2>
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center">
+              <Newspaper className="h-6 w-6 text-primary mr-3" />
+              <h2 className="text-2xl font-semibold">Actualités</h2>
+            </div>
+            <a 
+              href="https://www.linkedin.com/company/idee-education/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
+            >
+              Suivez-nous sur LinkedIn <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {newsItems.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <span className="text-sm text-gray-500">{item.date}</span>
-                <h3 className="text-lg font-semibold mt-2 mb-3">{item.title}</h3>
-                <p className="text-gray-600 mb-4">{item.description}</p>
-                <a
-                  href="#"
-                  className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
-                >
-                  Lire plus <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </div>
-            ))}
+            <iframe 
+              src="https://www.linkedin.com/embed/feed/update/urn:li:share:YOUR_POST_ID_1" 
+              height="500" 
+              width="100%" 
+              frameBorder="0" 
+              allowFullScreen 
+              className="rounded-xl shadow-sm"
+              title="Publication LinkedIn 1"
+            ></iframe>
+            <iframe 
+              src="https://www.linkedin.com/embed/feed/update/urn:li:share:YOUR_POST_ID_2" 
+              height="500" 
+              width="100%" 
+              frameBorder="0" 
+              allowFullScreen 
+              className="rounded-xl shadow-sm"
+              title="Publication LinkedIn 2"
+            ></iframe>
+            <iframe 
+              src="https://www.linkedin.com/embed/feed/update/urn:li:share:YOUR_POST_ID_3" 
+              height="500" 
+              width="100%" 
+              frameBorder="0" 
+              allowFullScreen 
+              className="rounded-xl shadow-sm"
+              title="Publication LinkedIn 3"
+            ></iframe>
           </div>
         </div>
       </section>
