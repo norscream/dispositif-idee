@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import {
   ChevronRight,
@@ -8,6 +7,11 @@ import {
   ArrowRight,
   Users,
   Mail,
+  Info,
+  BookOpen,
+  Puzzle,
+  Network,
+  Trophy,
 } from "lucide-react";
 import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -93,13 +97,54 @@ export default function Index() {
     }
   ];
 
+  const actions = [
+    {
+      icon: Info,
+      title: "Informer et promouvoir",
+      description: "l'éducation à l'entrepreneuriat",
+      href: "#informer",
+    },
+    {
+      icon: BookOpen,
+      title: "Accompagner et former",
+      description: "conseiller et former les enseignants",
+      href: "#accompagner",
+    },
+    {
+      icon: Puzzle,
+      title: "Créer des ressources",
+      description: "pédagogiques innovantes",
+      href: "#ressources",
+    },
+    {
+      icon: Network,
+      title: "Mettre en lien",
+      description: "les acteurs territoriaux de la pédagogie entrepreneuriale",
+      href: "#reseau",
+    },
+    {
+      icon: Trophy,
+      title: "Célébrer et valoriser",
+      description: "les actions des élèves",
+      href: "#valoriser",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Nav />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4">
-        <div className="container mx-auto text-center">
+      {/* Hero Section avec image en arrière-plan */}
+      <section className="relative pt-32 pb-16 px-4">
+        <div className="absolute inset-0 overflow-hidden">
+          <img 
+            src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.png"
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/80"></div>
+        </div>
+        <div className="container mx-auto text-center relative z-10">
           <span className="inline-block px-4 py-1 rounded-full bg-primary-light text-primary mb-4 text-sm font-medium">
             Bienvenue sur IDÉE
           </span>
@@ -111,11 +156,37 @@ export default function Index() {
           </p>
           <div className="flex justify-center gap-4">
             <a
-              href="#ressources"
+              href="#actions"
               className="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors"
             >
               Découvrir <ChevronRight className="ml-2 h-4 w-4" />
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Actions Section */}
+      <section id="actions" className="py-16 px-4 bg-gray-50">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Nos champs d'action</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {actions.map((action, index) => (
+              <a
+                key={index}
+                href={action.href}
+                className="group flex flex-col items-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+                  <action.icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-2">{action.title}</h3>
+                <p className="text-gray-600 text-center">{action.description}</p>
+                <div className="mt-4 inline-flex items-center text-primary group-hover:text-primary-dark transition-colors">
+                  En savoir plus <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
