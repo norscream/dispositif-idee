@@ -1,48 +1,46 @@
 
-import { ArrowRight, Info, BookOpen, Puzzle, Network, Trophy, Target } from "lucide-react";
-
 const actions = [
   {
-    icon: Info,
     title: "Informer et promouvoir",
     description: "l'éducation à l'entrepreneuriat",
     href: "/informer",
-    iconColor: "#D3E4FD"
+    iconColor: "#D3E4FD",
+    imagePath: "/lovable-uploads/11433d4b-5cf6-4ea7-a413-23f513bb987e.png"
   },
   {
-    icon: BookOpen,
     title: "Accompagner et former",
     description: "conseiller et former les enseignants",
     href: "/accompagner",
-    iconColor: "#FEC6A1"
+    iconColor: "#FEC6A1",
+    imagePath: "/lovable-uploads/82502928-6d0a-44b8-924b-cefe58f7c3dd.png"
   },
   {
-    icon: Puzzle,
     title: "Créer des ressources",
     description: "pédagogiques innovantes",
     href: "/ressources",
-    iconColor: "#FEF7CD"
+    iconColor: "#FEF7CD",
+    imagePath: "/lovable-uploads/1a52c073-f1a5-417d-b32b-1f294c1aa80f.png"
   },
   {
-    icon: Network,
     title: "Mettre en lien",
     description: "les acteurs territoriaux de la pédagogie entrepreneuriale",
     href: "/reseau",
-    iconColor: "#F1F0FB"
+    iconColor: "#F1F0FB",
+    imagePath: "/lovable-uploads/514b916d-23ef-4f86-b41a-e4060bb693a2.png"
   },
   {
-    icon: Trophy,
     title: "Célébrer et valoriser",
     description: "les actions des élèves",
     href: "/valoriser",
-    iconColor: "#F2FCE2"
+    iconColor: "#F2FCE2",
+    imagePath: "/lovable-uploads/126a6c28-7f40-427b-821d-49be85a8c0f4.png"
   },
   {
-    icon: Target,
-    title: "Concrétisation de projet",
+    title: "Concrétiser des projets",
     description: "pour permettre aux projets de prendre vie",
     href: "/concretisation",
-    iconColor: "#FFDEE2"
+    iconColor: "#FFDEE2",
+    imagePath: "/lovable-uploads/31c9ae34-cb8c-40c1-8e58-7210ed22678b.png"
   },
 ];
 
@@ -61,15 +59,19 @@ const Actions = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div 
-                  className="w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-colors"
+                  className="w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-colors overflow-hidden"
                   style={{ backgroundColor: action.iconColor }}
                 >
-                  <action.icon className="h-8 w-8 text-gray-700" />
+                  <img 
+                    src={action.imagePath} 
+                    alt={action.title}
+                    className="w-10 h-10 object-contain"
+                  />
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">{action.title}</h3>
                 <p className="text-gray-600 text-center">{action.description}</p>
                 <div className="mt-4 inline-flex items-center text-primary group-hover:text-primary-dark transition-colors">
-                  En savoir plus <ArrowRight className="ml-2 h-4 w-4" />
+                  En savoir plus <span className="ml-2">→</span>
                 </div>
               </a>
             ))}
