@@ -36,43 +36,43 @@ export default function Index() {
 
   const teamMembers = [
     {
-      image: "/lovable-uploads/de82411e-460f-4eef-9f76-1b8cd77492f4.png",
+      image: "/lovable-uploads/fe9fd95f-f1bb-4ae4-9398-89a620fb046e.png",
       name: "Marie Dupont",
       role: "Chef de projet",
       email: "marie.dupont@idee.fr"
     },
     {
-      image: "/lovable-uploads/fc888979-d140-483c-82ec-4c976c1be588.png",
+      image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.png",
       name: "Sophie Martin",
       role: "Responsable pédagogique",
       email: "sophie.martin@idee.fr"
     },
     {
-      image: "/lovable-uploads/1d7f478b-967c-4c57-b2fa-7a57ce7ff060.png",
+      image: "/lovable-uploads/68ecf923-3ab3-47f4-9090-9a9a83d1f3c0.png",
       name: "Pierre Dubois",
       role: "Coordinateur",
       email: "pierre.dubois@idee.fr"
     },
     {
-      image: "/lovable-uploads/80178065-322a-4a85-9708-9ff2cef122e6.png",
+      image: "/lovable-uploads/d30e3c4d-b90b-4cb3-a2eb-ebbb32b01edd.png",
       name: "Claire Bernard",
       role: "Chargée de mission",
       email: "claire.bernard@idee.fr"
     },
     {
-      image: "/lovable-uploads/21c3b237-9012-4d66-ac3a-0a207d832af5.png",
-      name: "Thomas Moreau",
-      role: "Responsable innovation",
-      email: "thomas.moreau@idee.fr"
-    },
-    {
-      image: "/lovable-uploads/726944d2-c6f0-4866-a030-734bc6b93f1d.png",
+      image: "/lovable-uploads/bb242a05-95e3-4d12-8dfe-564390ea4bd5.png",
       name: "Anne Petit",
       role: "Chargée de communication",
       email: "anne.petit@idee.fr"
     },
     {
-      image: "/lovable-uploads/34478c1f-75ee-4e13-9a72-4e28d99a3069.png",
+      image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png",
+      name: "Thomas Moreau",
+      role: "Responsable innovation",
+      email: "thomas.moreau@idee.fr"
+    },
+    {
+      image: "/lovable-uploads/f1165429-3de0-4ed3-b276-91b014ca1e80.png",
       name: "Nicolas Laurent",
       role: "Responsable développement",
       email: "nicolas.laurent@idee.fr"
@@ -85,30 +85,35 @@ export default function Index() {
       title: "Informer et promouvoir",
       description: "l'éducation à l'entrepreneuriat",
       href: "/informer",
+      iconColor: "#D3E4FD"
     },
     {
       icon: BookOpen,
       title: "Accompagner et former",
       description: "conseiller et former les enseignants",
       href: "/accompagner",
+      iconColor: "#ea384c"
     },
     {
       icon: Puzzle,
       title: "Créer des ressources",
       description: "pédagogiques innovantes",
       href: "/ressources",
+      iconColor: "#FEF7CD"
     },
     {
       icon: Network,
       title: "Mettre en lien",
       description: "les acteurs territoriaux de la pédagogie entrepreneuriale",
       href: "/reseau",
+      iconColor: "#888888"
     },
     {
       icon: Trophy,
       title: "Célébrer et valoriser",
       description: "les actions des élèves",
       href: "/valoriser",
+      iconColor: "#F2FCE2"
     },
   ];
 
@@ -116,7 +121,6 @@ export default function Index() {
     <div className="min-h-screen bg-white">
       <Nav />
       
-      {/* Hero Section avec image en arrière-plan */}
       <section className="relative pt-32 pb-16 px-4">
         <div className="absolute inset-0 overflow-hidden">
           <img 
@@ -144,7 +148,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Actions Section */}
       <section id="actions" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Nos champs d'action</h2>
@@ -157,8 +160,11 @@ export default function Index() {
                   className="group flex flex-col items-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in w-full"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
-                    <action.icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
+                  <div 
+                    className="w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-colors"
+                    style={{ backgroundColor: action.iconColor }}
+                  >
+                    <action.icon className="h-8 w-8 text-gray-700" />
                   </div>
                   <h3 className="text-xl font-semibold text-center mb-2">{action.title}</h3>
                   <p className="text-gray-600 text-center">{action.description}</p>
@@ -172,7 +178,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* News Section */}
       <section id="actualites" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <div className="flex items-center justify-between mb-8">
@@ -221,7 +226,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Resources Section */}
       <section id="ressources" className="py-16 px-4">
         <div className="container mx-auto">
           <div className="flex items-center mb-8">
@@ -250,7 +254,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Team Section */}
       <section id="equipe" className="py-16 px-4">
         <div className="container mx-auto">
           <div className="flex items-center mb-12">
@@ -265,8 +268,8 @@ export default function Index() {
                 className="group relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="aspect-square overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-light/20 to-secondary-light/20 z-10" />
+                <div className="aspect-square overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 z-10" />
                   <img
                     src={member.image}
                     alt={member.name}
@@ -290,7 +293,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section id="faq" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <div className="flex items-center mb-8">
