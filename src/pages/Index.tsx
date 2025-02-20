@@ -127,14 +127,11 @@ export default function Index() {
           <div className="absolute inset-0 bg-white/80"></div>
         </div>
         <div className="container mx-auto text-center relative z-10">
-          <span className="inline-block px-4 py-1 rounded-full bg-primary-light text-primary mb-4 text-sm font-medium">
-            Bienvenue sur IDÉE
-          </span>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             Innovons et Développons l'Esprit d'Engagement
           </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Découvrez nos ressources et outils pour transformer l'éducation
+          <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
+            Notre vision est d'aider l'élève à devenir un adulte/citoyen responsable en le mettant au cœur d'un dispositif pédagogique qui donne du sens aux apprentissages.
           </p>
           <div className="flex justify-center gap-4">
             <a
