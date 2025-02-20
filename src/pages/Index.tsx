@@ -203,7 +203,7 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             <iframe 
-              src="https://www.linkedin.com/embed/feed/update/urn:li:share:7293613919326142464" 
+              src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7293613919326142464" 
               height="500" 
               width="100%" 
               frameBorder="0" 
@@ -212,7 +212,7 @@ export default function Index() {
               title="Publication LinkedIn 1"
             ></iframe>
             <iframe 
-              src="https://www.linkedin.com/embed/feed/update/urn:li:share:7287770276363206656" 
+              src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7287770276363206656" 
               height="500" 
               width="100%" 
               frameBorder="0" 
@@ -221,7 +221,7 @@ export default function Index() {
               title="Publication LinkedIn 2"
             ></iframe>
             <iframe 
-              src="https://www.linkedin.com/embed/feed/update/urn:li:share:7269281787531464705" 
+              src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7269281787531464705" 
               height="500" 
               width="100%" 
               frameBorder="0" 
