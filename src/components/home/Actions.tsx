@@ -1,5 +1,5 @@
 
-import { ArrowRight, Info, BookOpen, Puzzle, Network, Trophy, Target } from "lucide-react";
+import { ArrowRight, Info, BookOpen, Puzzle, Sync, Trophy, Target } from "lucide-react";
 
 const actions = [
   {
@@ -24,11 +24,12 @@ const actions = [
     iconColor: "#FEF7CD"
   },
   {
-    icon: Network,
+    icon: Sync,
     title: "Mettre en lien",
     description: "les acteurs territoriaux de la pédagogie entrepreneuriale",
     href: "/reseau",
-    iconColor: "#F1F0FB"
+    iconColor: "#F1F0FB",
+    isAnimated: true
   },
   {
     icon: Trophy,
@@ -64,7 +65,9 @@ const Actions = () => {
                   className="w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-colors"
                   style={{ backgroundColor: action.iconColor }}
                 >
-                  <action.icon className="h-8 w-8 text-gray-700" />
+                  <action.icon 
+                    className={`h-8 w-8 text-gray-700 ${action.isAnimated ? 'group-hover:animate-spin' : ''}`}
+                  />
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">{action.title}</h3>
                 <p className="text-gray-600 text-center">{action.description}</p>
