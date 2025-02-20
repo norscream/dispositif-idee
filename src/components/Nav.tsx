@@ -11,7 +11,8 @@ export const Nav = () => {
     { href: "/accompagner", label: "Accompagner" },
     { href: "/ressources", label: "Ressources" },
     { href: "/reseau", label: "Réseau" },
-    { href: "/valoriser", label: "Valoriser" }
+    { href: "/valoriser", label: "Valoriser" },
+    { href: "/concretisation", label: "Concrétisation" }
   ];
 
   return (

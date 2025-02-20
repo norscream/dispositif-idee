@@ -12,6 +12,7 @@ import {
   Puzzle,
   Network,
   Trophy,
+  Target,
 } from "lucide-react";
 import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -121,6 +122,13 @@ export default function Index() {
       description: "les actions des élèves",
       href: "/valoriser",
       iconColor: "#F2FCE2"
+    },
+    {
+      icon: Target,
+      title: "Concrétisation de projet",
+      description: "pour permettre aux projets de prendre vie",
+      href: "/concretisation",
+      iconColor: "#FFDEE2"
     },
   ];
 
