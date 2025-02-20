@@ -37,45 +37,52 @@ export default function Index() {
   const teamMembers = [
     {
       image: "/lovable-uploads/fe9fd95f-f1bb-4ae4-9398-89a620fb046e.png",
-      name: "Marie Dupont",
-      role: "Chef de projet",
-      email: "marie.dupont@idee.fr"
+      name: "Margot Veiler",
+      role: "Chargée de projet Oise",
+      email: "margot.veiler@idee.fr",
+      position: { top: "45%", left: "50%" }
     },
     {
       image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.png",
-      name: "Sophie Martin",
-      role: "Responsable pédagogique",
-      email: "sophie.martin@idee.fr"
+      name: "Anna Guillouard",
+      role: "Chargée de projet Amiens",
+      email: "anna.guillouard@idee.fr",
+      position: { top: "35%", left: "40%" }
     },
     {
       image: "/lovable-uploads/68ecf923-3ab3-47f4-9090-9a9a83d1f3c0.png",
-      name: "Pierre Dubois",
-      role: "Coordinateur",
-      email: "pierre.dubois@idee.fr"
+      name: "Pascal Lefevre",
+      role: "Chargé de mission Aisne",
+      email: "pascal.lefevre@idee.fr",
+      position: { top: "40%", left: "65%" }
     },
     {
       image: "/lovable-uploads/d30e3c4d-b90b-4cb3-a2eb-ebbb32b01edd.png",
-      name: "Claire Bernard",
-      role: "Chargée de mission",
-      email: "claire.bernard@idee.fr"
+      name: "Sylvie Zuliani",
+      role: "Chargée de mission Valenciennois",
+      email: "sylvie.zuliani@idee.fr",
+      position: { top: "30%", left: "55%" }
     },
     {
       image: "/lovable-uploads/bb242a05-95e3-4d12-8dfe-564390ea4bd5.png",
-      name: "Anne Petit",
-      role: "Chargée de communication",
-      email: "anne.petit@idee.fr"
+      name: "Chloé Clerbout",
+      role: "Chargée de mission MEL",
+      email: "chloe.clerbout@idee.fr",
+      position: { top: "25%", left: "35%" }
     },
     {
       image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png",
-      name: "Thomas Moreau",
-      role: "Responsable innovation",
-      email: "thomas.moreau@idee.fr"
+      name: "Vincent Pouliquen",
+      role: "Chef de projet IDEE (CABBLR)",
+      email: "vincent.pouliquen@idee.fr",
+      position: { top: "20%", left: "45%" }
     },
     {
       image: "/lovable-uploads/f1165429-3de0-4ed3-b276-91b014ca1e80.png",
-      name: "Nicolas Laurent",
-      role: "Responsable développement",
-      email: "nicolas.laurent@idee.fr"
+      name: "Norman Madani",
+      role: "Chargé de mission côte d'opale",
+      email: "norman.madani@idee.fr",
+      position: { top: "15%", left: "25%" }
     }
   ];
 
@@ -92,7 +99,7 @@ export default function Index() {
       title: "Accompagner et former",
       description: "conseiller et former les enseignants",
       href: "/accompagner",
-      iconColor: "#ea384c"
+      iconColor: "#FEC6A1"
     },
     {
       icon: Puzzle,
@@ -106,7 +113,7 @@ export default function Index() {
       title: "Mettre en lien",
       description: "les acteurs territoriaux de la pédagogie entrepreneuriale",
       href: "/reseau",
-      iconColor: "#888888"
+      iconColor: "#F1F0FB"
     },
     {
       icon: Trophy,
@@ -174,6 +181,55 @@ export default function Index() {
                 </a>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="equipe" className="py-16 px-4">
+        <div className="container mx-auto">
+          <div className="flex items-center mb-12">
+            <Users className="h-6 w-6 text-primary mr-3" />
+            <h2 className="text-2xl font-semibold">Notre équipe</h2>
+          </div>
+          
+          <div className="relative">
+            <img 
+              src="/lovable-uploads/26f2746a-4702-43bc-9634-c9b3340c20ef.png" 
+              alt="Carte de la région" 
+              className="w-full max-w-4xl mx-auto"
+            />
+            
+            {teamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
+                style={{ 
+                  top: member.position.top,
+                  left: member.position.left
+                }}
+              >
+                <div className="relative">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <h3 className="font-semibold text-sm text-center">{member.name}</h3>
+                    <p className="text-gray-600 text-xs text-center mb-2">{member.role}</p>
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="flex items-center justify-center text-xs text-primary hover:text-primary-dark transition-colors"
+                    >
+                      <Mail className="h-3 w-3 mr-1" />
+                      Contact
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -250,45 +306,6 @@ export default function Index() {
                 </div>
               )
             )}
-          </div>
-        </div>
-      </section>
-
-      <section id="equipe" className="py-16 px-4">
-        <div className="container mx-auto">
-          <div className="flex items-center mb-12">
-            <Users className="h-6 w-6 text-primary mr-3" />
-            <h2 className="text-2xl font-semibold">Notre équipe</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="aspect-square overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 z-10" />
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-lg mb-1">{member.name}</h3>
-                  <p className="text-gray-600 text-sm mb-3">{member.role}</p>
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="inline-flex items-center text-sm text-primary hover:text-primary-dark transition-colors"
-                  >
-                    <Mail className="h-4 w-4 mr-1" />
-                    Contact
-                  </a>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
