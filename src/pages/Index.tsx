@@ -40,7 +40,7 @@ export default function Index() {
       name: "Margot Veiler",
       role: "Chargée de projet Oise",
       email: "margot.veiler@idee.fr",
-      position: { top: "75%", left: "50%" }
+      position: { top: "95%", left: "30%" }
     },
     {
       image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.png",
