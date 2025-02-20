@@ -29,7 +29,7 @@ const resources = [
   }
 ];
 
-export const Resources = () => {
+const Resources = () => {
   return (
     <section id="ressources" className="py-16 px-4">
       <div className="container mx-auto">
@@ -68,3 +68,5 @@ export const Resources = () => {
     </section>
   );
 };
+
+export default Resources;
