@@ -16,7 +16,7 @@ const faqItems = [
   },
 ];
 
-export const FAQ = () => {
+const FAQ = () => {
   return (
     <section id="faq" className="py-16 px-4 bg-gray-50">
       <div className="container mx-auto">
@@ -35,3 +35,5 @@ export const FAQ = () => {
     </section>
   );
 };
+
+export default FAQ;

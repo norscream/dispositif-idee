@@ -53,7 +53,7 @@ const teamMembers = [
   }
 ];
 
-export const Team = () => {
+const Team = () => {
   return (
     <section id="equipe" className="py-16 px-4 bg-gray-50">
       <div className="container mx-auto">
@@ -104,3 +104,5 @@ export const Team = () => {
     </section>
   );
 };
+
+export default Team;

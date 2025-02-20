@@ -1,7 +1,7 @@
 
 import { Newspaper, ArrowRight } from "lucide-react";
 
-export const News = () => {
+const News = () => {
   return (
     <section id="actualites" className="py-16 px-4">
       <div className="container mx-auto">
@@ -52,3 +52,5 @@ export const News = () => {
     </section>
   );
 };
+
+export default News;

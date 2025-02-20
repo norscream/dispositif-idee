@@ -46,7 +46,7 @@ const actions = [
   },
 ];
 
-export const Actions = () => {
+const Actions = () => {
   return (
     <section id="actions" className="py-16 px-4 bg-gray-50">
       <div className="container mx-auto">
@@ -79,3 +79,5 @@ export const Actions = () => {
     </section>
   );
 };
+
+export default Actions;

@@ -15,7 +15,7 @@ type ContactFormData = {
   message: string;
 };
 
-export const Contact = () => {
+const Contact = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -121,3 +121,5 @@ export const Contact = () => {
     </section>
   );
 };
+
+export default Contact;
