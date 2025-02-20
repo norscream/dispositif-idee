@@ -185,61 +185,12 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="equipe" className="py-16 px-4">
+      <section id="actualites" className="py-16 px-4">
         <div className="container mx-auto">
-          <div className="flex items-center mb-12">
-            <Users className="h-6 w-6 text-primary mr-3" />
-            <h2 className="text-2xl font-semibold">Notre équipe</h2>
-          </div>
-          
-          <div className="relative max-w-2xl mx-auto">
-            <img 
-              src="/lovable-uploads/26f2746a-4702-43bc-9634-c9b3340c20ef.png" 
-              alt="Carte de la région" 
-              className="w-full"
-            />
-            
-            {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
-                style={{ 
-                  top: member.position.top,
-                  left: member.position.left
-                }}
-              >
-                <div className="relative">
-                  <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </div>
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                    <h3 className="font-semibold text-sm text-center">{member.name}</h3>
-                    <p className="text-gray-600 text-xs text-center mb-2">{member.role}</p>
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="flex items-center justify-center text-xs text-primary hover:text-primary-dark transition-colors"
-                    >
-                      <Mail className="h-3 w-3 mr-1" />
-                      Contact
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="actualites" className="py-16 px-4 bg-gray-50">
-        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Actualités</h2>
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center">
               <Newspaper className="h-6 w-6 text-primary mr-3" />
-              <h2 className="text-2xl font-semibold">Actualités</h2>
             </div>
             <a 
               href="https://www.linkedin.com/company/idee-education/" 
@@ -282,12 +233,57 @@ export default function Index() {
         </div>
       </section>
 
+      <section id="equipe" className="py-16 px-4 bg-gray-50">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Notre équipe</h2>
+          <div className="flex items-center mb-12">
+            <Users className="h-6 w-6 text-primary mr-3" />
+          </div>
+          <div className="relative max-w-2xl mx-auto">
+            <img 
+              src="/lovable-uploads/26f2746a-4702-43bc-9634-c9b3340c20ef.png" 
+              alt="Carte de la région" 
+              className="w-full"
+            />
+            
+            {teamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
+                style={{ 
+                  top: member.position.top,
+                  left: member.position.left
+                }}
+              >
+                <div className="relative">
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <h3 className="font-semibold text-sm text-center">{member.name}</h3>
+                    <p className="text-gray-600 text-xs text-center mb-2">{member.role}</p>
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="flex items-center justify-center text-xs text-primary hover:text-primary-dark transition-colors"
+                    >
+                      <Mail className="h-3 w-3 mr-1" />
+                      Contact
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="ressources" className="py-16 px-4">
         <div className="container mx-auto">
-          <div className="flex items-center mb-8">
-            <FileText className="h-6 w-6 text-primary mr-3" />
-            <h2 className="text-2xl font-semibold">Ressources</h2>
-          </div>
+          <h2 className="text-3xl font-bold text-center mb-12">Ressources</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {["Outils pédagogiques", "Supports de cours", "Guides pratiques"].map(
               (resource, index) => (
@@ -312,10 +308,7 @@ export default function Index() {
 
       <section id="faq" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
-          <div className="flex items-center mb-8">
-            <HelpCircle className="h-6 w-6 text-primary mr-3" />
-            <h2 className="text-2xl font-semibold">Questions fréquentes</h2>
-          </div>
+          <h2 className="text-3xl font-bold text-center mb-12">Questions fréquentes</h2>
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible>
               {faqItems.map((item, index) => (
