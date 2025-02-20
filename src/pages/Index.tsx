@@ -40,21 +40,21 @@ export default function Index() {
       name: "Margot Veiler",
       role: "Chargée de projet Oise",
       email: "margot.veiler@idee.fr",
-      position: { top: "95%", left: "30%" }
+      position: { top: "70%", left: "30%" }
     },
     {
       image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.png",
       name: "Anna Guillouard",
       role: "Chargée de projet Amiens",
       email: "anna.guillouard@idee.fr",
-      position: { top: "45%", left: "45%" }
+      position: { top: "55%", left: "50%" }
     },
     {
       image: "/lovable-uploads/68ecf923-3ab3-47f4-9090-9a9a83d1f3c0.png",
       name: "Pascal Lefevre",
       role: "Chargé de mission Aisne",
       email: "pascal.lefevre@idee.fr",
-      position: { top: "50%", left: "75%" }
+      position: { top: "70%", left: "75%" }
     },
     {
       image: "/lovable-uploads/d30e3c4d-b90b-4cb3-a2eb-ebbb32b01edd.png",
@@ -73,7 +73,7 @@ export default function Index() {
     {
       image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png",
       name: "Vincent Pouliquen",
-      role: "Chef de projet IDEE (CABBLR)",
+      role: "Chef de projet IDEE",
       email: "vincent.pouliquen@idee.fr",
       position: { top: "35%", left: "45%" }
     },
@@ -82,7 +82,7 @@ export default function Index() {
       name: "Norman Madani",
       role: "Chargé de mission côte d'opale",
       email: "norman.madani@idee.fr",
-      position: { top: "15%", left: "35%" }
+      position: { top: "25%", left: "20%" }
     }
   ];
 
