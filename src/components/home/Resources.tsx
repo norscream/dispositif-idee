@@ -34,32 +34,29 @@ export const Resources = () => {
         <h2 className="text-3xl font-bold text-center mb-12">Ressources</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {resources.map((resource, index) => (
-            <div
+            <Link
               key={index}
-              className="group relative p-6 rounded-xl border border-gray-100 hover:border-primary/20 transition-all cursor-pointer bg-white hover:bg-primary-light/5 overflow-hidden"
+              to={resource.href}
+              className="group relative p-6 rounded-xl border border-gray-100 hover:border-primary/20 transition-all bg-white hover:bg-primary-light/5 overflow-hidden"
             >
               {resource.bgImage && (
                 <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                  className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
                   style={{
                     backgroundImage: `url(${resource.bgImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    zIndex: 0
                   }}
                 />
               )}
               <div className="relative z-10">
                 <h3 className="text-lg font-semibold mb-2">{resource.title}</h3>
                 <p className="text-gray-600 mb-4">{resource.description}</p>
-                <Link
-                  to={resource.href}
-                  className="text-primary group-hover:text-primary-dark transition-colors inline-flex items-center"
-                >
+                <span className="text-primary group-hover:text-primary-dark transition-colors inline-flex items-center">
                   Explorer <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
