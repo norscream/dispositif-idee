@@ -43,11 +43,14 @@ export const Resources = () => {
             >
               {resource.bgImage && (
                 <div 
-                  className="absolute inset-0 z-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
+                  className="absolute inset-0 z-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
                   style={{
                     backgroundImage: `url(${resource.bgImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    width: '100%',
+                    height: '100%'
                   }}
                 />
               )}
