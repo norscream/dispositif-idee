@@ -1,19 +1,55 @@
 
 import { useState } from "react";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X, Search, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const actionLinks = [
+  { href: "/informer", label: "Informer et promouvoir" },
+  { href: "/accompagner", label: "Accompagner et former" },
+  { href: "/ressources", label: "Créer des ressources" },
+  { href: "/reseau", label: "Mettre en lien" },
+  { href: "/valoriser", label: "Célébrer et valoriser" },
+  { href: "/concretisation", label: "Concrétisation de projet" }
+];
+
+const resourceLinks = [
+  { href: "/ressources/nos-actions", label: "Nos actions" },
+  { href: "/ressources/actions-partenaires", label: "Les actions de nos partenaires" },
+  { href: "/ressources/ludopedagogie", label: "Ludopédagogie" },
+  { href: "/ressources/labellisation", label: "Labéllisation" }
+];
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navLinks = [
-    { href: "/informer", label: "Informer" },
-    { href: "/accompagner", label: "Accompagner" },
-    { href: "/ressources", label: "Ressources" },
-    { href: "/reseau", label: "Réseau" },
-    { href: "/valoriser", label: "Valoriser" },
-    { href: "/concretisation", label: "Concrétisation" }
-  ];
+  const DropdownNavItem = ({ 
+    trigger, 
+    items 
+  }: { 
+    trigger: string; 
+    items: { href: string; label: string; }[] 
+  }) => (
+    <DropdownMenu>
+      <DropdownMenuTrigger className="nav-link flex items-center">
+        {trigger} <ChevronDown className="ml-1 h-4 w-4" />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        {items.map((item) => (
+          <DropdownMenuItem key={item.href} asChild>
+            <Link to={item.href} className="w-full">
+              {item.label}
+            </Link>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-lg z-50 border-b border-gray-100">
@@ -31,11 +67,8 @@ export const Nav = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link key={link.href} to={link.href} className="nav-link">
-                {link.label}
-              </Link>
-            ))}
+            <DropdownNavItem trigger="Nos champs d'actions" items={actionLinks} />
+            <DropdownNavItem trigger="Ressources" items={resourceLinks} />
             <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
               <Search className="h-5 w-5 text-gray-600" />
             </button>
@@ -60,7 +93,17 @@ export const Nav = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              {navLinks.map((link) => (
+              {actionLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="border-t border-gray-100 my-2"></div>
+              {resourceLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
