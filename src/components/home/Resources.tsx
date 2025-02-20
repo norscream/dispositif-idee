@@ -18,12 +18,14 @@ const resources = [
   {
     title: "Ludopédagogie",
     description: "Apprenez par le jeu et l'expérimentation",
-    href: "/ressources/ludopedagogie"
+    href: "/ressources/ludopedagogie",
+    bgImage: "/lovable-uploads/aa3900a3-0ef2-457c-bd2c-99a09d896586.png"
   },
   {
     title: "Labéllisation",
     description: "Processus et avantages de la labellisation",
-    href: "/ressources/labellisation"
+    href: "/ressources/labellisation",
+    bgImage: "/lovable-uploads/b8a0b1a8-9c7d-423e-aac0-270ccea7a9d6.png"
   }
 ];
 
@@ -41,7 +43,7 @@ export const Resources = () => {
             >
               {resource.bgImage && (
                 <div 
-                  className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+                  className="absolute inset-0 z-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
                   style={{
                     backgroundImage: `url(${resource.bgImage})`,
                     backgroundSize: 'cover',
