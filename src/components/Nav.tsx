@@ -39,7 +39,7 @@ export const Nav = () => {
       <DropdownMenuTrigger className="nav-link flex items-center">
         {trigger} <ChevronDown className="ml-1 h-4 w-4" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="bg-white">
         {items.map((item) => (
           <DropdownMenuItem key={item.href} asChild>
             <Link to={item.href} className="w-full">
