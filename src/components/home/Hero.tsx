@@ -17,7 +17,8 @@ export const Hero = () => {
           Innovons et Développons l'Esprit d'Engagement
         </h1>
         <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
-          Notre vision est d'aider l'élève à devenir un adulte/citoyen responsable en le mettant au cœur d'un dispositif pédagogique qui donne du sens aux apprentissages.
+          Notre vision est d'aider l'élève à devenir un 
+        citoyen responsable en le mettant au cœur d'un dispositif pédagogique qui donne du sens aux apprentissages.
         </p>
         <div className="flex justify-center gap-4">
           <a
