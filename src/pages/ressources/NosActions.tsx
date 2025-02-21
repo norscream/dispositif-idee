@@ -51,6 +51,21 @@ const actions = [
     ],
     duree: "9 heures",
     image: "/lovable-uploads/218ad44a-ae33-4006-bcf5-95e50107fca8.png"
+  },
+  {
+    title: "Les « six chapeaux de Bono »",
+    description: "Cette méthode d'intelligence collective est un outil de réflexion collaborative qui permet d'aborder des problématiques professionnelles de manière structurée et efficace. Elle se distingue par sa simplicité de mise en œuvre et sa grande adaptabilité, que ce soit pour des régulations de conflits, des analyses de pratique, ou des sessions d'innovation. La méthode consiste à structurer la réflexion autour d'un sujet en adoptant successivement six façons de penser complémentaires, représentées par six chapeaux de couleurs différentes.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["École", "Collège", "Lycée"],
+    competences: [
+      "Réflexion collaborative",
+      "Gestion de conflits",
+      "Innovation",
+      "Adaptabilité",
+      "Animation de groupes"
+    ],
+    duree: "3 heures",
+    image: "/lovable-uploads/2d080ab6-7fa9-46f7-8d74-2e5f237485c5.png"
   }
 ];
 
