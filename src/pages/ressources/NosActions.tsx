@@ -1,3 +1,4 @@
+
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, MapPin, Clock, BookOpen, Mail, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -19,6 +20,21 @@ const actions = [
     ],
     duree: "2 heures",
     image: "/lovable-uploads/b4dc5c3d-611e-4b86-bdf8-b7239716ea55.png"
+  },
+  {
+    title: "Gestion de l'échec",
+    description: "Cet atelier aide les élèves à changer leur regard sur l'échec, à mieux gérer leurs émotions et à rebondir face aux difficultés. À travers des échanges et des mises en situation, ils développent leur résilience, leur motivation et leur capacité à tirer des enseignements de leurs expériences, essentielles pour leur parcours scolaire et professionnel.",
+    zones: ["Académie de Lille"],
+    niveaux: ["Collège", "Lycée"],
+    competences: [
+      "Résilience",
+      "Gestion des émotions",
+      "Pensée critique",
+      "Estime de soi",
+      "Prise de décision"
+    ],
+    duree: "2 heures",
+    image: "/lovable-uploads/e39bebb6-c473-41bd-8d20-821b6d04fb78.png"
   }
 ];
 
