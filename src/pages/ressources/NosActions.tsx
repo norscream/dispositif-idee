@@ -19,7 +19,7 @@ const actions = [
       "Compétence relationelle"
     ],
     duree: "2 heures",
-    image: "/lovable-uploads/6d0c0f3a-a979-4b45-9128-5fe2e886bd71.png"
+    image: "/lovable-uploads/b4dc5c3d-611e-4b86-bdf8-b7239716ea55.png"
   }
 ];
 
