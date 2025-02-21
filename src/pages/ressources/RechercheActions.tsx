@@ -1,6 +1,6 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft, ChevronDown } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -22,18 +22,18 @@ const uniqueCompetences = [...new Set(actions.flatMap(action => action.competenc
 const uniqueDurees = [...new Set(actions.map(action => action.duree))];
 
 export default function RechercheActions() {
-  const [selectedZone, setSelectedZone] = useState<string>("");
-  const [selectedNiveau, setSelectedNiveau] = useState<string>("");
-  const [selectedCompetence, setSelectedCompetence] = useState<string>("");
-  const [selectedDuree, setSelectedDuree] = useState<string>("");
+  const [selectedZone, setSelectedZone] = useState<string>("all");
+  const [selectedNiveau, setSelectedNiveau] = useState<string>("all");
+  const [selectedCompetence, setSelectedCompetence] = useState<string>("all");
+  const [selectedDuree, setSelectedDuree] = useState<string>("all");
 
   // Filtrer les actions en fonction des critères sélectionnés
   const filteredActions = useMemo(() => {
     return actions.filter(action => {
-      const matchesZone = !selectedZone || action.zones.includes(selectedZone);
-      const matchesNiveau = !selectedNiveau || action.niveaux.includes(selectedNiveau);
-      const matchesCompetence = !selectedCompetence || action.competences.includes(selectedCompetence);
-      const matchesDuree = !selectedDuree || action.duree === selectedDuree;
+      const matchesZone = selectedZone === "all" || action.zones.includes(selectedZone);
+      const matchesNiveau = selectedNiveau === "all" || action.niveaux.includes(selectedNiveau);
+      const matchesCompetence = selectedCompetence === "all" || action.competences.includes(selectedCompetence);
+      const matchesDuree = selectedDuree === "all" || action.duree === selectedDuree;
 
       return matchesZone && matchesNiveau && matchesCompetence && matchesDuree;
     });
@@ -66,7 +66,7 @@ export default function RechercheActions() {
                   <SelectValue placeholder="Sélectionner une zone" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Toutes les zones</SelectItem>
+                  <SelectItem value="all">Toutes les zones</SelectItem>
                   {uniqueZones.map((zone) => (
                     <SelectItem key={zone} value={zone}>
                       {zone}
@@ -84,7 +84,7 @@ export default function RechercheActions() {
                   <SelectValue placeholder="Sélectionner un niveau" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Tous les niveaux</SelectItem>
+                  <SelectItem value="all">Tous les niveaux</SelectItem>
                   {uniqueNiveaux.map((niveau) => (
                     <SelectItem key={niveau} value={niveau}>
                       {niveau}
@@ -102,7 +102,7 @@ export default function RechercheActions() {
                   <SelectValue placeholder="Sélectionner une compétence" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Toutes les compétences</SelectItem>
+                  <SelectItem value="all">Toutes les compétences</SelectItem>
                   {uniqueCompetences.map((comp) => (
                     <SelectItem key={comp} value={comp}>
                       {comp}
@@ -120,7 +120,7 @@ export default function RechercheActions() {
                   <SelectValue placeholder="Sélectionner une durée" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Toutes les durées</SelectItem>
+                  <SelectItem value="all">Toutes les durées</SelectItem>
                   {uniqueDurees.map((duree) => (
                     <SelectItem key={duree} value={duree}>
                       {duree}
