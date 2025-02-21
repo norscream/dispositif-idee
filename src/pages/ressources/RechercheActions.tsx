@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useState, useMemo } from "react";
-import { actions } from "./NosActions";
+import { actions } from "@/data/actions";
 
 // Extraire tous les critères uniques des actions
 const uniqueZones = [...new Set(actions.flatMap(action => action.zones))];

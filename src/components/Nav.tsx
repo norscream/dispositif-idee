@@ -22,7 +22,8 @@ const resourceLinks = [
   { href: "/ressources/nos-actions", label: "Nos actions" },
   { href: "/ressources/actions-partenaires", label: "Les actions de nos partenaires" },
   { href: "/ressources/ludopedagogie", label: "Ludopédagogie" },
-  { href: "/ressources/labellisation", label: "Labéllisation" }
+  { href: "/ressources/labellisation", label: "Labéllisation" },
+  { href: "/ressources/recherche-actions", label: "Rechercher une action" }
 ];
 
 export const Nav = () => {
@@ -119,3 +120,4 @@ export const Nav = () => {
     </nav>
   );
 };
+
