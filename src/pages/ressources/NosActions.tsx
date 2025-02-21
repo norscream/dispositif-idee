@@ -47,11 +47,11 @@ export default function NosActions() {
           <div className="space-y-8">
             {actions.map((action, index) => (
               <Card key={index} className="overflow-hidden">
-                <div className="h-48 overflow-hidden">
+                <div className="h-64 overflow-hidden relative">
                   <img 
                     src={action.image} 
                     alt={action.title} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <CardHeader>
