@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, MapPin, Clock, BookOpen, Mail, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -39,9 +38,7 @@ export default function NosActions() {
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl font-bold mb-8">Nos actions</h1>
           <p className="text-lg text-gray-600 mb-12">
-            Découvrez nos différentes actions pédagogiques pour promouvoir l'entrepreneuriat 
-            auprès des jeunes. Chaque action est adaptée aux besoins spécifiques des établissements 
-            et des élèves.
+            Nos actions visent à renforcer les compétences psychosociales et à encourager l'esprit d'entreprendre chez les élèves. Sans coût pour les établissements, elles offrent des opportunités concrètes pour gagner en confiance, en autonomie et en capacité à agir.
           </p>
           
           <div className="space-y-8">
