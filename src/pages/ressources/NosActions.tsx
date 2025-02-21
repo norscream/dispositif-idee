@@ -1,6 +1,6 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft, MapPin, Clock, BookOpen, Mail, Heart } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, BookOpen, Mail, Heart, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -20,18 +20,23 @@ export default function NosActions() {
         </Link>
         
         <div className="max-w-3xl mx-auto">
-          <div className="flex justify-between items-start mb-8">
-            <h1 className="text-4xl font-bold">Nos actions</h1>
+          <h1 className="text-4xl font-bold mb-8">Nos actions</h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Nos actions visent à renforcer les compétences psychosociales et à encourager l'esprit d'entreprendre chez les élèves. Sans coût pour les établissements, elles offrent des opportunités concrètes pour gagner en confiance, en autonomie et en capacité à agir.
+          </p>
+
+          <div className="bg-primary/5 border border-primary/10 rounded-xl p-8 mb-12">
+            <p className="text-xl font-medium mb-4">
+              Trouvez l'action qui correspond le mieux à vos besoins en quelques clics !
+            </p>
             <Link 
               to="/ressources/recherche-actions"
-              className="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg transition-colors shadow-lg hover:shadow-xl"
             >
+              <Search className="h-5 w-5" />
               Rechercher une action
             </Link>
           </div>
-          <p className="text-lg text-gray-600 mb-12">
-            Nos actions visent à renforcer les compétences psychosociales et à encourager l'esprit d'entreprendre chez les élèves. Sans coût pour les établissements, elles offrent des opportunités concrètes pour gagner en confiance, en autonomie et en capacité à agir.
-          </p>
           
           <div className="space-y-8">
             {actions.map((action, index) => (
