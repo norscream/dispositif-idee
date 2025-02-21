@@ -15,6 +15,7 @@ import NosActions from "./pages/ressources/NosActions";
 import ActionsPartenaires from "./pages/ressources/ActionsPartenaires";
 import Ludopedagogie from "./pages/ressources/Ludopedagogie";
 import Labellisation from "./pages/ressources/Labellisation";
+import RechercheActions from "./pages/ressources/RechercheActions";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/ressources/actions-partenaires" element={<ActionsPartenaires />} />
           <Route path="/ressources/ludopedagogie" element={<Ludopedagogie />} />
           <Route path="/ressources/labellisation" element={<Labellisation />} />
+          <Route path="/ressources/recherche-actions" element={<RechercheActions />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
@@ -43,3 +45,4 @@ const App = () => (
 );
 
 export default App;
+
