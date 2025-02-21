@@ -35,6 +35,22 @@ const actions = [
     ],
     duree: "2 heures",
     image: "/lovable-uploads/e39bebb6-c473-41bd-8d20-821b6d04fb78.png"
+  },
+  {
+    title: "Les messages clairs",
+    description: "L'apprentissage méthodique de la technique des messages clairs s'inscrit dans la formation de la sensibilité, permettant aux élèves d'identifier et d'exprimer, en les régulant, les émotions et les sentiments. Il vise également le développement de l'esprit d'entreprendre et certaines compétences transversales nécessaires pour renforcer la motivation et la cohésion d'équipe",
+    zones: ["Académie d'Amiens"],
+    niveaux: ["École", "Collège"],
+    competences: [
+      "Développer sa confiance en soi",
+      "Développer son intelligence émotionnelle",
+      "Gérer un conflit interpersonnel",
+      "Développer une pensée éthique et inclusive",
+      "Communiquer à l'écrit",
+      "Communiquer à l'oral"
+    ],
+    duree: "9 heures",
+    image: "/lovable-uploads/218ad44a-ae33-4006-bcf5-95e50107fca8.png"
   }
 ];
 
