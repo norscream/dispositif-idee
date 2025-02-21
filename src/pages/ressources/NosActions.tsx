@@ -1,34 +1,25 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft, MapPin, Clock, BookOpen, Mail } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, BookOpen, Mail, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const actions = [
   {
-    title: "Mini-Entreprises",
-    description: "Programme de création d'entreprise permettant aux élèves de vivre une expérience entrepreneuriale concrète",
-    zones: ["Amiens", "Oise", "MEL"],
-    competences: ["Créativité", "Travail d'équipe", "Communication", "Gestion de projet"],
-    duree: "1 année scolaire",
-    image: "/lovable-uploads/1d7f478b-967c-4c57-b2fa-7a57ce7ff060.png"
-  },
-  {
-    title: "Hackathon de l'innovation",
-    description: "Challenge d'innovation sur 2 jours où les élèves développent des solutions à des problématiques réelles d'entreprises",
-    zones: ["Valenciennes", "Aisne", "Côte d'Opale"],
-    competences: ["Innovation", "Problem solving", "Pitch", "Design thinking"],
-    duree: "2 jours",
-    image: "/lovable-uploads/34478c1f-75ee-4e13-9a72-4e28d99a3069.png"
-  },
-  {
-    title: "Entrepreneuriat social",
-    description: "Programme de sensibilisation à l'entrepreneuriat social et solidaire à travers des projets concrets",
-    zones: ["Amiens", "MEL", "Valenciennes"],
-    competences: ["Responsabilité sociale", "Innovation sociale", "Gestion de projet", "Communication"],
-    duree: "6 mois",
-    image: "/lovable-uploads/80178065-322a-4a85-9708-9ff2cef122e6.png"
+    title: "Cultiver sa confiance en soi",
+    description: "Cet atelier aide les élèves à renforcer leur estime d'eux-mêmes, à mieux gérer leurs émotions et à s'exprimer avec assurance. À travers des exercices pratiques et interactifs, ils développent leurs compétences en communication et gagnent en aisance pour aborder sereinement leurs projets académiques et professionnels.",
+    zones: ["Académie de Lille"],
+    niveaux: ["Collège", "Lycée"],
+    competences: [
+      "Estime de soi",
+      "Gestion de stress et émotions",
+      "Prise de parole et affirmation de soi",
+      "Pensée critique et prise de décision",
+      "Compétence relationelle"
+    ],
+    duree: "2 heures",
+    image: "/lovable-uploads/6d0c0f3a-a979-4b45-9128-5fe2e886bd71.png"
   }
 ];
 
@@ -76,6 +67,18 @@ export default function NosActions() {
                         <div className="flex flex-wrap gap-2">
                           {action.zones.map((zone, i) => (
                             <Badge key={i} variant="secondary">{zone}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2">
+                      <Heart className="h-5 w-5 text-primary mt-1 shrink-0" />
+                      <div>
+                        <p className="font-medium mb-2">Niveaux :</p>
+                        <div className="flex flex-wrap gap-2">
+                          {action.niveaux.map((niveau, i) => (
+                            <Badge key={i} variant="secondary">{niveau}</Badge>
                           ))}
                         </div>
                       </div>
