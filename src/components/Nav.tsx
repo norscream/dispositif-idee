@@ -27,7 +27,7 @@ const resourceLinks = [
   { href: "/ressources/concours", label: "Concours" }
 ];
 
-const Nav = () => {
+export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const DropdownNavItem = ({ 
@@ -121,5 +121,3 @@ const Nav = () => {
     </nav>
   );
 };
-
-export default Nav;
