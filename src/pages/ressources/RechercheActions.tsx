@@ -17,20 +17,33 @@ type Action = typeof allActions[number];
 type Zone = Action['zones'][number];
 type Niveau = Action['niveaux'][number];
 type Objectif = Action['objectifs'][number];
-type Duree = Action['duree'];
 
-// Extraire tous les critères uniques des actions
-const uniqueZones = [...new Set(allActions.flatMap(action => action.zones))] as Zone[];
-const uniqueNiveaux = [...new Set(allActions.flatMap(action => action.niveaux))] as Niveau[];
+// Définir l'ordre spécifique des zones
+const zoneOrder = [
+  "Région académique Hauts-de-France",
+  "Académie de Lille",
+  "Académie d'Amiens"
+];
+
+// Définir l'ordre spécifique des niveaux
+const niveauOrder = ["École", "Collège", "Lycée", "Post bac"];
+
+// Extraire et trier les critères uniques
+const uniqueZones = zoneOrder.filter(zone => 
+  allActions.some(action => action.zones.includes(zone as Zone))
+) as Zone[];
+
+const uniqueNiveaux = niveauOrder.filter(niveau => 
+  allActions.some(action => action.niveaux.includes(niveau as Niveau))
+) as Niveau[];
+
 const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
-const uniqueDurees = [...new Set(allActions.map(action => action.duree))] as Duree[];
 
 export default function RechercheActions() {
   // Utiliser des arrays pour stocker les sélections multiples
   const [selectedZones, setSelectedZones] = useState<Zone[]>([]);
   const [selectedNiveaux, setSelectedNiveaux] = useState<Niveau[]>([]);
   const [selectedObjectifs, setSelectedObjectifs] = useState<Objectif[]>([]);
-  const [selectedDurees, setSelectedDurees] = useState<Duree[]>([]);
 
   // Filtrer les actions en fonction des critères sélectionnés
   const filteredActions = useMemo(() => {
@@ -41,12 +54,10 @@ export default function RechercheActions() {
         action.niveaux.some(niveau => selectedNiveaux.includes(niveau));
       const matchesObjectifs = selectedObjectifs.length === 0 || 
         action.objectifs.some(objectif => selectedObjectifs.includes(objectif));
-      const matchesDurees = selectedDurees.length === 0 || 
-        selectedDurees.includes(action.duree);
 
-      return matchesZones && matchesNiveaux && matchesObjectifs && matchesDurees;
+      return matchesZones && matchesNiveaux && matchesObjectifs;
     });
-  }, [selectedZones, selectedNiveaux, selectedObjectifs, selectedDurees]);
+  }, [selectedZones, selectedNiveaux, selectedObjectifs]);
 
   // Gestionnaires pour la sélection multiple
   const handleZoneSelect = (zone: Zone) => {
@@ -73,14 +84,6 @@ export default function RechercheActions() {
     );
   };
 
-  const handleDureeSelect = (duree: Duree) => {
-    setSelectedDurees(prev =>
-      prev.includes(duree)
-        ? prev.filter(d => d !== duree)
-        : [...prev, duree]
-    );
-  };
-
   return (
     <div className="min-h-screen bg-white">
       <Nav />
@@ -99,7 +102,7 @@ export default function RechercheActions() {
             Sélectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
             {/* Zones */}
             <div className="space-y-2">
               <Label>Zones d'intervention</Label>
@@ -149,24 +152,6 @@ export default function RechercheActions() {
                       className="rounded border-gray-300 text-primary focus:ring-primary"
                     />
                     <span className="text-sm">{objectif}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Durées */}
-            <div className="space-y-2">
-              <Label>Durées</Label>
-              <div className="space-y-2">
-                {uniqueDurees.map((duree) => (
-                  <label key={duree} className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      checked={selectedDurees.includes(duree)}
-                      onChange={() => handleDureeSelect(duree)}
-                      className="rounded border-gray-300 text-primary focus:ring-primary"
-                    />
-                    <span className="text-sm">{duree}</span>
                   </label>
                 ))}
               </div>
