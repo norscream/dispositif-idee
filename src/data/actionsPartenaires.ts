@@ -29,30 +29,86 @@ export const actionsPartenaires = [
     image: "/lovable-uploads/5220c30b-a33a-413b-aa44-443361dd431b.png"
   },
   {
-    title: "Collège Énergie",
-    description: "Les élèves visitent le CCG de Bouchain et découvrent les métiers de l'énergie en explorant la production et la consommation d'électricité. L'après-midi, ils travaillent en équipe sur une tâche complexe liée au mix énergétique et présentent leurs résultats sous forme de pitch vidéo.",
-    zones: ["Région académique Hauts-de-France"],
-    niveaux: ["Collège"],
-    objectifs: [
-      "Découvrir le monde professionnel et les métiers",
-      "Comprendre les rouages de la création et de la gestion d'entreprise",
-      "Relier les enseignements scolaires aux réalités du terrain"
-    ],
-    duree: "Journée complète",
-    partenaire: "CCG de Bouchain",
-    image: "/lovable-uploads/badd5373-eb1d-45d0-94f4-af1eadcb2474.png"
-  },
-  {
-    title: "Le plus compétent des entrepreneurs",
-    description: "Escape game en ligne sur les soft skills et compétences entrepreneuriales. Les jeunes explorent un bureau virtuel pour résoudre une mission en mobilisant imagination et créativité.",
+    title: "Je découvre",
+    description: "L'action JE DECOUVRE permet aux élèves de découvrir le Parcours de l'Entrepreneur et d'avoir un aperçu concret des étapes de la création d'une entreprise. Cette première partie s'articule autour d'un échange avec un consultant BGE et d'un travail en équipe via un plateau de jeu. Le but est d'expliquer les éléments pratiques de la démarche de création. La seconde partie sera axée sur la rencontre avec un chef d'entreprise accompagné par BGE, qui témoignera de son parcours, des difficultés éventuelles qu'il a rencontrées, et de la satisfaction qu'il retire de sa création d'entreprise. Il présentera le métier de chef d'entreprise comme une voie professionnelle possible. La conclusion de cette session permettra d'informer sur l'existence de structures spécialisées dans l'accompagnement à la création d'entreprise, et de l'engagement de la Région Hauts de France depuis plusieurs années auprès des entrepreneurs.",
     zones: ["Région académique Hauts-de-France"],
     niveaux: ["Collège", "Lycée", "Post bac"],
     objectifs: [
+      "Sensibiliser aux enjeux économiques et sociaux",
+      "Découvrir le monde professionnel et les métiers",
+      "S'ouvrir à de nouvelles perspectives professionnelles"
+    ],
+    duree: "2 heures",
+    partenaire: "BGE",
+    image: "/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
+  },
+  {
+    title: "J'éveille",
+    description: "Cette action de BGE comprend 3 ateliers d'1h30 permettant de donner le goût d'entreprendre. Les élèves décèlent leur profil entrepreneurial, échangent avec des entrepreneurs et stimulent leur savoir-agir. Au terme de ces ateliers, les jeunes auront imaginé une idée de projet entrepreneurial à mener avec leur enseignant.",
+    zones: ["Académie de Lille"],
+    niveaux: ["Collège", "Lycée"],
+    objectifs: [
       "Développer l'esprit entrepreneurial et la créativité",
+      "Découvrir le monde professionnel et les métiers",
+      "Sensibiliser aux enjeux économiques et sociaux"
+    ],
+    duree: "4 heures",
+    partenaire: "BGE Flandres Création",
+    image: "/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
+  },
+  {
+    title: "J'entreprends",
+    description: "L'action J'ENTREPRENDS propose aux élèves un parcours de 6 séances interactives, créatives et très pragmatiques revisitant le parcours d'un entrepreneur. Elle permet de mettre les élèves en situation de porteur de projet et ainsi les familiariser à la conduite de projet en stimulant leur « savoir-être » et leur « savoir-agir ». Tout au long des animations, les élèves vont réaliser une présentation de leur projet (diaporama) qu'ils soumettront à un jury en fin de parcours.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["Collège", "Lycée", "Post bac"],
+    objectifs: [
       "Expérimenter la gestion de projet et le travail collaboratif",
-      "Favoriser l'initiative, la prise de décision et l'autonomie"
+      "Développer l'esprit entrepreneurial et la créativité",
+      "Apprendre à s'exprimer à l'oral et à argumenter ses idées"
+    ],
+    duree: "20 heures",
+    partenaire: "BGE",
+    image: "/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
+  },
+  {
+    title: "Entrepreneur, pourquoi pas moi ?",
+    description: "L'action amène les jeunes à considérer le métier de chef d'entreprise comme voie professionnelle possible. Après avoir défini ce qu'est une entreprise, les motivations et qualités pour entreprendre, l'animateur BGE va lever les freins à la création d'entreprise. L'action se conclut par le témoignage vidéo d'un entrepreneur.",
+    zones: ["Académie de Lille"],
+    niveaux: ["Collège", "Lycée", "Post bac"],
+    objectifs: [
+      "Favoriser l'initiative, la prise de décision et l'autonomie",
+      "S'ouvrir à de nouvelles perspectives professionnelles",
+      "Découvrir le monde professionnel et les métiers"
     ],
     duree: "1 heure",
+    partenaire: "BGE Flandres Création",
+    image: "/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
+  },
+  {
+    title: "E-KIDS : Les petits entrepreneurs",
+    description: "Le parcours « e-kids » propose de faire vivre aux élèves les 5 étapes-clés d'une aventure entrepreneuriale dans laquelle les parents sont également impliqués. Les élèves imaginent puis réalisent un projet qui permettra de résoudre une problématique posée ou de répondre à un besoin identifié dans leur environnement. L'action est pilotée en toute autonomie par l'enseignant à l'aide des ressources numériques mises à disposition par BGE sur une plateforme.",
+    zones: ["Académie de Lille"],
+    niveaux: ["École"],
+    objectifs: [
+      "Expérimenter la gestion de projet et le travail collaboratif",
+      "Sensibiliser aux enjeux économiques et sociaux",
+      "Développer l'esprit entrepreneurial et la créativité"
+    ],
+    duree: "20 heures",
+    partenaire: "BGE Flandres Création",
+    image: "/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
+  },
+  {
+    title: "Busy & Ness",
+    description: "Au cœur d'un environnement entrepreneurial, Busy et Ness (BGE) guident les participants dans la simulation d'un projet de création d'entreprise en 6 étapes. Après avoir trouvé l'idée et évalué sa faisabilité, les participants devront concevoir le site internet et la page Facebook de leur entreprise. Leur présentation sous forme de pitch sera évaluée par un jury de professionnels qui récompensera les meilleurs projets.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["Collège", "Lycée", "Post bac"],
+    objectifs: [
+      "Développer des compétences numériques et technologiques",
+      "S'ouvrir à de nouvelles perspectives professionnelles",
+      "Apprendre à s'exprimer à l'oral et à argumenter ses idées"
+    ],
+    duree: "20 heures",
     partenaire: "BGE",
     image: "/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
   },
