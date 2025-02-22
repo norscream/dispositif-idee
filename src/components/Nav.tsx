@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -26,7 +27,7 @@ const resourceLinks = [
   { href: "/ressources/concours", label: "Concours" }
 ];
 
-export const Nav = () => {
+const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const DropdownNavItem = ({ 
@@ -69,7 +70,7 @@ export const Nav = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <DropdownNavItem trigger="Nos champs d'actions" items={actionLinks} />
-            <DropdownNavItem trigger="Ressources" items={resourceLinks} />
+            <DropdownNavItem trigger="Actions disponibles" items={resourceLinks} />
             <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
               <Search className="h-5 w-5 text-gray-600" />
             </button>
@@ -120,3 +121,5 @@ export const Nav = () => {
     </nav>
   );
 };
+
+export default Nav;
