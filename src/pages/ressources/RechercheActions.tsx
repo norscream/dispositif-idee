@@ -52,6 +52,11 @@ export default function RechercheActions() {
           if (selectedZones.includes("Région académique Hauts-de-France")) {
             return true;
           }
+          // Si "Académie de Lille" est sélectionné, inclure aussi les actions de la région académique
+          if (selectedZones.includes("Académie de Lille")) {
+            return zone === "Académie de Lille" || zone === "Région académique Hauts-de-France";
+          }
+          // Pour les autres cas, vérifier simplement si la zone correspond
           return selectedZones.includes(zone);
         });
         
