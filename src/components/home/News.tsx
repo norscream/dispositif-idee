@@ -5,8 +5,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
 interface LinkedInPost {
+  id: number;
   url: string;
   title: string;
+  active: boolean;
 }
 
 const News = () => {
@@ -17,14 +19,16 @@ const News = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data: response, error } = await supabase.functions.invoke('scrape-linkedin');
-        
-        if (error) throw error;
-        if (!response?.success || !response?.data) {
-          throw new Error(response?.error || 'Failed to fetch posts');
-        }
+        const { data, error } = await supabase
+          .from('linkedin_posts')
+          .select('*')
+          .eq('active', true)
+          .order('created_at', { ascending: false })
+          .limit(3);
 
-        setPosts(response.data);
+        if (error) throw error;
+        
+        setPosts(data || []);
       } catch (error) {
         console.error('Error fetching LinkedIn posts:', error);
         toast({
@@ -62,11 +66,11 @@ const News = () => {
             Array(3).fill(0).map((_, i) => (
               <div key={i} className="animate-pulse bg-gray-200 rounded-xl h-[500px]" />
             ))
-          ) : (
-            posts.map((post, index) => (
+          ) : posts.length > 0 ? (
+            posts.map((post) => (
               <iframe 
-                key={index}
-                src={`${post.url}?postView=IMAGES`}
+                key={post.id}
+                src={post.url}
                 height="500" 
                 width="100%" 
                 frameBorder="0" 
@@ -75,6 +79,10 @@ const News = () => {
                 title={post.title}
               />
             ))
+          ) : (
+            <div className="col-span-3 text-center text-gray-500">
+              Aucune publication LinkedIn à afficher
+            </div>
           )}
         </div>
       </div>
