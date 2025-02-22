@@ -15,6 +15,20 @@ export const actionsPartenaires = [
     image: "/lovable-uploads/7801aae5-1375-471b-9e1b-98b7aa6e1fc4.png"
   },
   {
+    title: "Enactus Lycéens : Agir pour un avenir durable",
+    description: "Le programme \"Enactus Lycéens\" accompagne les élèves dans la conception et la réalisation de projets sociaux et solidaires en équipe. En partant des Objectifs de Développement Durable, les lycéens identifient des enjeux locaux qui les touchent, puis élaborent des solutions innovantes pour y répondre. Ce parcours, co-animé par les enseignants et des formateurs Enactus, s'étend sur une période de 5 à 6 mois, durant laquelle les élèves développent leurs compétences en gestion de projet, travail collaboratif et prise de parole en public.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["Lycée"],
+    objectifs: [
+      "Développer l'esprit entrepreneurial et la créativité",
+      "Expérimenter la gestion de projet et le travail collaboratif",
+      "Favoriser l'initiative, la prise de décision et l'autonomie"
+    ],
+    duree: "5 à 6 mois",
+    partenaire: "Enactus France",
+    image: "/lovable-uploads/5220c30b-a33a-413b-aa44-443361dd431b.png"
+  },
+  {
     title: "Collège Énergie",
     description: "Les élèves visitent le CCG de Bouchain et découvrent les métiers de l'énergie en explorant la production et la consommation d'électricité. L'après-midi, ils travaillent en équipe sur une tâche complexe liée au mix énergétique et présentent leurs résultats sous forme de pitch vidéo.",
     zones: ["Région académique Hauts-de-France"],
