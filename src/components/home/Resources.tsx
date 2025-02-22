@@ -33,7 +33,7 @@ const Resources = () => {
   return (
     <section id="ressources" className="py-16 px-4">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Ressources</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Actions disponibles</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {resources.map((resource, index) => (
             <Link
