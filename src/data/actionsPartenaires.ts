@@ -31,7 +31,7 @@ export const actionsPartenaires = [
   {
     title: "Speed meeting",
     description: "Plusieurs entrepreneurs issus de divers secteurs d'activités rencontrent des jeunes répartis en petits groupes de 10 maximum sur un créneau de 2 heures pour partager leur expérience professionnelle et répondre aux questions des jeunes. L'entrepreneur rencontre 3 groupes de jeunes, 30 minutes chacun.",
-    zones: ["Académie de Lille"],
+    zones: ["Région académique Hauts-de-France"],
     niveaux: ["Collège", "Lycée", "Post bac"],
     objectifs: [
       "Sensibiliser les jeunes à l'acte d'entreprendre",
