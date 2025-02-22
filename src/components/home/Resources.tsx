@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -24,7 +25,7 @@ const resources = [
     title: "Concours",
     description: "Participez à nos concours et challenges entrepreneuriaux",
     href: "/ressources/concours",
-    bgImage: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png"
+    bgImage: "/lovable-uploads/b56b9788-f643-46c4-bc89-dbcb2aa22f3b.png"
   }
 ];
 
