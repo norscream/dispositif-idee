@@ -1,3 +1,4 @@
+
 import { Nav } from "@/components/Nav";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -17,23 +18,23 @@ type Zone = Action['zones'][number];
 type Niveau = Action['niveaux'][number];
 type Objectif = Action['objectifs'][number];
 
-// Définir l'ordre spécifique des zones avec le bon type
-const zoneOrder: Zone[] = [
+// Définir l'ordre spécifique des zones
+const zoneOrder = [
   "Région académique Hauts-de-France",
   "Académie de Lille",
   "Académie d'Amiens"
-];
+] as const;
 
-// Définir l'ordre spécifique des niveaux avec le bon type
-const niveauOrder: Niveau[] = ["École", "Collège", "Lycée", "Post bac"];
+// Définir l'ordre spécifique des niveaux
+const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const;
 
-// Extraire et trier les critères uniques
-const uniqueZones = zoneOrder.filter(zone => 
-  allActions.some(action => action.zones.includes(zone))
+// Extraire et trier les critères uniques en assurant le bon typage
+const uniqueZones = zoneOrder.filter((zone): zone is Zone => 
+  allActions.some(action => action.zones.includes(zone as Zone))
 );
 
-const uniqueNiveaux = niveauOrder.filter(niveau => 
-  allActions.some(action => action.niveaux.includes(niveau))
+const uniqueNiveaux = niveauOrder.filter((niveau): niveau is Niveau => 
+  allActions.some(action => action.niveaux.includes(niveau as Niveau))
 );
 
 const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
