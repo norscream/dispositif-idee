@@ -6,11 +6,9 @@ export const actions = [
     zones: ["Académie de Lille"],
     niveaux: ["Collège", "Lycée"],
     objectifs: [
-      "Estime de soi",
-      "Gestion de stress et émotions",
-      "Prise de parole et affirmation de soi",
-      "Pensée critique et prise de décision",
-      "Compétence relationelle"
+      "Apprendre à s'exprimer à l'oral et à argumenter ses idées",
+      "Favoriser l'initiative, la prise de décision et l'autonomie",
+      "S'ouvrir à de nouvelles perspectives professionnelles"
     ],
     duree: "2 heures",
     image: "/lovable-uploads/b4dc5c3d-611e-4b86-bdf8-b7239716ea55.png"
@@ -21,11 +19,9 @@ export const actions = [
     zones: ["Académie de Lille"],
     niveaux: ["Collège", "Lycée"],
     objectifs: [
-      "Résilience",
-      "Gestion des émotions",
-      "Pensée critique",
-      "Estime de soi",
-      "Prise de décision"
+      "Favoriser l'initiative, la prise de décision et l'autonomie",
+      "Développer l'esprit entrepreneurial et la créativité",
+      "S'ouvrir à de nouvelles perspectives professionnelles"
     ],
     duree: "2 heures",
     image: "/lovable-uploads/e39bebb6-c473-41bd-8d20-821b6d04fb78.png"
@@ -36,27 +32,22 @@ export const actions = [
     zones: ["Académie d'Amiens"],
     niveaux: ["École", "Collège"],
     objectifs: [
-      "Développer sa confiance en soi",
-      "Développer son intelligence émotionnelle",
-      "Gérer un conflit interpersonnel",
-      "Développer une pensée éthique et inclusive",
-      "Communiquer à l'écrit",
-      "Communiquer à l'oral"
+      "Apprendre à s'exprimer à l'oral et à argumenter ses idées",
+      "Développer l'esprit entrepreneurial et la créativité",
+      "Expérimenter la gestion de projet et le travail collaboratif"
     ],
     duree: "9 heures",
     image: "/lovable-uploads/218ad44a-ae33-4006-bcf5-95e50107fca8.png"
   },
   {
     title: "Les « six chapeaux de Bono »",
-    description: "Cette méthode d'intelligence collective est un outil de réflexion collaborative qui permet d'aborder des problématiques professionnelles de manière structurée et efficace. Elle se distingue par sa simplicité de mise en œuvre et sa grande adaptabilité, que ce soit pour des régulations de conflits, des analyses de pratique, ou des sessions d'innovation. La méthode consiste à structurer la réflexion autour d'un sujet en adoptant successivement six façons de penser complémentaires, représentées par six chapeaux de couleurs différentes.",
+    description: "Cette méthode d'intelligence collective est un outil de réflexion collaborative qui permet d'aborder des problématiques professionnelles de manière structurée et efficace. Elle se distingue par sa simplicité de mise en œuvre et sa grande adaptabilité, que ce soit pour des régulations de conflits, des analyses de pratique, ou des sessions d'innovation.",
     zones: ["Région académique Hauts-de-France"],
     niveaux: ["École", "Collège", "Lycée"],
     objectifs: [
-      "Réflexion collaborative",
-      "Gestion de conflits",
-      "Innovation",
-      "Adaptabilité",
-      "Animation de groupes"
+      "Expérimenter la gestion de projet et le travail collaboratif",
+      "Développer l'esprit entrepreneurial et la créativité",
+      "Apprendre à s'exprimer à l'oral et à argumenter ses idées"
     ],
     duree: "3 heures",
     image: "/lovable-uploads/2d080ab6-7fa9-46f7-8d74-2e5f237485c5.png"

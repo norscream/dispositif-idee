@@ -2,13 +2,13 @@
 export const actionsPartenaires = [
   {
     title: "Collège Énergie",
-    description: "Le matin, les élèves visitent le CCG de Bouchain en passant par la salle des machines et la salle de commande. Les élèves découvriront aussi les métiers de la production d'électricité et les métiers du groupe EDF. L'après-midi, les élèves mettent en pratique les connaissances et compétences acquises lors de leur cursus scolaire et de la présentation du mix énergétique, en travaillant par groupe à la résolution d'une tâche complexe. Chaque groupe « pitchera » ses résultats en s'appuyant sur un support qu'il aura réalisé l'après-midi. Une courte vidéo de restitution sera demandée aux élèves afin qu'ils s'expriment sur leur expérience vécue.",
+    description: "Les élèves visitent le CCG de Bouchain et découvrent les métiers de l'énergie en explorant la production et la consommation d'électricité. L'après-midi, ils travaillent en équipe sur une tâche complexe liée au mix énergétique et présentent leurs résultats sous forme de pitch vidéo.",
     zones: ["Région académique Hauts-de-France"],
     niveaux: ["Collège"],
     objectifs: [
-      "Donner aux élèves des éléments de compréhension du monde de l'énergie et les sensibiliser aux impact sur l'environnement",
-      "Mobiliser leurs acquis pour résoudre une tâche complexe",
-      "Comprendre les mécanismes entre la production et la consommation d'électricité et découvrir les métiers de l'énergie"
+      "Découvrir le monde professionnel et les métiers",
+      "Comprendre les rouages de la création et de la gestion d'entreprise",
+      "Relier les enseignements scolaires aux réalités du terrain"
     ],
     duree: "Journée complète",
     partenaire: "CCG de Bouchain",
@@ -16,13 +16,13 @@ export const actionsPartenaires = [
   },
   {
     title: "Le plus compétent des entrepreneurs",
-    description: "Ce jeu en ligne, basé sur le principe de l'escape game, vise à faire découvrir les compétences entrepreneuriales, notamment les compétences personnelles dites « soft skills », aussi importantes pour un entrepreneur que les « hard skills ».  Chaque jeune se trouve dans un bureau virtuel où il doit chercher des indices afin d'accomplir la tâche qui lui sera donnée au début du jeu. Au fur et à mesure, les compétences validées au cours du jeu apparaitront.",
+    description: "Escape game en ligne sur les soft skills et compétences entrepreneuriales. Les jeunes explorent un bureau virtuel pour résoudre une mission en mobilisant imagination et créativité.",
     zones: ["Région académique Hauts-de-France"],
     niveaux: ["Collège", "Lycée", "Post bac"],
     objectifs: [
-      "Découvrir les soft skills et les compétences entrepreneuriales",
-      "Se découvrir à travers un défi tout en mobilisant l'imagination et la créativité",
-      "Développer une démarche de réflexion"
+      "Développer l'esprit entrepreneurial et la créativité",
+      "Expérimenter la gestion de projet et le travail collaboratif",
+      "Favoriser l'initiative, la prise de décision et l'autonomie"
     ],
     duree: "1 heure",
     partenaire: "BGE",
@@ -30,16 +30,114 @@ export const actionsPartenaires = [
   },
   {
     title: "Speed meeting",
-    description: "Plusieurs entrepreneurs issus de divers secteurs d'activités rencontrent des jeunes répartis en petits groupes de 10 maximum sur un créneau de 2 heures pour partager leur expérience professionnelle et répondre aux questions des jeunes. L'entrepreneur rencontre 3 groupes de jeunes, 30 minutes chacun.",
+    description: "Des entrepreneurs partagent leur expérience avec des groupes de jeunes lors d'échanges de 30 minutes, favorisant les interactions directes et les découvertes professionnelles.",
     zones: ["Région académique Hauts-de-France"],
     niveaux: ["Collège", "Lycée", "Post bac"],
     objectifs: [
-      "Sensibiliser les jeunes à l'acte d'entreprendre",
-      "Faire découvrir le monde professionnel",
-      "Valoriser la correspondance entre les matières enseignées et le monde professionnel"
+      "Découvrir le monde professionnel et les métiers",
+      "S'ouvrir à de nouvelles perspectives professionnelles",
+      "Relier les enseignements scolaires aux réalités du terrain"
     ],
     duree: "2 heures",
     partenaire: "100 000 entrepreneurs",
     image: "/lovable-uploads/78a1c326-9ae9-4be8-9ae2-a5449603370c.png"
+  },
+  {
+    title: "Opportun'Avenir",
+    description: "Dispositif pédagogique combinant visites d'entreprises, rencontres avec des professionnels et mise en pratique autour de la création d'un projet entrepreneurial illustré sous forme de Business Model Canvas.",
+    zones: ["Académie d'Amiens"],
+    niveaux: ["Collège"],
+    objectifs: [
+      "Expérimenter la gestion de projet et le travail collaboratif",
+      "Relier les enseignements scolaires aux réalités du terrain",
+      "S'ouvrir à de nouvelles perspectives professionnelles"
+    ],
+    duree: "10 heures",
+    partenaire: "BGE Picardie",
+    image: "/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
+  },
+  {
+    title: "Mon Projet Entrepreneurial / La Fabrik à boîtes",
+    description: "Parcours interactif en ligne accompagné d'une animation en classe. Les élèves travaillent sur toutes les étapes d'un projet entrepreneurial, du concept à la stratégie de communication et à la viabilité économique, avec un pitch final devant un jury.",
+    zones: ["Académie d'Amiens"],
+    niveaux: ["Lycée", "Post bac"],
+    objectifs: [
+      "Expérimenter la gestion de projet et le travail collaboratif",
+      "Développer des compétences numériques et technologiques",
+      "Favoriser l'initiative, la prise de décision et l'autonomie"
+    ],
+    duree: "10 heures",
+    partenaire: "BGE Picardie",
+    image: "/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
+  },
+  {
+    title: "Savoir-Faire",
+    description: "Après une visite d'entreprise, les élèves participent au Challenge « Tremplin Pour Entreprendre (TPE) », où ils développent un projet entrepreneurial en lien avec un secteur d'activité. Le projet est présenté lors d'une exposition finale.",
+    zones: ["Académie d'Amiens"],
+    niveaux: ["Collège", "Lycée"],
+    objectifs: [
+      "Découvrir le monde professionnel et les métiers",
+      "Favoriser l'initiative, la prise de décision et l'autonomie",
+      "Sensibiliser aux enjeux économiques et sociaux"
+    ],
+    duree: "Année scolaire",
+    partenaire: "METS",
+    image: "/lovable-uploads/58b29a69-067f-4e15-97e1-0730220eaf17.png"
+  },
+  {
+    title: "Je gère",
+    description: "Jeu de plateau où les participants dirigent une entreprise virtuelle et découvrent les aspects de la gestion comptable et financière d'une entreprise (compte de résultat, bilan, prix de revient…).",
+    zones: ["Académie de Lille"],
+    niveaux: ["Collège", "Lycée"],
+    objectifs: [
+      "Comprendre les rouages de la création et de la gestion d'entreprise",
+      "Relier les enseignements scolaires aux réalités du terrain",
+      "Développer des compétences numériques et technologiques"
+    ],
+    duree: "2 jours",
+    partenaire: "BGE Littoral Opale",
+    image: "/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
+  },
+  {
+    title: "Teste !",
+    description: "Les jeunes imaginent des solutions pour des acteurs du territoire en lien avec des problématiques économiques (marketing, RH, innovation produit). Ils développent leur persévérance et leur esprit critique en appliquant des méthodes de travail collaboratif.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["Collège", "Lycée"],
+    objectifs: [
+      "Expérimenter la gestion de projet et le travail collaboratif",
+      "Favoriser l'initiative, la prise de décision et l'autonomie",
+      "Sensibiliser aux enjeux économiques et sociaux"
+    ],
+    duree: "30 heures",
+    partenaire: "Dreamakers",
+    image: "/lovable-uploads/25d67512-8fb6-4188-a743-a79ff2ed0184.png"
+  },
+  {
+    title: "Décrypte !",
+    description: "À travers l'analyse de parcours d'entrepreneurs inspirants, les élèves découvrent comment naissent et se développent les projets innovants, ainsi que les étapes pour les concrétiser.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["Collège", "Lycée"],
+    objectifs: [
+      "Développer l'esprit entrepreneurial et la créativité",
+      "S'ouvrir à de nouvelles perspectives professionnelles",
+      "Sensibiliser aux enjeux économiques et sociaux"
+    ],
+    duree: "10 heures",
+    partenaire: "Dreamakers",
+    image: "/lovable-uploads/25d67512-8fb6-4188-a743-a79ff2ed0184.png"
+  },
+  {
+    title: "Vis !",
+    description: "Les jeunes créent une entreprise adaptée à leur territoire, explorent les métiers du marketing et du commerce à travers des expériences de vente, et utilisent des outils de gestion. L'action sensibilise également aux enjeux sociétaux et environnementaux des entreprises.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["Collège", "Lycée"],
+    objectifs: [
+      "Expérimenter la gestion de projet et le travail collaboratif",
+      "Sensibiliser aux enjeux économiques et sociaux",
+      "Favoriser l'initiative, la prise de décision et l'autonomie"
+    ],
+    duree: "Année scolaire",
+    partenaire: "Dreamakers",
+    image: "/lovable-uploads/25d67512-8fb6-4188-a743-a79ff2ed0184.png"
   }
 ] as const;
