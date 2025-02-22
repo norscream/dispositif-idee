@@ -23,24 +23,17 @@ const zoneOrder = [
   "Région académique Hauts-de-France",
   "Académie de Lille",
   "Académie d'Amiens"
-] as const;
+] as const satisfies readonly Zone[];
 
 // Définir l'ordre spécifique des niveaux
-const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const;
+const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const satisfies readonly Niveau[];
 
-// Extraire et trier les critères uniques en assurant le bon typage
-const uniqueZones = zoneOrder.filter((zone): zone is Zone => 
-  allActions.some(action => action.zones.includes(zone as Zone))
-);
-
-const uniqueNiveaux = niveauOrder.filter((niveau): niveau is Niveau => 
-  allActions.some(action => action.niveaux.includes(niveau as Niveau))
-);
-
+// Extraire et trier les critères uniques
+const uniqueZones = zoneOrder;
+const uniqueNiveaux = niveauOrder;
 const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
 
 export default function RechercheActions() {
-  // Utiliser des arrays pour stocker les sélections multiples
   const [selectedZones, setSelectedZones] = useState<Zone[]>([]);
   const [selectedNiveaux, setSelectedNiveaux] = useState<Niveau[]>([]);
   const [selectedObjectifs, setSelectedObjectifs] = useState<Objectif[]>([]);
@@ -54,7 +47,14 @@ export default function RechercheActions() {
     
     return allActions.filter(action => {
       const matchesZones = selectedZones.length === 0 || 
-        action.zones.some(zone => selectedZones.includes(zone));
+        action.zones.some(zone => {
+          // Si "Région académique Hauts-de-France" est sélectionné, inclure toutes les actions des académies
+          if (selectedZones.includes("Région académique Hauts-de-France")) {
+            return true;
+          }
+          return selectedZones.includes(zone);
+        });
+        
       const matchesNiveaux = selectedNiveaux.length === 0 || 
         action.niveaux.some(niveau => selectedNiveaux.includes(niveau));
       const matchesObjectifs = selectedObjectifs.length === 0 || 
@@ -104,7 +104,7 @@ export default function RechercheActions() {
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl font-bold mb-8 text-center">Trouver une action adaptée</h1>
           <p className="text-lg text-gray-600 mb-12 text-center">
-            S��lectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
+            Sélectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
