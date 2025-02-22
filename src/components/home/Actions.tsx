@@ -24,7 +24,7 @@ const actions = [
   {
     title: "Mettre en lien",
     description: "les acteurs territoriaux de la pédagogie entrepreneuriale",
-    href: "/reseau",
+    href: "/ressources/actions-partenaires",
     iconColor: "#F1F0FB",
     imagePath: "/lovable-uploads/514b916d-23ef-4f86-b41a-e4060bb693a2.png"
   },
