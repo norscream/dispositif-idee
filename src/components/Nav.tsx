@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -23,7 +22,8 @@ const resourceLinks = [
   { href: "/ressources/actions-partenaires", label: "Les actions de nos partenaires" },
   { href: "/ressources/ludopedagogie", label: "Ludopédagogie" },
   { href: "/ressources/labellisation", label: "Labéllisation" },
-  { href: "/ressources/recherche-actions", label: "Rechercher une action" }
+  { href: "/ressources/recherche-actions", label: "Rechercher une action" },
+  { href: "/ressources/concours", label: "Concours" }
 ];
 
 export const Nav = () => {
@@ -70,7 +70,6 @@ export const Nav = () => {
           <div className="hidden md:flex items-center space-x-8">
             <DropdownNavItem trigger="Nos champs d'actions" items={actionLinks} />
             <DropdownNavItem trigger="Ressources" items={resourceLinks} />
-            <Link to="/ressources/concours" className="nav-link">Concours</Link>
             <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
               <Search className="h-5 w-5 text-gray-600" />
             </button>
@@ -114,12 +113,6 @@ export const Nav = () => {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                to="/ressources/concours"
-                className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
-              >
-                Concours
-              </Link>
             </div>
           </div>
         )}
