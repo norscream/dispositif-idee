@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -20,12 +19,6 @@ const resources = [
     description: "Apprenez par le jeu et l'expérimentation",
     href: "/ressources/ludopedagogie",
     bgImage: "/lovable-uploads/aa3900a3-0ef2-457c-bd2c-99a09d896586.png"
-  },
-  {
-    title: "Labéllisation",
-    description: "Processus et avantages de la labellisation",
-    href: "/ressources/labellisation",
-    bgImage: "/lovable-uploads/b8a0b1a8-9c7d-423e-aac0-270ccea7a9d6.png"
   },
   {
     title: "Concours",
