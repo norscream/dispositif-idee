@@ -7,26 +7,23 @@ import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { useState, useMemo } from "react";
 import { actions } from "@/data/actions";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { actionsPartenaires } from "@/data/actionsPartenaires";
+
+// Combiner les deux types d'actions
+const allActions = [...actions, ...actionsPartenaires];
 
 // Définir les types basés sur les actions
-type Action = typeof actions[number];
+type Action = typeof allActions[number];
 type Zone = Action['zones'][number];
 type Niveau = Action['niveaux'][number];
 type Objectif = Action['objectifs'][number];
 type Duree = Action['duree'];
 
 // Extraire tous les critères uniques des actions
-const uniqueZones = [...new Set(actions.flatMap(action => action.zones))] as Zone[];
-const uniqueNiveaux = [...new Set(actions.flatMap(action => action.niveaux))] as Niveau[];
-const uniqueObjectifs = [...new Set(actions.flatMap(action => action.objectifs))] as Objectif[];
-const uniqueDurees = [...new Set(actions.map(action => action.duree))] as Duree[];
+const uniqueZones = [...new Set(allActions.flatMap(action => action.zones))] as Zone[];
+const uniqueNiveaux = [...new Set(allActions.flatMap(action => action.niveaux))] as Niveau[];
+const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
+const uniqueDurees = [...new Set(allActions.map(action => action.duree))] as Duree[];
 
 export default function RechercheActions() {
   // Utiliser des arrays pour stocker les sélections multiples
@@ -37,7 +34,7 @@ export default function RechercheActions() {
 
   // Filtrer les actions en fonction des critères sélectionnés
   const filteredActions = useMemo(() => {
-    return actions.filter(action => {
+    return allActions.filter(action => {
       const matchesZones = selectedZones.length === 0 || 
         action.zones.some(zone => selectedZones.includes(zone));
       const matchesNiveaux = selectedNiveaux.length === 0 || 
@@ -227,6 +224,12 @@ export default function RechercheActions() {
                     <div className="flex items-center">
                       <p><span className="font-medium">Durée :</span> {action.duree}</p>
                     </div>
+
+                    {"partenaire" in action && (
+                      <div className="flex items-center">
+                        <p><span className="font-medium">Partenaire :</span> {action.partenaire}</p>
+                      </div>
+                    )}
                   </div>
                 </CardContent>
                 <CardFooter>
