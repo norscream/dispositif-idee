@@ -18,24 +18,24 @@ type Zone = Action['zones'][number];
 type Niveau = Action['niveaux'][number];
 type Objectif = Action['objectifs'][number];
 
-// Définir l'ordre spécifique des zones
-const zoneOrder = [
+// Définir l'ordre spécifique des zones avec le bon type
+const zoneOrder: Zone[] = [
   "Région académique Hauts-de-France",
   "Académie de Lille",
   "Académie d'Amiens"
 ];
 
-// Définir l'ordre spécifique des niveaux
-const niveauOrder = ["École", "Collège", "Lycée", "Post bac"];
+// Définir l'ordre spécifique des niveaux avec le bon type
+const niveauOrder: Niveau[] = ["École", "Collège", "Lycée", "Post bac"];
 
 // Extraire et trier les critères uniques
 const uniqueZones = zoneOrder.filter(zone => 
-  allActions.some(action => action.zones.includes(zone as Zone))
-) as Zone[];
+  allActions.some(action => action.zones.includes(zone))
+);
 
 const uniqueNiveaux = niveauOrder.filter(niveau => 
-  allActions.some(action => action.niveaux.includes(niveau as Niveau))
-) as Niveau[];
+  allActions.some(action => action.niveaux.includes(niveau))
+);
 
 const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
 
