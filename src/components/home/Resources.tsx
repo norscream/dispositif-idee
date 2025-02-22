@@ -26,6 +26,12 @@ const resources = [
     description: "Processus et avantages de la labellisation",
     href: "/ressources/labellisation",
     bgImage: "/lovable-uploads/b8a0b1a8-9c7d-423e-aac0-270ccea7a9d6.png"
+  },
+  {
+    title: "Concours",
+    description: "Participez à nos concours et challenges entrepreneuriaux",
+    href: "/ressources/concours",
+    bgImage: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png"
   }
 ];
 
