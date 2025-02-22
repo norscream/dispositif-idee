@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -45,8 +44,13 @@ export default function RechercheActions() {
   const [selectedNiveaux, setSelectedNiveaux] = useState<Niveau[]>([]);
   const [selectedObjectifs, setSelectedObjectifs] = useState<Objectif[]>([]);
 
+  // Vérifier si au moins une case est cochée
+  const hasActiveFilters = selectedZones.length > 0 || selectedNiveaux.length > 0 || selectedObjectifs.length > 0;
+
   // Filtrer les actions en fonction des critères sélectionnés
   const filteredActions = useMemo(() => {
+    if (!hasActiveFilters) return [];
+    
     return allActions.filter(action => {
       const matchesZones = selectedZones.length === 0 || 
         action.zones.some(zone => selectedZones.includes(zone));
@@ -57,7 +61,7 @@ export default function RechercheActions() {
 
       return matchesZones && matchesNiveaux && matchesObjectifs;
     });
-  }, [selectedZones, selectedNiveaux, selectedObjectifs]);
+  }, [selectedZones, selectedNiveaux, selectedObjectifs, hasActiveFilters]);
 
   // Gestionnaires pour la sélection multiple
   const handleZoneSelect = (zone: Zone) => {
@@ -99,7 +103,7 @@ export default function RechercheActions() {
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl font-bold mb-8 text-center">Trouver une action adaptée</h1>
           <p className="text-lg text-gray-600 mb-12 text-center">
-            Sélectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
+            S��lectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
@@ -160,80 +164,90 @@ export default function RechercheActions() {
 
           {/* Résultats */}
           <div className="space-y-8">
-            <p className="text-gray-600 text-center">
-              {filteredActions.length} action{filteredActions.length > 1 ? 's' : ''} trouvée{filteredActions.length > 1 ? 's' : ''}
-            </p>
-            
-            {filteredActions.map((action, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="h-64 overflow-hidden relative">
-                  <img 
-                    src={action.image} 
-                    alt={action.title} 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-2xl">{action.title}</CardTitle>
-                  <CardDescription className="text-base">{action.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="font-medium mb-2">Zones d'intervention :</p>
-                      <div className="flex flex-wrap gap-2">
-                        {action.zones.map((zone, i) => (
-                          <Badge key={i} variant="secondary">{zone}</Badge>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className="font-medium mb-2">Niveaux :</p>
-                      <div className="flex flex-wrap gap-2">
-                        {action.niveaux.map((niveau, i) => (
-                          <Badge key={i} variant="secondary">{niveau}</Badge>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <p className="font-medium mb-2">Objectifs :</p>
-                      <div className="flex flex-wrap gap-2">
-                        {action.objectifs.map((objectif, i) => (
-                          <Badge key={i} variant="outline">{objectif}</Badge>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center">
-                      <p><span className="font-medium">Durée :</span> {action.duree}</p>
-                    </div>
-
-                    {"partenaire" in action && (
-                      <div className="flex items-center">
-                        <p><span className="font-medium">Partenaire :</span> {action.partenaire}</p>
-                      </div>
-                    )}
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Link
-                    to="/contact"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
-                  >
-                    Je suis intéressé(e) par cette action
-                  </Link>
-                </CardFooter>
-              </Card>
-            ))}
-
-            {filteredActions.length === 0 && (
+            {!hasActiveFilters ? (
               <div className="text-center py-12">
                 <p className="text-lg text-gray-600">
-                  Aucune action ne correspond à vos critères. Essayez de modifier vos filtres.
+                  Sélectionnez au moins un critère pour voir les actions correspondantes.
                 </p>
               </div>
+            ) : (
+              <>
+                <p className="text-gray-600 text-center">
+                  {filteredActions.length} action{filteredActions.length > 1 ? 's' : ''} trouvée{filteredActions.length > 1 ? 's' : ''}
+                </p>
+                
+                {filteredActions.map((action, index) => (
+                  <Card key={index} className="overflow-hidden">
+                    <div className="h-64 overflow-hidden relative">
+                      <img 
+                        src={action.image} 
+                        alt={action.title} 
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle className="text-2xl">{action.title}</CardTitle>
+                      <CardDescription className="text-base">{action.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="font-medium mb-2">Zones d'intervention :</p>
+                          <div className="flex flex-wrap gap-2">
+                            {action.zones.map((zone, i) => (
+                              <Badge key={i} variant="secondary">{zone}</Badge>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <p className="font-medium mb-2">Niveaux :</p>
+                          <div className="flex flex-wrap gap-2">
+                            {action.niveaux.map((niveau, i) => (
+                              <Badge key={i} variant="secondary">{niveau}</Badge>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <p className="font-medium mb-2">Objectifs :</p>
+                          <div className="flex flex-wrap gap-2">
+                            {action.objectifs.map((objectif, i) => (
+                              <Badge key={i} variant="outline">{objectif}</Badge>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center">
+                          <p><span className="font-medium">Durée :</span> {action.duree}</p>
+                        </div>
+
+                        {"partenaire" in action && (
+                          <div className="flex items-center">
+                            <p><span className="font-medium">Partenaire :</span> {action.partenaire}</p>
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Link
+                        to="/contact"
+                        className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
+                      >
+                        Je suis intéressé(e) par cette action
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                ))}
+
+                {filteredActions.length === 0 && (
+                  <div className="text-center py-12">
+                    <p className="text-lg text-gray-600">
+                      Aucune action ne correspond à vos critères. Essayez de modifier vos filtres.
+                    </p>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
