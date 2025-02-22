@@ -11,7 +11,7 @@ const News = () => {
             <Newspaper className="h-6 w-6 text-primary mr-3" />
           </div>
           <a 
-            href="https://www.linkedin.com/company/idee-education/" 
+            href="https://www.linkedin.com/in/dispositifidee/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
