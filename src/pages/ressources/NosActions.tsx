@@ -81,10 +81,10 @@ export default function NosActions() {
                     <div className="flex items-start gap-2">
                       <BookOpen className="h-5 w-5 text-primary mt-1 shrink-0" />
                       <div>
-                        <p className="font-medium mb-2">Compétences développées :</p>
+                        <p className="font-medium mb-2">Objectifs :</p>
                         <div className="flex flex-wrap gap-2">
-                          {action.competences.map((comp, i) => (
-                            <Badge key={i} variant="outline">{comp}</Badge>
+                          {action.objectifs.map((objectif, i) => (
+                            <Badge key={i} variant="outline">{objectif}</Badge>
                           ))}
                         </div>
                       </div>

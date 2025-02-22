@@ -19,32 +19,70 @@ import {
 type Action = typeof actions[number];
 type Zone = Action['zones'][number];
 type Niveau = Action['niveaux'][number];
-type Competence = Action['competences'][number];
+type Objectif = Action['objectifs'][number];
 type Duree = Action['duree'];
 
-// Extraire tous les critères uniques des actions avec le bon typage
+// Extraire tous les critères uniques des actions
 const uniqueZones = [...new Set(actions.flatMap(action => action.zones))] as Zone[];
 const uniqueNiveaux = [...new Set(actions.flatMap(action => action.niveaux))] as Niveau[];
-const uniqueCompetences = [...new Set(actions.flatMap(action => action.competences))] as Competence[];
+const uniqueObjectifs = [...new Set(actions.flatMap(action => action.objectifs))] as Objectif[];
 const uniqueDurees = [...new Set(actions.map(action => action.duree))] as Duree[];
 
 export default function RechercheActions() {
-  const [selectedZone, setSelectedZone] = useState<Zone | "all">("all");
-  const [selectedNiveau, setSelectedNiveau] = useState<Niveau | "all">("all");
-  const [selectedCompetence, setSelectedCompetence] = useState<Competence | "all">("all");
-  const [selectedDuree, setSelectedDuree] = useState<Duree | "all">("all");
+  // Utiliser des arrays pour stocker les sélections multiples
+  const [selectedZones, setSelectedZones] = useState<Zone[]>([]);
+  const [selectedNiveaux, setSelectedNiveaux] = useState<Niveau[]>([]);
+  const [selectedObjectifs, setSelectedObjectifs] = useState<Objectif[]>([]);
+  const [selectedDurees, setSelectedDurees] = useState<Duree[]>([]);
 
   // Filtrer les actions en fonction des critères sélectionnés
   const filteredActions = useMemo(() => {
     return actions.filter(action => {
-      const matchesZone = selectedZone === "all" || action.zones.includes(selectedZone as Zone);
-      const matchesNiveau = selectedNiveau === "all" || action.niveaux.includes(selectedNiveau as Niveau);
-      const matchesCompetence = selectedCompetence === "all" || action.competences.includes(selectedCompetence as Competence);
-      const matchesDuree = selectedDuree === "all" || action.duree === selectedDuree;
+      const matchesZones = selectedZones.length === 0 || 
+        action.zones.some(zone => selectedZones.includes(zone));
+      const matchesNiveaux = selectedNiveaux.length === 0 || 
+        action.niveaux.some(niveau => selectedNiveaux.includes(niveau));
+      const matchesObjectifs = selectedObjectifs.length === 0 || 
+        action.objectifs.some(objectif => selectedObjectifs.includes(objectif));
+      const matchesDurees = selectedDurees.length === 0 || 
+        selectedDurees.includes(action.duree);
 
-      return matchesZone && matchesNiveau && matchesCompetence && matchesDuree;
+      return matchesZones && matchesNiveaux && matchesObjectifs && matchesDurees;
     });
-  }, [selectedZone, selectedNiveau, selectedCompetence, selectedDuree]);
+  }, [selectedZones, selectedNiveaux, selectedObjectifs, selectedDurees]);
+
+  // Gestionnaires pour la sélection multiple
+  const handleZoneSelect = (zone: Zone) => {
+    setSelectedZones(prev => 
+      prev.includes(zone) 
+        ? prev.filter(z => z !== zone)
+        : [...prev, zone]
+    );
+  };
+
+  const handleNiveauSelect = (niveau: Niveau) => {
+    setSelectedNiveaux(prev => 
+      prev.includes(niveau)
+        ? prev.filter(n => n !== niveau)
+        : [...prev, niveau]
+    );
+  };
+
+  const handleObjectifSelect = (objectif: Objectif) => {
+    setSelectedObjectifs(prev =>
+      prev.includes(objectif)
+        ? prev.filter(o => o !== objectif)
+        : [...prev, objectif]
+    );
+  };
+
+  const handleDureeSelect = (duree: Duree) => {
+    setSelectedDurees(prev =>
+      prev.includes(duree)
+        ? prev.filter(d => d !== duree)
+        : [...prev, duree]
+    );
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -67,74 +105,74 @@ export default function RechercheActions() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
             {/* Zones */}
             <div className="space-y-2">
-              <Label>Zone d'intervention</Label>
-              <Select value={selectedZone} onValueChange={setSelectedZone}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Sélectionner une zone" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Toutes les zones</SelectItem>
-                  {uniqueZones.map((zone) => (
-                    <SelectItem key={zone} value={zone}>
-                      {zone}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <Label>Zones d'intervention</Label>
+              <div className="space-y-2">
+                {uniqueZones.map((zone) => (
+                  <label key={zone} className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedZones.includes(zone)}
+                      onChange={() => handleZoneSelect(zone)}
+                      className="rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <span className="text-sm">{zone}</span>
+                  </label>
+                ))}
+              </div>
             </div>
 
             {/* Niveaux */}
             <div className="space-y-2">
-              <Label>Niveau</Label>
-              <Select value={selectedNiveau} onValueChange={setSelectedNiveau}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Sélectionner un niveau" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Tous les niveaux</SelectItem>
-                  {uniqueNiveaux.map((niveau) => (
-                    <SelectItem key={niveau} value={niveau}>
-                      {niveau}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <Label>Niveaux</Label>
+              <div className="space-y-2">
+                {uniqueNiveaux.map((niveau) => (
+                  <label key={niveau} className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedNiveaux.includes(niveau)}
+                      onChange={() => handleNiveauSelect(niveau)}
+                      className="rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <span className="text-sm">{niveau}</span>
+                  </label>
+                ))}
+              </div>
             </div>
 
-            {/* Compétences */}
+            {/* Objectifs */}
             <div className="space-y-2">
-              <Label>Compétence</Label>
-              <Select value={selectedCompetence} onValueChange={setSelectedCompetence}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Sélectionner une compétence" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Toutes les compétences</SelectItem>
-                  {uniqueCompetences.map((comp) => (
-                    <SelectItem key={comp} value={comp}>
-                      {comp}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <Label>Objectifs</Label>
+              <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
+                {uniqueObjectifs.map((objectif) => (
+                  <label key={objectif} className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedObjectifs.includes(objectif)}
+                      onChange={() => handleObjectifSelect(objectif)}
+                      className="rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <span className="text-sm">{objectif}</span>
+                  </label>
+                ))}
+              </div>
             </div>
 
             {/* Durées */}
             <div className="space-y-2">
-              <Label>Durée</Label>
-              <Select value={selectedDuree} onValueChange={setSelectedDuree}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Sélectionner une durée" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Toutes les durées</SelectItem>
-                  {uniqueDurees.map((duree) => (
-                    <SelectItem key={duree} value={duree}>
-                      {duree}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <Label>Durées</Label>
+              <div className="space-y-2">
+                {uniqueDurees.map((duree) => (
+                  <label key={duree} className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedDurees.includes(duree)}
+                      onChange={() => handleDureeSelect(duree)}
+                      className="rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <span className="text-sm">{duree}</span>
+                  </label>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -178,10 +216,10 @@ export default function RechercheActions() {
                     </div>
                     
                     <div>
-                      <p className="font-medium mb-2">Compétences développées :</p>
+                      <p className="font-medium mb-2">Objectifs :</p>
                       <div className="flex flex-wrap gap-2">
-                        {action.competences.map((comp, i) => (
-                          <Badge key={i} variant="outline">{comp}</Badge>
+                        {action.objectifs.map((objectif, i) => (
+                          <Badge key={i} variant="outline">{objectif}</Badge>
                         ))}
                       </div>
                     </div>
