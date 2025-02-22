@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Newspaper, ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 interface LinkedInPost {
   url: string;
@@ -17,23 +17,14 @@ const News = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data, error } = await supabase.functions.invoke('scrape-linkedin');
+        const { data: response, error } = await supabase.functions.invoke('scrape-linkedin');
         
-        if (error) {
-          throw error;
+        if (error) throw error;
+        if (!response?.success || !response?.data) {
+          throw new Error(response?.error || 'Failed to fetch posts');
         }
 
-        if (data && data.data) {
-          // Transform the scraped data into the format we need
-          const formattedPosts = data.data
-            .slice(0, 3)
-            .map((post: any) => ({
-              url: post.url || "",
-              title: post.title || "Publication LinkedIn"
-            }));
-
-          setPosts(formattedPosts);
-        }
+        setPosts(response.data);
       } catch (error) {
         console.error('Error fetching LinkedIn posts:', error);
         toast({
@@ -58,7 +49,7 @@ const News = () => {
             <Newspaper className="h-6 w-6 text-primary mr-3" />
           </div>
           <a 
-            href="https://www.linkedin.com/in/dispositifidee/" 
+            href="https://www.linkedin.com/company/dispositifidee/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
