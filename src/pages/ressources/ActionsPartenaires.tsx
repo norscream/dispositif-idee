@@ -1,7 +1,10 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft, Search } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, BookOpen, Mail, Building, Search } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { actionsPartenaires } from "@/data/actionsPartenaires";
 
 export default function ActionsPartenaires() {
   return (
@@ -40,7 +43,85 @@ export default function ActionsPartenaires() {
             </Link>
           </div>
           
-          {/* La liste des actions sera ajoutée ici une fois que vous me l'aurez transmise */}
+          <div className="space-y-8">
+            {actionsPartenaires.map((action, index) => (
+              <Card key={index} className="overflow-hidden">
+                <div className="h-64 overflow-hidden relative">
+                  <img 
+                    src={action.image} 
+                    alt={action.title} 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-2xl">{action.title}</CardTitle>
+                  <CardDescription className="text-base">{action.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-2">
+                      <MapPin className="h-5 w-5 text-primary mt-1 shrink-0" />
+                      <div>
+                        <p className="font-medium mb-2">Zones d'intervention :</p>
+                        <div className="flex flex-wrap gap-2">
+                          {action.zones.map((zone, i) => (
+                            <Badge key={i} variant="secondary">{zone}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2">
+                      <BookOpen className="h-5 w-5 text-primary mt-1 shrink-0" />
+                      <div>
+                        <p className="font-medium mb-2">Niveaux :</p>
+                        <div className="flex flex-wrap gap-2">
+                          {action.niveaux.map((niveau, i) => (
+                            <Badge key={i} variant="secondary">{niveau}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-2">
+                      <Building className="h-5 w-5 text-primary mt-1 shrink-0" />
+                      <div>
+                        <p className="font-medium mb-2">Objectifs :</p>
+                        <div className="flex flex-wrap gap-2">
+                          {action.objectifs.map((objectif, i) => (
+                            <Badge key={i} variant="outline">{objectif}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-5 w-5 text-primary shrink-0" />
+                      <div className="flex items-center gap-2">
+                        <span className="font-medium">Durée :</span> {action.duree}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <Building className="h-5 w-5 text-primary shrink-0" />
+                      <div className="flex items-center gap-2">
+                        <span className="font-medium">Partenaire :</span> {action.partenaire}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link
+                    to="/contact"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
+                  >
+                    <Mail className="h-4 w-4" />
+                    Je suis intéressé(e) par cette action
+                  </Link>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>
