@@ -1,6 +1,6 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function ActionsPartenaires() {
@@ -16,20 +16,31 @@ export default function ActionsPartenaires() {
           Retour
         </Link>
         
-        <h1 className="text-4xl font-bold mb-8">Les actions de nos partenaires</h1>
-        <div className="prose max-w-3xl">
-          <p className="text-lg text-gray-600 mb-6">
-            Découvrez les initiatives et projets menés par nos partenaires pour 
-            soutenir l'éducation entrepreneuriale et l'engagement des jeunes.
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold mb-8">Les actions de nos partenaires</h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Les actions de nos partenaires, tournées vers l'esprit d'entreprendre, viennent enrichir notre offre en proposant 
+            aux élèves des expériences variées. Soumises à un processus de{" "}
+            <Link to="/ressources/labellisation" className="text-primary hover:text-primary-dark underline">
+              labellisation
+            </Link>{" "}
+            en amont, elles garantissent des opportunités de qualité pour développer confiance, autonomie et capacité à agir.
           </p>
+
+          <div className="bg-primary/5 border border-primary/10 rounded-xl p-8 mb-12">
+            <p className="text-xl font-medium mb-4">
+              Trouvez l'action qui correspond le mieux à vos besoins en quelques clics !
+            </p>
+            <Link 
+              to="/ressources/recherche-actions"
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg transition-colors shadow-lg hover:shadow-xl"
+            >
+              <Search className="h-5 w-5" />
+              Rechercher une action
+            </Link>
+          </div>
           
-          <h2 className="text-2xl font-semibold mt-8 mb-4">Collaborations et partenariats</h2>
-          <ul className="list-disc pl-6 space-y-3">
-            <li>Projets éducatifs innovants</li>
-            <li>Événements collaboratifs</li>
-            <li>Programmes d'accompagnement</li>
-            <li>Initiatives territoriales</li>
-          </ul>
+          {/* La liste des actions sera ajoutée ici une fois que vous me l'aurez transmise */}
         </div>
       </div>
     </div>
