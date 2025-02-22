@@ -1,7 +1,54 @@
 
+import { useEffect, useState } from "react";
 import { Newspaper, ArrowRight } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/components/ui/use-toast";
+
+interface LinkedInPost {
+  url: string;
+  title: string;
+}
 
 const News = () => {
+  const [posts, setPosts] = useState<LinkedInPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const { data, error } = await supabase.functions.invoke('scrape-linkedin');
+        
+        if (error) {
+          throw error;
+        }
+
+        if (data && data.data) {
+          // Transform the scraped data into the format we need
+          const formattedPosts = data.data
+            .slice(0, 3)
+            .map((post: any) => ({
+              url: post.url || "",
+              title: post.title || "Publication LinkedIn"
+            }));
+
+          setPosts(formattedPosts);
+        }
+      } catch (error) {
+        console.error('Error fetching LinkedIn posts:', error);
+        toast({
+          title: "Erreur",
+          description: "Impossible de charger les publications LinkedIn",
+          variant: "destructive"
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
     <section id="actualites" className="py-16 px-4">
       <div className="container mx-auto">
@@ -20,33 +67,24 @@ const News = () => {
           </a>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          <iframe 
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7293613919326142464?postView=IMAGES" 
-            height="500" 
-            width="100%" 
-            frameBorder="0" 
-            allowFullScreen 
-            className="rounded-xl shadow-sm"
-            title="Publication LinkedIn 1"
-          ></iframe>
-          <iframe 
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7287770276363206656?postView=IMAGES" 
-            height="500" 
-            width="100%" 
-            frameBorder="0" 
-            allowFullScreen 
-            className="rounded-xl shadow-sm"
-            title="Publication LinkedIn 2"
-          ></iframe>
-          <iframe 
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7269281787531464705?postView=IMAGES" 
-            height="500" 
-            width="100%" 
-            frameBorder="0" 
-            allowFullScreen 
-            className="rounded-xl shadow-sm"
-            title="Publication LinkedIn 3"
-          ></iframe>
+          {isLoading ? (
+            Array(3).fill(0).map((_, i) => (
+              <div key={i} className="animate-pulse bg-gray-200 rounded-xl h-[500px]" />
+            ))
+          ) : (
+            posts.map((post, index) => (
+              <iframe 
+                key={index}
+                src={`${post.url}?postView=IMAGES`}
+                height="500" 
+                width="100%" 
+                frameBorder="0" 
+                allowFullScreen 
+                className="rounded-xl shadow-sm"
+                title={post.title}
+              />
+            ))
+          )}
         </div>
       </div>
     </section>
