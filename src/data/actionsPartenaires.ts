@@ -1,6 +1,20 @@
 
 export const actionsPartenaires = [
   {
+    title: "Programme Écoles Imagine",
+    description: "Le Programme Écoles Imagine vise à épanouir les jeunes générations en les impliquant dans des projets collectifs pour une société plus inclusive et durable. Ce programme développe les compétences psychosociales des élèves à travers des activités variées et ludiques, favorisant ainsi une dynamique de cohésion entre les élèves et les enseignants. Il facilite également l'acquisition du label E3D grâce aux projets solidaires réalisés.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["École", "Collège", "Lycée"],
+    objectifs: [
+      "Favoriser l'initiative, la prise de décision et l'autonomie",
+      "Expérimenter la gestion de projet et le travail collaboratif",
+      "Sensibiliser aux enjeux économiques et sociaux"
+    ],
+    duree: "Variable selon le projet",
+    partenaire: "Le Projet Imagine",
+    image: "/lovable-uploads/7801aae5-1375-471b-9e1b-98b7aa6e1fc4.png"
+  },
+  {
     title: "Collège Énergie",
     description: "Les élèves visitent le CCG de Bouchain et découvrent les métiers de l'énergie en explorant la production et la consommation d'électricité. L'après-midi, ils travaillent en équipe sur une tâche complexe liée au mix énergétique et présentent leurs résultats sous forme de pitch vidéo.",
     zones: ["Région académique Hauts-de-France"],
