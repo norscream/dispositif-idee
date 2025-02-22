@@ -15,24 +15,31 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-// Extraire tous les critères uniques des actions
-const uniqueZones = [...new Set(actions.flatMap(action => action.zones))];
-const uniqueNiveaux = [...new Set(actions.flatMap(action => action.niveaux))];
-const uniqueCompetences = [...new Set(actions.flatMap(action => action.competences))];
-const uniqueDurees = [...new Set(actions.map(action => action.duree))];
+// Définir les types basés sur les actions
+type Action = typeof actions[number];
+type Zone = Action['zones'][number];
+type Niveau = Action['niveaux'][number];
+type Competence = Action['competences'][number];
+type Duree = Action['duree'];
+
+// Extraire tous les critères uniques des actions avec le bon typage
+const uniqueZones = [...new Set(actions.flatMap(action => action.zones))] as Zone[];
+const uniqueNiveaux = [...new Set(actions.flatMap(action => action.niveaux))] as Niveau[];
+const uniqueCompetences = [...new Set(actions.flatMap(action => action.competences))] as Competence[];
+const uniqueDurees = [...new Set(actions.map(action => action.duree))] as Duree[];
 
 export default function RechercheActions() {
-  const [selectedZone, setSelectedZone] = useState<string>("all");
-  const [selectedNiveau, setSelectedNiveau] = useState<string>("all");
-  const [selectedCompetence, setSelectedCompetence] = useState<string>("all");
-  const [selectedDuree, setSelectedDuree] = useState<string>("all");
+  const [selectedZone, setSelectedZone] = useState<Zone | "all">("all");
+  const [selectedNiveau, setSelectedNiveau] = useState<Niveau | "all">("all");
+  const [selectedCompetence, setSelectedCompetence] = useState<Competence | "all">("all");
+  const [selectedDuree, setSelectedDuree] = useState<Duree | "all">("all");
 
   // Filtrer les actions en fonction des critères sélectionnés
   const filteredActions = useMemo(() => {
     return actions.filter(action => {
-      const matchesZone = selectedZone === "all" || action.zones.includes(selectedZone);
-      const matchesNiveau = selectedNiveau === "all" || action.niveaux.includes(selectedNiveau);
-      const matchesCompetence = selectedCompetence === "all" || action.competences.includes(selectedCompetence);
+      const matchesZone = selectedZone === "all" || action.zones.includes(selectedZone as Zone);
+      const matchesNiveau = selectedNiveau === "all" || action.niveaux.includes(selectedNiveau as Niveau);
+      const matchesCompetence = selectedCompetence === "all" || action.competences.includes(selectedCompetence as Competence);
       const matchesDuree = selectedDuree === "all" || action.duree === selectedDuree;
 
       return matchesZone && matchesNiveau && matchesCompetence && matchesDuree;
