@@ -48,14 +48,14 @@ const Actions = () => {
   return (
     <section id="actions" className="py-16 px-4 bg-gray-50">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Nos champs d'action</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Nos missions</h2>
         <div className="flex justify-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
             {actions.map((action, index) => (
-              <a
+              <Link
                 key={index}
-                href={action.href}
-                className="group flex flex-col items-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in w-full"
+                to={action.href}
+                className="group flex flex-col items-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div 
@@ -66,6 +66,7 @@ const Actions = () => {
                     src={action.imagePath} 
                     alt={action.title}
                     className="w-10 h-10 object-contain"
+                    loading={index < 3 ? "eager" : "lazy"}
                   />
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">{action.title}</h3>
@@ -73,7 +74,7 @@ const Actions = () => {
                 <div className="mt-4 inline-flex items-center text-primary group-hover:text-primary-dark transition-colors">
                   En savoir plus <span className="ml-2">→</span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

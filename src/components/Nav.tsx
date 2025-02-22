@@ -15,7 +15,7 @@ const actionLinks = [
   { href: "/ressources", label: "Créer des ressources" },
   { href: "/reseau", label: "Mettre en lien" },
   { href: "/valoriser", label: "Célébrer et valoriser" },
-  { href: "/concretisation", label: "Concrétisation de projet" }
+  { href: "/concretisation", label: "Concrétiser des projets" }
 ];
 
 const resourceLinks = [
@@ -41,10 +41,13 @@ export const Nav = () => {
       <DropdownMenuTrigger className="nav-link flex items-center">
         {trigger} <ChevronDown className="ml-1 h-4 w-4" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-white">
+      <DropdownMenuContent>
         {items.map((item) => (
           <DropdownMenuItem key={item.href} asChild>
-            <Link to={item.href} className="w-full">
+            <Link 
+              to={item.href} 
+              className="w-full text-sm py-2 px-4 hover:bg-gray-50 transition-colors"
+            >
               {item.label}
             </Link>
           </DropdownMenuItem>
@@ -63,15 +66,19 @@ export const Nav = () => {
                 src="/lovable-uploads/bc160d8a-3124-44e1-b43d-725c8f2f2e29.png" 
                 alt="IDÉE - Engager la jeunesse pour l'avenir" 
                 className="h-full w-auto"
+                loading="eager"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <DropdownNavItem trigger="Nos champs d'actions" items={actionLinks} />
+            <DropdownNavItem trigger="Nos missions" items={actionLinks} />
             <DropdownNavItem trigger="Actions disponibles" items={resourceLinks} />
-            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+            <button 
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              aria-label="Rechercher"
+            >
               <Search className="h-5 w-5 text-gray-600" />
             </button>
           </div>
@@ -81,6 +88,7 @@ export const Nav = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-md hover:bg-gray-100 transition-colors"
+              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6 text-gray-600" />
