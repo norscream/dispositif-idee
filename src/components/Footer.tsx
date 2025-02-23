@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-[#1A1F2C] text-gray-300 mt-auto">
       <div className="container mx-auto py-12 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-white font-semibold mb-4">À propos</h3>
             <p className="text-sm mb-4">
@@ -18,26 +18,6 @@ export function Footer() {
               pour développer des actions liées à l'esprit d'entreprendre et entre dans une 
               démarche globale de développement économique de la Région Hauts-de-France.
             </p>
-          </div>
-          <div>
-            <h3 className="text-white font-semibold mb-4">Mentions légales</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/mentions-legales" className="hover:text-white transition-colors">
-                  Mentions légales
-                </Link>
-              </li>
-              <li>
-                <Link to="/politique-confidentialite" className="hover:text-white transition-colors">
-                  Politique de confidentialité
-                </Link>
-              </li>
-              <li>
-                <Link to="/cgu" className="hover:text-white transition-colors">
-                  Conditions générales d'utilisation
-                </Link>
-              </li>
-            </ul>
           </div>
           <div>
             <h3 className="text-white font-semibold mb-4">Contact</h3>
