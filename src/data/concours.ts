@@ -1,4 +1,3 @@
-
 import { Concours } from "@/types/concours";
 
 export const concours: Concours[] = [
@@ -120,5 +119,26 @@ export const concours: Concours[] = [
         logo: "/lovable-uploads/709103e0-429a-4f7e-b8bb-92cd8eae1c52.png"
       }
     ]
+  },
+  {
+    nom: "Les Bâtisseurs de demain",
+    objectif: "Sensibiliser les jeunes aux métiers et aux innovations du bâtiment et des travaux publics, en leur faisant découvrir les nouvelles technologies et les enjeux environnementaux du secteur.",
+    public: ["Collégiens", "Lycéens", "Apprentis"],
+    presentation: "Les Bâtisseurs de demain est un concours qui permet aux élèves de découvrir les métiers du bâtiment et des travaux publics à travers un projet concret. Les participants sont amenés à imaginer et concevoir un projet de construction innovant, en tenant compte des enjeux environnementaux et des nouvelles technologies du secteur.",
+    livrables: [
+      "Dossier de présentation du projet",
+      "Maquette numérique ou physique",
+      "Support de présentation pour le jury",
+      "Documentation technique",
+      "Analyse des impacts environnementaux",
+      "Planning prévisionnel"
+    ],
+    logo: "/lovable-uploads/3cd6663f-e088-4761-88a5-4138ee393ecf.png",
+    partenaires: [
+      {
+        nom: "Région Académique Hauts-de-France",
+        logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
+      }
+    ]
   }
-];
+] as const;
