@@ -1,3 +1,4 @@
+
 import { Nav } from "@/components/Nav";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -10,9 +11,9 @@ import { actionsPartenaires } from "@/data/actionsPartenaires";
 import { allCities, type City, getCityAcademy } from "@/data/cities";
 
 // Combiner les deux types d'actions
-const allActions = [...actions, ...actionsPartenaires];
+const allActions = [...actions, ...actionsPartenaires] as const;
 
-type Action = typeof allActions[number];
+type Action = (typeof allActions)[number];
 type Niveau = Action['niveaux'][number];
 type Objectif = Action['objectifs'][number];
 
