@@ -9,43 +9,40 @@ const jeux = [
     id: 1,
     titre: "CONCEPT",
     editeur: "ASMODEE",
-    description: "Plus besoin de parler pour communiquer. Par équipes, faites deviner des mots aux autres joueurs en plaçant des pions sur différentes icônes du plateau.",
+    description: "Plus besoin de parler pour communiquer. Par équipes, faites deviner des mots aux autres joueurs en plaçant des pions sur différentes icônes du plateau. Grâce aux nombreuses icônes et aux possibilités offertes par leurs interactions, il existe plusieurs façons de faire deviner chaque mot... mais ce ne sont pas les concepts les plus simples qui sont les plus faciles à faire deviner.",
     type: "Jeu de société",
     duree: "40 min",
-    joueurs: "4-12",
+    joueurs: "4-15",
     age: "10+",
     competences: ["Créativité", "Communication"],
     niveau: ["Lycée", "BTS"],
-    image: "/placeholder.svg",
-    video: "https://youtu.be/HXG_azOnris"
+    image: "/placeholder.svg"
   },
   {
     id: 2,
     titre: "CONCEPT KIDS",
     editeur: "ASMODEE",
-    description: "Une version adaptée aux enfants du célèbre jeu Concept, où les joueurs font deviner des animaux à l'aide d'icônes.",
+    description: "Formez une pioche de 12 cartes. Un adulte pioche une première carte sans la regarder. Les enfants vont utiliser l'un après l'autre les icônes du plateau de jeu Concept Kids Animaux pour faire deviner à l'adulte l'animal sur la carte.",
     type: "Jeu éducatif",
     duree: "20 min",
-    joueurs: "2-12",
+    joueurs: "2-15",
     age: "4+",
     competences: ["Communication"],
     niveau: ["Primaire"],
-    image: "/placeholder.svg",
-    video: "https://youtu.be/8y9kM8YfSps"
+    image: "/placeholder.svg"
   },
   {
     id: 3,
     titre: "LITTLE SECRET",
     editeur: "ATM GAMING",
-    description: "Un jeu d'ambiance et de déduction où les joueurs doivent identifier qui appartient à quelle organisation secrète.",
+    description: "Le Grand Maître organise une réunion : il souhaite vérifier l'appartenance des Disciples à son organisation secrète ! Il confie à tous les membres un mot de passe que seuls les Disciples peuvent comprendre, et ainsi démasquer les Infiltrés et Journaliste.",
     type: "Jeu de société",
     duree: "20 min",
-    joueurs: "3-10",
+    joueurs: "3-15",
     age: "10+",
     competences: ["Créativité", "Communication"],
     niveau: ["Collège", "Lycée", "BTS"],
-    image: "/placeholder.svg",
-    video: "https://youtu.be/bZr6WT34MSo"
+    image: "/placeholder.svg"
   },
   {
     id: 4,
@@ -58,8 +55,19 @@ const jeux = [
     age: "8+",
     competences: ["Coopération", "Communication", "Ecoute de l'autre"],
     niveau: ["Primaire", "Collège", "Lycée", "BTS"],
-    image: "/placeholder.svg",
-    video: "https://youtu.be/QvEfUdi3vo4"
+    image: "/placeholder.svg"
+  },
+  {
+    id: 25,
+    titre: "PARACHUTE COOPERATIF",
+    editeur: "DECATHLON",
+    description: "Le parachute est une grande toile résistante de forme circulaire constitué de fuseaux de couleurs différents, de diamètre variable, avec ou sans ouverture centrale et poignées. Cet outil permet de développer la coopération et l'esprit d'équipe.",
+    type: "Jeu coopératif",
+    joueurs: "6-12",
+    age: "6+",
+    competences: ["Coopération", "Stratégie", "Communication", "Observation"],
+    niveau: ["Primaire", "Collège"],
+    image: "/placeholder.svg"
   }
 ];
 
