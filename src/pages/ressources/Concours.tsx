@@ -40,6 +40,28 @@ const concours = [
         logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
       }
     ]
+  },
+  {
+    nom: "Greenpower",
+    objectif: "Greenpower incite les jeunes à découvrir leur potentiel et à se passionner pour les sciences, la technologie, l'ingénierie et les mathématiques (STEM). Pour ce faire, nous lançons un défi unique : Conception, construction et course d'une voiture électrique. Greenpower fait partie de l'organisation internationale Greenpower Education Trust. Son objectif est d'initier les élèves aux professions STEM d'une manière ludique mais réaliste.",
+    public: ["lycée professionnels"],
+    presentation: "Nous aidons les enseignants à mettre en place un projet conforme au programme scolaire. De plus, et c'est là que ça devient amusant, nous offrons un environnement sûr pour participer à des concours avec des voitures conçues et construites par les élèves eux-mêmes. En outre, Greenpower donne aux entreprises et aux marques liées aux STIM une visibilité dans le projet. De cette manière, nous mettons en contact les futurs employeurs et les jeunes talents à un stade précoce, dans un environnement inspirant et encadré.",
+    livrables: [
+      "Conception et construction du véhicule : réalisation d'une voiture électrique fonctionnelle conforme aux spécifications techniques",
+      "Documentation du projet : présentation détaillée du processus de conception, des choix techniques et des rôles au sein de l'équipe",
+      "Participation aux courses : présence aux événements compétitifs pour évaluer les performances du véhicule et de l'équipe"
+    ],
+    logo: "/lovable-uploads/c72085c2-8055-4598-aae0-5330981ab08f.png",
+    partenaires: [
+      {
+        nom: "GIP FCIP Lille Hauts-de-France",
+        logo: "/lovable-uploads/5d2ac1aa-961c-45e5-849d-3feea8cddb4c.png"
+      },
+      {
+        nom: "Région Académique Hauts-de-France",
+        logo: "/lovable-uploads/4e59e2a6-f6bd-4292-8674-ad1690b59f8c.png"
+      }
+    ]
   }
 ];
 
