@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -22,9 +21,9 @@ const resourceLinks = [
   { href: "/ressources/nos-actions", label: "Nos actions" },
   { href: "/ressources/actions-partenaires", label: "Les actions de nos partenaires" },
   { href: "/ressources/ludopedagogie", label: "Ludopédagogie" },
+  { href: "/ressources/concours", label: "Concours" },
   { href: "/ressources/labellisation", label: "Labéllisation" },
-  { href: "/ressources/recherche-actions", label: "Rechercher une action" },
-  { href: "/ressources/concours", label: "Concours" }
+  { href: "/ressources/recherche-actions", label: "Rechercher une action" }
 ];
 
 export const Nav = () => {
