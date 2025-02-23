@@ -1,3 +1,4 @@
+
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Send, Info, Users, Clock, Gamepad2 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -159,7 +160,7 @@ export default function Ludopedagogie() {
             <Card key={jeu.id} className="hover:shadow-lg transition-shadow">
               <div className="aspect-video w-full overflow-hidden">
                 <img
-                  src={jeu.image}
+                  src={jeu.image || "/placeholder.svg"}
                   alt={`Image du jeu ${jeu.titre}`}
                   className="w-full h-full object-cover"
                 />
@@ -168,49 +169,63 @@ export default function Ludopedagogie() {
                 <div className="flex justify-between items-start">
                   <div>
                     <CardTitle className="text-xl">{jeu.titre}</CardTitle>
-                    <CardDescription className="text-sm">{jeu.editeur}</CardDescription>
+                    {jeu.editeur && (
+                      <CardDescription className="text-sm">{jeu.editeur}</CardDescription>
+                    )}
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">{jeu.description}</p>
+                {jeu.description && (
+                  <p className="text-sm text-gray-600 mt-2">{jeu.description}</p>
+                )}
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Clock className="h-4 w-4 text-primary" />
-                    <span>Durée : {jeu.duree}</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Users className="h-4 w-4 text-primary" />
-                    <span>Nombre de joueurs : {jeu.joueurs}</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Gamepad2 className="h-4 w-4 text-primary" />
-                    <span>Âge recommandé : {jeu.age}</span>
-                  </div>
-                  
-                  <div>
-                    <p className="text-sm font-medium mb-2">Compétences développées :</p>
-                    <div className="flex flex-wrap gap-2">
-                      {jeu.competences.map((competence, index) => (
-                        <Badge key={index} variant="secondary">
-                          {competence}
-                        </Badge>
-                      ))}
+                  {jeu.duree && (
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <Clock className="h-4 w-4 text-primary" />
+                      <span>Durée : {jeu.duree}</span>
                     </div>
-                  </div>
+                  )}
+                  
+                  {jeu.joueurs && (
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <Users className="h-4 w-4 text-primary" />
+                      <span>Nombre de joueurs : {jeu.joueurs}</span>
+                    </div>
+                  )}
+                  
+                  {jeu.age && (
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <Gamepad2 className="h-4 w-4 text-primary" />
+                      <span>Âge recommandé : {jeu.age}</span>
+                    </div>
+                  )}
+                  
+                  {jeu.competences && jeu.competences.length > 0 && (
+                    <div>
+                      <p className="text-sm font-medium mb-2">Compétences développées :</p>
+                      <div className="flex flex-wrap gap-2">
+                        {jeu.competences.map((competence, index) => (
+                          <Badge key={index} variant="secondary">
+                            {competence}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-                  <div>
-                    <p className="text-sm font-medium mb-2">Public cible :</p>
-                    <div className="flex flex-wrap gap-2">
-                      {jeu.niveau.map((niv, index) => (
-                        <Badge key={index} variant="secondary" className="bg-primary/10 text-primary">
-                          {niv}
-                        </Badge>
-                      ))}
+                  {jeu.niveau && jeu.niveau.length > 0 && (
+                    <div>
+                      <p className="text-sm font-medium mb-2">Public cible :</p>
+                      <div className="flex flex-wrap gap-2">
+                        {jeu.niveau.map((niv, index) => (
+                          <Badge key={index} variant="secondary" className="bg-primary/10 text-primary">
+                            {niv}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
