@@ -8,9 +8,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-white font-semibold mb-4">À propos</h3>
-            <p className="text-sm">
+            <p className="text-sm mb-4">
               IDÉE - Engager la jeunesse pour l'avenir est une association qui promeut l'engagement des jeunes 
               à travers des actions innovantes et ludiques.
+            </p>
+            <p className="text-sm">
+              Le dispositif IDEE est soutenu par la région Hauts-de-France et par l'Europe. 
+              Il bénéficie d'un appui du Fonds Européen de Développement Régional (FEDER) 
+              pour développer des actions liées à l'esprit d'entreprendre et entre dans une 
+              démarche globale de développement économique de la Région Hauts-de-France.
             </p>
           </div>
           <div>
