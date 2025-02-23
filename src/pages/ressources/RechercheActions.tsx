@@ -18,7 +18,6 @@ const allActions = [...actions, ...actionsPartenaires] as const;
 type ActionType = (typeof actions)[number] | (typeof actionsPartenaires)[number];
 type ZoneType = ActionType["zones"][number];
 type NiveauType = ActionType["niveaux"][number];
-type ObjectifType = ActionType["objectifs"][number];
 
 // Définir l'ordre spécifique des zones
 const zoneOrder = [
@@ -36,16 +35,14 @@ type ActivityType = "action" | "concours";
 export default function RechercheActions() {
   const [selectedZones, setSelectedZones] = useState<ZoneType[]>([]);
   const [selectedNiveaux, setSelectedNiveaux] = useState<NiveauType[]>([]);
-  const [selectedObjectifs, setSelectedObjectifs] = useState<ObjectifType[]>([]);
   const [activityType, setActivityType] = useState<ActivityType>("action");
 
   // Extraire et trier les critères uniques
   const uniqueZones = zoneOrder;
   const uniqueNiveaux = niveauOrder;
-  const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as ObjectifType[];
 
   // Vérifier si au moins une case est cochée
-  const hasActiveFilters = selectedZones.length > 0 || selectedNiveaux.length > 0 || selectedObjectifs.length > 0;
+  const hasActiveFilters = selectedZones.length > 0 || selectedNiveaux.length > 0;
 
   // Filtrer les actions en fonction des critères sélectionnés
   const filteredActions = useMemo(() => {
@@ -69,12 +66,10 @@ export default function RechercheActions() {
         
       const matchesNiveaux = selectedNiveaux.length === 0 || 
         action.niveaux.some(niveau => selectedNiveaux.includes(niveau));
-      const matchesObjectifs = selectedObjectifs.length === 0 || 
-        action.objectifs.some(objectif => selectedObjectifs.includes(objectif));
 
-      return matchesZones && matchesNiveaux && matchesObjectifs;
+      return matchesZones && matchesNiveaux;
     });
-  }, [selectedZones, selectedNiveaux, selectedObjectifs, hasActiveFilters, activityType]);
+  }, [selectedZones, selectedNiveaux, hasActiveFilters, activityType]);
 
   // Filtrer les concours en fonction des niveaux sélectionnés
   const filteredConcours = useMemo(() => {
@@ -109,14 +104,6 @@ export default function RechercheActions() {
     );
   };
 
-  const handleObjectifSelect = (objectif: ObjectifType) => {
-    setSelectedObjectifs(prev =>
-      prev.includes(objectif)
-        ? prev.filter(o => o !== objectif)
-        : [...prev, objectif]
-    );
-  };
-
   return (
     <div className="min-h-screen bg-white">
       <Nav />
@@ -135,7 +122,7 @@ export default function RechercheActions() {
             Sélectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
             {/* Type d'activité */}
             <div className="space-y-2">
               <Label>Type d'activité</Label>
@@ -196,26 +183,6 @@ export default function RechercheActions() {
                 ))}
               </div>
             </div>
-
-            {/* Objectifs - seulement visible pour les actions de sensibilisation */}
-            {activityType === "action" && (
-              <div className="space-y-2">
-                <Label>Objectifs</Label>
-                <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
-                  {uniqueObjectifs.map((objectif) => (
-                    <label key={objectif} className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        checked={selectedObjectifs.includes(objectif)}
-                        onChange={() => handleObjectifSelect(objectif)}
-                        className="rounded border-gray-300 text-primary focus:ring-primary"
-                      />
-                      <span className="text-sm">{objectif}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Résultats */}
