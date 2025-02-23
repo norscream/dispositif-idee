@@ -29,6 +29,14 @@ const resourceLinks = [
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const DropdownNavItem = ({ 
     trigger, 
     items 
@@ -80,12 +88,12 @@ export const Nav = () => {
             >
               Rechercher une action
             </Link>
-            <Link 
-              to="/#contact"
+            <button 
+              onClick={handleContactClick}
               className="text-gray-700 hover:text-primary transition-colors"
             >
               Nous contacter
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -133,12 +141,12 @@ export const Nav = () => {
               >
                 Rechercher une action
               </Link>
-              <Link
-                to="/#contact"
-                className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
+              <button
+                onClick={handleContactClick}
+                className="px-4 py-2 text-left hover:bg-gray-50 rounded-md transition-colors"
               >
                 Nous contacter
-              </Link>
+              </button>
             </div>
           </div>
         )}
