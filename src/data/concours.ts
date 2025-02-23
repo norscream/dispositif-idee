@@ -5,7 +5,7 @@ export const concours: Concours[] = [
   {
     nom: "Course en Cours",
     objectif: "Course en Cours est un dispositif pédagogique original qui permet aux collégiens et lycéens de s'investir dans un projet pluridisciplinaire de conception d'une mini voiture de course. Ce concours vise à susciter des vocations pour les filières scientifiques et techniques tout en développant l'esprit d'équipe et d'innovation.",
-    public: ["Collégiens", "Lycéens"],
+    public: ["Collège", "Lycée"],
     presentation: "Les équipes doivent concevoir, fabriquer et faire courir une mini voiture de course propulsée par un moteur électrique. Les élèves travaillent comme une véritable écurie de course : design, fabrication, marketing, gestion de projet... Le projet se conclut par des épreuves régionales puis une grande finale nationale où les équipes présentent leur travail et font concourir leurs véhicules.",
     livrables: [
       "Voiture de course miniature fonctionnelle",
@@ -26,7 +26,7 @@ export const concours: Concours[] = [
   {
     nom: "La Robotique pour Tous",
     objectif: "La Robotique pour Tous vise à démocratiser l'accès à la robotique et à la programmation pour les élèves de tous niveaux. Ce concours encourage la créativité, le travail d'équipe et l'apprentissage par la pratique, tout en développant des compétences techniques essentielles.",
-    public: ["Primaire", "Collégiens", "Lycéens"],
+    public: ["École", "Collège", "Lycée"],
     presentation: "Ce concours permet aux élèves de découvrir la robotique de manière ludique et pédagogique. Les participants travaillent en équipe pour concevoir, programmer et présenter des projets robotiques innovants. L'accent est mis sur l'accessibilité et l'inclusion, permettant à tous les élèves de s'initier à la robotique quelle que soit leur expérience préalable.",
     livrables: [
       "Robot fonctionnel",
@@ -47,7 +47,7 @@ export const concours: Concours[] = [
   {
     nom: "Skillbot",
     objectif: "Le Challenge Skillbot est une initiative des académies d'Amiens et de Lille, en partenariat avec l'UIMM Hauts-de-France, visant à promouvoir les sciences, la technologie et l'innovation auprès des élèves. En concevant un robot personnalisé, les participants développent des compétences en créativité, autonomie, travail d'équipe et gestion de projet, tout en découvrant les métiers industriels.",
-    public: ["CM1", "CM2", "6ème", "5ème", "4ème", "3ème"],
+    public: ["École", "Collège"],
     presentation: "L'édition 2024-2025 met l'accent sur l'énergie de demain, en lien avec l'essor de l'électromobilité dans la région. Avec l'implantation de trois gigafactories (ACC, Envision, Verkor), plus de 13 000 emplois qualifiés seront créés d'ici 2026. Skillbot s'inscrit ainsi dans cette transformation industrielle en sensibilisant les jeunes aux opportunités du secteur.",
     livrables: [
       "Fiche de progression à renseigner sur le site",
@@ -76,7 +76,7 @@ export const concours: Concours[] = [
   {
     nom: "Greenpower",
     objectif: "Greenpower incite les jeunes à découvrir leur potentiel et à se passionner pour les sciences, la technologie, l'ingénierie et les mathématiques (STEM). Pour ce faire, nous lançons un défi unique : Conception, construction et course d'une voiture électrique. Greenpower fait partie de l'organisation internationale Greenpower Education Trust. Son objectif est d'initier les élèves aux professions STEM d'une manière ludique mais réaliste.",
-    public: ["lycées professionnels"],
+    public: ["Lycée"],
     presentation: "Nous aidons les enseignants à mettre en place un projet conforme au programme scolaire. De plus, et c'est là que ça devient amusant, nous offrons un environnement sûr pour participer à des concours avec des voitures conçues et construites par les élèves eux-mêmes. En outre, Greenpower donne aux entreprises et aux marques liées aux STIM une visibilité dans le projet. De cette manière, nous mettons en contact les futurs employeurs et les jeunes talents à un stade précoce, dans un environnement inspirant et encadré.",
     livrables: [
       "Conception et construction du véhicule : réalisation d'une voiture électrique fonctionnelle conforme aux spécifications techniques",
@@ -98,7 +98,7 @@ export const concours: Concours[] = [
   {
     nom: "Regard sur l'industrie",
     objectif: "Le concours Regard sur l'industrie est un concours de photos et vidéos mettant en scène l'industrie dans les Hauts-de-France. Il a pour objectif de valoriser l'industrie à travers le regard des jeunes et de faire découvrir la diversité des métiers industriels, tout en développant leur créativité et leur sens artistique.",
-    public: ["Collégiens", "Lycéens", "Étudiants", "Apprentis"],
+    public: ["Collège", "Lycée", "Post bac"],
     presentation: "Les participants sont invités à produire une photo ou une vidéo illustrant l'industrie dans la région Hauts-de-France. Les productions devront mettre en valeur les aspects humains, technologiques ou environnementaux de l'industrie moderne. Ce concours offre l'opportunité de découvrir l'industrie d'aujourd'hui et de demain tout en exprimant sa créativité.",
     livrables: [
       "Une photographie ou une vidéo originale",
@@ -123,7 +123,7 @@ export const concours: Concours[] = [
   {
     nom: "Top la vie dans mon lycée",
     objectif: "Le concours 'Top la vie dans mon lycée' vise à améliorer le cadre de vie des lycéens en les impliquant directement dans des projets concrets. Cette initiative encourage les élèves à devenir acteurs de leur environnement scolaire en proposant et en réalisant des projets qui améliorent leur quotidien au lycée.",
-    public: ["Lycéens"],
+    public: ["Lycée"],
     presentation: "Les lycéens sont invités à proposer des projets innovants pour améliorer la vie quotidienne dans leur établissement. Ces projets peuvent toucher différents aspects : le bien-être, l'environnement, la culture, le sport, la citoyenneté, ou encore le numérique. L'objectif est de développer l'esprit d'initiative des élèves tout en les responsabilisant sur leur rôle dans la communauté scolaire.",
     livrables: [
       "Description détaillée du projet",
@@ -144,7 +144,7 @@ export const concours: Concours[] = [
   {
     nom: "CGénial",
     objectif: "Le concours CGénial a pour ambition de promouvoir l'enseignement des sciences et des techniques dans les collèges et lycées, par la sélection de projets d'équipes réunissant les élèves et leurs enseignants. Il permet aux jeunes de présenter un projet innovant dans les domaines scientifiques et techniques.",
-    public: ["Collégiens", "Lycéens"],
+    public: ["Collège", "Lycée"],
     presentation: "Le concours CGénial comprend deux catégories distinctes : Collège et Lycée. Les projets présentés mettent en avant une démarche scientifique ou technique innovante. Encadrés par leurs enseignants, les élèves travaillent en équipe sur des projets touchant aux grands enjeux de société : santé, sécurité, développement durable, aménagement du territoire...",
     livrables: [
       "Présentation du projet scientifique ou technique",
@@ -166,7 +166,7 @@ export const concours: Concours[] = [
   {
     nom: "Les Bâtisseurs de demain",
     objectif: "Sensibiliser les jeunes aux métiers et aux innovations du bâtiment et des travaux publics, en leur faisant découvrir les nouvelles technologies et les enjeux environnementaux du secteur.",
-    public: ["Collégiens", "Lycéens", "Apprentis"],
+    public: ["Collège", "Lycée"],
     presentation: "Les Bâtisseurs de demain est un concours qui permet aux élèves de découvrir les métiers du bâtiment et des travaux publics à travers un projet concret. Les participants sont amenés à imaginer et concevoir un projet de construction innovant, en tenant compte des enjeux environnementaux et des nouvelles technologies du secteur.",
     livrables: [
       "Dossier de présentation du projet",
