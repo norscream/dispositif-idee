@@ -3,6 +3,20 @@ import { ActionPartenaire } from "@/types/actions";
 
 export const bgeActions: ActionPartenaire[] = [
   {
+    title: "E-kids, les petits entrepreneurs",
+    description: "Cette action vise à initier les élèves au monde de l'entrepreneuriat à travers un jeu en ligne. Les élèves deviennent des entrepreneurs virtuels et doivent prendre des décisions pour développer leur entreprise. Ils découvrent ainsi les différentes facettes de l'entrepreneuriat de manière ludique et interactive. Le jeu est accessible à tous les élèves et peut être utilisé en classe ou à la maison.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["Collège"],
+    objectifs: [
+      "Développer l'esprit entrepreneurial et la créativité",
+      "Découvrir le monde professionnel de façon ludique",
+      "Apprendre à prendre des décisions"
+    ],
+    duree: "3 heures",
+    partenaire: "BGE",
+    image: "/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
+  },
+  {
     title: "Je découvre",
     description: "L'action JE DECOUVRE permet aux élèves de découvrir le Parcours de l'Entrepreneur et d'avoir un aperçu concret des étapes de la création d'une entreprise. Cette première partie s'articule autour d'un échange avec un consultant BGE et d'un travail en équipe via un plateau de jeu. Le but est d'expliquer les éléments pratiques de la démarche de création. La seconde partie sera axée sur la rencontre avec un chef d'entreprise accompagné par BGE, qui témoignera de son parcours, des difficultés éventuelles qu'il a rencontrées, et de la satisfaction qu'il retire de sa création d'entreprise. Il présentera le métier de chef d'entreprise comme une voie professionnelle possible. La conclusion de cette session permettra d'informer sur l'existence de structures spécialisées dans l'accompagnement à la création d'entreprise, et de l'engagement de la Région Hauts de France depuis plusieurs années auprès des entrepreneurs.",
     zones: ["Région académique Hauts-de-France"],
