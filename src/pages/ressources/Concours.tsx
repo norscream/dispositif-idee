@@ -61,6 +61,31 @@ const concours = [
         logo: "/lovable-uploads/4e59e2a6-f6bd-4292-8674-ad1690b59f8c.png"
       }
     ]
+  },
+  {
+    nom: "Regard sur l'industrie",
+    objectif: "Le concours Regard sur l'industrie est un concours de photos et vidéos mettant en scène l'industrie dans les Hauts-de-France. Il a pour objectif de valoriser l'industrie à travers le regard des jeunes et de faire découvrir la diversité des métiers industriels, tout en développant leur créativité et leur sens artistique.",
+    public: ["Collégiens", "Lycéens", "Étudiants", "Apprentis"],
+    presentation: "Les participants sont invités à produire une photo ou une vidéo illustrant l'industrie dans la région Hauts-de-France. Les productions devront mettre en valeur les aspects humains, technologiques ou environnementaux de l'industrie moderne. Ce concours offre l'opportunité de découvrir l'industrie d'aujourd'hui et de demain tout en exprimant sa créativité.",
+    livrables: [
+      "Une photographie ou une vidéo originale",
+      "Un titre pour la production",
+      "Une note d'intention expliquant la démarche",
+      "Une autorisation de droit à l'image si nécessaire",
+      "Un formulaire de participation dûment rempli",
+      "Une attestation sur l'honneur de l'originalité de l'œuvre"
+    ],
+    logo: "/lovable-uploads/37df944d-2e55-4484-9497-829ec4a76805.png",
+    partenaires: [
+      {
+        nom: "UIMM",
+        logo: "/lovable-uploads/bb1de82e-2f89-4c74-b37a-ae31bf2e0f1f.png"
+      },
+      {
+        nom: "Région Académique Hauts-de-France",
+        logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
+      }
+    ]
   }
 ];
 
