@@ -2,47 +2,83 @@
 import { Nav } from "@/components/Nav";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
 import { useState, useMemo } from "react";
-import { allCities, type City, getCityAcademy } from "@/data/cities";
-import { ActionFilters } from "@/components/actions/ActionFilters";
-import { ActionCard } from "@/components/actions/ActionCard";
-import { allActions, type Action, type Niveau, type Objectif, type Zone, validZones } from "@/types/actions";
+import { actions } from "@/data/actions";
+import { actionsPartenaires } from "@/data/actionsPartenaires";
 
+// Combiner les deux types d'actions
+const allActions = [...actions, ...actionsPartenaires];
+
+// Définir les types basés sur les actions
+type Action = typeof allActions[number];
+type Zone = Action['zones'][number];
+type Niveau = Action['niveaux'][number];
+type Objectif = Action['objectifs'][number];
+
+// Définir l'ordre spécifique des zones
+const zoneOrder = [
+  "Région académique Hauts-de-France",
+  "Académie de Lille",
+  "Académie d'Amiens"
+] as const satisfies readonly Zone[];
+
+// Définir l'ordre spécifique des niveaux
+const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const satisfies readonly Niveau[];
+
+// Extraire et trier les critères uniques
+const uniqueZones = zoneOrder;
+const uniqueNiveaux = niveauOrder;
 const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
 
 export default function RechercheActions() {
-  const [selectedCities, setSelectedCities] = useState<City[]>([]);
+  const [selectedZones, setSelectedZones] = useState<Zone[]>([]);
   const [selectedNiveaux, setSelectedNiveaux] = useState<Niveau[]>([]);
   const [selectedObjectifs, setSelectedObjectifs] = useState<Objectif[]>([]);
 
-  const hasActiveFilters = selectedCities.length > 0 || selectedNiveaux.length > 0 || selectedObjectifs.length > 0;
+  // Vérifier si au moins une case est cochée
+  const hasActiveFilters = selectedZones.length > 0 || selectedNiveaux.length > 0 || selectedObjectifs.length > 0;
 
+  // Filtrer les actions en fonction des critères sélectionnés
   const filteredActions = useMemo(() => {
     if (!hasActiveFilters) return [];
     
-    const regionZone: Zone = "Région académique Hauts-de-France";
-    
     return allActions.filter(action => {
-      const matchesCities = selectedCities.length === 0 || 
-        selectedCities.some(city => {
-          const cityAcademy = getCityAcademy(city);
-          return action.zones.includes(cityAcademy) || action.zones.includes(regionZone);
+      const matchesZones = selectedZones.length === 0 || 
+        action.zones.some(zone => {
+          // Si "Région académique Hauts-de-France" est sélectionné, inclure toutes les actions des académies
+          if (selectedZones.includes("Région académique Hauts-de-France")) {
+            return true;
+          }
+          // Si "Académie de Lille" est sélectionné, inclure aussi les actions de la région académique
+          if (selectedZones.includes("Académie de Lille")) {
+            return zone === "Académie de Lille" || zone === "Région académique Hauts-de-France";
+          }
+          // Si "Académie d'Amiens" est sélectionné, inclure aussi les actions de la région académique mais pas celles de Lille
+          if (selectedZones.includes("Académie d'Amiens")) {
+            return zone === "Académie d'Amiens" || zone === "Région académique Hauts-de-France";
+          }
+          // Pour les autres cas, vérifier simplement si la zone correspond
+          return selectedZones.includes(zone);
         });
-
+        
       const matchesNiveaux = selectedNiveaux.length === 0 || 
         action.niveaux.some(niveau => selectedNiveaux.includes(niveau));
       const matchesObjectifs = selectedObjectifs.length === 0 || 
         action.objectifs.some(objectif => selectedObjectifs.includes(objectif));
 
-      return matchesCities && matchesNiveaux && matchesObjectifs;
+      return matchesZones && matchesNiveaux && matchesObjectifs;
     });
-  }, [selectedCities, selectedNiveaux, selectedObjectifs, hasActiveFilters]);
+  }, [selectedZones, selectedNiveaux, selectedObjectifs, hasActiveFilters]);
 
-  const handleCitySelect = (city: City) => {
-    setSelectedCities(prev => 
-      prev.includes(city) 
-        ? prev.filter(c => c !== city)
-        : [...prev, city]
+  // Gestionnaires pour la sélection multiple
+  const handleZoneSelect = (zone: Zone) => {
+    setSelectedZones(prev => 
+      prev.includes(zone) 
+        ? prev.filter(z => z !== zone)
+        : [...prev, zone]
     );
   };
 
@@ -80,45 +116,150 @@ export default function RechercheActions() {
             Sélectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
           </p>
 
-          <ActionFilters
-            allCities={allCities}
-            uniqueObjectifs={uniqueObjectifs}
-            selectedCities={selectedCities}
-            selectedNiveaux={selectedNiveaux}
-            selectedObjectifs={selectedObjectifs}
-            onCitySelect={handleCitySelect}
-            onNiveauSelect={handleNiveauSelect}
-            onObjectifSelect={handleObjectifSelect}
-          />
-
-          {/* Résultats */}
-          {!hasActiveFilters ? (
-            <div className="text-center py-12">
-              <p className="text-lg text-gray-600">
-                Sélectionnez au moins un critère pour voir les actions correspondantes.
-              </p>
-            </div>
-          ) : (
-            <>
-              <p className="text-gray-600 text-center">
-                {filteredActions.length} action{filteredActions.length > 1 ? 's' : ''} trouvée{filteredActions.length > 1 ? 's' : ''}
-              </p>
-              
-              <div className="space-y-8">
-                {filteredActions.map((action, index) => (
-                  <ActionCard key={index} action={action} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+            {/* Zones */}
+            <div className="space-y-2">
+              <Label>Zones d'intervention</Label>
+              <div className="space-y-2">
+                {uniqueZones.map((zone) => (
+                  <label key={zone} className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedZones.includes(zone)}
+                      onChange={() => handleZoneSelect(zone)}
+                      className="rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <span className="text-sm">{zone}</span>
+                  </label>
                 ))}
               </div>
+            </div>
 
-              {filteredActions.length === 0 && (
-                <div className="text-center py-12">
-                  <p className="text-lg text-gray-600">
-                    Aucune action ne correspond à vos critères. Essayez de modifier vos filtres.
-                  </p>
-                </div>
-              )}
-            </>
-          )}
+            {/* Niveaux */}
+            <div className="space-y-2">
+              <Label>Niveaux</Label>
+              <div className="space-y-2">
+                {uniqueNiveaux.map((niveau) => (
+                  <label key={niveau} className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedNiveaux.includes(niveau)}
+                      onChange={() => handleNiveauSelect(niveau)}
+                      className="rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <span className="text-sm">{niveau}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Objectifs */}
+            <div className="space-y-2">
+              <Label>Objectifs</Label>
+              <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
+                {uniqueObjectifs.map((objectif) => (
+                  <label key={objectif} className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedObjectifs.includes(objectif)}
+                      onChange={() => handleObjectifSelect(objectif)}
+                      className="rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <span className="text-sm">{objectif}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Résultats */}
+          <div className="space-y-8">
+            {!hasActiveFilters ? (
+              <div className="text-center py-12">
+                <p className="text-lg text-gray-600">
+                  Sélectionnez au moins un critère pour voir les actions correspondantes.
+                </p>
+              </div>
+            ) : (
+              <>
+                <p className="text-gray-600 text-center">
+                  {filteredActions.length} action{filteredActions.length > 1 ? 's' : ''} trouvée{filteredActions.length > 1 ? 's' : ''}
+                </p>
+                
+                {filteredActions.map((action, index) => (
+                  <Card key={index} className="overflow-hidden">
+                    <div className="h-64 overflow-hidden relative">
+                      <img 
+                        src={action.image} 
+                        alt={action.title} 
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle className="text-2xl">{action.title}</CardTitle>
+                      <CardDescription className="text-base">{action.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="font-medium mb-2">Zones d'intervention :</p>
+                          <div className="flex flex-wrap gap-2">
+                            {action.zones.map((zone, i) => (
+                              <Badge key={i} variant="secondary">{zone}</Badge>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <p className="font-medium mb-2">Niveaux :</p>
+                          <div className="flex flex-wrap gap-2">
+                            {action.niveaux.map((niveau, i) => (
+                              <Badge key={i} variant="secondary">{niveau}</Badge>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <p className="font-medium mb-2">Objectifs :</p>
+                          <div className="flex flex-wrap gap-2">
+                            {action.objectifs.map((objectif, i) => (
+                              <Badge key={i} variant="outline">{objectif}</Badge>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center">
+                          <p><span className="font-medium">Durée :</span> {action.duree}</p>
+                        </div>
+
+                        {"partenaire" in action && (
+                          <div className="flex items-center">
+                            <p><span className="font-medium">Partenaire :</span> {action.partenaire}</p>
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Link
+                        to="/contact"
+                        className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
+                      >
+                        Je suis intéressé(e) par cette action
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                ))}
+
+                {filteredActions.length === 0 && (
+                  <div className="text-center py-12">
+                    <p className="text-lg text-gray-600">
+                      Aucune action ne correspond à vos critères. Essayez de modifier vos filtres.
+                    </p>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
