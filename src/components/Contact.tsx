@@ -21,14 +21,35 @@ export const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+    
+    // Afficher un toast de chargement
+    const loadingToast = toast.loading("Envoi du message en cours...");
+    
     try {
-      // Simulation d'envoi (à remplacer par l'envoi réel)
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Form data:', data);
-      toast.success("Message envoyé avec succès !");
-      reset();
+      // Simulation d'envoi (à remplacer par l'appel API réel)
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Log des données qui seront envoyées à projet.idee@ac-lille.fr
+      console.log('Envoi à projet.idee@ac-lille.fr:', {
+        to: 'projet.idee@ac-lille.fr',
+        subject: `Message de ${data.fullName}`,
+        ...data
+      });
+
+      // Fermer le toast de chargement et afficher le succès
+      toast.dismiss(loadingToast);
+      toast.success("Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.", {
+        duration: 5000, // Afficher pendant 5 secondes
+      });
+      
+      reset(); // Réinitialiser le formulaire
     } catch (error) {
-      toast.error("Une erreur est survenue lors de l'envoi du message.");
+      // Fermer le toast de chargement et afficher l'erreur
+      toast.dismiss(loadingToast);
+      toast.error("Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.", {
+        duration: 5000,
+      });
+      console.error("Erreur d'envoi:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -40,6 +61,7 @@ export const Contact = () => {
         <h2 className="text-3xl font-bold text-center mb-12">Contactez-nous</h2>
         <div className="flex items-center justify-center mb-8">
           <Mail className="h-6 w-6 text-primary mr-3" />
+          <span className="text-gray-600">projet.idee@ac-lille.fr</span>
         </div>
         
         <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-sm">
