@@ -28,6 +28,20 @@ export const actions = [
     image: "/lovable-uploads/d36c06a4-c430-479a-8879-82548d3ce9a7.png"
   },
   {
+    title: "L'esprit d'entreprendre en action",
+    description: "Cette action pédagogique interactive introduit les concepts clés de l'entrepreneuriat à travers six parties complémentaires. De la définition de l'entrepreneuriat à la création d'idées innovantes, en passant par le développement des compétences entrepreneuriales, les élèves sont guidés dans une exploration complète de l'esprit d'entreprise. La séance se conclut par un engagement personnel des élèves pour continuer à développer leur esprit entrepreneurial.",
+    zones: ["Académie d'Amiens"],
+    niveaux: ["École", "Collège", "Lycée"],
+    objectifs: [
+      "Comprendre les fondamentaux de l'entrepreneuriat",
+      "Développer les compétences entrepreneuriales clés",
+      "S'exercer à la génération d'idées et au pitch de projet",
+      "Appliquer l'esprit d'entreprise au quotidien"
+    ],
+    duree: "3 heures",
+    image: "/lovable-uploads/9a678b00-249f-4d38-98b0-196b51ed6e65.png"
+  },
+  {
     title: "Cultiver sa confiance en soi",
     description: "Cet atelier aide les élèves à renforcer leur estime d'eux-mêmes, à mieux gérer leurs émotions et à s'exprimer avec assurance. À travers des exercices pratiques et interactifs, ils développent leurs compétences en communication et gagnent en aisance pour aborder sereinement leurs projets académiques et professionnels.",
     zones: ["Académie de Lille"],
