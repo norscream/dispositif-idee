@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Nav } from "@/components/Nav";
@@ -30,7 +29,6 @@ const concours = [
       "Activité spécifique pour le cycle 4"
     ],
     logo: "/lovable-uploads/d8fb6b95-dc32-47b0-927c-cd99291ba590.png",
-    backgroundImage: "/lovable-uploads/7b77cb89-d96b-4edd-b202-de994a3c1a77.png",
     partenaires: [
       {
         nom: "UIMM",
@@ -53,7 +51,6 @@ const concours = [
       "Participation aux courses : présence aux événements compétitifs pour évaluer les performances du véhicule et de l'équipe"
     ],
     logo: "/lovable-uploads/c72085c2-8055-4598-aae0-5330981ab08f.png",
-    backgroundImage: "/lovable-uploads/a9fee93b-2d68-452d-a875-6a9a681156f1.png",
     partenaires: [
       {
         nom: "GIP FCIP Lille Hauts-de-France",
@@ -92,69 +89,56 @@ export default function Concours() {
               {concours.map((concours, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="relative h-full transition-all duration-300 hover:shadow-lg overflow-hidden">
-                      {concours.backgroundImage && (
-                        <div 
-                          className="absolute inset-0 z-0 opacity-20"
-                          style={{
-                            backgroundImage: `url(${concours.backgroundImage})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            filter: 'contrast(1.2) brightness(1.2) saturate(1.2)'
-                          }}
-                        />
-                      )}
-                      <div className="relative z-10 bg-white/70 backdrop-blur-[1px]">
-                        <CardHeader className="text-center">
-                          <div className="flex justify-center mb-4">
-                            <img 
-                              src={concours.logo} 
-                              alt={`Logo ${concours.nom}`} 
-                              className="h-24 object-contain"
-                            />
+                    <Card className="h-full transition-all duration-300 hover:shadow-lg">
+                      <CardHeader className="text-center">
+                        <div className="flex justify-center mb-4">
+                          <img 
+                            src={concours.logo} 
+                            alt={`Logo ${concours.nom}`} 
+                            className="h-24 object-contain"
+                          />
+                        </div>
+                        <CardTitle className="text-xl">{concours.nom}</CardTitle>
+                        <CardDescription>
+                          Public : {concours.public.join(", ")}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-4 text-center">
+                        <div>
+                          <h4 className="font-semibold mb-2">Objectif</h4>
+                          <p className="text-sm text-gray-600">{concours.objectif}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Présentation</h4>
+                          <p className="text-sm text-gray-600">{concours.presentation}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Livrables attendus</h4>
+                          <ul className="text-sm text-gray-600 list-disc list-inside text-left">
+                            {concours.livrables.map((livrable, index) => (
+                              <li key={index} className="mb-1">{livrable}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-4">Concours porté par</h4>
+                          <div className="flex justify-center items-center gap-8">
+                            {concours.partenaires.map((partenaire, index) => (
+                              <img 
+                                key={index}
+                                src={partenaire.logo} 
+                                alt={`Logo ${partenaire.nom}`}
+                                className="h-16 object-contain"
+                              />
+                            ))}
                           </div>
-                          <CardTitle className="text-xl">{concours.nom}</CardTitle>
-                          <CardDescription>
-                            Public : {concours.public.join(", ")}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-4 text-center">
-                          <div>
-                            <h4 className="font-semibold mb-2">Objectif</h4>
-                            <p className="text-sm text-gray-600">{concours.objectif}</p>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold mb-2">Présentation</h4>
-                            <p className="text-sm text-gray-600">{concours.presentation}</p>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold mb-2">Livrables attendus</h4>
-                            <ul className="text-sm text-gray-600 list-disc list-inside text-left">
-                              {concours.livrables.map((livrable, index) => (
-                                <li key={index} className="mb-1">{livrable}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold mb-4">Concours porté par</h4>
-                            <div className="flex justify-center items-center gap-8">
-                              {concours.partenaires.map((partenaire, index) => (
-                                <img 
-                                  key={index}
-                                  src={partenaire.logo} 
-                                  alt={`Logo ${partenaire.nom}`}
-                                  className="h-16 object-contain"
-                                />
-                              ))}
-                            </div>
-                          </div>
-                        </CardContent>
-                        <CardFooter>
-                          <Button className="w-full">
-                            S'inscrire au concours
-                          </Button>
-                        </CardFooter>
-                      </div>
+                        </div>
+                      </CardContent>
+                      <CardFooter>
+                        <Button className="w-full">
+                          S'inscrire au concours
+                        </Button>
+                      </CardFooter>
                     </Card>
                   </div>
                 </CarouselItem>
