@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Footer } from "./components/Footer";
+
+// Page imports
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -13,6 +15,8 @@ import Accompagner from "./pages/Accompagner";
 import Ressources from "./pages/Ressources";
 import Reseau from "./pages/Reseau";
 import Valoriser from "./pages/Valoriser";
+
+// Resource page imports
 import NosActions from "./pages/ressources/NosActions";
 import ActionsPartenaires from "./pages/ressources/ActionsPartenaires";
 import Ludopedagogie from "./pages/ressources/Ludopedagogie";
@@ -20,7 +24,14 @@ import Labellisation from "./pages/ressources/Labellisation";
 import RechercheActions from "./pages/ressources/RechercheActions";
 import Concours from "./pages/ressources/Concours";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
