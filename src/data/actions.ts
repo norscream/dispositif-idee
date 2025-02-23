@@ -25,7 +25,7 @@ export const actions = [
       "S'initier aux techniques de brainstorming et de facilitation"
     ],
     duree: "2 heures",
-    image: "/lovable-uploads/d9c013f9-00a0-4cb6-bce9-64eacf5ce972.png"
+    image: "/lovable-uploads/d36c06a4-c430-479a-8879-82548d3ce9a7.png"
   },
   {
     title: "Cultiver sa confiance en soi",
