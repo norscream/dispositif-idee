@@ -30,6 +30,7 @@ const concours = [
       "Activité spécifique pour le cycle 4"
     ],
     logo: "/lovable-uploads/d8fb6b95-dc32-47b0-927c-cd99291ba590.png",
+    backgroundImage: "/lovable-uploads/7b77cb89-d96b-4edd-b202-de994a3c1a77.png",
     partenaires: [
       {
         nom: "UIMM",
@@ -44,7 +45,7 @@ const concours = [
   {
     nom: "Greenpower",
     objectif: "Greenpower incite les jeunes à découvrir leur potentiel et à se passionner pour les sciences, la technologie, l'ingénierie et les mathématiques (STEM). Pour ce faire, nous lançons un défi unique : Conception, construction et course d'une voiture électrique. Greenpower fait partie de l'organisation internationale Greenpower Education Trust. Son objectif est d'initier les élèves aux professions STEM d'une manière ludique mais réaliste.",
-    public: ["lycée professionnels"],
+    public: ["lycées professionnels"],
     presentation: "Nous aidons les enseignants à mettre en place un projet conforme au programme scolaire. De plus, et c'est là que ça devient amusant, nous offrons un environnement sûr pour participer à des concours avec des voitures conçues et construites par les élèves eux-mêmes. En outre, Greenpower donne aux entreprises et aux marques liées aux STIM une visibilité dans le projet. De cette manière, nous mettons en contact les futurs employeurs et les jeunes talents à un stade précoce, dans un environnement inspirant et encadré.",
     livrables: [
       "Conception et construction du véhicule : réalisation d'une voiture électrique fonctionnelle conforme aux spécifications techniques",
@@ -52,6 +53,7 @@ const concours = [
       "Participation aux courses : présence aux événements compétitifs pour évaluer les performances du véhicule et de l'équipe"
     ],
     logo: "/lovable-uploads/c72085c2-8055-4598-aae0-5330981ab08f.png",
+    backgroundImage: "/lovable-uploads/a9fee93b-2d68-452d-a875-6a9a681156f1.png",
     partenaires: [
       {
         nom: "GIP FCIP Lille Hauts-de-France",
@@ -90,8 +92,18 @@ export default function Concours() {
               {concours.map((concours, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="h-full transition-all duration-300 hover:shadow-lg">
-                      <CardHeader className="text-center">
+                    <Card className="relative h-full transition-all duration-300 hover:shadow-lg overflow-hidden">
+                      {concours.backgroundImage && (
+                        <div 
+                          className="absolute inset-0 z-0 opacity-5"
+                          style={{
+                            backgroundImage: `url(${concours.backgroundImage})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                          }}
+                        />
+                      )}
+                      <CardHeader className="text-center relative z-10">
                         <div className="flex justify-center mb-4">
                           <img 
                             src={concours.logo} 
@@ -104,7 +116,7 @@ export default function Concours() {
                           Public : {concours.public.join(", ")}
                         </CardDescription>
                       </CardHeader>
-                      <CardContent className="space-y-4 text-center">
+                      <CardContent className="space-y-4 text-center relative z-10">
                         <div>
                           <h4 className="font-semibold mb-2">Objectif</h4>
                           <p className="text-sm text-gray-600">{concours.objectif}</p>
@@ -115,7 +127,7 @@ export default function Concours() {
                         </div>
                         <div>
                           <h4 className="font-semibold mb-2">Livrables attendus</h4>
-                          <ul className="text-sm text-gray-600 list-none">
+                          <ul className="text-sm text-gray-600 list-disc list-inside text-left">
                             {concours.livrables.map((livrable, index) => (
                               <li key={index} className="mb-1">{livrable}</li>
                             ))}
@@ -135,7 +147,7 @@ export default function Concours() {
                           </div>
                         </div>
                       </CardContent>
-                      <CardFooter>
+                      <CardFooter className="relative z-10">
                         <Button className="w-full">
                           S'inscrire au concours
                         </Button>
