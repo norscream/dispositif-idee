@@ -29,7 +29,17 @@ const concours = [
       "Personnalisation du robot avec des pièces spécifiques",
       "Activité spécifique pour le cycle 4"
     ],
-    logo: "/lovable-uploads/d8fb6b95-dc32-47b0-927c-cd99291ba590.png"
+    logo: "/lovable-uploads/d8fb6b95-dc32-47b0-927c-cd99291ba590.png",
+    partenaires: [
+      {
+        nom: "UIMM",
+        logo: "/lovable-uploads/bb1de82e-2f89-4c74-b37a-ae31bf2e0f1f.png"
+      },
+      {
+        nom: "Région Académique Hauts-de-France",
+        logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
+      }
+    ]
   }
 ];
 
@@ -88,6 +98,19 @@ export default function Concours() {
                               <li key={index} className="mb-1">{livrable}</li>
                             ))}
                           </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-4">Concours porté par</h4>
+                          <div className="flex justify-center items-center gap-8">
+                            {concours.partenaires.map((partenaire, index) => (
+                              <img 
+                                key={index}
+                                src={partenaire.logo} 
+                                alt={`Logo ${partenaire.nom}`}
+                                className="h-16 object-contain"
+                              />
+                            ))}
+                          </div>
                         </div>
                       </CardContent>
                       <CardFooter>
