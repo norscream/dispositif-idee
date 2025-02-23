@@ -16,13 +16,13 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
   };
 
   return (
-    <Card className="h-full transition-all duration-500 group-data-[state=center]:shadow-2xl shadow-sm group-data-[state=center]:scale-110 group-data-[state=center]:opacity-100 group-data-[state=center]:bg-white opacity-50 bg-gray-50">
+    <Card className="h-full transition-all duration-300 hover:shadow-lg">
       <CardHeader className="text-center">
         <div className="flex justify-center mb-4">
           <img 
             src={concours.logo} 
             alt={`Logo ${concours.nom}`} 
-            className="h-24 object-contain transition-transform group-data-[state=center]:scale-110"
+            className="h-24 object-contain"
           />
         </div>
         <CardTitle className="text-xl">{concours.nom}</CardTitle>
