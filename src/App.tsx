@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Footer } from "./components/Footer";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Informer from "./pages/Informer";
@@ -26,21 +27,26 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/informer" element={<Informer />} />
-          <Route path="/accompagner" element={<Accompagner />} />
-          <Route path="/ressources" element={<Ressources />} />
-          <Route path="/reseau" element={<Reseau />} />
-          <Route path="/valoriser" element={<Valoriser />} />
-          <Route path="/ressources/nos-actions" element={<NosActions />} />
-          <Route path="/ressources/actions-partenaires" element={<ActionsPartenaires />} />
-          <Route path="/ressources/ludopedagogie" element={<Ludopedagogie />} />
-          <Route path="/ressources/labellisation" element={<Labellisation />} />
-          <Route path="/ressources/recherche-actions" element={<RechercheActions />} />
-          <Route path="/ressources/concours" element={<Concours />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="flex flex-col min-h-screen">
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/informer" element={<Informer />} />
+              <Route path="/accompagner" element={<Accompagner />} />
+              <Route path="/ressources" element={<Ressources />} />
+              <Route path="/reseau" element={<Reseau />} />
+              <Route path="/valoriser" element={<Valoriser />} />
+              <Route path="/ressources/nos-actions" element={<NosActions />} />
+              <Route path="/ressources/actions-partenaires" element={<ActionsPartenaires />} />
+              <Route path="/ressources/ludopedagogie" element={<Ludopedagogie />} />
+              <Route path="/ressources/labellisation" element={<Labellisation />} />
+              <Route path="/ressources/recherche-actions" element={<RechercheActions />} />
+              <Route path="/ressources/concours" element={<Concours />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
