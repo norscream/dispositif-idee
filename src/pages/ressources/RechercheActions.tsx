@@ -1,3 +1,4 @@
+
 import { Nav } from "@/components/Nav";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,6 +8,8 @@ import { Label } from "@/components/ui/label";
 import { useState, useMemo } from "react";
 import { actions } from "@/data/actions";
 import { actionsPartenaires } from "@/data/actionsPartenaires";
+import { concours } from "@/data/concours";
+import { ConcoursCard } from "@/components/concours/ConcoursCard";
 
 // Combiner les deux types d'actions
 const allActions = [...actions, ...actionsPartenaires] as const;
@@ -27,15 +30,19 @@ const zoneOrder = [
 // Définir l'ordre spécifique des niveaux
 const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const;
 
-// Extraire et trier les critères uniques
-const uniqueZones = zoneOrder;
-const uniqueNiveaux = niveauOrder;
-const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as ObjectifType[];
+// Type d'activité
+type ActivityType = "action" | "concours";
 
 export default function RechercheActions() {
   const [selectedZones, setSelectedZones] = useState<ZoneType[]>([]);
   const [selectedNiveaux, setSelectedNiveaux] = useState<NiveauType[]>([]);
   const [selectedObjectifs, setSelectedObjectifs] = useState<ObjectifType[]>([]);
+  const [activityType, setActivityType] = useState<ActivityType>("action");
+
+  // Extraire et trier les critères uniques
+  const uniqueZones = zoneOrder;
+  const uniqueNiveaux = niveauOrder;
+  const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as ObjectifType[];
 
   // Vérifier si au moins une case est cochée
   const hasActiveFilters = selectedZones.length > 0 || selectedNiveaux.length > 0 || selectedObjectifs.length > 0;
@@ -43,6 +50,7 @@ export default function RechercheActions() {
   // Filtrer les actions en fonction des critères sélectionnés
   const filteredActions = useMemo(() => {
     if (!hasActiveFilters) return [];
+    if (activityType === "concours") return [];
     
     return allActions.filter(action => {
       const matchesZones = selectedZones.length === 0 || 
@@ -66,7 +74,23 @@ export default function RechercheActions() {
 
       return matchesZones && matchesNiveaux && matchesObjectifs;
     });
-  }, [selectedZones, selectedNiveaux, selectedObjectifs, hasActiveFilters]);
+  }, [selectedZones, selectedNiveaux, selectedObjectifs, hasActiveFilters, activityType]);
+
+  // Filtrer les concours en fonction des niveaux sélectionnés
+  const filteredConcours = useMemo(() => {
+    if (activityType !== "concours" || !hasActiveFilters) return [];
+
+    return concours.filter(concours => {
+      const matchesNiveaux = selectedNiveaux.length === 0 || 
+        concours.public.some(niveau => 
+          selectedNiveaux.some(selectedNiveau => 
+            niveau.toLowerCase().includes(selectedNiveau.toLowerCase())
+          )
+        );
+
+      return matchesNiveaux;
+    });
+  }, [selectedNiveaux, hasActiveFilters, activityType]);
 
   // Gestionnaires pour la sélection multiple
   const handleZoneSelect = (zone: ZoneType) => {
@@ -111,7 +135,32 @@ export default function RechercheActions() {
             Sélectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
+            {/* Type d'activité */}
+            <div className="space-y-2">
+              <Label>Type d'activité</Label>
+              <div className="space-y-2">
+                <label className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    checked={activityType === "action"}
+                    onChange={() => setActivityType("action")}
+                    className="rounded border-gray-300 text-primary focus:ring-primary"
+                  />
+                  <span className="text-sm">Action de sensibilisation</span>
+                </label>
+                <label className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    checked={activityType === "concours"}
+                    onChange={() => setActivityType("concours")}
+                    className="rounded border-gray-300 text-primary focus:ring-primary"
+                  />
+                  <span className="text-sm">Participation à un concours</span>
+                </label>
+              </div>
+            </div>
+
             {/* Zones */}
             <div className="space-y-2">
               <Label>Zones d'intervention</Label>
@@ -148,23 +197,25 @@ export default function RechercheActions() {
               </div>
             </div>
 
-            {/* Objectifs */}
-            <div className="space-y-2">
-              <Label>Objectifs</Label>
-              <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
-                {uniqueObjectifs.map((objectif) => (
-                  <label key={objectif} className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      checked={selectedObjectifs.includes(objectif)}
-                      onChange={() => handleObjectifSelect(objectif)}
-                      className="rounded border-gray-300 text-primary focus:ring-primary"
-                    />
-                    <span className="text-sm">{objectif}</span>
-                  </label>
-                ))}
+            {/* Objectifs - seulement visible pour les actions de sensibilisation */}
+            {activityType === "action" && (
+              <div className="space-y-2">
+                <Label>Objectifs</Label>
+                <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
+                  {uniqueObjectifs.map((objectif) => (
+                    <label key={objectif} className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        checked={selectedObjectifs.includes(objectif)}
+                        onChange={() => handleObjectifSelect(objectif)}
+                        className="rounded border-gray-300 text-primary focus:ring-primary"
+                      />
+                      <span className="text-sm">{objectif}</span>
+                    </label>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Résultats */}
@@ -178,77 +229,92 @@ export default function RechercheActions() {
             ) : (
               <>
                 <p className="text-gray-600 text-center">
-                  {filteredActions.length} action{filteredActions.length > 1 ? 's' : ''} trouvée{filteredActions.length > 1 ? 's' : ''}
+                  {activityType === "action" ? 
+                    `${filteredActions.length} action${filteredActions.length > 1 ? 's' : ''} trouvée${filteredActions.length > 1 ? 's' : ''}` :
+                    `${filteredConcours.length} concours trouvé${filteredConcours.length > 1 ? 's' : ''}`
+                  }
                 </p>
                 
-                {filteredActions.map((action, index) => (
-                  <Card key={index} className="overflow-hidden">
-                    <div className="h-64 overflow-hidden relative">
-                      <img 
-                        src={action.image} 
-                        alt={action.title} 
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="text-2xl">{action.title}</CardTitle>
-                      <CardDescription className="text-base">{action.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        <div>
-                          <p className="font-medium mb-2">Zones d'intervention :</p>
-                          <div className="flex flex-wrap gap-2">
-                            {action.zones.map((zone, i) => (
-                              <Badge key={i} variant="secondary">{zone}</Badge>
-                            ))}
-                          </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {activityType === "action" ? (
+                    filteredActions.map((action, index) => (
+                      <Card key={index} className="overflow-hidden">
+                        <div className="h-64 overflow-hidden relative">
+                          <img 
+                            src={action.image} 
+                            alt={action.title} 
+                            className="w-full h-full object-contain"
+                          />
                         </div>
+                        <CardHeader>
+                          <CardTitle className="text-2xl">{action.title}</CardTitle>
+                          <CardDescription className="text-base">{action.description}</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-4">
+                            <div>
+                              <p className="font-medium mb-2">Zones d'intervention :</p>
+                              <div className="flex flex-wrap gap-2">
+                                {action.zones.map((zone, i) => (
+                                  <Badge key={i} variant="secondary">{zone}</Badge>
+                                ))}
+                              </div>
+                            </div>
 
-                        <div>
-                          <p className="font-medium mb-2">Niveaux :</p>
-                          <div className="flex flex-wrap gap-2">
-                            {action.niveaux.map((niveau, i) => (
-                              <Badge key={i} variant="secondary">{niveau}</Badge>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <p className="font-medium mb-2">Objectifs :</p>
-                          <div className="flex flex-wrap gap-2">
-                            {action.objectifs.map((objectif, i) => (
-                              <Badge key={i} variant="outline">{objectif}</Badge>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-center">
-                          <p><span className="font-medium">Durée :</span> {action.duree}</p>
-                        </div>
+                            <div>
+                              <p className="font-medium mb-2">Niveaux :</p>
+                              <div className="flex flex-wrap gap-2">
+                                {action.niveaux.map((niveau, i) => (
+                                  <Badge key={i} variant="secondary">{niveau}</Badge>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            <div>
+                              <p className="font-medium mb-2">Objectifs :</p>
+                              <div className="flex flex-wrap gap-2">
+                                {action.objectifs.map((objectif, i) => (
+                                  <Badge key={i} variant="outline">{objectif}</Badge>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <p><span className="font-medium">Durée :</span> {action.duree}</p>
+                            </div>
 
-                        {"partenaire" in action && (
-                          <div className="flex items-center">
-                            <p><span className="font-medium">Partenaire :</span> {action.partenaire}</p>
+                            {"partenaire" in action && (
+                              <div className="flex items-center">
+                                <p><span className="font-medium">Partenaire :</span> {action.partenaire}</p>
+                              </div>
+                            )}
                           </div>
-                        )}
+                        </CardContent>
+                        <CardFooter>
+                          <Link
+                            to="/contact"
+                            className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
+                          >
+                            Je suis intéressé(e) par cette action
+                          </Link>
+                        </CardFooter>
+                      </Card>
+                    ))
+                  ) : (
+                    filteredConcours.map((concours, index) => (
+                      <div key={index} className="group">
+                        <ConcoursCard concours={concours} />
                       </div>
-                    </CardContent>
-                    <CardFooter>
-                      <Link
-                        to="/contact"
-                        className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
-                      >
-                        Je suis intéressé(e) par cette action
-                      </Link>
-                    </CardFooter>
-                  </Card>
-                ))}
+                    ))
+                  )}
+                </div>
 
-                {filteredActions.length === 0 && (
+                {((activityType === "action" && filteredActions.length === 0) ||
+                  (activityType === "concours" && filteredConcours.length === 0)) && (
                   <div className="text-center py-12">
                     <p className="text-lg text-gray-600">
-                      Aucune action ne correspond à vos critères. Essayez de modifier vos filtres.
+                      Aucune {activityType === "action" ? "action" : "concours"} ne correspond à vos critères. 
+                      Essayez de modifier vos filtres.
                     </p>
                   </div>
                 )}
