@@ -13,37 +13,23 @@ import {
 
 const concours = [
   {
-    nom: "Concours Innovation Junior",
-    objectif: "Développer l'esprit d'innovation et la créativité des jeunes",
-    public: ["Collégiens", "Lycéens"],
-    presentation: "Une série d'épreuves stimulantes où les participants devront identifier un besoin, concevoir une solution innovante et la présenter devant un jury d'experts.",
-    epreuves: [
-      "Phase 1 : Identification d'un besoin sociétal",
-      "Phase 2 : Développement d'un prototype",
-      "Phase 3 : Présentation finale"
-    ]
-  },
-  {
-    nom: "Challenge Entreprendre",
-    objectif: "Initier les jeunes à l'entrepreneuriat et au monde de l'entreprise",
-    public: ["Lycéens", "Étudiants"],
-    presentation: "Un parcours complet pour découvrir l'entrepreneuriat à travers des cas pratiques et des mises en situation réelles.",
-    epreuves: [
-      "Étude de marché",
-      "Business plan",
-      "Pitch final"
-    ]
-  },
-  {
-    nom: "Défi Créativité",
-    objectif: "Stimuler la créativité et l'innovation collaborative",
-    public: ["Collégiens", "Lycéens", "Étudiants"],
-    presentation: "Un concours qui met l'accent sur la créativité et la collaboration pour résoudre des défis du monde réel.",
-    epreuves: [
-      "Brainstorming collectif",
-      "Développement de solution",
-      "Démonstration créative"
-    ]
+    nom: "Skillbot",
+    objectif: "Le Challenge Skillbot est une initiative des académies d'Amiens et de Lille, en partenariat avec l'UIMM Hauts-de-France, visant à promouvoir les sciences, la technologie et l'innovation auprès des élèves. En concevant un robot personnalisé, les participants développent des compétences en créativité, autonomie, travail d'équipe et gestion de projet, tout en découvrant les métiers industriels.",
+    public: ["CM1", "CM2", "6ème", "5ème", "4ème", "3ème"],
+    presentation: "L'édition 2024-2025 met l'accent sur l'énergie de demain, en lien avec l'essor de l'électromobilité dans la région. Avec l'implantation de trois gigafactories (ACC, Envision, Verkor), plus de 13 000 emplois qualifiés seront créés d'ici 2026. Skillbot s'inscrit ainsi dans cette transformation industrielle en sensibilisant les jeunes aux opportunités du secteur.",
+    livrables: [
+      "Fiche de progression à renseigner sur le site",
+      "Carnet de bord numérique sur l'Espace membre",
+      "Point d'avancement avec présentation du projet",
+      "Récit d'expérience sous format libre",
+      "Vidéo de présentation du robot de 5 minutes maximum",
+      "Démonstration et mise en scène sur le thème L'énergie de demain",
+      "Visite d'un site industriel ou technique",
+      "Travail interdisciplinaire",
+      "Personnalisation du robot avec des pièces spécifiques",
+      "Activité spécifique pour le cycle 4"
+    ],
+    logo: "/lovable-uploads/d8fb6b95-dc32-47b0-927c-cd99291ba590.png"
   }
 ];
 
@@ -74,6 +60,13 @@ export default function Concours() {
                   <div className="p-1">
                     <Card className="h-full transition-all duration-300 hover:shadow-lg">
                       <CardHeader>
+                        <div className="flex justify-center mb-4">
+                          <img 
+                            src={concours.logo} 
+                            alt={`Logo ${concours.nom}`} 
+                            className="h-24 object-contain"
+                          />
+                        </div>
                         <CardTitle className="text-xl">{concours.nom}</CardTitle>
                         <CardDescription>
                           Public : {concours.public.join(", ")}
@@ -89,10 +82,10 @@ export default function Concours() {
                           <p className="text-sm text-gray-600">{concours.presentation}</p>
                         </div>
                         <div>
-                          <h4 className="font-semibold mb-2">Épreuves</h4>
+                          <h4 className="font-semibold mb-2">Livrables attendus</h4>
                           <ul className="text-sm text-gray-600 list-disc list-inside">
-                            {concours.epreuves.map((epreuve, index) => (
-                              <li key={index}>{epreuve}</li>
+                            {concours.livrables.map((livrable, index) => (
+                              <li key={index}>{livrable}</li>
                             ))}
                           </ul>
                         </div>
