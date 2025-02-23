@@ -1,3 +1,4 @@
+
 export const actions = [
   {
     title: "Prévention et gestion des conflits avec les messages clairs",
@@ -52,7 +53,7 @@ export const actions = [
       "Identifier ses cibles et construire son réseau professionnel",
       "Maîtriser les fonctionnalités de LinkedIn"
     ],
-    duree: "2 heures",
+    duree: "4 heures",
     image: "/lovable-uploads/4f60bfcf-7ba7-4565-8db5-3b47322c6691.png"
   },
   {
