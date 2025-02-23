@@ -6,7 +6,7 @@ export const bgeActions: ActionPartenaire[] = [
     title: "E-kids, les petits entrepreneurs",
     description: "Cette action vise à initier les élèves au monde de l'entrepreneuriat à travers un jeu en ligne. Les élèves deviennent des entrepreneurs virtuels et doivent prendre des décisions pour développer leur entreprise. Ils découvrent ainsi les différentes facettes de l'entrepreneuriat de manière ludique et interactive. Le jeu est accessible à tous les élèves et peut être utilisé en classe ou à la maison.",
     zones: ["Région académique Hauts-de-France"],
-    niveaux: ["Collège"],
+    niveaux: ["École"],
     objectifs: [
       "Développer l'esprit entrepreneurial et la créativité",
       "Découvrir le monde professionnel de façon ludique",
