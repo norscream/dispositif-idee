@@ -45,7 +45,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8 bg-white/90 rounded-lg p-8">
             <img 
               src="/lovable-uploads/74fe1642-0c04-4d4f-a766-1166319848eb.png" 
               alt="Région Hauts-de-France" 
