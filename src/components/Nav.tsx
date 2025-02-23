@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, Search, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   DropdownMenu,
@@ -76,9 +76,8 @@ export const Nav = () => {
             <DropdownNavItem trigger="Actions disponibles" items={resourceLinks} />
             <Link 
               to="/ressources/recherche-actions"
-              className="flex items-center text-gray-700 hover:text-primary transition-colors"
+              className="text-gray-700 hover:text-primary transition-colors"
             >
-              <Search className="h-5 w-5 mr-2" />
               Rechercher une action
             </Link>
           </div>
@@ -124,9 +123,8 @@ export const Nav = () => {
               ))}
               <Link
                 to="/ressources/recherche-actions"
-                className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors flex items-center"
+                className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
               >
-                <Search className="h-5 w-5 mr-2" />
                 Rechercher une action
               </Link>
             </div>
