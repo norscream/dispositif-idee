@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-100 text-gray-600 mt-auto">
-      <div className="container mx-auto py-12 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
+    <footer className="bg-gray-100 text-gray-600 mt-auto w-full">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="text-center md:text-left">
             <h3 className="text-gray-800 font-semibold mb-4">À propos</h3>
             <p className="text-sm">
               Le dispositif IDEE est soutenu par la région Hauts-de-France et par l'Europe. 
@@ -15,7 +15,7 @@ export function Footer() {
               démarche globale de développement économique de la Région Hauts-de-France.
             </p>
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-gray-800 font-semibold mb-4">Académie de Lille</h3>
             <ul className="space-y-1 text-sm">
               <li><a href="mailto:projet.idee@ac-lille.fr" className="hover:text-gray-900 transition-colors">projet.idee@ac-lille.fr</a></li>
@@ -24,7 +24,7 @@ export function Footer() {
               <li><a href="https://www1.ac-lille.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">Site de l'académie de Lille</a></li>
             </ul>
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-gray-800 font-semibold mb-4">Académie d'Amiens</h3>
             <ul className="space-y-1 text-sm">
               <li><a href="mailto:projet.idee@ac-amiens.fr" className="hover:text-gray-900 transition-colors">projet.idee@ac-amiens.fr</a></li>
@@ -35,7 +35,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-8 pt-8">
+        <div className="border-t border-gray-200 mt-8 pt-8 max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
             <img 
               src="/lovable-uploads/74fe1642-0c04-4d4f-a766-1166319848eb.png" 
