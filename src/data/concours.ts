@@ -138,7 +138,7 @@ export const concours: Concours[] = [
     partenaires: [
       {
         nom: "Académie de Lille",
-        logo: "/lovable-uploads/067c32be-dc15-4c21-b2a7-a4c511b9de18.png"
+        logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
       }
     ]
   }
