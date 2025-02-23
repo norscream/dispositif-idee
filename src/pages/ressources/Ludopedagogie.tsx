@@ -50,15 +50,6 @@ const jeux: Jeu[] = [
     age: "8+",
     competences: ["Coopération", "Communication", "Ecoute de l'autre"],
     niveau: ["Primaire", "Collège", "Lycée", "BTS"]
-  },
-  {
-    id: 25,
-    titre: "PARACHUTE COOPERATIF",
-    description: "Le parachute est une grande toile résistante de forme circulaire constitué de fuseaux de couleurs différents, de diamètre variable, avec ou sans ouverture centrale et poignées. Cet outil permet de développer la coopération et l'esprit d'équipe.",
-    joueurs: "6-12",
-    age: "6+",
-    competences: ["Coopération", "Stratégie", "Communication", "Observation"],
-    niveau: ["Primaire", "Collège"]
   }
 ];
 
