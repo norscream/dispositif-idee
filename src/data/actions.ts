@@ -42,6 +42,20 @@ export const actions = [
     image: "/lovable-uploads/9a678b00-249f-4d38-98b0-196b51ed6e65.png"
   },
   {
+    title: "Workshop LinkedIn",
+    description: "Cet atelier aide les élèves à développer leur présence professionnelle sur LinkedIn à travers deux parties complémentaires. La première partie se concentre sur l'introspection et le personal branding, tandis que la seconde aborde la création et l'optimisation du profil LinkedIn. Les participants apprennent à identifier leurs forces, définir son projet professionnel et cibler son réseau professionnel.",
+    zones: ["Académie de Lille"],
+    niveaux: ["Lycée", "Post bac"],
+    objectifs: [
+      "Développer sa marque personnelle et son identité professionnelle",
+      "Définir son projet professionnel et ses objectifs de carrière",
+      "Identifier ses cibles et construire son réseau professionnel",
+      "Maîtriser les fonctionnalités de LinkedIn"
+    ],
+    duree: "2 heures",
+    image: "/lovable-uploads/4f60bfcf-7ba7-4565-8db5-3b47322c6691.png"
+  },
+  {
     title: "Cultiver sa confiance en soi",
     description: "Cet atelier aide les élèves à renforcer leur estime d'eux-mêmes, à mieux gérer leurs émotions et à s'exprimer avec assurance. À travers des exercices pratiques et interactifs, ils développent leurs compétences en communication et gagnent en aisance pour aborder sereinement leurs projets académiques et professionnels.",
     zones: ["Académie de Lille"],
