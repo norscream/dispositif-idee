@@ -2,6 +2,27 @@ import { Concours } from "@/types/concours";
 
 export const concours: Concours[] = [
   {
+    nom: "Olympiade des Sciences de l'Ingénieur",
+    objectif: "Les Olympiades des Sciences de l'Ingénieur visent à valoriser la filière Sciences de l'Ingénieur et à promouvoir son image auprès des jeunes. Ce concours développe chez les élèves l'esprit d'initiative, le goût pour la recherche et les compétences de l'ingénieur.",
+    public: ["Lycéens"],
+    presentation: "Ce concours national permet aux lycéens, encadrés par leurs professeurs, de travailler en équipe sur des projets scientifiques et technologiques. Les participants doivent concevoir et réaliser un projet innovant répondant à une problématique sociétale, tout en développant des compétences en ingénierie, gestion de projet et communication.",
+    livrables: [
+      "Dossier technique détaillé",
+      "Maquette ou prototype fonctionnel",
+      "Support de présentation",
+      "Poster scientifique",
+      "Vidéo de présentation du projet",
+      "Présentation orale devant un jury"
+    ],
+    logo: "/lovable-uploads/85843db7-39bd-460a-9263-1c45948c507f.png",
+    partenaires: [
+      {
+        nom: "UPSTI",
+        logo: "/lovable-uploads/85843db7-39bd-460a-9263-1c45948c507f.png"
+      }
+    ]
+  },
+  {
     nom: "Skillbot",
     objectif: "Le Challenge Skillbot est une initiative des académies d'Amiens et de Lille, en partenariat avec l'UIMM Hauts-de-France, visant à promouvoir les sciences, la technologie et l'innovation auprès des élèves. En concevant un robot personnalisé, les participants développent des compétences en créativité, autonomie, travail d'équipe et gestion de projet, tout en découvrant les métiers industriels.",
     public: ["CM1", "CM2", "6ème", "5ème", "4ème", "3ème"],
