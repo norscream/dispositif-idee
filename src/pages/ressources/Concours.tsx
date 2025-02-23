@@ -59,7 +59,7 @@ export default function Concours() {
                 <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
                     <Card className="h-full transition-all duration-300 hover:shadow-lg">
-                      <CardHeader>
+                      <CardHeader className="text-center">
                         <div className="flex justify-center mb-4">
                           <img 
                             src={concours.logo} 
@@ -72,7 +72,7 @@ export default function Concours() {
                           Public : {concours.public.join(", ")}
                         </CardDescription>
                       </CardHeader>
-                      <CardContent className="space-y-4">
+                      <CardContent className="space-y-4 text-center">
                         <div>
                           <h4 className="font-semibold mb-2">Objectif</h4>
                           <p className="text-sm text-gray-600">{concours.objectif}</p>
@@ -83,9 +83,9 @@ export default function Concours() {
                         </div>
                         <div>
                           <h4 className="font-semibold mb-2">Livrables attendus</h4>
-                          <ul className="text-sm text-gray-600 list-disc list-inside">
+                          <ul className="text-sm text-gray-600 list-none">
                             {concours.livrables.map((livrable, index) => (
-                              <li key={index}>{livrable}</li>
+                              <li key={index} className="mb-1">{livrable}</li>
                             ))}
                           </ul>
                         </div>
