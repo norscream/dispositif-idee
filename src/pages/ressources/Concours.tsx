@@ -95,63 +95,66 @@ export default function Concours() {
                     <Card className="relative h-full transition-all duration-300 hover:shadow-lg overflow-hidden">
                       {concours.backgroundImage && (
                         <div 
-                          className="absolute inset-0 z-0 opacity-5"
+                          className="absolute inset-0 z-0 opacity-10"
                           style={{
                             backgroundImage: `url(${concours.backgroundImage})`,
                             backgroundSize: 'cover',
-                            backgroundPosition: 'center'
+                            backgroundPosition: 'center',
+                            filter: 'contrast(1.1) brightness(1.1)'
                           }}
                         />
                       )}
-                      <CardHeader className="text-center relative z-10">
-                        <div className="flex justify-center mb-4">
-                          <img 
-                            src={concours.logo} 
-                            alt={`Logo ${concours.nom}`} 
-                            className="h-24 object-contain"
-                          />
-                        </div>
-                        <CardTitle className="text-xl">{concours.nom}</CardTitle>
-                        <CardDescription>
-                          Public : {concours.public.join(", ")}
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent className="space-y-4 text-center relative z-10">
-                        <div>
-                          <h4 className="font-semibold mb-2">Objectif</h4>
-                          <p className="text-sm text-gray-600">{concours.objectif}</p>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold mb-2">Présentation</h4>
-                          <p className="text-sm text-gray-600">{concours.presentation}</p>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold mb-2">Livrables attendus</h4>
-                          <ul className="text-sm text-gray-600 list-disc list-inside text-left">
-                            {concours.livrables.map((livrable, index) => (
-                              <li key={index} className="mb-1">{livrable}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold mb-4">Concours porté par</h4>
-                          <div className="flex justify-center items-center gap-8">
-                            {concours.partenaires.map((partenaire, index) => (
-                              <img 
-                                key={index}
-                                src={partenaire.logo} 
-                                alt={`Logo ${partenaire.nom}`}
-                                className="h-16 object-contain"
-                              />
-                            ))}
+                      <div className="relative z-10 bg-white/80 backdrop-blur-[2px]">
+                        <CardHeader className="text-center">
+                          <div className="flex justify-center mb-4">
+                            <img 
+                              src={concours.logo} 
+                              alt={`Logo ${concours.nom}`} 
+                              className="h-24 object-contain"
+                            />
                           </div>
-                        </div>
-                      </CardContent>
-                      <CardFooter className="relative z-10">
-                        <Button className="w-full">
-                          S'inscrire au concours
-                        </Button>
-                      </CardFooter>
+                          <CardTitle className="text-xl">{concours.nom}</CardTitle>
+                          <CardDescription>
+                            Public : {concours.public.join(", ")}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4 text-center">
+                          <div>
+                            <h4 className="font-semibold mb-2">Objectif</h4>
+                            <p className="text-sm text-gray-600">{concours.objectif}</p>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold mb-2">Présentation</h4>
+                            <p className="text-sm text-gray-600">{concours.presentation}</p>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold mb-2">Livrables attendus</h4>
+                            <ul className="text-sm text-gray-600 list-disc list-inside text-left">
+                              {concours.livrables.map((livrable, index) => (
+                                <li key={index} className="mb-1">{livrable}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold mb-4">Concours porté par</h4>
+                            <div className="flex justify-center items-center gap-8">
+                              {concours.partenaires.map((partenaire, index) => (
+                                <img 
+                                  key={index}
+                                  src={partenaire.logo} 
+                                  alt={`Logo ${partenaire.nom}`}
+                                  className="h-16 object-contain"
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        </CardContent>
+                        <CardFooter>
+                          <Button className="w-full">
+                            S'inscrire au concours
+                          </Button>
+                        </CardFooter>
+                      </div>
                     </Card>
                   </div>
                 </CarouselItem>
