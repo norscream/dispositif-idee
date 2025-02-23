@@ -2,23 +2,23 @@ import { Concours } from "@/types/concours";
 
 export const concours: Concours[] = [
   {
-    nom: "Olympiade des Sciences de l'Ingénieur",
-    objectif: "Les Olympiades des Sciences de l'Ingénieur visent à valoriser la filière Sciences de l'Ingénieur et à promouvoir son image auprès des jeunes. Ce concours développe chez les élèves l'esprit d'initiative, le goût pour la recherche et les compétences de l'ingénieur.",
-    public: ["Lycéens"],
-    presentation: "Ce concours national permet aux lycéens, encadrés par leurs professeurs, de travailler en équipe sur des projets scientifiques et technologiques. Les participants doivent concevoir et réaliser un projet innovant répondant à une problématique sociétale, tout en développant des compétences en ingénierie, gestion de projet et communication.",
+    nom: "La Robotique pour Tous",
+    objectif: "La Robotique pour Tous vise à démocratiser l'accès à la robotique et à la programmation pour les élèves de tous niveaux. Ce concours encourage la créativité, le travail d'équipe et l'apprentissage par la pratique, tout en développant des compétences techniques essentielles.",
+    public: ["Primaire", "Collégiens", "Lycéens"],
+    presentation: "Ce concours permet aux élèves de découvrir la robotique de manière ludique et pédagogique. Les participants travaillent en équipe pour concevoir, programmer et présenter des projets robotiques innovants. L'accent est mis sur l'accessibilité et l'inclusion, permettant à tous les élèves de s'initier à la robotique quelle que soit leur expérience préalable.",
     livrables: [
-      "Dossier technique détaillé",
-      "Maquette ou prototype fonctionnel",
-      "Support de présentation",
-      "Poster scientifique",
-      "Vidéo de présentation du projet",
-      "Présentation orale devant un jury"
+      "Robot fonctionnel",
+      "Documentation du projet",
+      "Code source commenté",
+      "Présentation du projet",
+      "Démonstration pratique",
+      "Journal de bord de l'équipe"
     ],
-    logo: "/lovable-uploads/85843db7-39bd-460a-9263-1c45948c507f.png",
+    logo: "/lovable-uploads/89ff74ef-4757-43de-85f7-4c784c02a0d1.png",
     partenaires: [
       {
-        nom: "UPSTI",
-        logo: "/lovable-uploads/85843db7-39bd-460a-9263-1c45948c507f.png"
+        nom: "Région Académique Hauts-de-France",
+        logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
       }
     ]
   },
