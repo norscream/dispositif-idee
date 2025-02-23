@@ -62,10 +62,13 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full" onClick={scrollToForm}>
+        <Button 
+          className="w-full bg-primary text-white hover:bg-primary-dark" 
+          onClick={scrollToForm}
+        >
           S'inscrire au concours
         </Button>
       </CardFooter>
     </Card>
   );
-}
+};
