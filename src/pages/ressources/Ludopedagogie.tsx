@@ -1,3 +1,4 @@
+
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Send, Users, Clock, Gamepad2 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -12,6 +13,7 @@ type Jeu = {
   age: string;
   competences: string[];
   niveau: string[];
+  image?: string;
 };
 
 const jeux: Jeu[] = [
@@ -22,7 +24,8 @@ const jeux: Jeu[] = [
     joueurs: "4-15",
     age: "10+",
     competences: ["Créativité", "Communication"],
-    niveau: ["Lycée", "BTS"]
+    niveau: ["Lycée", "BTS"],
+    image: "/lovable-uploads/230fe6fc-6ecf-4dac-b408-17438a968f22.png"
   },
   {
     id: 2,
@@ -31,7 +34,8 @@ const jeux: Jeu[] = [
     joueurs: "2-15",
     age: "4+",
     competences: ["Communication"],
-    niveau: ["Primaire"]
+    niveau: ["Primaire"],
+    image: "/lovable-uploads/6e0be2d3-7793-4d11-a6d9-29520d01f0be.png"
   },
   {
     id: 3,
@@ -40,7 +44,8 @@ const jeux: Jeu[] = [
     joueurs: "3-15",
     age: "10+",
     competences: ["Créativité", "Communication"],
-    niveau: ["Collège", "Lycée", "BTS"]
+    niveau: ["Collège", "Lycée", "BTS"],
+    image: "/lovable-uploads/d1ac5413-a415-4f5a-8a9f-9956a87c2a07.png"
   },
   {
     id: 4,
@@ -49,7 +54,8 @@ const jeux: Jeu[] = [
     joueurs: "2-4",
     age: "8+",
     competences: ["Coopération", "Communication", "Ecoute de l'autre"],
-    niveau: ["Primaire", "Collège", "Lycée", "BTS"]
+    niveau: ["Primaire", "Collège", "Lycée", "BTS"],
+    image: "/lovable-uploads/8a9ba909-7f5b-45d2-9be1-de66b0fb0cc9.png"
   }
 ];
 
@@ -104,6 +110,15 @@ export default function Ludopedagogie() {
                 <div className="flex justify-between items-start">
                   <CardTitle className="text-xl">{jeu.titre}</CardTitle>
                 </div>
+                {jeu.image && (
+                  <div className="mt-4 aspect-video w-full overflow-hidden rounded-lg">
+                    <img 
+                      src={jeu.image} 
+                      alt={jeu.titre}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <p className="text-sm text-gray-600 mt-2">{jeu.description}</p>
               </CardHeader>
               <CardContent>
