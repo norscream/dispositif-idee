@@ -86,6 +86,27 @@ const concours = [
         logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
       }
     ]
+  },
+  {
+    nom: "Top la vie dans mon lycée",
+    objectif: "Le concours 'Top la vie dans mon lycée' vise à améliorer le cadre de vie des lycéens en les impliquant directement dans des projets concrets. Cette initiative encourage les élèves à devenir acteurs de leur environnement scolaire en proposant et en réalisant des projets qui améliorent leur quotidien au lycée.",
+    public: ["Lycéens"],
+    presentation: "Les lycéens sont invités à proposer des projets innovants pour améliorer la vie quotidienne dans leur établissement. Ces projets peuvent toucher différents aspects : le bien-être, l'environnement, la culture, le sport, la citoyenneté, ou encore le numérique. L'objectif est de développer l'esprit d'initiative des élèves tout en les responsabilisant sur leur rôle dans la communauté scolaire.",
+    livrables: [
+      "Description détaillée du projet",
+      "Budget prévisionnel",
+      "Planning de réalisation",
+      "Support de présentation",
+      "Fiche d'évaluation des besoins",
+      "Documentation sur l'impact attendu"
+    ],
+    logo: "/lovable-uploads/cecf8b67-bb1e-4c36-9369-2a10297f0c88.png",
+    partenaires: [
+      {
+        nom: "Académie de Lille",
+        logo: "/lovable-uploads/067c32be-dc15-4c21-b2a7-a4c511b9de18.png"
+      }
+    ]
   }
 ];
 
