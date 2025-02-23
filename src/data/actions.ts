@@ -1,4 +1,3 @@
-
 export const actions = [
   {
     title: "Prévention et gestion des conflits avec les messages clairs",
@@ -13,6 +12,20 @@ export const actions = [
     ],
     duree: "3 heures",
     image: "/lovable-uploads/218ad44a-ae33-4006-bcf5-95e50107fca8.png"
+  },
+  {
+    title: "Gestion de Projet : l'Idéation",
+    description: "Cette action pédagogique guide les élèves à travers le processus d'idéation, étape cruciale de la gestion de projet. À travers trois phases distinctes - analytique, créative et logique - les élèves apprennent à identifier des besoins, générer des idées innovantes et sélectionner collectivement la meilleure solution. Particulièrement adaptée aux chefs d'œuvre des lycées professionnels, cette méthode développe la créativité, l'esprit critique et la prise de décision collaborative.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["École", "Collège", "Lycée"],
+    objectifs: [
+      "Maîtriser les étapes du processus d'idéation en gestion de projet",
+      "Développer la créativité et l'innovation collective",
+      "Apprendre à prendre des décisions collaboratives",
+      "S'initier aux techniques de brainstorming et de facilitation"
+    ],
+    duree: "2 heures",
+    image: "/lovable-uploads/d9c013f9-00a0-4cb6-bce9-64eacf5ce972.png"
   },
   {
     title: "Cultiver sa confiance en soi",
