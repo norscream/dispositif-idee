@@ -6,27 +6,31 @@ import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { allCities } from "@/data/cities";
 
 type ContactFormData = {
   fullName: string;
   email: string;
   phone?: string;
-  region?: string;
+  city: string;
   message: string;
 };
 
 const Contact = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedCity, setSelectedCity] = useState<string>("");
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
       // Simulation d'envoi (à remplacer par l'envoi réel)
       await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Form data:', data);
+      console.log('Form data:', { ...data, city: selectedCity });
       toast.success("Message envoyé avec succès !");
       reset();
+      setSelectedCity("");
     } catch (error) {
       toast.error("Une erreur est survenue lors de l'envoi du message.");
     } finally {
@@ -87,12 +91,19 @@ const Contact = () => {
             </div>
 
             <div>
-              <Label htmlFor="region">Zone géographique (facultatif)</Label>
-              <Input
-                id="region"
-                {...register("region")}
-                placeholder="Votre zone géographique"
-              />
+              <Label htmlFor="city">Ville</Label>
+              <Select value={selectedCity} onValueChange={setSelectedCity}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Sélectionnez votre ville" />
+                </SelectTrigger>
+                <SelectContent>
+                  {allCities.map((city) => (
+                    <SelectItem key={city} value={city}>
+                      {city}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div>
