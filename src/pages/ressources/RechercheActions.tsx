@@ -2,24 +2,12 @@
 import { Nav } from "@/components/Nav";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Label } from "@/components/ui/label";
 import { useState, useMemo } from "react";
-import { actions } from "@/data/actions";
-import { actionsPartenaires } from "@/data/actionsPartenaires";
 import { allCities, type City, getCityAcademy } from "@/data/cities";
+import { ActionFilters } from "@/components/actions/ActionFilters";
+import { ActionCard } from "@/components/actions/ActionCard";
+import { allActions, type Niveau, type Objectif, niveauOrder } from "@/types/actions";
 
-// Combiner les deux types d'actions
-const allActions = [...actions, ...actionsPartenaires] as const;
-
-type Action = (typeof allActions)[number];
-type Niveau = Action['niveaux'][number];
-type Objectif = Action['objectifs'][number];
-
-const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const;
-
-const uniqueNiveaux = niveauOrder;
 const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
 
 export default function RechercheActions() {
@@ -90,61 +78,16 @@ export default function RechercheActions() {
             Sélectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-            {/* Villes */}
-            <div className="space-y-2">
-              <Label>Villes</Label>
-              <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
-                {allCities.map((city) => (
-                  <label key={city} className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      checked={selectedCities.includes(city)}
-                      onChange={() => handleCitySelect(city)}
-                      className="rounded border-gray-300 text-primary focus:ring-primary"
-                    />
-                    <span className="text-sm">{city}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Niveaux */}
-            <div className="space-y-2">
-              <Label>Niveaux</Label>
-              <div className="space-y-2">
-                {uniqueNiveaux.map((niveau) => (
-                  <label key={niveau} className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      checked={selectedNiveaux.includes(niveau)}
-                      onChange={() => handleNiveauSelect(niveau)}
-                      className="rounded border-gray-300 text-primary focus:ring-primary"
-                    />
-                    <span className="text-sm">{niveau}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Objectifs */}
-            <div className="space-y-2">
-              <Label>Objectifs</Label>
-              <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
-                {uniqueObjectifs.map((objectif) => (
-                  <label key={objectif} className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      checked={selectedObjectifs.includes(objectif)}
-                      onChange={() => handleObjectifSelect(objectif)}
-                      className="rounded border-gray-300 text-primary focus:ring-primary"
-                    />
-                    <span className="text-sm">{objectif}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-          </div>
+          <ActionFilters
+            allCities={allCities}
+            uniqueObjectifs={uniqueObjectifs}
+            selectedCities={selectedCities}
+            selectedNiveaux={selectedNiveaux}
+            selectedObjectifs={selectedObjectifs}
+            onCitySelect={handleCitySelect}
+            onNiveauSelect={handleNiveauSelect}
+            onObjectifSelect={handleObjectifSelect}
+          />
 
           {/* Résultats */}
           {!hasActiveFilters ? (
@@ -160,67 +103,7 @@ export default function RechercheActions() {
               </p>
               
               {filteredActions.map((action, index) => (
-                <Card key={index} className="overflow-hidden">
-                  <div className="h-64 overflow-hidden relative">
-                    <img 
-                      src={action.image} 
-                      alt={action.title} 
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-2xl">{action.title}</CardTitle>
-                    <CardDescription className="text-base">{action.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div>
-                        <p className="font-medium mb-2">Zones d'intervention :</p>
-                        <div className="flex flex-wrap gap-2">
-                          {action.zones.map((zone, i) => (
-                            <Badge key={i} variant="secondary">{zone}</Badge>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <p className="font-medium mb-2">Niveaux :</p>
-                        <div className="flex flex-wrap gap-2">
-                          {action.niveaux.map((niveau, i) => (
-                            <Badge key={i} variant="secondary">{niveau}</Badge>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <p className="font-medium mb-2">Objectifs :</p>
-                        <div className="flex flex-wrap gap-2">
-                          {action.objectifs.map((objectif, i) => (
-                            <Badge key={i} variant="outline">{objectif}</Badge>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-center">
-                        <p><span className="font-medium">Durée :</span> {action.duree}</p>
-                      </div>
-
-                      {"partenaire" in action && (
-                        <div className="flex items-center">
-                          <p><span className="font-medium">Partenaire :</span> {action.partenaire}</p>
-                        </div>
-                      )}
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Link
-                      to="/contact"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
-                    >
-                      Je suis intéressé(e) par cette action
-                    </Link>
-                  </CardFooter>
-                </Card>
+                <ActionCard key={index} action={action} />
               ))}
 
               {filteredActions.length === 0 && (
