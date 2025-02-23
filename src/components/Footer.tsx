@@ -43,8 +43,33 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-gray-700 mt-8 pt-8 text-sm text-center">
-          <p>&copy; {new Date().getFullYear()} IDÉE - Tous droits réservés</p>
+
+        <div className="border-t border-gray-700 mt-8 pt-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
+            <img 
+              src="/lovable-uploads/74fe1642-0c04-4d4f-a766-1166319848eb.png" 
+              alt="Région Hauts-de-France" 
+              className="h-24 object-contain"
+            />
+            <img 
+              src="/lovable-uploads/df817651-de57-4890-81c4-ab684005da91.png" 
+              alt="Académies Amiens Lille - Région Académique Hauts-de-France" 
+              className="h-24 object-contain"
+            />
+            <img 
+              src="/lovable-uploads/85717161-678a-468c-a3e2-94c826b67c81.png" 
+              alt="Union européenne" 
+              className="h-24 object-contain"
+            />
+            <img 
+              src="/lovable-uploads/4a388b8e-d7e9-42c2-89ae-ca4441b297dc.png" 
+              alt="L'Europe s'engage en Hauts-de-France" 
+              className="h-24 object-contain"
+            />
+          </div>
+          <div className="text-sm text-center">
+            <p>&copy; {new Date().getFullYear()} IDÉE - Tous droits réservés</p>
+          </div>
         </div>
       </div>
     </footer>
