@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -81,10 +80,11 @@ export const Nav = () => {
             >
               Rechercher une action
             </Link>
-            <Link to="/#contact">
-              <Button variant="outline">
-                Nous contacter
-              </Button>
+            <Link 
+              to="/#contact"
+              className="text-gray-700 hover:text-primary transition-colors"
+            >
+              Nous contacter
             </Link>
           </div>
 
