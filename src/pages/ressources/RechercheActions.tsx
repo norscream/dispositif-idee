@@ -6,7 +6,7 @@ import { useState, useMemo } from "react";
 import { allCities, type City, getCityAcademy } from "@/data/cities";
 import { ActionFilters } from "@/components/actions/ActionFilters";
 import { ActionCard } from "@/components/actions/ActionCard";
-import { allActions, type Action, type Niveau, type Objectif, type Zone } from "@/types/actions";
+import { allActions, type Action, type Niveau, type Objectif, type Zone, validZones } from "@/types/actions";
 
 const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
 
@@ -23,8 +23,8 @@ export default function RechercheActions() {
     return allActions.filter(action => {
       const matchesCities = selectedCities.length === 0 || 
         selectedCities.some(city => {
-          const cityAcademy = getCityAcademy(city) as Zone;
-          return action.zones.includes(cityAcademy) || action.zones.includes("Région académique Hauts-de-France" as Zone);
+          const cityAcademy = getCityAcademy(city);
+          return action.zones.includes(cityAcademy as Zone) || action.zones.includes(validZones[2]);
         });
 
       const matchesNiveaux = selectedNiveaux.length === 0 || 

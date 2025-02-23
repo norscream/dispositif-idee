@@ -9,7 +9,7 @@ export const validZones = [
   "Région académique Hauts-de-France"
 ] as const;
 
-export type Zone = (typeof validZones)[number];
+export type Zone = typeof validZones[number];
 
 export const allActions = [...actions, ...actionsPartenaires] as const;
 
