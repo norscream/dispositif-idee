@@ -1,8 +1,9 @@
+
 export const actions = [
   {
     title: "Prévention et gestion des conflits avec les messages clairs",
     description: "L'apprentissage méthodique de la technique des messages clairs s'inscrit dans la formation de la sensibilité, permettant aux élèves d'identifier et d'exprimer, en les régulant, les émotions et les sentiments. Il vise également le développement de l'esprit d'entreprendre et certaines compétences transversales nécessaires pour renforcer la motivation et la cohésion d'équipe. Cette technique, issue de la Communication Non Violente (CNV), permet aux élèves de gérer leurs désaccords de manière autonome et constructive.",
-    zones: ["Région académique Hauts-de-France"],
+    zones: ["Académie d'Amiens"],
     niveaux: ["Collège", "Lycée"],
     objectifs: [
       "Apprendre à exprimer ses émotions et sentiments de manière constructive",
@@ -38,19 +39,6 @@ export const actions = [
     ],
     duree: "2 heures",
     image: "/lovable-uploads/e39bebb6-c473-41bd-8d20-821b6d04fb78.png"
-  },
-  {
-    title: "Les messages clairs",
-    description: "L'apprentissage méthodique de la technique des messages clairs s'inscrit dans la formation de la sensibilité, permettant aux élèves d'identifier et d'exprimer, en les régulant, les émotions et les sentiments. Il vise également le développement de l'esprit d'entreprendre et certaines compétences transversales nécessaires pour renforcer la motivation et la cohésion d'équipe",
-    zones: ["Académie d'Amiens"],
-    niveaux: ["École", "Collège"],
-    objectifs: [
-      "Apprendre à s'exprimer à l'oral et à argumenter ses idées",
-      "Développer l'esprit entrepreneurial et la créativité",
-      "Expérimenter la gestion de projet et le travail collaboratif"
-    ],
-    duree: "9 heures",
-    image: "/lovable-uploads/218ad44a-ae33-4006-bcf5-95e50107fca8.png"
   },
   {
     title: "Les « six chapeaux de Bono »",
