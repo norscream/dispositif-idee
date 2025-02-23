@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { Trophy, ChevronLeft, ChevronRight } from "lucide-react";
 import {
@@ -35,7 +34,6 @@ export default function Concours() {
     };
 
     try {
-      // Simulation d'envoi d'email
       console.log("Envoi des données à projet.idee@ac-lille.fr:", data);
       toast.success("Votre inscription a bien été enregistrée !");
       e.currentTarget.reset();
@@ -61,7 +59,7 @@ export default function Concours() {
           </div>
           <Carousel
             opts={{
-              align: "start",
+              align: "center",
               loop: true
             }}
             className="w-full"
@@ -92,7 +90,6 @@ export default function Concours() {
           </Carousel>
         </div>
 
-        {/* Formulaire d'inscription */}
         <div id="inscription-form" className="max-w-2xl mx-auto mt-24 scroll-mt-24">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-bold mb-4">Inscription aux concours</h2>

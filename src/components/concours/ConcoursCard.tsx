@@ -16,7 +16,7 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
   };
 
   return (
-    <Card className="h-full transition-all duration-300 hover:shadow-lg">
+    <Card className="h-full transition-all duration-300 hover:shadow-lg group-data-[state=center]:scale-105 group-data-[state=center]:opacity-100 opacity-80">
       <CardHeader className="text-center">
         <div className="flex justify-center mb-4">
           <img 
