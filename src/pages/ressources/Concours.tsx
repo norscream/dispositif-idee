@@ -107,6 +107,28 @@ const concours = [
         logo: "/lovable-uploads/067c32be-dc15-4c21-b2a7-a4c511b9de18.png"
       }
     ]
+  },
+  {
+    nom: "CGénial",
+    objectif: "Le concours CGénial a pour ambition de promouvoir l'enseignement des sciences et des techniques dans les collèges et lycées, par la sélection de projets d'équipes réunissant les élèves et leurs enseignants. Il permet aux jeunes de présenter un projet innovant dans les domaines scientifiques et techniques.",
+    public: ["Collégiens", "Lycéens"],
+    presentation: "Le concours CGénial comprend deux catégories distinctes : Collège et Lycée. Les projets présentés mettent en avant une démarche scientifique ou technique innovante. Encadrés par leurs enseignants, les élèves travaillent en équipe sur des projets touchant aux grands enjeux de société : santé, sécurité, développement durable, aménagement du territoire...",
+    livrables: [
+      "Présentation du projet scientifique ou technique",
+      "Dossier de candidature détaillé",
+      "Démonstration ou prototype",
+      "Support de présentation",
+      "Documentation sur la démarche scientifique",
+      "Poster de présentation du projet",
+      "Présentation orale devant un jury"
+    ],
+    logo: "/lovable-uploads/f546683e-084f-4a0e-a959-b60a2fdc3c6f.png",
+    partenaires: [
+      {
+        nom: "Fondation CGénial",
+        logo: "/lovable-uploads/709103e0-429a-4f7e-b8bb-92cd8eae1c52.png"
+      }
+    ]
   }
 ];
 
