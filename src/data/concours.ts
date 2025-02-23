@@ -1,4 +1,3 @@
-
 import { Concours } from "@/types/concours";
 
 export const concours: Concours[] = [
@@ -137,8 +136,8 @@ export const concours: Concours[] = [
     logo: "/lovable-uploads/3cd6663f-e088-4761-88a5-4138ee393ecf.png",
     partenaires: [
       {
-        nom: "Académie de Lille",
-        logo: "/lovable-uploads/067c32be-dc15-4c21-b2a7-a4c511b9de18.png"
+        nom: "Région Académique Hauts-de-France",
+        logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
       }
     ]
   }
