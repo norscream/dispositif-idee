@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -10,33 +9,33 @@ import { actions } from "@/data/actions";
 import { actionsPartenaires } from "@/data/actionsPartenaires";
 
 // Combiner les deux types d'actions
-const allActions = [...actions, ...actionsPartenaires];
+const allActions = [...actions, ...actionsPartenaires] as const;
 
-// Définir les types basés sur les actions
-type Action = typeof allActions[number];
-type Zone = Action['zones'][number];
-type Niveau = Action['niveaux'][number];
-type Objectif = Action['objectifs'][number];
+// Définir les types en utilisant les types exacts des données
+type ActionType = (typeof actions)[number] | (typeof actionsPartenaires)[number];
+type ZoneType = ActionType["zones"][number];
+type NiveauType = ActionType["niveaux"][number];
+type ObjectifType = ActionType["objectifs"][number];
 
 // Définir l'ordre spécifique des zones
 const zoneOrder = [
   "Région académique Hauts-de-France",
   "Académie de Lille",
   "Académie d'Amiens"
-] as const satisfies readonly Zone[];
+] as const;
 
 // Définir l'ordre spécifique des niveaux
-const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const satisfies readonly Niveau[];
+const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const;
 
 // Extraire et trier les critères uniques
 const uniqueZones = zoneOrder;
 const uniqueNiveaux = niveauOrder;
-const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
+const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as ObjectifType[];
 
 export default function RechercheActions() {
-  const [selectedZones, setSelectedZones] = useState<Zone[]>([]);
-  const [selectedNiveaux, setSelectedNiveaux] = useState<Niveau[]>([]);
-  const [selectedObjectifs, setSelectedObjectifs] = useState<Objectif[]>([]);
+  const [selectedZones, setSelectedZones] = useState<ZoneType[]>([]);
+  const [selectedNiveaux, setSelectedNiveaux] = useState<NiveauType[]>([]);
+  const [selectedObjectifs, setSelectedObjectifs] = useState<ObjectifType[]>([]);
 
   // Vérifier si au moins une case est cochée
   const hasActiveFilters = selectedZones.length > 0 || selectedNiveaux.length > 0 || selectedObjectifs.length > 0;
@@ -48,19 +47,15 @@ export default function RechercheActions() {
     return allActions.filter(action => {
       const matchesZones = selectedZones.length === 0 || 
         action.zones.some(zone => {
-          // Si "Région académique Hauts-de-France" est sélectionné, inclure toutes les actions des académies
-          if (selectedZones.includes("Région académique Hauts-de-France")) {
+          if (selectedZones.includes("Région académique Hauts-de-France" as ZoneType)) {
             return true;
           }
-          // Si "Académie de Lille" est sélectionné, inclure aussi les actions de la région académique
-          if (selectedZones.includes("Académie de Lille")) {
+          if (selectedZones.includes("Académie de Lille" as ZoneType)) {
             return zone === "Académie de Lille" || zone === "Région académique Hauts-de-France";
           }
-          // Si "Académie d'Amiens" est sélectionné, inclure aussi les actions de la région académique mais pas celles de Lille
-          if (selectedZones.includes("Académie d'Amiens")) {
+          if (selectedZones.includes("Académie d'Amiens" as ZoneType)) {
             return zone === "Académie d'Amiens" || zone === "Région académique Hauts-de-France";
           }
-          // Pour les autres cas, vérifier simplement si la zone correspond
           return selectedZones.includes(zone);
         });
         
@@ -74,7 +69,7 @@ export default function RechercheActions() {
   }, [selectedZones, selectedNiveaux, selectedObjectifs, hasActiveFilters]);
 
   // Gestionnaires pour la sélection multiple
-  const handleZoneSelect = (zone: Zone) => {
+  const handleZoneSelect = (zone: ZoneType) => {
     setSelectedZones(prev => 
       prev.includes(zone) 
         ? prev.filter(z => z !== zone)
@@ -82,7 +77,7 @@ export default function RechercheActions() {
     );
   };
 
-  const handleNiveauSelect = (niveau: Niveau) => {
+  const handleNiveauSelect = (niveau: NiveauType) => {
     setSelectedNiveaux(prev => 
       prev.includes(niveau)
         ? prev.filter(n => n !== niveau)
@@ -90,7 +85,7 @@ export default function RechercheActions() {
     );
   };
 
-  const handleObjectifSelect = (objectif: Objectif) => {
+  const handleObjectifSelect = (objectif: ObjectifType) => {
     setSelectedObjectifs(prev =>
       prev.includes(objectif)
         ? prev.filter(o => o !== objectif)
