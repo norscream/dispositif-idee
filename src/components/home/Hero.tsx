@@ -10,7 +10,7 @@ export const Hero = () => {
           alt="Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-white/80"></div>
+        <div className="absolute inset-0 bg-white"></div>
       </div>
       <div className="container mx-auto text-center relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
