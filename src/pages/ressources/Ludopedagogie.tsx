@@ -1,73 +1,64 @@
 import { Nav } from "@/components/Nav";
-import { ArrowLeft, Send, Info, Users, Clock, Gamepad2 } from "lucide-react";
+import { ArrowLeft, Send, Users, Clock, Gamepad2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-const jeux = [
+type Jeu = {
+  id: number;
+  titre: string;
+  description: string;
+  joueurs: string;
+  age: string;
+  competences: string[];
+  niveau: string[];
+};
+
+const jeux: Jeu[] = [
   {
     id: 1,
     titre: "CONCEPT",
-    editeur: "ASMODEE",
-    description: "Plus besoin de parler pour communiquer. Par équipes, faites deviner des mots aux autres joueurs en plaçant des pions sur différentes icônes du plateau. Grâce aux nombreuses icônes et aux possibilités offertes par leurs interactions, il existe plusieurs façons de faire deviner chaque mot... mais ce ne sont pas les concepts les plus simples qui sont les plus faciles à faire deviner.",
-    type: "Jeu de société",
-    duree: "40 min",
+    description: "Plus besoin de parler pour communiquer. Par équipes, faites deviner des mots aux autres joueurs en plaçant des pions sur différentes icônes du plateau. Grâce aux nombreuses icônes et aux possibilités offertes par leurs interactions, il existe plusieurs façons de faire deviner chaque mot.",
     joueurs: "4-15",
     age: "10+",
     competences: ["Créativité", "Communication"],
-    niveau: ["Lycée", "BTS"],
-    image: "/placeholder.svg"
+    niveau: ["Lycée", "BTS"]
   },
   {
     id: 2,
     titre: "CONCEPT KIDS",
-    editeur: "ASMODEE",
     description: "Formez une pioche de 12 cartes. Un adulte pioche une première carte sans la regarder. Les enfants vont utiliser l'un après l'autre les icônes du plateau de jeu Concept Kids Animaux pour faire deviner à l'adulte l'animal sur la carte.",
-    type: "Jeu éducatif",
-    duree: "20 min",
     joueurs: "2-15",
     age: "4+",
     competences: ["Communication"],
-    niveau: ["Primaire"],
-    image: "/placeholder.svg"
+    niveau: ["Primaire"]
   },
   {
     id: 3,
     titre: "LITTLE SECRET",
-    editeur: "ATM GAMING",
     description: "Le Grand Maître organise une réunion : il souhaite vérifier l'appartenance des Disciples à son organisation secrète ! Il confie à tous les membres un mot de passe que seuls les Disciples peuvent comprendre, et ainsi démasquer les Infiltrés et Journaliste.",
-    type: "Jeu de société",
-    duree: "20 min",
     joueurs: "3-15",
     age: "10+",
     competences: ["Créativité", "Communication"],
-    niveau: ["Collège", "Lycée", "BTS"],
-    image: "/placeholder.svg"
+    niveau: ["Collège", "Lycée", "BTS"]
   },
   {
     id: 4,
     titre: "THE MIND",
-    editeur: "OYA",
     description: "Un jeu coopératif unique où les joueurs doivent jouer leurs cartes dans l'ordre croissant sans communiquer.",
-    type: "Jeu de cartes coopératif",
-    duree: "20 min",
     joueurs: "2-4",
     age: "8+",
     competences: ["Coopération", "Communication", "Ecoute de l'autre"],
-    niveau: ["Primaire", "Collège", "Lycée", "BTS"],
-    image: "/placeholder.svg"
+    niveau: ["Primaire", "Collège", "Lycée", "BTS"]
   },
   {
     id: 25,
     titre: "PARACHUTE COOPERATIF",
-    editeur: "DECATHLON",
     description: "Le parachute est une grande toile résistante de forme circulaire constitué de fuseaux de couleurs différents, de diamètre variable, avec ou sans ouverture centrale et poignées. Cet outil permet de développer la coopération et l'esprit d'équipe.",
-    type: "Jeu coopératif",
     joueurs: "6-12",
     age: "6+",
     competences: ["Coopération", "Stratégie", "Communication", "Observation"],
-    niveau: ["Primaire", "Collège"],
-    image: "/placeholder.svg"
+    niveau: ["Primaire", "Collège"]
   }
 ];
 
@@ -89,14 +80,10 @@ export default function Ludopedagogie() {
         <div className="prose max-w-3xl mb-12">
           <p className="text-xl text-gray-700 leading-relaxed">
             La ludopédagogie est une approche éducative innovante qui utilise le jeu comme 
-            vecteur d'apprentissage. En combinant plaisir et pédagogie, elle permet de développer 
-            des compétences entrepreneuriales de manière naturelle et engageante. Cette méthode 
-            favorise la créativité, la collaboration et l'apprentissage actif tout en maintenant 
-            la motivation des participants.
+            vecteur d'apprentissage.
           </p>
         </div>
 
-        {/* Call to Action */}
         <Card className="mb-16 bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20">
           <CardContent className="pt-6">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -105,9 +92,7 @@ export default function Ludopedagogie() {
                   Empruntez gratuitement nos jeux pédagogiques
                 </h2>
                 <p className="text-gray-600">
-                  Vous souhaitez utiliser nos outils pour sensibiliser vos élèves à l'entrepreneuriat ? 
-                  Contactez-nous pour emprunter gratuitement un exemplaire ou obtenir plus d'informations 
-                  sur nos jeux pédagogiques.
+                  Contactez-nous pour emprunter gratuitement un exemplaire ou obtenir plus d'informations.
                 </p>
               </div>
               <Link
@@ -121,52 +106,26 @@ export default function Ludopedagogie() {
           </CardContent>
         </Card>
 
-        {/* Grid des jeux */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {jeux.map((jeu) => (
             <Card key={jeu.id} className="hover:shadow-lg transition-shadow">
-              <div className="aspect-video w-full overflow-hidden">
-                <img
-                  src={jeu.image || "/placeholder.svg"}
-                  alt={`Image du jeu ${jeu.titre}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
               <CardHeader>
                 <div className="flex justify-between items-start">
-                  <div>
-                    <CardTitle className="text-xl">{jeu.titre}</CardTitle>
-                    {jeu.editeur && (
-                      <CardDescription className="text-sm">{jeu.editeur}</CardDescription>
-                    )}
-                  </div>
+                  <CardTitle className="text-xl">{jeu.titre}</CardTitle>
                 </div>
-                {jeu.description && (
-                  <p className="text-sm text-gray-600 mt-2">{jeu.description}</p>
-                )}
+                <p className="text-sm text-gray-600 mt-2">{jeu.description}</p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {jeu.duree && (
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Clock className="h-4 w-4 text-primary" />
-                      <span>Durée : {jeu.duree}</span>
-                    </div>
-                  )}
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Users className="h-4 w-4 text-primary" />
+                    <span>Nombre de joueurs : {jeu.joueurs}</span>
+                  </div>
                   
-                  {jeu.joueurs && (
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Users className="h-4 w-4 text-primary" />
-                      <span>Nombre de joueurs : {jeu.joueurs}</span>
-                    </div>
-                  )}
-                  
-                  {jeu.age && (
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Gamepad2 className="h-4 w-4 text-primary" />
-                      <span>Âge recommandé : {jeu.age}</span>
-                    </div>
-                  )}
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Gamepad2 className="h-4 w-4 text-primary" />
+                    <span>Âge recommandé : {jeu.age}</span>
+                  </div>
                   
                   {jeu.competences && jeu.competences.length > 0 && (
                     <div>
