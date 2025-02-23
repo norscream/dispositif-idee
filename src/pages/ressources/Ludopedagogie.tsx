@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Send, Info, Users, Clock, Gamepad2 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -61,46 +60,6 @@ const jeux = [
     niveau: ["Primaire", "Collège", "Lycée", "BTS"],
     image: "/placeholder.svg",
     video: "https://youtu.be/QvEfUdi3vo4"
-  },
-  {
-    id: 5,
-    titre: "Sustainable Start-Up",
-    description: "Jeu de plateau permettant de découvrir les enjeux de la création d'une start-up dans le domaine de la transition écologique.",
-    type: "Jeu de plateau coopératif",
-    duree: "1h30 - 2h",
-    joueurs: "3 à 6",
-    age: "13+",
-    competences: ["Créativité", "Travail en équipe", "Gestion de projet"]
-  },
-  {
-    id: 6,
-    titre: "E=Entrepreneur",
-    description: "Faites vivre à vos élèves l'expérience unique d'un entrepreneur à travers des défis pédagogiques et ludiques.",
-    type: "Serious game",
-    duree: "1h - 1h30",
-    joueurs: "4 à 8",
-    age: "15+",
-    competences: ["Prise de décision", "Gestion financière", "Innovation"]
-  },
-  {
-    id: 7,
-    titre: "Innov'Action",
-    description: "Un jeu de rôle qui plonge les participants dans des situations réelles d'innovation et d'entrepreneuriat.",
-    type: "Jeu de rôle",
-    duree: "2h",
-    joueurs: "6 à 12",
-    age: "16+",
-    competences: ["Communication", "Résolution de problèmes", "Leadership"]
-  },
-  {
-    id: 8,
-    titre: "Mini-Entreprise Simulator",
-    description: "Simulez la création et la gestion d'une mini-entreprise de A à Z avec ce jeu collaboratif.",
-    type: "Simulation",
-    duree: "2h - 3h",
-    joueurs: "4 à 8",
-    age: "14+",
-    competences: ["Organisation", "Gestion d'équipe", "Marketing"]
   }
 ];
 
