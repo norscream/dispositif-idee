@@ -1,4 +1,3 @@
-
 import { Concours } from "@/types/concours";
 
 export const concours: Concours[] = [
@@ -181,6 +180,27 @@ export const concours: Concours[] = [
       {
         nom: "Région Académique Hauts-de-France",
         logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
+      }
+    ]
+  },
+  {
+    nom: "Parcours Entreprendre",
+    objectif: "Le concours Parcours Entreprendre est une initiative qui vise à sensibiliser les jeunes à l'entrepreneuriat et à leur faire découvrir l'écosystème professionnel. Il permet aux élèves de développer leur esprit d'entreprendre et de découvrir le monde de l'entreprise à travers un projet concret.",
+    public: ["Collège", "Lycée"],
+    presentation: "Les élèves sont invités à développer un projet entrepreneurial en équipe, accompagnés par leurs enseignants et des professionnels. Ce parcours leur permet de découvrir les différentes étapes de la création d'entreprise, de l'idéation à la présentation finale devant un jury de professionnels, en passant par l'étude de marché et l'élaboration d'un business plan.",
+    livrables: [
+      "Dossier de présentation du projet entrepreneurial",
+      "Business plan",
+      "Support de présentation",
+      "Pitch devant un jury",
+      "Prototype ou maquette du produit/service",
+      "Plan de communication"
+    ],
+    logo: "/lovable-uploads/167b90e5-a16f-4159-a31d-4f4980e1c427.png",
+    partenaires: [
+      {
+        nom: "Rencontres Entreprises Enseignants",
+        logo: "/lovable-uploads/167b90e5-a16f-4159-a31d-4f4980e1c427.png"
       }
     ]
   }
