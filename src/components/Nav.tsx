@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -80,6 +81,11 @@ export const Nav = () => {
             >
               Rechercher une action
             </Link>
+            <Link to="/#contact">
+              <Button variant="outline">
+                Nous contacter
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -126,6 +132,12 @@ export const Nav = () => {
                 className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
               >
                 Rechercher une action
+              </Link>
+              <Link
+                to="/#contact"
+                className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                Nous contacter
               </Link>
             </div>
           </div>
