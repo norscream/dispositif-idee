@@ -6,7 +6,7 @@ import { useState, useMemo } from "react";
 import { allCities, type City, getCityAcademy } from "@/data/cities";
 import { ActionFilters } from "@/components/actions/ActionFilters";
 import { ActionCard } from "@/components/actions/ActionCard";
-import { allActions, type Niveau, type Objectif, niveauOrder } from "@/types/actions";
+import { allActions, type Action, type Niveau, type Objectif, niveauOrder } from "@/types/actions";
 
 const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
 
@@ -75,7 +75,7 @@ export default function RechercheActions() {
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl font-bold mb-8 text-center">Trouver une action adaptée</h1>
           <p className="text-lg text-gray-600 mb-12 text-center">
-            Sélectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
+            Sélectionnez vos critères pour découvrir les actions qui correspond le mieux à vos besoins.
           </p>
 
           <ActionFilters
@@ -102,9 +102,11 @@ export default function RechercheActions() {
                 {filteredActions.length} action{filteredActions.length > 1 ? 's' : ''} trouvée{filteredActions.length > 1 ? 's' : ''}
               </p>
               
-              {filteredActions.map((action, index) => (
-                <ActionCard key={index} action={action} />
-              ))}
+              <div className="space-y-8">
+                {filteredActions.map((action, index) => (
+                  <ActionCard key={index} action={action} />
+                ))}
+              </div>
 
               {filteredActions.length === 0 && (
                 <div className="text-center py-12">

@@ -9,3 +9,4 @@ export type Niveau = Action['niveaux'][number];
 export type Objectif = Action['objectifs'][number];
 
 export const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const;
+
