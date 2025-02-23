@@ -1,6 +1,28 @@
+
 import { Concours } from "@/types/concours";
 
 export const concours: Concours[] = [
+  {
+    nom: "Course en Cours",
+    objectif: "Course en Cours est un dispositif pédagogique original qui permet aux collégiens et lycéens de s'investir dans un projet pluridisciplinaire de conception d'une mini voiture de course. Ce concours vise à susciter des vocations pour les filières scientifiques et techniques tout en développant l'esprit d'équipe et d'innovation.",
+    public: ["Collégiens", "Lycéens"],
+    presentation: "Les équipes doivent concevoir, fabriquer et faire courir une mini voiture de course propulsée par un moteur électrique. Les élèves travaillent comme une véritable écurie de course : design, fabrication, marketing, gestion de projet... Le projet se conclut par des épreuves régionales puis une grande finale nationale où les équipes présentent leur travail et font concourir leurs véhicules.",
+    livrables: [
+      "Voiture de course miniature fonctionnelle",
+      "Dossier technique de conception",
+      "Support de présentation du projet",
+      "Plan de communication et sponsoring",
+      "Stand de présentation",
+      "Épreuves de course chronométrées"
+    ],
+    logo: "/lovable-uploads/72df0592-8681-471c-897b-9f49582923bf.png",
+    partenaires: [
+      {
+        nom: "Région Académique Hauts-de-France",
+        logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
+      }
+    ]
+  },
   {
     nom: "La Robotique pour Tous",
     objectif: "La Robotique pour Tous vise à démocratiser l'accès à la robotique et à la programmation pour les élèves de tous niveaux. Ce concours encourage la créativité, le travail d'équipe et l'apprentissage par la pratique, tout en développant des compétences techniques essentielles.",
