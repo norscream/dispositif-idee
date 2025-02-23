@@ -33,13 +33,13 @@ const Resources = () => {
   return (
     <section id="ressources" className="py-16 px-4">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Actions disponibles</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-neutral-dark">Actions disponibles</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {resources.map((resource, index) => (
             <Link
               key={index}
               to={resource.href}
-              className="group relative p-6 rounded-xl border border-gray-100 hover:border-primary/20 transition-all bg-white hover:bg-primary-light/5 overflow-hidden"
+              className="group relative p-6 rounded-xl border border-gray-100 hover:border-secondary/20 transition-all bg-white hover:bg-secondary-light/5 overflow-hidden"
             >
               {resource.bgImage && (
                 <div 
@@ -55,8 +55,8 @@ const Resources = () => {
                 />
               )}
               <div className="relative z-10">
-                <h3 className="text-lg font-semibold mb-2">{resource.title}</h3>
-                <p className="text-gray-600 mb-4">{resource.description}</p>
+                <h3 className="text-lg font-semibold mb-2 text-neutral-dark">{resource.title}</h3>
+                <p className="text-neutral mb-4">{resource.description}</p>
                 <span className="text-primary group-hover:text-primary-dark transition-colors inline-flex items-center">
                   Explorer <ArrowRight className="ml-2 h-4 w-4" />
                 </span>

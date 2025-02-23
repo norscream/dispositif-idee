@@ -26,18 +26,23 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#818cf8",
-          light: "#e2e1ff",
-          dark: "#4f46e5",
+          DEFAULT: "#ff0044",
+          light: "#ff3369",
+          dark: "#cc0036",
         },
         secondary: {
-          DEFAULT: "#fecaca",
-          light: "#fee2e2",
-          dark: "#f87171",
+          DEFAULT: "#74e0d4",
+          light: "#a0e8e0",
+          dark: "#5cb3a9",
+        },
+        neutral: {
+          DEFAULT: "#323e48",
+          light: "#4a5864",
+          dark: "#1a2024",
         },
         accent: {
-          DEFAULT: "#e2e1ff",
-          foreground: "#4f46e5",
+          DEFAULT: "#74e0d4",
+          foreground: "#323e48",
         },
       },
       borderRadius: {

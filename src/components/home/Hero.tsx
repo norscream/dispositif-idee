@@ -13,10 +13,10 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-white/80"></div>
       </div>
       <div className="container mx-auto text-center relative z-10">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-dark">
           Innovons et Développons l'Esprit d'Engagement
         </h1>
-        <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-neutral mb-8 max-w-4xl mx-auto leading-relaxed">
           Aider l'élève à devenir un adulte/citoyen responsable en le mettant au coeur d'un dispositif pédagogique qui donne du sens aux apprentissages.
         </p>
         <div className="flex justify-center gap-4">

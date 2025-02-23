@@ -7,9 +7,9 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5% 64.9%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 32% 91%;
     --radius: 0.75rem;
   }
 
@@ -18,14 +18,14 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-neutral antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
 }
 
 @layer components {
   .nav-link {
-    @apply relative text-gray-600 hover:text-gray-900 transition-colors;
+    @apply relative text-neutral hover:text-neutral-dark transition-colors;
   }
 
   .nav-link::after {
