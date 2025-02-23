@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <div className="text-center md:text-left">
             <h3 className="text-gray-800 font-semibold mb-4">À propos</h3>
-            <p className="text-sm text-justify">
+            <p className="text-sm">
               Le dispositif IDEE est soutenu par la région Hauts-de-France et par l'Europe. 
               Il bénéficie d'un appui du Fonds Européen de Développement Régional (FEDER) 
               pour développer des actions liées à l'esprit d'entreprendre et entre dans une 
