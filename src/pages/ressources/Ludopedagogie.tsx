@@ -6,46 +6,40 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 
 const jeux = [
-  {
-    id: 1,
-    titre: "Sustainable Start-Up",
-    description: "Jeu de plateau permettant de découvrir les enjeux de la création d'une start-up dans le domaine de la transition écologique.",
-    type: "Jeu de plateau coopératif",
-    duree: "1h30 - 2h",
-    joueurs: "3 à 6",
-    age: "13+",
-    competences: ["Créativité", "Travail en équipe", "Gestion de projet"]
-  },
-  {
-    id: 2,
-    titre: "E=Entrepreneur",
-    description: "Faites vivre à vos élèves l'expérience unique d'un entrepreneur à travers des défis pédagogiques et ludiques.",
-    type: "Serious game",
-    duree: "1h - 1h30",
-    joueurs: "4 à 8",
-    age: "15+",
-    competences: ["Prise de décision", "Gestion financière", "Innovation"]
-  },
-  {
-    id: 3,
-    titre: "Innov'Action",
-    description: "Un jeu de rôle qui plonge les participants dans des situations réelles d'innovation et d'entrepreneuriat.",
-    type: "Jeu de rôle",
-    duree: "2h",
-    joueurs: "6 à 12",
-    age: "16+",
-    competences: ["Communication", "Résolution de problèmes", "Leadership"]
-  },
-  {
-    id: 4,
-    titre: "Mini-Entreprise Simulator",
-    description: "Simulez la création et la gestion d'une mini-entreprise de A à Z avec ce jeu collaboratif.",
-    type: "Simulation",
-    duree: "2h - 3h",
-    joueurs: "4 à 8",
-    age: "14+",
-    competences: ["Organisation", "Gestion d'équipe", "Marketing"]
-  }
+  { id: 1, titre: "LITTLE SECRET", type: "Jeu de société" },
+  { id: 2, titre: "THE MIND", type: "Jeu de cartes coopératif" },
+  { id: 3, titre: "RECTO VERSO", type: "Jeu d'observation" },
+  { id: 4, titre: "KONTOUR", type: "Jeu de dessin" },
+  { id: 5, titre: "IMAGIDES", type: "Jeu d'association d'images" },
+  { id: 6, titre: "SPLITO", type: "Jeu de logique" },
+  { id: 7, titre: "BIOVIVA GRAND JEU DEFI", type: "Jeu de connaissances environnementales" },
+  { id: 8, titre: "BIOVIVA JUNIOR", type: "Jeu de connaissances pour enfants" },
+  { id: 9, titre: "IMAGINE", type: "Jeu créatif" },
+  { id: 10, titre: "TOTEM", type: "Jeu de communication" },
+  { id: 11, titre: "TTMC", type: "Jeu de culture générale" },
+  { id: 12, titre: "DIXIT", type: "Jeu d'imagination" },
+  { id: 13, titre: "LE MONSTRE DES COULEURS", type: "Jeu sur les émotions" },
+  { id: 14, titre: "CONCEPT", type: "Jeu de communication" },
+  { id: 15, titre: "CONCEPT KIDS", type: "Jeu de communication pour enfants" },
+  { id: 16, titre: "MYSTERIUM", type: "Jeu coopératif" },
+  { id: 17, titre: "MYSTERIUM KIDS", type: "Jeu coopératif pour enfants" },
+  { id: 18, titre: "SPLENDOR", type: "Jeu de stratégie" },
+  { id: 19, titre: "CATAN", type: "Jeu de stratégie et négociation" },
+  { id: 20, titre: "LOUPS-GAROUS", type: "Jeu de rôle" },
+  { id: 21, titre: "7 WONDERS", type: "Jeu de civilisation" },
+  { id: 22, titre: "PALEO", type: "Jeu coopératif" },
+  { id: 23, titre: "LES AVENTURIERS DU RAIL EUROPE", type: "Jeu de plateau stratégique" },
+  { id: 24, titre: "CITADELLES", type: "Jeu de rôle et stratégie" },
+  { id: 25, titre: "STORY CUBES", type: "Jeu de création d'histoires" },
+  { id: 26, titre: "AGRO CHALLENGES", type: "Jeu pédagogique" },
+  { id: 27, titre: "JEU DE LA CO-CREATION", type: "Jeu collaboratif" },
+  { id: 28, titre: "JEU ENIGME FRUIT ET LEGUMES", type: "Jeu éducatif Bioviva" },
+  { id: 29, titre: "CLIMAT TIC TAC", type: "Jeu environnemental Bioviva" },
+  { id: 30, titre: "CRAYONS COOPERATIFS", type: "Jeu de dessin coopératif" },
+  { id: 31, titre: "LA TOUR DE FROBEL", type: "Jeu de construction" },
+  { id: 32, titre: "AVENTURE ENTREPRENEUR", type: "Jeu pédagogique BDF" },
+  { id: 33, titre: "FEELINGS", type: "Jeu sur les émotions" },
+  { id: 34, titre: "JEU DE CARTES BESOINS", type: "Jeu pédagogique" }
 ];
 
 export default function Ludopedagogie() {
@@ -99,43 +93,21 @@ export default function Ludopedagogie() {
         </Card>
 
         {/* Grid des jeux */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {jeux.map((jeu) => (
             <Card key={jeu.id} className="hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle>{jeu.titre}</CardTitle>
-                <CardDescription className="text-base">{jeu.type}</CardDescription>
+                <CardTitle className="text-xl">{jeu.titre}</CardTitle>
+                <CardDescription className="text-sm">{jeu.type}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-6">{jeu.description}</p>
-                
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Info className="h-4 w-4 text-primary" />
-                    <span>Durée : {jeu.duree}</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Info className="h-4 w-4 text-primary" />
-                    <span>Nombre de joueurs : {jeu.joueurs}</span>
-                  </div>
-                  
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Info className="h-4 w-4 text-primary" />
-                    <span>Âge recommandé : {jeu.age}</span>
-                  </div>
-                  
-                  <div>
-                    <p className="text-sm font-medium mb-2">Compétences développées :</p>
-                    <div className="flex flex-wrap gap-2">
-                      {jeu.competences.map((competence, index) => (
-                        <Badge key={index} variant="secondary">
-                          {competence}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <Link
+                  to="/#contact"
+                  className="w-full inline-flex items-center justify-center bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-lg transition-colors text-sm"
+                >
+                  Emprunter ce jeu
+                  <Send className="ml-2 h-4 w-4" />
+                </Link>
               </CardContent>
             </Card>
           ))}
