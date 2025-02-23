@@ -70,7 +70,7 @@ export function Footer() {
                 <PopoverTrigger className="text-gray-600 hover:text-gray-900 transition-colors">
                   Mentions légales et cookies
                 </PopoverTrigger>
-                <PopoverContent className="w-[95vw] max-w-[800px] p-6">
+                <PopoverContent className="w-[95vw] max-w-[800px] p-6 bg-white">
                   <div className="space-y-4 text-sm text-left max-h-[80vh] overflow-y-auto">
                     <h4 className="font-semibold text-lg">Gestion des données personnelles et cookies</h4>
                     
