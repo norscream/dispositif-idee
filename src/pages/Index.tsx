@@ -30,13 +30,13 @@ export default function Index() {
         <News />
       </Suspense>
       <Suspense fallback={<LoadingFallback />}>
+        <Resources />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
         <Team />
       </Suspense>
       <Suspense fallback={<LoadingFallback />}>
         <Contact />
-      </Suspense>
-      <Suspense fallback={<LoadingFallback />}>
-        <Resources />
       </Suspense>
       <Suspense fallback={<LoadingFallback />}>
         <FAQ />
