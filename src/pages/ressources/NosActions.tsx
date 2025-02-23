@@ -41,10 +41,13 @@ export default function NosActions() {
           <div className="space-y-8">
             {actions.map((action, index) => (
               <Card key={index} className="overflow-hidden">
-                <div className="h-64 overflow-hidden relative">
+                <div className="h-64 overflow-hidden relative bg-gray-50">
                   <img 
                     src={action.image} 
-                    alt={action.title} 
+                    alt={action.title}
+                    loading="lazy"
+                    width={640}
+                    height={256}
                     className="w-full h-full object-contain"
                   />
                 </div>
