@@ -1,27 +1,50 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Nav } from "@/components/Nav";
 import { Trophy } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const concours = [
   {
-    title: "Challenge de l'Innovation",
-    description: "Un concours stimulant où les élèves développent des solutions innovantes pour répondre aux défis sociétaux actuels.",
-    periode: "Septembre - Mai",
-    niveaux: ["Lycée", "Post bac"],
+    nom: "Concours Innovation Junior",
+    objectif: "Développer l'esprit d'innovation et la créativité des jeunes",
+    public: ["Collégiens", "Lycéens"],
+    presentation: "Une série d'épreuves stimulantes où les participants devront identifier un besoin, concevoir une solution innovante et la présenter devant un jury d'experts.",
+    epreuves: [
+      "Phase 1 : Identification d'un besoin sociétal",
+      "Phase 2 : Développement d'un prototype",
+      "Phase 3 : Présentation finale"
+    ]
   },
   {
-    title: "Mini-Entreprises",
-    description: "Créez et gérez votre propre entreprise pendant une année scolaire, du concept à la commercialisation.",
-    periode: "Octobre - Juin",
-    niveaux: ["Collège", "Lycée"],
+    nom: "Challenge Entreprendre",
+    objectif: "Initier les jeunes à l'entrepreneuriat et au monde de l'entreprise",
+    public: ["Lycéens", "Étudiants"],
+    presentation: "Un parcours complet pour découvrir l'entrepreneuriat à travers des cas pratiques et des mises en situation réelles.",
+    epreuves: [
+      "Étude de marché",
+      "Business plan",
+      "Pitch final"
+    ]
   },
   {
-    title: "Graines d'Entrepreneurs",
-    description: "Un programme destiné aux plus jeunes pour développer leur esprit d'entreprise et leur créativité.",
-    periode: "Janvier - Avril",
-    niveaux: ["École", "Collège"],
-  },
+    nom: "Défi Créativité",
+    objectif: "Stimuler la créativité et l'innovation collaborative",
+    public: ["Collégiens", "Lycéens", "Étudiants"],
+    presentation: "Un concours qui met l'accent sur la créativité et la collaboration pour résoudre des défis du monde réel.",
+    epreuves: [
+      "Brainstorming collectif",
+      "Développement de solution",
+      "Démonstration créative"
+    ]
+  }
 ];
 
 export default function Concours() {
@@ -34,19 +57,56 @@ export default function Concours() {
           <h1 className="text-3xl font-bold text-center">Nos Concours</h1>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {concours.map((concours, index) => (
-            <Card key={index} className="hover:border-primary/20 transition-colors">
-              <CardHeader>
-                <CardTitle>{concours.title}</CardTitle>
-                <CardDescription>Niveaux : {concours.niveaux.join(", ")}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">{concours.description}</p>
-                <p className="text-sm text-primary">Période : {concours.periode}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="max-w-6xl mx-auto">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {concours.map((concours, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card className="h-full">
+                      <CardHeader>
+                        <CardTitle className="text-xl">{concours.nom}</CardTitle>
+                        <CardDescription>
+                          Public : {concours.public.join(", ")}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div>
+                          <h4 className="font-semibold mb-2">Objectif</h4>
+                          <p className="text-sm text-gray-600">{concours.objectif}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Présentation</h4>
+                          <p className="text-sm text-gray-600">{concours.presentation}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Épreuves</h4>
+                          <ul className="text-sm text-gray-600 list-disc list-inside">
+                            {concours.epreuves.map((epreuve, index) => (
+                              <li key={index}>{epreuve}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </CardContent>
+                      <CardFooter>
+                        <Button className="w-full">
+                          S'inscrire au concours
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
       </div>
     </div>
