@@ -41,11 +41,26 @@ export function Footer() {
           </div>
           <div>
             <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-sm">
-              <li>contact@idee-association.fr</li>
-              <li>01 23 45 67 89</li>
-              <li>123 rue de l'Innovation<br />75000 Paris</li>
-            </ul>
+            <div className="space-y-6 text-sm">
+              <div>
+                <h4 className="text-white font-medium mb-2">Académie de Lille</h4>
+                <ul className="space-y-1">
+                  <li><a href="mailto:projet.idee@ac-lille.fr" className="hover:text-white transition-colors">projet.idee@ac-lille.fr</a></li>
+                  <li>144 Rue de Bavay<br />59000 Lille</li>
+                  <li>03 20 15 60 00</li>
+                  <li><a href="https://www1.ac-lille.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Site de l'académie de Lille</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-white font-medium mb-2">Académie d'Amiens</h4>
+                <ul className="space-y-1">
+                  <li><a href="mailto:projet.idee@ac-amiens.fr" className="hover:text-white transition-colors">projet.idee@ac-amiens.fr</a></li>
+                  <li>20 Bd d'Alsace Lorraine<br />80000 Amiens</li>
+                  <li>03 22 82 38 23</li>
+                  <li><a href="https://www.ac-amiens.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Site de l'académie d'Amiens</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-8 text-sm text-center">
