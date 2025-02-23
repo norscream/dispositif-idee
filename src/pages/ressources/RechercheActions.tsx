@@ -20,11 +20,13 @@ export default function RechercheActions() {
   const filteredActions = useMemo(() => {
     if (!hasActiveFilters) return [];
     
+    const regionZone: Zone = "Région académique Hauts-de-France";
+    
     return allActions.filter(action => {
       const matchesCities = selectedCities.length === 0 || 
         selectedCities.some(city => {
           const cityAcademy = getCityAcademy(city);
-          return action.zones.includes(cityAcademy) || action.zones.includes(validZones[2]);
+          return action.zones.includes(cityAcademy) || action.zones.includes(regionZone);
         });
 
       const matchesNiveaux = selectedNiveaux.length === 0 || 

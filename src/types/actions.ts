@@ -11,7 +11,7 @@ export const allActions = [...actions, ...actionsPartenaires] as const;
 export type Action = {
   title: string;
   description: string;
-  zones: ReadonlyArray<Zone>;
+  zones: Zone[];
   niveaux: ReadonlyArray<string>;
   objectifs: ReadonlyArray<string>;
   duree: string;
