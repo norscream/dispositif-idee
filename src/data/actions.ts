@@ -4,7 +4,7 @@ export const actions = [
     title: "Prévention et gestion des conflits avec les messages clairs",
     description: "L'apprentissage méthodique de la technique des messages clairs s'inscrit dans la formation de la sensibilité, permettant aux élèves d'identifier et d'exprimer, en les régulant, les émotions et les sentiments. Il vise également le développement de l'esprit d'entreprendre et certaines compétences transversales nécessaires pour renforcer la motivation et la cohésion d'équipe. Cette technique, issue de la Communication Non Violente (CNV), permet aux élèves de gérer leurs désaccords de manière autonome et constructive.",
     zones: ["Académie d'Amiens"],
-    niveaux: ["Collège", "Lycée"],
+    niveaux: ["École", "Collège", "Lycée"],
     objectifs: [
       "Apprendre à exprimer ses émotions et sentiments de manière constructive",
       "Développer l'écoute et l'empathie",
