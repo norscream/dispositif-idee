@@ -1,4 +1,6 @@
 
+import { type Zone } from "@/types/actions";
+
 export const cities = {
   lille: [
     "Avesnois",
@@ -29,7 +31,7 @@ export type City = (typeof cities.lille)[number] | (typeof cities.amiens)[number
 
 export const allCities = [...cities.lille, ...cities.amiens];
 
-export const getCityAcademy = (city: City): "Académie de Lille" | "Académie d'Amiens" => {
+export const getCityAcademy = (city: City): Zone => {
   if (cities.lille.includes(city as any)) {
     return "Académie de Lille";
   }

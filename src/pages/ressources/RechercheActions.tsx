@@ -24,7 +24,7 @@ export default function RechercheActions() {
       const matchesCities = selectedCities.length === 0 || 
         selectedCities.some(city => {
           const cityAcademy = getCityAcademy(city);
-          return action.zones.includes(cityAcademy as Zone) || action.zones.includes(validZones[2]);
+          return action.zones.includes(cityAcademy) || action.zones.includes(validZones[2]);
         });
 
       const matchesNiveaux = selectedNiveaux.length === 0 || 
