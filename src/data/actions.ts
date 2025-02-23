@@ -1,5 +1,18 @@
-
 export const actions = [
+  {
+    title: "Prévention et gestion des conflits avec les messages clairs",
+    description: "L'apprentissage méthodique de la technique des messages clairs s'inscrit dans la formation de la sensibilité, permettant aux élèves d'identifier et d'exprimer, en les régulant, les émotions et les sentiments. Il vise également le développement de l'esprit d'entreprendre et certaines compétences transversales nécessaires pour renforcer la motivation et la cohésion d'équipe. Cette technique, issue de la Communication Non Violente (CNV), permet aux élèves de gérer leurs désaccords de manière autonome et constructive.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["Collège", "Lycée"],
+    objectifs: [
+      "Apprendre à exprimer ses émotions et sentiments de manière constructive",
+      "Développer l'écoute et l'empathie",
+      "Favoriser la résolution non-violente des conflits",
+      "Renforcer la coopération et le respect mutuel"
+    ],
+    duree: "3 heures",
+    image: "/lovable-uploads/218ad44a-ae33-4006-bcf5-95e50107fca8.png"
+  },
   {
     title: "Cultiver sa confiance en soi",
     description: "Cet atelier aide les élèves à renforcer leur estime d'eux-mêmes, à mieux gérer leurs émotions et à s'exprimer avec assurance. À travers des exercices pratiques et interactifs, ils développent leurs compétences en communication et gagnent en aisance pour aborder sereinement leurs projets académiques et professionnels.",
