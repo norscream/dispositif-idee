@@ -95,16 +95,16 @@ export default function Concours() {
                     <Card className="relative h-full transition-all duration-300 hover:shadow-lg overflow-hidden">
                       {concours.backgroundImage && (
                         <div 
-                          className="absolute inset-0 z-0 opacity-10"
+                          className="absolute inset-0 z-0 opacity-20"
                           style={{
                             backgroundImage: `url(${concours.backgroundImage})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                            filter: 'contrast(1.1) brightness(1.1)'
+                            filter: 'contrast(1.2) brightness(1.2) saturate(1.2)'
                           }}
                         />
                       )}
-                      <div className="relative z-10 bg-white/80 backdrop-blur-[2px]">
+                      <div className="relative z-10 bg-white/70 backdrop-blur-[1px]">
                         <CardHeader className="text-center">
                           <div className="flex justify-center mb-4">
                             <img 
