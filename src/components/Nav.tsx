@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -22,8 +23,7 @@ const resourceLinks = [
   { href: "/ressources/actions-partenaires", label: "Les actions de nos partenaires" },
   { href: "/ressources/ludopedagogie", label: "Ludopédagogie" },
   { href: "/ressources/concours", label: "Concours" },
-  { href: "/ressources/labellisation", label: "Labéllisation" },
-  { href: "/ressources/recherche-actions", label: "Rechercher une action" }
+  { href: "/ressources/labellisation", label: "Labéllisation" }
 ];
 
 export const Nav = () => {
@@ -74,12 +74,13 @@ export const Nav = () => {
           <div className="hidden md:flex items-center space-x-8">
             <DropdownNavItem trigger="Nos missions" items={actionLinks} />
             <DropdownNavItem trigger="Actions disponibles" items={resourceLinks} />
-            <button 
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-              aria-label="Rechercher"
+            <Link 
+              to="/ressources/recherche-actions"
+              className="flex items-center text-gray-700 hover:text-primary transition-colors"
             >
-              <Search className="h-5 w-5 text-gray-600" />
-            </button>
+              <Search className="h-5 w-5 mr-2" />
+              Rechercher une action
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -121,6 +122,13 @@ export const Nav = () => {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                to="/ressources/recherche-actions"
+                className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors flex items-center"
+              >
+                <Search className="h-5 w-5 mr-2" />
+                Rechercher une action
+              </Link>
             </div>
           </div>
         )}
