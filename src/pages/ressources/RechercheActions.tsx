@@ -6,7 +6,7 @@ import { useState, useMemo } from "react";
 import { allCities, type City, getCityAcademy } from "@/data/cities";
 import { ActionFilters } from "@/components/actions/ActionFilters";
 import { ActionCard } from "@/components/actions/ActionCard";
-import { allActions, type Action, type Niveau, type Objectif, niveauOrder } from "@/types/actions";
+import { allActions, type Action, type Niveau, type Objectif, type Zone } from "@/types/actions";
 
 const uniqueObjectifs = [...new Set(allActions.flatMap(action => action.objectifs))] as Objectif[];
 
@@ -23,8 +23,8 @@ export default function RechercheActions() {
     return allActions.filter(action => {
       const matchesCities = selectedCities.length === 0 || 
         selectedCities.some(city => {
-          const cityAcademy = getCityAcademy(city);
-          return action.zones.includes(cityAcademy) || action.zones.includes("Région académique Hauts-de-France");
+          const cityAcademy = getCityAcademy(city) as Zone;
+          return action.zones.includes(cityAcademy) || action.zones.includes("Région académique Hauts-de-France" as Zone);
         });
 
       const matchesNiveaux = selectedNiveaux.length === 0 || 
@@ -75,7 +75,7 @@ export default function RechercheActions() {
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl font-bold mb-8 text-center">Trouver une action adaptée</h1>
           <p className="text-lg text-gray-600 mb-12 text-center">
-            Sélectionnez vos critères pour découvrir les actions qui correspond le mieux à vos besoins.
+            Sélectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
           </p>
 
           <ActionFilters
