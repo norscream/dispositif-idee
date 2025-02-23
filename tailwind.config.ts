@@ -26,23 +26,23 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#ff0044",
-          light: "#ff3369",
-          dark: "#cc0036",
+          DEFAULT: "#e6003d", // Version plus douce du rouge
+          light: "#ff4d75", // Rose plus doux
+          dark: "#b30030", // Rouge foncé plus doux
         },
         secondary: {
-          DEFAULT: "#74e0d4",
-          light: "#a0e8e0",
-          dark: "#5cb3a9",
+          DEFAULT: "#8ee6dc", // Turquoise plus doux
+          light: "#b8efe8", // Version très claire
+          dark: "#6cbeb4", // Version plus foncée mais douce
         },
         neutral: {
-          DEFAULT: "#323e48",
-          light: "#4a5864",
-          dark: "#1a2024",
+          DEFAULT: "#435260", // Version plus douce du bleu-gris
+          light: "#5d6e7c", // Plus clair mais toujours doux
+          dark: "#2a343c", // Plus foncé mais moins dur
         },
         accent: {
-          DEFAULT: "#74e0d4",
-          foreground: "#323e48",
+          DEFAULT: "#8ee6dc", // Même que secondary pour cohérence
+          foreground: "#435260", // Même que neutral pour cohérence
         },
       },
       borderRadius: {
