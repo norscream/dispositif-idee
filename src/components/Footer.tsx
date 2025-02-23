@@ -1,5 +1,10 @@
 
 import { Link } from "react-router-dom";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 export function Footer() {
   return (
@@ -58,8 +63,77 @@ export function Footer() {
               className="h-24 object-contain"
             />
           </div>
-          <div className="text-sm text-center">
+          <div className="text-sm text-center space-y-4">
             <p>&copy; {new Date().getFullYear()} IDÉE - Tous droits réservés</p>
+            <div className="flex justify-center space-x-4">
+              <Popover>
+                <PopoverTrigger className="text-gray-600 hover:text-gray-900 transition-colors">
+                  Mentions légales et cookies
+                </PopoverTrigger>
+                <PopoverContent className="w-[95vw] max-w-[800px] p-6">
+                  <div className="space-y-4 text-sm text-left max-h-[80vh] overflow-y-auto">
+                    <h4 className="font-semibold text-lg">Gestion des données personnelles et cookies</h4>
+                    
+                    <h5 className="font-semibold mt-4">1. Responsable de traitement</h5>
+                    <p>
+                      La Région Académique Hauts-de-France agit en tant que responsable de traitement pour les données à caractère personnel collectées sur le site web du dispositif IDEE. Le délégué à la protection des données de la Région Académique peut être contacté à l'adresse dpd@region-academique-hauts-de-france.fr.
+                    </p>
+
+                    <h5 className="font-semibold mt-4">2. Données collectées</h5>
+                    <p>
+                      Les données collectées comprennent les informations fournies via les formulaires de contact : nom, prénom, établissement, adresse email et contenu des messages. Ces données sont nécessaires pour répondre à vos demandes et assurer le suivi des projets.
+                    </p>
+
+                    <h5 className="font-semibold mt-4">3. Finalités du traitement</h5>
+                    <p>
+                      Les données sont collectées pour :
+                    </p>
+                    <ul className="list-disc ml-6 mt-2">
+                      <li>Répondre à vos demandes d'information</li>
+                      <li>Assurer le suivi des projets et actions</li>
+                      <li>Produire des statistiques anonymes d'utilisation</li>
+                      <li>Améliorer les services proposés</li>
+                    </ul>
+
+                    <h5 className="font-semibold mt-4">4. Base légale</h5>
+                    <p>
+                      Le traitement des données repose sur votre consentement et sur l'intérêt légitime de la Région Académique à assurer le bon fonctionnement du dispositif IDEE.
+                    </p>
+
+                    <h5 className="font-semibold mt-4">5. Destinataires</h5>
+                    <p>
+                      Les données sont accessibles uniquement aux personnels habilités de la Région Académique et des partenaires du dispositif IDEE, dans la limite de leurs attributions respectives.
+                    </p>
+
+                    <h5 className="font-semibold mt-4">6. Durée de conservation</h5>
+                    <p>
+                      Les données sont conservées pendant la durée nécessaire à la réalisation des finalités pour lesquelles elles ont été collectées, dans la limite de 3 ans après le dernier contact.
+                    </p>
+
+                    <h5 className="font-semibold mt-4">7. Vos droits</h5>
+                    <p>
+                      Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants :
+                    </p>
+                    <ul className="list-disc ml-6 mt-2">
+                      <li>Droit d'accès à vos données</li>
+                      <li>Droit de rectification</li>
+                      <li>Droit d'opposition</li>
+                      <li>Droit à l'effacement</li>
+                      <li>Droit à la limitation du traitement</li>
+                      <li>Droit à la portabilité des données</li>
+                    </ul>
+                    <p className="mt-2">
+                      Pour exercer ces droits ou pour toute question, contactez notre délégué à la protection des données : dpd@region-academique-hauts-de-france.fr
+                    </p>
+
+                    <h5 className="font-semibold mt-4">8. Cookies</h5>
+                    <p>
+                      Le site utilise des cookies techniques nécessaires à son fonctionnement. Vous pouvez les désactiver dans les paramètres de votre navigateur, mais cela pourrait altérer certaines fonctionnalités du site.
+                    </p>
+                  </div>
+                </PopoverContent>
+              </Popover>
+            </div>
           </div>
         </div>
       </div>
