@@ -8,6 +8,13 @@ interface ConcoursCardProps {
 }
 
 export function ConcoursCard({ concours }: ConcoursCardProps) {
+  const scrollToForm = () => {
+    const form = document.getElementById('inscription-form');
+    if (form) {
+      form.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <Card className="h-full transition-all duration-300 hover:shadow-lg">
       <CardHeader className="text-center">
@@ -55,7 +62,7 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">
+        <Button className="w-full" onClick={scrollToForm}>
           S'inscrire au concours
         </Button>
       </CardFooter>
