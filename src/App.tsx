@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Footer } from "./components/Footer";
 import Index from "./pages/Index";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Informer from "./pages/Informer";
 import Accompagner from "./pages/Accompagner";
@@ -31,6 +32,7 @@ const App = () => (
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/informer" element={<Informer />} />
               <Route path="/accompagner" element={<Accompagner />} />
               <Route path="/ressources" element={<Ressources />} />

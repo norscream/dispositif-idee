@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,30 +28,7 @@ const resourceLinks = [
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
-
-  const handleContactClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    
-    // Si on n'est pas sur la page d'accueil, on y retourne d'abord
-    if (location.pathname !== '/') {
-      navigate('/');
-      // On attend que la navigation soit terminée avant de faire défiler
-      setTimeout(() => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
-      // Si on est déjà sur la page d'accueil, on fait simplement défiler
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
 
   const DropdownNavItem = ({ 
     trigger, 
@@ -104,12 +81,12 @@ export const Nav = () => {
             >
               Rechercher une action
             </Link>
-            <button 
-              onClick={handleContactClick}
+            <Link 
+              to="/contact"
               className="text-gray-700 hover:text-primary transition-colors"
             >
               Nous contacter
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -157,12 +134,12 @@ export const Nav = () => {
               >
                 Rechercher une action
               </Link>
-              <button
-                onClick={handleContactClick}
-                className="px-4 py-2 text-left hover:bg-gray-50 rounded-md transition-colors"
+              <Link
+                to="/contact"
+                className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
               >
                 Nous contacter
-              </button>
+              </Link>
             </div>
           </div>
         )}

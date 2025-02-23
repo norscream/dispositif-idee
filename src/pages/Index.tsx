@@ -7,7 +7,6 @@ import { Hero } from "@/components/home/Hero";
 const Actions = lazy(() => import("@/components/home/Actions"));
 const News = lazy(() => import("@/components/home/News"));
 const Team = lazy(() => import("@/components/home/Team"));
-const Contact = lazy(() => import("@/components/home/Contact"));
 const Resources = lazy(() => import("@/components/home/Resources"));
 const FAQ = lazy(() => import("@/components/home/FAQ"));
 
@@ -34,9 +33,6 @@ export default function Index() {
       </Suspense>
       <Suspense fallback={<LoadingFallback />}>
         <Team />
-      </Suspense>
-      <Suspense fallback={<LoadingFallback />}>
-        <Contact />
       </Suspense>
       <Suspense fallback={<LoadingFallback />}>
         <FAQ />
