@@ -1,6 +1,5 @@
-
 import { Nav } from "@/components/Nav";
-import { ArrowLeft, Send, Info } from "lucide-react";
+import { ArrowLeft, Send, Info, Users, Clock, Gamepad2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +7,62 @@ import { Badge } from "@/components/ui/badge";
 const jeux = [
   {
     id: 1,
+    titre: "CONCEPT",
+    editeur: "ASMODEE",
+    description: "Plus besoin de parler pour communiquer. Par équipes, faites deviner des mots aux autres joueurs en plaçant des pions sur différentes icônes du plateau.",
+    type: "Jeu de société",
+    duree: "40 min",
+    joueurs: "4-12",
+    age: "10+",
+    competences: ["Créativité", "Communication"],
+    niveau: ["Lycée", "BTS"],
+    image: "/placeholder.svg",
+    video: "https://youtu.be/HXG_azOnris"
+  },
+  {
+    id: 2,
+    titre: "CONCEPT KIDS",
+    editeur: "ASMODEE",
+    description: "Une version adaptée aux enfants du célèbre jeu Concept, où les joueurs font deviner des animaux à l'aide d'icônes.",
+    type: "Jeu éducatif",
+    duree: "20 min",
+    joueurs: "2-12",
+    age: "4+",
+    competences: ["Communication"],
+    niveau: ["Primaire"],
+    image: "/placeholder.svg",
+    video: "https://youtu.be/8y9kM8YfSps"
+  },
+  {
+    id: 3,
+    titre: "LITTLE SECRET",
+    editeur: "ATM GAMING",
+    description: "Un jeu d'ambiance et de déduction où les joueurs doivent identifier qui appartient à quelle organisation secrète.",
+    type: "Jeu de société",
+    duree: "20 min",
+    joueurs: "3-10",
+    age: "10+",
+    competences: ["Créativité", "Communication"],
+    niveau: ["Collège", "Lycée", "BTS"],
+    image: "/placeholder.svg",
+    video: "https://youtu.be/bZr6WT34MSo"
+  },
+  {
+    id: 4,
+    titre: "THE MIND",
+    editeur: "OYA",
+    description: "Un jeu coopératif unique où les joueurs doivent jouer leurs cartes dans l'ordre croissant sans communiquer.",
+    type: "Jeu de cartes coopératif",
+    duree: "20 min",
+    joueurs: "2-4",
+    age: "8+",
+    competences: ["Coopération", "Communication", "Ecoute de l'autre"],
+    niveau: ["Primaire", "Collège", "Lycée", "BTS"],
+    image: "/placeholder.svg",
+    video: "https://youtu.be/QvEfUdi3vo4"
+  },
+  {
+    id: 5,
     titre: "Sustainable Start-Up",
     description: "Jeu de plateau permettant de découvrir les enjeux de la création d'une start-up dans le domaine de la transition écologique.",
     type: "Jeu de plateau coopératif",
@@ -17,7 +72,7 @@ const jeux = [
     competences: ["Créativité", "Travail en équipe", "Gestion de projet"]
   },
   {
-    id: 2,
+    id: 6,
     titre: "E=Entrepreneur",
     description: "Faites vivre à vos élèves l'expérience unique d'un entrepreneur à travers des défis pédagogiques et ludiques.",
     type: "Serious game",
@@ -27,7 +82,7 @@ const jeux = [
     competences: ["Prise de décision", "Gestion financière", "Innovation"]
   },
   {
-    id: 3,
+    id: 7,
     titre: "Innov'Action",
     description: "Un jeu de rôle qui plonge les participants dans des situations réelles d'innovation et d'entrepreneuriat.",
     type: "Jeu de rôle",
@@ -37,7 +92,7 @@ const jeux = [
     competences: ["Communication", "Résolution de problèmes", "Leadership"]
   },
   {
-    id: 4,
+    id: 8,
     titre: "Mini-Entreprise Simulator",
     description: "Simulez la création et la gestion d'une mini-entreprise de A à Z avec ce jeu collaboratif.",
     type: "Simulation",
@@ -99,29 +154,39 @@ export default function Ludopedagogie() {
         </Card>
 
         {/* Grid des jeux */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {jeux.map((jeu) => (
             <Card key={jeu.id} className="hover:shadow-lg transition-shadow">
+              <div className="aspect-video w-full overflow-hidden">
+                <img
+                  src={jeu.image}
+                  alt={`Image du jeu ${jeu.titre}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <CardHeader>
-                <CardTitle>{jeu.titre}</CardTitle>
-                <CardDescription className="text-base">{jeu.type}</CardDescription>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <CardTitle className="text-xl">{jeu.titre}</CardTitle>
+                    <CardDescription className="text-sm">{jeu.editeur}</CardDescription>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-600 mt-2">{jeu.description}</p>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-6">{jeu.description}</p>
-                
                 <div className="space-y-4">
                   <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Info className="h-4 w-4 text-primary" />
+                    <Clock className="h-4 w-4 text-primary" />
                     <span>Durée : {jeu.duree}</span>
                   </div>
                   
                   <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Info className="h-4 w-4 text-primary" />
+                    <Users className="h-4 w-4 text-primary" />
                     <span>Nombre de joueurs : {jeu.joueurs}</span>
                   </div>
                   
                   <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Info className="h-4 w-4 text-primary" />
+                    <Gamepad2 className="h-4 w-4 text-primary" />
                     <span>Âge recommandé : {jeu.age}</span>
                   </div>
                   
@@ -131,6 +196,17 @@ export default function Ludopedagogie() {
                       {jeu.competences.map((competence, index) => (
                         <Badge key={index} variant="secondary">
                           {competence}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-medium mb-2">Public cible :</p>
+                    <div className="flex flex-wrap gap-2">
+                      {jeu.niveau.map((niv, index) => (
+                        <Badge key={index} variant="secondary" className="bg-primary/10 text-primary">
+                          {niv}
                         </Badge>
                       ))}
                     </div>
