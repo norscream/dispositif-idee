@@ -41,7 +41,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-200 mt-8 pt-8 max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center mb-8 bg-transparent">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center mb-8">
             <img 
               src="/lovable-uploads/c80162aa-e4bd-4e29-adad-13992b5c1218.png" 
               alt="Région Hauts-de-France" 
@@ -53,9 +53,9 @@ export function Footer() {
               className="h-20 object-contain"
             />
             <img 
-              src="/lovable-uploads/06e2af81-7d96-4a24-88ae-235bdd8bfd8a.png" 
+              src="/lovable-uploads/648496a1-c880-4206-abde-82c1a9169a49.png" 
               alt="Cofinancé par l'Union européenne" 
-              className="h-16 object-contain col-span-2 md:col-span-1 bg-transparent"
+              className="h-16 object-contain col-span-2 md:col-span-1"
             />
           </div>
           <div className="text-sm text-center space-y-4">
