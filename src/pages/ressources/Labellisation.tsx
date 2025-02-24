@@ -57,11 +57,13 @@ export default function Labellisation() {
 
           <div className="mb-12">
             <h2 className="text-2xl font-semibold mb-6">Processus de labellisation</h2>
-            <img 
-              src="/lovable-uploads/56d38c3e-bf1b-4cc3-953f-5e4e28e23349.png" 
-              alt="Processus de labellisation en 5 étapes" 
-              className="w-full mb-4"
-            />
+            <div className="flex justify-center">
+              <img 
+                src="/lovable-uploads/56d38c3e-bf1b-4cc3-953f-5e4e28e23349.png" 
+                alt="Processus de labellisation en 5 étapes" 
+                className="w-full object-cover max-h-[400px] -mt-8 -mb-8"
+              />
+            </div>
             <p className="text-sm text-gray-500 italic text-center">
               La labellisation est accordée pour 3 ans, renouvelable
             </p>
@@ -97,7 +99,7 @@ export default function Labellisation() {
             <h3 className="text-xl font-semibold mb-4">
               Prêt à faire labelliser votre action ?
             </h3>
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="text-white">
               <Link to="/contact">
                 Déposez votre candidature
               </Link>
