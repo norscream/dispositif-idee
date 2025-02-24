@@ -185,7 +185,6 @@ export default function RechercheActions() {
             </div>
           </div>
 
-          {/* Résultats */}
           <div className="space-y-8">
             {!hasActiveFilters ? (
               <div className="text-center py-12">
@@ -205,8 +204,11 @@ export default function RechercheActions() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {activityType === "action" ? (
                     filteredActions.map((action, index) => (
-                      <Card key={index} className="overflow-hidden">
-                        <div className="h-64 overflow-hidden relative">
+                      <Card 
+                        key={index} 
+                        className={`overflow-hidden ${action.title === "Action sur mesure" ? 'bg-[#E6F4FF]' : ''}`}
+                      >
+                        <div className="h-64 overflow-hidden relative bg-gray-50">
                           <img 
                             src={action.image} 
                             alt={action.title} 
