@@ -30,25 +30,27 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
           Public : {concours.public.join(", ")}
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex-1 space-y-4 text-center">
-        <div>
-          <h4 className="font-semibold mb-2">Objectif</h4>
-          <p className="text-sm text-gray-600">{concours.objectif}</p>
+      <CardContent className="flex-1 flex flex-col">
+        <div className="space-y-4 flex-1">
+          <div>
+            <h4 className="font-semibold mb-2">Objectif</h4>
+            <p className="text-sm text-gray-600">{concours.objectif}</p>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">Présentation</h4>
+            <p className="text-sm text-gray-600">{concours.presentation}</p>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">Livrables attendus</h4>
+            <ul className="text-sm text-gray-600 list-disc list-inside text-left">
+              {concours.livrables.map((livrable, index) => (
+                <li key={index} className="mb-1">{livrable}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div>
-          <h4 className="font-semibold mb-2">Présentation</h4>
-          <p className="text-sm text-gray-600">{concours.presentation}</p>
-        </div>
-        <div>
-          <h4 className="font-semibold mb-2">Livrables attendus</h4>
-          <ul className="text-sm text-gray-600 list-disc list-inside text-left">
-            {concours.livrables.map((livrable, index) => (
-              <li key={index} className="mb-1">{livrable}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-semibold mb-4">Concours porté par</h4>
+        <div className="mt-auto pt-6">
+          <h4 className="font-semibold mb-4 text-center">Concours porté par</h4>
           <div className="flex justify-center items-center gap-8">
             {concours.partenaires.map((partenaire, index) => (
               <img 
