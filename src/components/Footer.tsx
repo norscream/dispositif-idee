@@ -48,7 +48,7 @@ export function Footer() {
               className="h-16 object-contain col-span-2 md:col-span-1"
             />
             <img 
-              src="/lovable-uploads/b4dc5c3d-611e-4b86-bdf8-b7239716ea55.png" 
+              src="/lovable-uploads/df817651-de57-4890-81c4-ab684005da91.png" 
               alt="Région Académique Hauts-de-France" 
               className="h-20 object-contain"
             />
