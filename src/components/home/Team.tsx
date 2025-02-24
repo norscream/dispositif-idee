@@ -131,7 +131,7 @@ const Team = () => {
           {/* Logo et nouveaux membres à droite */}
           <div className="w-full md:w-1/3">
             <img 
-              src="/lovable-uploads/b2536cbd-e355-46d9-8e2d-bbf028e9eb10.png"
+              src="/lovable-uploads/34d9cf68-0334-436b-8ace-aca6e8e890f1.png"
               alt="Logo IDEE"
               className="w-full max-w-md mx-auto mb-12"
             />
