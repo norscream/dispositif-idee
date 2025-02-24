@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -206,7 +205,7 @@ export default function RechercheActions() {
                     filteredActions.map((action, index) => (
                       <Card 
                         key={index} 
-                        className={`overflow-hidden ${action.title === "Action sur mesure" ? 'bg-[#E6F4FF]' : ''}`}
+                        className={`overflow-hidden flex flex-col h-full ${action.title === "Action sur mesure" ? 'bg-[#E6F4FF]' : ''}`}
                       >
                         <div className="h-64 overflow-hidden relative bg-gray-50">
                           <img 
@@ -219,7 +218,7 @@ export default function RechercheActions() {
                           <CardTitle className="text-2xl">{action.title}</CardTitle>
                           <CardDescription className="text-base">{action.description}</CardDescription>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="flex-1">
                           <div className="space-y-4">
                             <div>
                               <p className="font-medium mb-2">Zones d'intervention :</p>
