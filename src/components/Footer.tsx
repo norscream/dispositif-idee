@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import {
   Popover,
@@ -40,7 +41,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-200 mt-8 pt-8 max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center mb-8 bg-transparent">
             <img 
               src="/lovable-uploads/c80162aa-e4bd-4e29-adad-13992b5c1218.png" 
               alt="Région Hauts-de-France" 
@@ -54,11 +55,11 @@ export function Footer() {
             <img 
               src="/lovable-uploads/06e2af81-7d96-4a24-88ae-235bdd8bfd8a.png" 
               alt="Cofinancé par l'Union européenne" 
-              className="h-16 object-contain col-span-2 md:col-span-1"
+              className="h-16 object-contain col-span-2 md:col-span-1 bg-transparent"
             />
           </div>
           <div className="text-sm text-center space-y-4">
-            <p>&copy; {new Date().getFullYear()} IDÉE - Tous droits réservés</p>
+            <p>&copy; {new Date().getFullYear()} Dispositif IDEE - Tous droits réservés</p>
             <div className="flex justify-center space-x-4">
               <Popover>
                 <PopoverTrigger className="text-gray-600 hover:text-gray-900 transition-colors">
