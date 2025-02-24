@@ -6,45 +6,57 @@ import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 type ContactFormData = {
   fullName: string;
   email: string;
   phone?: string;
   region?: string;
+  requestType: string;
   message: string;
 };
 
+const requestTypes = [
+  "Action IDEE",
+  "Action partenaire",
+  "Concours",
+  "Ludopedagogie",
+  "Labellisation",
+  "Information générale"
+];
+
 export const Contact = () => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>();
+  const { register, handleSubmit, reset, formState: { errors }, setValue } = useForm<ContactFormData>();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     
-    // Afficher un toast de chargement
     const loadingToast = toast.loading("Envoi du message en cours...");
     
     try {
-      // Simulation d'envoi (à remplacer par l'appel API réel)
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // Log des données qui seront envoyées à projet.idee@ac-lille.fr
-      console.log('Envoi à projet.idee@ac-lille.fr:', {
-        to: 'projet.idee@ac-lille.fr',
+      console.log('Envoi à projet.idee@ac-lille.fr et projet.idee@ac-amiens.fr:', {
+        to: 'projet.idee@ac-lille.fr, projet.idee@ac-amiens.fr',
         subject: `Message de ${data.fullName}`,
         ...data
       });
 
-      // Fermer le toast de chargement et afficher le succès
       toast.dismiss(loadingToast);
       toast.success("Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.", {
-        duration: 5000, // Afficher pendant 5 secondes
+        duration: 5000,
       });
       
-      reset(); // Réinitialiser le formulaire
+      reset();
     } catch (error) {
-      // Fermer le toast de chargement et afficher l'erreur
       toast.dismiss(loadingToast);
       toast.error("Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.", {
         duration: 5000,
@@ -59,13 +71,38 @@ export const Contact = () => {
     <section className="py-16 px-4">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">Contactez-nous</h2>
-        <div className="flex items-center justify-center mb-8">
-          <Mail className="h-6 w-6 text-primary mr-3" />
-          <span className="text-gray-600">projet.idee@ac-lille.fr</span>
+        <div className="flex flex-col items-center justify-center mb-8 space-y-2">
+          <div className="flex items-center">
+            <Mail className="h-6 w-6 text-primary mr-3" />
+            <span className="text-gray-600">projet.idee@ac-lille.fr</span>
+          </div>
+          <div className="flex items-center">
+            <Mail className="h-6 w-6 text-primary mr-3" />
+            <span className="text-gray-600">projet.idee@ac-amiens.fr</span>
+          </div>
         </div>
         
         <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-sm">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <div>
+              <Label htmlFor="requestType">Type de demande *</Label>
+              <Select 
+                onValueChange={(value) => setValue('requestType', value)} 
+                required
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Sélectionnez le type de demande" />
+                </SelectTrigger>
+                <SelectContent>
+                  {requestTypes.map((type) => (
+                    <SelectItem key={type} value={type}>
+                      {type}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
             <div>
               <Label htmlFor="fullName">Nom et prénom *</Label>
               <Input
