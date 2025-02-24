@@ -26,10 +26,10 @@ export default function Index() {
         <Actions />
       </Suspense>
       <Suspense fallback={<LoadingFallback />}>
-        <News />
+        <Resources />
       </Suspense>
       <Suspense fallback={<LoadingFallback />}>
-        <Resources />
+        <News />
       </Suspense>
       <Suspense fallback={<LoadingFallback />}>
         <Team />
