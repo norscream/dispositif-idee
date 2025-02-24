@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import {
   Popover,
@@ -41,26 +40,21 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-200 mt-8 pt-8 max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center mb-8">
             <img 
-              src="/lovable-uploads/74fe1642-0c04-4d4f-a766-1166319848eb.png" 
+              src="/lovable-uploads/c80162aa-e4bd-4e29-adad-13992b5c1218.png" 
               alt="Région Hauts-de-France" 
-              className="h-24 object-contain"
+              className="h-16 object-contain col-span-2 md:col-span-1"
             />
             <img 
               src="/lovable-uploads/df817651-de57-4890-81c4-ab684005da91.png" 
-              alt="Académies Amiens Lille - Région Académique Hauts-de-France" 
-              className="h-24 object-contain"
+              alt="Région Académique Hauts-de-France" 
+              className="h-20 object-contain"
             />
             <img 
-              src="/lovable-uploads/85717161-678a-468c-a3e2-94c826b67c81.png" 
-              alt="Union européenne" 
-              className="h-24 object-contain"
-            />
-            <img 
-              src="/lovable-uploads/4a388b8e-d7e9-42c2-89ae-ca4441b297dc.png" 
-              alt="L'Europe s'engage en Hauts-de-France" 
-              className="h-24 object-contain"
+              src="/lovable-uploads/06e2af81-7d96-4a24-88ae-235bdd8bfd8a.png" 
+              alt="Cofinancé par l'Union européenne" 
+              className="h-16 object-contain col-span-2 md:col-span-1"
             />
           </div>
           <div className="text-sm text-center space-y-4">
