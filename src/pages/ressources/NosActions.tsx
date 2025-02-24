@@ -42,7 +42,7 @@ export default function NosActions() {
             {actions.map((action, index) => (
               <Card 
                 key={index} 
-                className={`overflow-hidden ${index === 0 ? 'bg-[#FDE1D3]' : ''}`}
+                className={`overflow-hidden ${index === 0 ? 'bg-[#E6F4FF]' : ''}`}
               >
                 <div className="h-64 overflow-hidden relative bg-gray-50">
                   <img 
