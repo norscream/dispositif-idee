@@ -55,19 +55,19 @@ const teamMembers = [
 
 const newTeamMembers = [
   {
-    image: "/lovable-uploads/fe9fd95f-f1bb-4ae4-9398-89a620fb046e.png", // À remplacer par la vraie photo
+    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
     name: "Massine DJOUBI",
     role: "Chargé de projet Mecalive",
     email: "massine.djoubi@idee.fr"
   },
   {
-    image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.png", // À remplacer par la vraie photo
+    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
     name: "Coline LEROY",
     role: "Chargée de suivi de projet IDEE",
     email: "coline.leroy@idee.fr"
   },
   {
-    image: "/lovable-uploads/bb242a05-95e3-4d12-8dfe-564390ea4bd5.png", // À remplacer par la vraie photo
+    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
     name: "Manon MARTINEZ",
     role: "Chargée de suivi de projet IDEE",
     email: "manon.martinez@idee.fr"
@@ -129,23 +129,23 @@ const Team = () => {
           </div>
 
           {/* Logo et nouveaux membres à droite */}
-          <div className="w-full md:w-1/3">
+          <div className="w-full md:w-1/3 md:-mt-12">
             <img 
               src="/lovable-uploads/34d9cf68-0334-436b-8ace-aca6e8e890f1.png"
               alt="Logo IDEE"
-              className="w-full max-w-md mx-auto mb-12"
+              className="w-full max-w-[280px] mx-auto mb-8"
             />
 
             {/* Nouveaux membres d'équipe en colonne */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {newTeamMembers.map((member, index) => (
                 <div key={index} className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-gray-200 shadow-sm">
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover bg-gray-100"
                       />
                     </div>
                   </div>
