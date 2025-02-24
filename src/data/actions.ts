@@ -97,3 +97,4 @@ export const actions = [
     image: "/lovable-uploads/e39bebb6-c473-41bd-8d20-821b6d04fb78.png"
   }
 ] as const;
+
