@@ -1,3 +1,4 @@
+
 import { Concours } from "@/types/concours";
 
 export const concours: Concours[] = [
@@ -216,11 +217,11 @@ export const concours: Concours[] = [
       "Présentation orale devant un jury",
       "Démonstration du projet"
     ],
-    logo: "/lovable-uploads/74fe1642-0c04-4d4f-a766-1166319848eb.png",
+    logo: "/lovable-uploads/4f61846a-175f-42a8-92c6-edade2638e19.png",
     partenaires: [
       {
         nom: "UPSTI",
-        logo: "/lovable-uploads/fe9fd95f-f1bb-4ae4-9398-89a620fb046e.png"
+        logo: "/lovable-uploads/c59ce0a8-070c-4d32-a0c2-47411b16be0f.png"
       }
     ]
   }
