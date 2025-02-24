@@ -1,4 +1,3 @@
-
 import { Users, Mail } from "lucide-react";
 
 const teamMembers = [
@@ -36,13 +35,6 @@ const teamMembers = [
     role: "Chargée de mission MEL",
     email: "chloe.clerbout@idee.fr",
     position: { top: "25%", left: "55%" }
-  },
-  {
-    image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png",
-    name: "Vincent Pouliquen",
-    role: "Chef de projet IDEE",
-    email: "vincent.pouliquen@idee.fr",
-    position: { top: "35%", left: "45%" }
   },
   {
     image: "/lovable-uploads/f1165429-3de0-4ed3-b276-91b014ca1e80.png",
