@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -14,8 +13,7 @@ const actionLinks = [
   { href: "/accompagner", label: "Accompagner et former" },
   { href: "/ressources", label: "Créer des ressources" },
   { href: "/reseau", label: "Mettre en lien" },
-  { href: "/valoriser", label: "Célébrer et valoriser" },
-  { href: "/concretisation", label: "Concrétiser des projets" }
+  { href: "/valoriser", label: "Célébrer et valoriser" }
 ];
 
 const resourceLinks = [

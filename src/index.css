@@ -36,9 +36,3 @@
     @apply w-full;
   }
 }
-
-@layer utilities {
-  .glass-effect {
-    @apply bg-white/80 backdrop-blur-lg;
-  }
-}
