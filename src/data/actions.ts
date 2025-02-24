@@ -1,5 +1,18 @@
-
 export const actions = [
+  {
+    title: "Action sur mesure",
+    description: "Une approche personnalisée pour répondre à vos besoins spécifiques. En collaboration avec nos partenaires experts, nous concevons des actions pédagogiques uniques adaptées à votre projet et à vos objectifs. Que vous souhaitiez développer une compétence particulière, aborder un thème spécifique ou mettre en place un projet innovant, nous vous accompagnons dans la création d'une action qui vous correspond.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["École", "Collège", "Lycée", "Post bac"],
+    objectifs: [
+      "Concevoir une action personnalisée",
+      "Mobiliser l'expertise de nos partenaires",
+      "S'adapter aux besoins spécifiques",
+      "Créer un accompagnement sur mesure"
+    ],
+    duree: "À définir selon vos besoins",
+    image: "/lovable-uploads/9ce46cc4-d3b9-4966-aded-9d01616c349e.png"
+  },
   {
     title: "À la découverte de nos forces et talents",
     description: "Cette action pédagogique interactive permet aux élèves d'identifier et de valoriser leurs talents à travers des activités ludiques et collaboratives. De la construction de ponts en Kapla à la création d'une pyramide de gobelets, en passant par l'identification des forces de chacun, les participants développent leur confiance en eux et renforcent leur esprit d'équipe. L'atelier se conclut par une mise en pratique concrète des talents découverts à travers des défis stimulants et un partage collectif via le photolangage.",
@@ -97,4 +110,3 @@ export const actions = [
     image: "/lovable-uploads/e39bebb6-c473-41bd-8d20-821b6d04fb78.png"
   }
 ] as const;
-
