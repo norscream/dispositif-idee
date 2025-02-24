@@ -203,5 +203,25 @@ export const concours: Concours[] = [
         logo: "/lovable-uploads/167b90e5-a16f-4159-a31d-4f4980e1c427.png"
       }
     ]
+  },
+  {
+    nom: "Olympiades des Sciences de l'Ingénieur",
+    objectif: "Les Olympiades des Sciences de l'Ingénieur (OSI) sont un concours national ouvert aux lycéens des classes de première et de terminale des séries générales et technologiques. Ce concours vise à valoriser les projets expérimentaux pluritechnologiques en Sciences de l'Ingénieur.",
+    public: ["Lycée"],
+    presentation: "Les équipes participantes doivent concevoir et réaliser un projet innovant répondant à une problématique d'actualité. Ce concours permet aux élèves de développer leur créativité et leur esprit d'innovation tout en travaillant en équipe. Les projets sont présentés devant un jury lors d'une finale académique, puis les meilleurs projets sont sélectionnés pour participer à la finale nationale.",
+    livrables: [
+      "Prototype ou maquette du projet",
+      "Dossier technique détaillé",
+      "Support de présentation",
+      "Présentation orale devant un jury",
+      "Démonstration du projet"
+    ],
+    logo: "/lovable-uploads/74fe1642-0c04-4d4f-a766-1166319848eb.png",
+    partenaires: [
+      {
+        nom: "UPSTI",
+        logo: "/lovable-uploads/fe9fd95f-f1bb-4ae4-9398-89a620fb046e.png"
+      }
+    ]
   }
 ] as const;
