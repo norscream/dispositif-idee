@@ -40,7 +40,10 @@ export default function NosActions() {
           
           <div className="space-y-8">
             {actions.map((action, index) => (
-              <Card key={index} className="overflow-hidden">
+              <Card 
+                key={index} 
+                className={`overflow-hidden ${index === 0 ? 'bg-[#FFDEE2]' : ''}`}
+              >
                 <div className="h-64 overflow-hidden relative bg-gray-50">
                   <img 
                     src={action.image} 
