@@ -45,7 +45,7 @@ export default function ActionsPartenaires() {
           
           <div className="space-y-8">
             {actionsPartenaires.map((action, index) => (
-              <Card key={index} className="overflow-hidden">
+              <Card key={index} className="overflow-hidden flex flex-col">
                 <div className="h-64 overflow-hidden relative">
                   <img 
                     src={action.image} 
@@ -57,7 +57,7 @@ export default function ActionsPartenaires() {
                   <CardTitle className="text-2xl">{action.title}</CardTitle>
                   <CardDescription className="text-base">{action.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1">
                   <div className="space-y-4">
                     <div className="flex items-start gap-2">
                       <MapPin className="h-5 w-5 text-primary mt-1 shrink-0" />

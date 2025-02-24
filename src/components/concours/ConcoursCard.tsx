@@ -16,7 +16,7 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
   };
 
   return (
-    <Card className="h-full transition-all duration-500 shadow-sm data-[state=active]:shadow-2xl data-[state=active]:scale-110 data-[state=inactive]:opacity-50 data-[state=inactive]:bg-gray-50">
+    <Card className="h-full flex flex-col transition-all duration-500 shadow-sm data-[state=active]:shadow-2xl data-[state=active]:scale-110 data-[state=inactive]:opacity-50 data-[state=inactive]:bg-gray-50">
       <CardHeader className="text-center">
         <div className="flex justify-center mb-4">
           <img 
@@ -30,7 +30,7 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
           Public : {concours.public.join(", ")}
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4 text-center">
+      <CardContent className="flex-1 space-y-4 text-center">
         <div>
           <h4 className="font-semibold mb-2">Objectif</h4>
           <p className="text-sm text-gray-600">{concours.objectif}</p>

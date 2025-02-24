@@ -42,7 +42,7 @@ export default function NosActions() {
             {actions.map((action, index) => (
               <Card 
                 key={index} 
-                className={`overflow-hidden ${index === 0 ? 'bg-[#E6F4FF]' : ''}`}
+                className={`overflow-hidden flex flex-col ${index === 0 ? 'bg-[#E6F4FF]' : ''}`}
               >
                 <div className="h-64 overflow-hidden relative bg-gray-50">
                   <img 
@@ -58,7 +58,7 @@ export default function NosActions() {
                   <CardTitle className="text-2xl">{action.title}</CardTitle>
                   <CardDescription className="text-base">{action.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1">
                   <div className="space-y-4">
                     <div className="flex items-start gap-2">
                       <MapPin className="h-5 w-5 text-primary mt-1 shrink-0" />
