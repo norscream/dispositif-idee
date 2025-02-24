@@ -3,8 +3,8 @@ export const actions = [
   {
     title: "À la découverte de nos forces et talents",
     description: "Cette action pédagogique interactive permet aux élèves d'identifier et de valoriser leurs talents à travers des activités ludiques et collaboratives. De la construction de ponts en Kapla à la création d'une pyramide de gobelets, en passant par l'identification des forces de chacun, les participants développent leur confiance en eux et renforcent leur esprit d'équipe. L'atelier se conclut par une mise en pratique concrète des talents découverts à travers des défis stimulants et un partage collectif via le photolangage.",
-    zones: ["Région académique Hauts-de-France"],
-    niveaux: ["École", "Collège", "Lycée"],
+    zones: ["Académie de Lille"],
+    niveaux: ["École", "Collège", "Lycée", "Post bac"],
     objectifs: [
       "Identifier et valoriser ses talents et forces",
       "Renforcer la collaboration et l'esprit d'équipe",
