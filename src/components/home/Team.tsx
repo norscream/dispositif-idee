@@ -53,6 +53,27 @@ const teamMembers = [
   }
 ];
 
+const newTeamMembers = [
+  {
+    image: "/lovable-uploads/fe9fd95f-f1bb-4ae4-9398-89a620fb046e.png", // À remplacer par la vraie photo
+    name: "Massine DJOUBI",
+    role: "Chargé de projet Mecalive",
+    email: "massine.djoubi@idee.fr"
+  },
+  {
+    image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.png", // À remplacer par la vraie photo
+    name: "Coline LEROY",
+    role: "Chargée de suivi de projet IDEE",
+    email: "coline.leroy@idee.fr"
+  },
+  {
+    image: "/lovable-uploads/bb242a05-95e3-4d12-8dfe-564390ea4bd5.png", // À remplacer par la vraie photo
+    name: "Manon MARTINEZ",
+    role: "Chargée de suivi de projet IDEE",
+    email: "manon.martinez@idee.fr"
+  }
+];
+
 const Team = () => {
   return (
     <section id="equipe" className="py-16 px-4 bg-gray-50">
@@ -61,44 +82,88 @@ const Team = () => {
         <div className="flex items-center mb-12">
           <Users className="h-6 w-6 text-primary mr-3" />
         </div>
-        <div className="relative max-w-2xl mx-auto">
-          <img 
-            src="/lovable-uploads/26f2746a-4702-43bc-9634-c9b3340c20ef.png" 
-            alt="Carte de la région" 
-            className="w-full"
-          />
-          
-          {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
-              style={{ 
-                top: member.position.top,
-                left: member.position.left
-              }}
-            >
-              <div className="relative">
-                <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white">
+
+        {/* Section des nouveaux membres d'équipe */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {newTeamMembers.map((member, index) => (
+            <div key={index} className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                  <h3 className="font-semibold text-sm text-center">{member.name}</h3>
-                  <p className="text-gray-600 text-xs text-center mb-2">{member.role}</p>
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="flex items-center justify-center text-xs text-primary hover:text-primary-dark transition-colors"
-                  >
-                    <Mail className="h-3 w-3 mr-1" />
-                    Contact
-                  </a>
-                </div>
+              </div>
+              <div className="flex-grow">
+                <h3 className="font-semibold text-lg">{member.name}</h3>
+                <p className="text-gray-600 text-sm">{member.role}</p>
+                <a
+                  href={`mailto:${member.email}`}
+                  className="flex items-center text-primary hover:text-primary-dark transition-colors mt-2 text-sm"
+                >
+                  <Mail className="h-4 w-4 mr-1" />
+                  Contact
+                </a>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Section carte et logo */}
+        <div className="flex flex-col md:flex-row items-start justify-between gap-8">
+          {/* Logo et titre à gauche */}
+          <div className="w-full md:w-1/3">
+            <img 
+              src="/lovable-uploads/2dadb987-0e33-4594-9e49-a8fc26e33018.png"
+              alt="Logo IDEE"
+              className="w-full max-w-md mx-auto mb-8"
+            />
+          </div>
+
+          {/* Carte avec les membres sur la droite */}
+          <div className="w-full md:w-2/3">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/26f2746a-4702-43bc-9634-c9b3340c20ef.png" 
+                alt="Carte de la région" 
+                className="w-full"
+              />
+              
+              {teamMembers.map((member, index) => (
+                <div
+                  key={index}
+                  className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
+                  style={{ 
+                    top: member.position.top,
+                    left: member.position.left
+                  }}
+                >
+                  <div className="relative">
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-center"
+                      />
+                    </div>
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                      <h3 className="font-semibold text-sm text-center">{member.name}</h3>
+                      <p className="text-gray-600 text-xs text-center mb-2">{member.role}</p>
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="flex items-center justify-center text-xs text-primary hover:text-primary-dark transition-colors"
+                      >
+                        <Mail className="h-3 w-3 mr-1" />
+                        Contact
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
