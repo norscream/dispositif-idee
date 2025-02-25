@@ -57,14 +57,14 @@ export default function Labellisation() {
 
           <div className="mb-12">
             <h2 className="text-2xl font-semibold mb-6">Processus de labellisation</h2>
-            <div className="flex justify-center mb-12">
+            <div className="flex justify-center mb-8">
               <img 
                 src="/lovable-uploads/56d38c3e-bf1b-4cc3-953f-5e4e28e23349.png" 
                 alt="Processus de labellisation en 5 étapes" 
-                className="w-full object-cover max-h-[400px]"
+                className="w-full object-cover max-h-[400px] -mt-8 -mb-8"
               />
             </div>
-            <p className="text-sm text-gray-500 italic text-center">
+            <p className="text-sm text-gray-500 italic text-center mt-12">
               La labellisation est accordée pour 3 ans, renouvelable
             </p>
           </div>
