@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -20,7 +21,7 @@ const resourceLinks = [
   { href: "/ressources/nos-actions", label: "Nos actions" },
   { href: "/ressources/actions-partenaires", label: "Les actions de nos partenaires" },
   { href: "/ressources/ludopedagogie", label: "Ludopédagogie" },
-  { href: "/ressources/concours", label: "Concours" },
+  { href: "/ressources/recherche-actions", label: "Rechercher une action" },
   { href: "/ressources/labellisation", label: "Labéllisation" }
 ];
 
@@ -74,6 +75,12 @@ export const Nav = () => {
             <DropdownNavItem trigger="Nos missions" items={actionLinks} />
             <DropdownNavItem trigger="Actions disponibles" items={resourceLinks} />
             <Link 
+              to="/ressources/labellisation"
+              className="text-gray-700 hover:text-primary transition-colors"
+            >
+              Labellisation
+            </Link>
+            <Link 
               to="/ressources/recherche-actions"
               className="text-gray-700 hover:text-primary transition-colors"
             >
@@ -126,6 +133,12 @@ export const Nav = () => {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                to="/ressources/labellisation"
+                className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                Labellisation
+              </Link>
               <Link
                 to="/ressources/recherche-actions"
                 className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
