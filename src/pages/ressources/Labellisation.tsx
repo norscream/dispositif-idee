@@ -61,7 +61,7 @@ export default function Labellisation() {
               <img 
                 src="/lovable-uploads/300b340b-9d6d-4fa2-93ae-0f792e250599.png" 
                 alt="Processus de labellisation en 5 étapes" 
-                className="w-full object-contain bg-black p-8 rounded-lg"
+                className="w-full object-contain rounded-lg"
               />
             </div>
             <p className="text-sm text-gray-500 italic text-center mt-4">
