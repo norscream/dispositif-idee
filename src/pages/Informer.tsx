@@ -9,6 +9,11 @@ import Autoplay from 'embla-carousel-autoplay';
 
 const testimonials = [
   {
+    name: "Collaboration IDEE",
+    description: "Collaboration avec la DITP pour travailler de maniere collaborative avec des équipes éducatives",
+    image: "/lovable-uploads/c0b92867-59a1-4ba8-b8aa-2cdfe3a6d088.png"
+  },
+  {
     name: "Stand IDEE",
     description: "Présentation de nos outils lors de l'événement découverte des acteurs de sensibilisation de l'INSPEE",
     image: "/lovable-uploads/3457e795-2747-4781-acfd-f82fbed4b822.png"
