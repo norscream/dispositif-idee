@@ -36,6 +36,7 @@ const requestTypes = [
   "Action IDEE",
   "Action partenaire",
   "Concours",
+  "Formation",
   "Ludopedagogie",
   "Labellisation",
   "Information générale"
@@ -50,7 +51,6 @@ const allPartnerActions = [
   ...rnjaActions
 ];
 
-// Définition des jeux depuis la page Ludopedagogie
 const ludopedagogieGames = [
   {
     value: "CONCEPT",
@@ -68,6 +68,12 @@ const ludopedagogieGames = [
     value: "THE MIND",
     label: "THE MIND"
   }
+];
+
+// Temporaire : à remplacer par les vraies formations une fois qu'elles seront définies
+const formations = [
+  { value: "formation-entrepreneuriat", label: "Formation à l'entrepreneuriat" },
+  { value: "formation-pedagogie", label: "Formation pédagogique" }
 ];
 
 export const Contact = () => {
@@ -106,6 +112,11 @@ export const Contact = () => {
             value: concours.nom,
             label: concours.nom
           }))
+        ];
+      case "Formation":
+        return [
+          { value: "multiple", label: "Je suis intéressé(e) par plusieurs formations" },
+          ...formations
         ];
       default:
         return null;
