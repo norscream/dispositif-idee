@@ -13,7 +13,7 @@ const resources = [
     title: "Les actions de nos partenaires",
     description: "Explorez les initiatives de nos partenaires",
     href: "/ressources/actions-partenaires",
-    bgImage: "/lovable-uploads/e3877217-50ab-41c0-a755-2a230e64809a.png"
+    bgImage: "/lovable-uploads/c151f1c6-25f8-42a5-ab3a-9770211f48c6.png"
   },
   {
     title: "Ludopédagogie",
