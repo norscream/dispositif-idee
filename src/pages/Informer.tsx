@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Users, Calendar, Trophy, Linkedin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -8,7 +7,12 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Autoplay from 'embla-carousel-autoplay';
 import { useState, useEffect, useMemo } from 'react';
 
-// Déplacer les données statiques en dehors du composant
+type Testimonial = {
+  name: string;
+  description: string;
+  image: string;
+};
+
 const testimonials = [
   {
     name: "Collaboration IDEE",
@@ -42,25 +46,17 @@ const testimonials = [
   }
 ] as const;
 
-// Fonction de mélange pure
-const shuffleArray = (array: readonly any[]) => {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
+const shuffleArray = (array: readonly Testimonial[]) => {
+  return [...array].sort(() => Math.random() - 0.5);
 };
 
 export default function Informer() {
-  const [shuffledTestimonials, setShuffledTestimonials] = useState(testimonials);
+  const [shuffledTestimonials, setShuffledTestimonials] = useState<Testimonial[]>([...testimonials]);
 
-  // Utiliser useEffect uniquement pour le mélange initial
   useEffect(() => {
     setShuffledTestimonials(shuffleArray(testimonials));
   }, []);
 
-  // Mémoriser la configuration du plugin Autoplay
   const carouselPlugins = useMemo(() => [
     Autoplay({
       delay: 4000,
