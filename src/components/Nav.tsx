@@ -23,6 +23,7 @@ const resourceLinks = [
   { href: "/ressources/ludopedagogie", label: "Ludopédagogie" },
   { href: "/ressources/concours", label: "Concours" },
   { href: "/ressources/formation", label: "Formation" },
+  { href: "/ressources/concretisation", label: "Concrétisation de projet" },
   { href: "/ressources/recherche-actions", label: "Rechercher une action" }
 ];
 
