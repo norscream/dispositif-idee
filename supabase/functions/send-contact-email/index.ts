@@ -28,10 +28,11 @@ serve(async (req) => {
   try {
     const formData: ContactFormData = await req.json()
     
-    console.log('Sending email with data:', formData);
+    console.log('Starting email send with data:', formData);
+    console.log('Using Resend API key:', !!Deno.env.get('RESEND_API_KEY')); // Will log true/false if key exists
 
-    const emailContent = {
-      from: 'IDEE <onboarding@resend.dev>',
+    const { data, error } = await resend.emails.send({
+      from: 'onboarding@resend.dev',
       to: ['projet.idee@ac-lille.fr', 'projet.idee@ac-amiens.fr'],
       subject: `Nouveau message de ${formData.fullName} - ${formData.requestType}`,
       html: `
@@ -44,10 +45,8 @@ serve(async (req) => {
         ${formData.specificAction ? `<p><strong>Action spécifique:</strong> ${formData.specificAction}</p>` : ''}
         <h3>Message:</h3>
         <p>${formData.message.replace(/\n/g, '<br>')}</p>
-      `,
-    };
-
-    const { data, error } = await resend.emails.send(emailContent);
+      `
+    });
 
     if (error) {
       console.error('Error sending email:', error);
