@@ -49,7 +49,7 @@ export default function Valoriser() {
 
           <div className="flex justify-center mb-16">
             <img 
-              src="/lovable-uploads/42e47abf-c669-4bdc-bb30-865387e96edb.png"
+              src="/lovable-uploads/636abdb5-7a0d-4125-9a06-33a8ea2c0298.png"
               alt="Label Jeunes et Audacieux"
               className="w-96 h-96 md:w-[500px] md:h-[500px] object-contain"
             />
