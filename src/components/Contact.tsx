@@ -66,11 +66,12 @@ const formations = [
 
 const requestTypes = [
   "Action IDEE",
-  "Action partenaire",
+  "Action partenaire", 
   "Concours",
   "Formation",
   "Ludopedagogie",
   "Labellisation",
+  "Concrétisation de projet",
   "Information générale"
 ];
 
