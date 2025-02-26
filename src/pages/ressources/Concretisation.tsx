@@ -123,7 +123,7 @@ export default function Concretisation() {
                   IDEE mène une étude approfondie dans 5 collèges et 5 lycées pour mesurer l'impact des actions sur les compétences, l'orientation et l'engagement des élèves.
                 </p>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Utilisation d'une plateforme en ligne (Trello) pour le suivi en temps réel</li>
+                  <li>• Utilisation d'une plateforme en ligne (Talkspirit) pour le suivi en temps réel</li>
                   <li>• Évaluation qualitative et quantitative</li>
                   <li>• Mesure des effets sur la motivation et les compétences</li>
                 </ul>
