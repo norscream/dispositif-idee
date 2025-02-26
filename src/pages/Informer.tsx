@@ -1,3 +1,4 @@
+
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Users, Calendar, Trophy, Linkedin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -8,12 +9,12 @@ import Autoplay from 'embla-carousel-autoplay';
 import { useState, useEffect, useMemo } from 'react';
 
 type Testimonial = {
-  name: string;
-  description: string;
-  image: string;
+  readonly name: string;
+  readonly description: string;
+  readonly image: string;
 };
 
-const testimonials = [
+const testimonials: readonly Testimonial[] = [
   {
     name: "Collaboration IDEE",
     description: "Collaboration avec la DITP pour travailler de maniere collaborative avec des équipes éducatives",
@@ -44,14 +45,14 @@ const testimonials = [
     description: "Organisation de groupes de travaux réunissant les acteurs de la sensibilisation à l'entrepreneuriat",
     image: "/lovable-uploads/1949c156-8c29-44f2-9c8e-c047a4a2ae85.png"
   }
-] as const;
+];
 
 const shuffleArray = (array: readonly Testimonial[]) => {
   return [...array].sort(() => Math.random() - 0.5);
 };
 
 export default function Informer() {
-  const [shuffledTestimonials, setShuffledTestimonials] = useState<Testimonial[]>([...testimonials]);
+  const [shuffledTestimonials, setShuffledTestimonials] = useState<Testimonial[]>([]);
 
   useEffect(() => {
     setShuffledTestimonials(shuffleArray(testimonials));
@@ -69,7 +70,8 @@ export default function Informer() {
       <div className="container mx-auto py-16 px-4">
         <Link 
           to="/" 
-          className="inline-flex items-center text-primary hover:text-primary-dark mb-8"
+          className="inline-flex items-center text-primary hover:text-primary-dark mb-8 transition-colors"
+          aria-label="Retour à l'accueil"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Retour
@@ -90,11 +92,11 @@ export default function Informer() {
             </div>
           </div>
 
-          {/* Image Carousel */}
           <div className="mb-16">
             <Carousel 
               className="w-full max-w-3xl mx-auto"
               plugins={carouselPlugins}
+              aria-label="Galerie de nos actions"
             >
               <CarouselContent>
                 {shuffledTestimonials.map((item, index) => (
@@ -106,6 +108,8 @@ export default function Informer() {
                           alt={item.name}
                           className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-300"
                           loading="lazy"
+                          width="800"
+                          height="400"
                         />
                       </div>
                       <div className="text-center mt-4">
@@ -116,12 +120,11 @@ export default function Informer() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious aria-label="Image précédente" />
+              <CarouselNext aria-label="Image suivante" />
             </Carousel>
           </div>
 
-          {/* Actions Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <Card className="group hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
@@ -176,7 +179,6 @@ export default function Informer() {
             </Card>
           </div>
 
-          {/* Call to Action */}
           <div className="bg-primary/5 rounded-xl p-8 text-center">
             <h2 className="text-2xl font-semibold mb-4">
               Suivez nos actualités sur LinkedIn
@@ -192,6 +194,7 @@ export default function Informer() {
                 href="https://www.linkedin.com/in/dispositifidee/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Suivre IDEE sur LinkedIn"
               >
                 Suivre sur LinkedIn
                 <ArrowRight className="ml-2 h-4 w-4" />
