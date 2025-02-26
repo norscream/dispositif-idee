@@ -44,26 +44,21 @@ serve(async (req) => {
     `;
     
     try {
-      console.log('Sending email with the following parameters:', {
-        from: 'IDEE <onboarding@resend.dev>',
-        to: ['projet.idee@ac-lille.fr', 'projet.idee@ac-amiens.fr'],
-        subject: `Nouveau message de ${data.fullName} - ${data.requestType}`,
-        replyTo: data.email,
-      });
-
+      console.log('Sending main email...');
       const result = await resend.emails.send({
-        from: 'IDEE <onboarding@resend.dev>',
+        from: 'onboarding@resend.dev',
         to: ['projet.idee@ac-lille.fr', 'projet.idee@ac-amiens.fr'],
         reply_to: data.email,
         subject: `Nouveau message de ${data.fullName} - ${data.requestType}`,
         html: emailHtml
       });
 
-      console.log('Email send result:', result);
+      console.log('Main email result:', result);
 
       // Envoyer un email de confirmation à l'expéditeur
+      console.log('Sending confirmation email...');
       const confirmationResult = await resend.emails.send({
-        from: 'IDEE <onboarding@resend.dev>',
+        from: 'onboarding@resend.dev',
         to: [data.email],
         subject: 'Confirmation de votre message - IDÉE',
         html: `
