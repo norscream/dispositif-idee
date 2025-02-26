@@ -29,28 +29,57 @@ serve(async (req) => {
     const resend = new Resend(resendApiKey);
     
     console.log('Attempting to send email...');
+
+    // Construction du message HTML
+    const emailHtml = `
+      <h2>Nouveau message de contact</h2>
+      <p><strong>Nom:</strong> ${data.fullName}</p>
+      <p><strong>Email:</strong> ${data.email}</p>
+      ${data.phone ? `<p><strong>Téléphone:</strong> ${data.phone}</p>` : ''}
+      ${data.region ? `<p><strong>Zone géographique:</strong> ${data.region}</p>` : ''}
+      <p><strong>Type de demande:</strong> ${data.requestType}</p>
+      ${data.specificAction ? `<p><strong>Action spécifique:</strong> ${data.specificAction}</p>` : ''}
+      <h3>Message:</h3>
+      <p>${data.message.replace(/\n/g, '<br>')}</p>
+    `;
     
     try {
-      const result = await resend.emails.send({
-        from: 'onboarding@resend.dev',
+      console.log('Sending email with the following parameters:', {
+        from: 'IDEE <onboarding@resend.dev>',
         to: ['projet.idee@ac-lille.fr', 'projet.idee@ac-amiens.fr'],
         subject: `Nouveau message de ${data.fullName} - ${data.requestType}`,
-        html: `
-          <h2>Nouveau message de contact</h2>
-          <p><strong>Nom:</strong> ${data.fullName}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          ${data.phone ? `<p><strong>Téléphone:</strong> ${data.phone}</p>` : ''}
-          ${data.region ? `<p><strong>Zone géographique:</strong> ${data.region}</p>` : ''}
-          <p><strong>Type de demande:</strong> ${data.requestType}</p>
-          ${data.specificAction ? `<p><strong>Action spécifique:</strong> ${data.specificAction}</p>` : ''}
-          <h3>Message:</h3>
-          <p>${data.message.replace(/\n/g, '<br>')}</p>
-        `
+        replyTo: data.email,
+      });
+
+      const result = await resend.emails.send({
+        from: 'IDEE <onboarding@resend.dev>',
+        to: ['projet.idee@ac-lille.fr', 'projet.idee@ac-amiens.fr'],
+        reply_to: data.email,
+        subject: `Nouveau message de ${data.fullName} - ${data.requestType}`,
+        html: emailHtml
       });
 
       console.log('Email send result:', result);
 
-      return new Response(JSON.stringify({ success: true, result }), {
+      // Envoyer un email de confirmation à l'expéditeur
+      const confirmationResult = await resend.emails.send({
+        from: 'IDEE <onboarding@resend.dev>',
+        to: [data.email],
+        subject: 'Confirmation de votre message - IDÉE',
+        html: `
+          <h2>Merci pour votre message</h2>
+          <p>Bonjour ${data.fullName},</p>
+          <p>Nous avons bien reçu votre message concernant "${data.requestType}".</p>
+          <p>Notre équipe vous répondra dans les plus brefs délais.</p>
+          <br>
+          <p>Cordialement,</p>
+          <p>L'équipe IDÉE</p>
+        `
+      });
+
+      console.log('Confirmation email result:', confirmationResult);
+
+      return new Response(JSON.stringify({ success: true, result, confirmationResult }), {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 200,
       });
@@ -65,7 +94,7 @@ serve(async (req) => {
     return new Response(
       JSON.stringify({ 
         error: error.message,
-        stack: error.stack // Ajouter la stack trace pour le débogage
+        stack: error.stack
       }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
