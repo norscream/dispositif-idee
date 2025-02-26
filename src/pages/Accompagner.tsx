@@ -8,22 +8,26 @@ const steps = [
   {
     number: "01",
     title: "Identification des besoins",
-    description: "Un travail de diagnostic avec les équipes éducatives pour mieux cerner leurs attentes et leurs enjeux spécifiques."
+    description: "Un travail de diagnostic avec les équipes éducatives pour mieux cerner leurs attentes et leurs enjeux spécifiques.",
+    color: "text-[#ff9f1c]"
   },
   {
     number: "02",
     title: "Une rencontre-diagnostic",
-    description: "Un premier échange pour définir ensemble les leviers d'action et les formations les plus adaptées."
+    description: "Un premier échange pour définir ensemble les leviers d'action et les formations les plus adaptées.",
+    color: "text-[#e71d36]"
   },
   {
     number: "03",
     title: "Co-construction des actions",
-    description: "Élaboration de projets pédagogiques adaptés aux besoins des enseignants et des élèves."
+    description: "Élaboration de projets pédagogiques adaptés aux besoins des enseignants et des élèves.",
+    color: "text-[#2ec4b6]"
   },
   {
     number: "04",
     title: "Mise en œuvre des actions",
-    description: "Accompagnement des équipes éducatives dans le déploiement de leurs initiatives et suivi personnalisé pour assurer la réussite des projets."
+    description: "Accompagnement des équipes éducatives dans le déploiement de leurs initiatives et suivi personnalisé pour assurer la réussite des projets.",
+    color: "text-[#8338ec]"
   }
 ];
 
@@ -69,13 +73,13 @@ export default function Accompagner() {
             {steps.map((step, index) => (
               <div 
                 key={index} 
-                className="flex gap-6 p-6 hover:bg-gray-50 rounded-lg transition-colors duration-300"
+                className="flex gap-6 p-6 hover:bg-gray-50/80 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-default"
               >
-                <div className="text-4xl font-bold text-primary/20">
+                <div className={`text-4xl font-bold opacity-30 group-hover:opacity-100 transition-opacity duration-300 ${step.color}`}>
                   {step.number}
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">{step.title}</h3>
                   <p className="text-gray-600">{step.description}</p>
                 </div>
               </div>
