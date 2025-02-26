@@ -47,7 +47,7 @@ export default function Valoriser() {
             </p>
           </div>
 
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center mb-8">
             <img 
               src="/lovable-uploads/636abdb5-7a0d-4125-9a06-33a8ea2c0298.png"
               alt="Label Jeunes et Audacieux"
