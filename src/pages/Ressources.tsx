@@ -1,6 +1,6 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft, ArrowRight, BookOpen, Puzzle, Users, Send } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Puzzle, Users, Send, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,6 +27,14 @@ const resourceTypes = [
     link: "/ressources/ludopedagogie",
     linkText: "Explorer la ludothèque",
     image: "/lovable-uploads/482868a6-3a5d-43fb-bf9d-97b20e02a064.png"
+  },
+  {
+    title: "Concours régionaux",
+    description: "Nous accompagnons la création et la mise en place de concours régionaux pour permettre aux élèves de travailler en mode projet. Une approche stimulante qui développe l'esprit d'initiative et la créativité.",
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    link: "/ressources/concours",
+    linkText: "Découvrir les concours",
+    image: "/lovable-uploads/b56b9788-f643-46c4-bc89-dbcb2aa22f3b.png"
   }
 ];
 
