@@ -100,7 +100,7 @@ export default function Ludopedagogie() {
                 </p>
               </div>
               <Link
-                to="/#contact"
+                to="/contact"
                 className="inline-flex items-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors"
               >
                 Nous contacter
