@@ -1,9 +1,28 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Award, Users, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Valoriser() {
+  const labelBenefits = [
+    {
+      title: "Un label pour récompenser l'audace des jeunes",
+      description: "Le label \"Jeunes et Audacieux\" distingue les élèves qui participent activement à des projets mettant en avant l'esprit d'initiative, la créativité et l'engagement.",
+      icon: <Award className="h-8 w-8 text-primary" />
+    },
+    {
+      title: "Une reconnaissance régionale",
+      description: "Attribué par la région académique Hauts-de-France, ce label valorise les parcours inspirants des élèves et leur permet de gagner en visibilité.",
+      icon: <Users className="h-8 w-8 text-primary" />
+    },
+    {
+      title: "Un tremplin pour l'avenir",
+      description: "Être labellisé \"Jeunes et Audacieux\", c'est aussi une opportunité de rencontrer des acteurs du monde professionnel, de participer à des événements régionaux et d'intégrer un réseau dynamique via des événements multi partenariaux.",
+      icon: <Rocket className="h-8 w-8 text-primary" />
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Nav />
@@ -16,20 +35,39 @@ export default function Valoriser() {
           Retour
         </Link>
         
-        <h1 className="text-4xl font-bold mb-8">Célébrer et valoriser</h1>
-        <div className="prose max-w-3xl">
-          <p className="text-lg text-gray-600 mb-6">
-            Nous mettons en lumière les réussites et les initiatives des élèves dans leur parcours entrepreneurial. 
-            La reconnaissance de leur engagement est essentielle pour encourager l'esprit d'entreprendre.
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4">Célébrer et valoriser</h1>
+          <p className="text-xl text-neutral-dark mb-8 font-medium">
+            Osez entreprendre, innovez, et transformez vos idées en actions concrètes !
           </p>
-          
-          <h2 className="text-2xl font-semibold mt-8 mb-4">Nos actions de valorisation</h2>
-          <ul className="list-disc pl-6 space-y-3">
-            <li>Organisation de cérémonies de remise de prix</li>
-            <li>Publication de témoignages et success stories</li>
-            <li>Création d'événements de présentation des projets</li>
-            <li>Diffusion des réussites sur nos réseaux</li>
-          </ul>
+
+          <div className="prose max-w-none mb-12">
+            <p className="text-lg text-gray-600">
+              La région Hauts-de-France a créé le label "Jeunes et Audacieux" pour reconnaître et valoriser l'engagement des élèves dans des projets entrepreneuriaux et citoyens. Ce label met en lumière les jeunes qui osent entreprendre, innover et s'investir pour transformer leurs idées en actions concrètes.
+            </p>
+          </div>
+
+          <div className="flex justify-center mb-16">
+            <img 
+              src="/lovable-uploads/42e47abf-c669-4bdc-bb30-865387e96edb.png"
+              alt="Label Jeunes et Audacieux"
+              className="w-72 h-72 object-contain"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {labelBenefits.map((benefit, index) => (
+              <Card key={index} className="bg-white hover:shadow-lg transition-all">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    {benefit.icon}
+                    <h3 className="text-xl font-semibold">{benefit.title}</h3>
+                  </div>
+                  <p className="text-gray-600">{benefit.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>
