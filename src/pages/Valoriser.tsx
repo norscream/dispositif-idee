@@ -101,15 +101,15 @@ export default function Valoriser() {
             {labelBenefits.map((benefit, index) => (
               <Card key={index} className="bg-white hover:shadow-lg transition-all">
                 <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex flex-col items-center gap-4 mb-4">
                     <img 
                       src="/lovable-uploads/636abdb5-7a0d-4125-9a06-33a8ea2c0298.png"
                       alt="Label Jeunes et Audacieux"
-                      className="w-8 h-8 object-contain"
+                      className="w-24 h-24 object-contain"
                     />
-                    <h3 className="text-xl font-semibold">{benefit.title}</h3>
+                    <h3 className="text-xl font-semibold text-center">{benefit.title}</h3>
                   </div>
-                  <p className="text-gray-600">{benefit.description}</p>
+                  <p className="text-gray-600 text-center">{benefit.description}</p>
                 </CardContent>
               </Card>
             ))}
