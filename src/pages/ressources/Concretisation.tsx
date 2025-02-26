@@ -21,17 +21,6 @@ const currentProjects = [
   { name: "Concrétisation de la journée Téléthon", etablissement: "Lycée Mariette" },
 ];
 
-const testimonials = [
-  {
-    quote: "Grâce au financement IDÉE, nous avons pu acheter le matériel nécessaire pour réparer plus de 20 ordinateurs qui ont été donnés à des élèves.",
-    author: "Équipe du projet PC Solidaire, Lycée Carnot"
-  },
-  {
-    quote: "Le soutien d'IDÉE nous a permis de transformer notre idée de potager partagé en réalité. C'est une vraie fierté de voir nos légumes pousser !",
-    author: "Éco-délégués du Collège Desrousseaux"
-  }
-];
-
 export default function Concretisation() {
   return (
     <div className="min-h-screen bg-white">
@@ -151,18 +140,6 @@ export default function Concretisation() {
                   <div key={index} className="p-4 bg-gray-50 rounded-lg">
                     <h3 className="font-medium text-primary">{project.name}</h3>
                     <p className="text-sm text-gray-600">{project.etablissement}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mb-12">
-              <h2 className="text-2xl font-semibold mb-6">Témoignages</h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
-                    <p className="text-gray-600 mb-4 italic">"{testimonial.quote}"</p>
-                    <p className="text-sm font-medium text-primary">{testimonial.author}</p>
                   </div>
                 ))}
               </div>
