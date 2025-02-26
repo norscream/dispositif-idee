@@ -1,18 +1,11 @@
 
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Users, Award, Sparkles, ArrowRight } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function Reseau() {
-  const navigate = useNavigate();
-
-  const handleNavigation = (path: string) => {
-    navigate(path);
-    window.scrollTo(0, 0);
-  };
-
   const networkPillars = [
     {
       title: "Un réseau engagé pour la jeunesse",
@@ -86,9 +79,9 @@ export default function Reseau() {
                 Découvrez notre écosystème de partenaires
               </h2>
               <div className="flex flex-col md:flex-row justify-center gap-6">
-                <div 
-                  className="flex-1 flex flex-col items-center p-6 bg-white rounded-lg hover:shadow-lg transition-shadow text-center max-w-sm mx-auto min-h-[280px] cursor-pointer"
-                  onClick={() => handleNavigation('/ressources/labellisation')}
+                <Link 
+                  to="/ressources/labellisation"
+                  className="flex-1 flex flex-col items-center p-6 bg-white rounded-lg hover:shadow-lg transition-shadow text-center max-w-sm mx-auto min-h-[280px]"
                 >
                   <Award className="h-8 w-8 text-primary mb-4" />
                   <h3 className="text-xl font-medium mb-4">En savoir plus sur la labellisation</h3>
@@ -97,10 +90,10 @@ export default function Reseau() {
                     Découvrir le processus
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Button>
-                </div>
-                <div 
-                  className="flex-1 flex flex-col items-center p-6 bg-white rounded-lg hover:shadow-lg transition-shadow text-center max-w-sm mx-auto min-h-[280px] cursor-pointer"
-                  onClick={() => handleNavigation('/ressources/actions-partenaires')}
+                </Link>
+                <Link 
+                  to="/ressources/actions-partenaires"
+                  className="flex-1 flex flex-col items-center p-6 bg-white rounded-lg hover:shadow-lg transition-shadow text-center max-w-sm mx-auto min-h-[280px]"
                 >
                   <Users className="h-8 w-8 text-primary mb-4" />
                   <h3 className="text-xl font-medium mb-4">Explorer les actions de nos partenaires</h3>
@@ -109,7 +102,7 @@ export default function Reseau() {
                     Voir les actions
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Button>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
