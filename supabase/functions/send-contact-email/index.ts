@@ -30,9 +30,9 @@ serve(async (req) => {
     
     console.log('Sending email with data:', formData);
 
-    const { data, error } = await resend.emails.send({
+    const emailContent = {
       from: 'IDEE <onboarding@resend.dev>',
-      to: ['projet.idee@ac-lille.fr'],
+      to: ['projet.idee@ac-lille.fr', 'projet.idee@ac-amiens.fr'],
       subject: `Nouveau message de ${formData.fullName} - ${formData.requestType}`,
       html: `
         <h2>Nouveau message de contact</h2>
@@ -45,7 +45,9 @@ serve(async (req) => {
         <h3>Message:</h3>
         <p>${formData.message.replace(/\n/g, '<br>')}</p>
       `,
-    });
+    };
+
+    const { data, error } = await resend.emails.send(emailContent);
 
     if (error) {
       console.error('Error sending email:', error);
