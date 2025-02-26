@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from 'embla-carousel-autoplay';
+import { useState, useEffect } from 'react';
 
 const testimonials = [
   {
@@ -41,6 +42,22 @@ const testimonials = [
 ];
 
 export default function Informer() {
+  const [shuffledTestimonials, setShuffledTestimonials] = useState(testimonials);
+
+  useEffect(() => {
+    // Fisher-Yates shuffle algorithm
+    const shuffleArray = (array: typeof testimonials) => {
+      const newArray = [...array];
+      for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      }
+      return newArray;
+    };
+
+    setShuffledTestimonials(shuffleArray(testimonials));
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Nav />
@@ -79,7 +96,7 @@ export default function Informer() {
               ]}
             >
               <CarouselContent>
-                {testimonials.map((item, index) => (
+                {shuffledTestimonials.map((item, index) => (
                   <CarouselItem key={index}>
                     <div className="p-1">
                       <div className="overflow-hidden rounded-xl">
