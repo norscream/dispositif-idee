@@ -1,6 +1,6 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft, Award, Users, Rocket } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -42,17 +42,14 @@ export default function Valoriser() {
     {
       title: "Un label pour récompenser l'audace des jeunes",
       description: "Le label \"Jeunes et Audacieux\" distingue les élèves qui participent activement à des projets mettant en avant l'esprit d'initiative, la créativité et l'engagement.",
-      icon: <Award className="h-8 w-8 text-primary" />
     },
     {
       title: "Une reconnaissance régionale",
       description: "Attribué par la région académique Hauts-de-France, ce label valorise les parcours inspirants des élèves et leur permet de gagner en visibilité.",
-      icon: <Users className="h-8 w-8 text-primary" />
     },
     {
       title: "Un tremplin pour l'avenir",
       description: "Les événements \"Jeunes et Audacieux\", sont l'opportunité de rencontrer des acteurs du monde professionnel, de participer à des événements régionaux et d'intégrer un réseau dynamique via des événements multi partenariaux.",
-      icon: <Rocket className="h-8 w-8 text-primary" />
     }
   ];
 
@@ -80,33 +77,24 @@ export default function Valoriser() {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-8 mb-8">
-            <div className="md:w-3/4">
-              <Carousel className="w-full">
-                <CarouselContent>
-                  {shuffledImages.map((image, index) => (
-                    <CarouselItem key={index}>
-                      <div className="relative aspect-video">
-                        <img
-                          src={image}
-                          alt={`Événement Jeunes et Audacieux ${index + 1}`}
-                          className="w-full h-full object-cover rounded-lg"
-                        />
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
-            </div>
-            <div className="md:w-1/4 flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/636abdb5-7a0d-4125-9a06-33a8ea2c0298.png"
-                alt="Label Jeunes et Audacieux"
-                className="w-full object-contain"
-              />
-            </div>
+          <div className="mb-8">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {shuffledImages.map((image, index) => (
+                  <CarouselItem key={index}>
+                    <div className="relative aspect-video">
+                      <img
+                        src={image}
+                        alt={`Événement Jeunes et Audacieux ${index + 1}`}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -114,7 +102,11 @@ export default function Valoriser() {
               <Card key={index} className="bg-white hover:shadow-lg transition-all">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    {benefit.icon}
+                    <img 
+                      src="/lovable-uploads/636abdb5-7a0d-4125-9a06-33a8ea2c0298.png"
+                      alt="Label Jeunes et Audacieux"
+                      className="w-8 h-8 object-contain"
+                    />
                     <h3 className="text-xl font-semibold">{benefit.title}</h3>
                   </div>
                   <p className="text-gray-600">{benefit.description}</p>
