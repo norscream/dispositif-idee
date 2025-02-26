@@ -9,64 +9,51 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-interface ContactFormData {
-  fullName: string;
-  email: string;
-  phone?: string;
-  region?: string;
-  requestType: string;
-  specificAction?: string;
-  message: string;
-}
-
 serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: corsHeaders })
+    return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const formData: ContactFormData = await req.json()
+    const data = await req.json();
     
-    console.log('Starting email send with data:', formData);
-    console.log('Using Resend API key:', !!Deno.env.get('RESEND_API_KEY')); // Will log true/false if key exists
-
-    const { data, error } = await resend.emails.send({
+    console.log('Starting email send with data:', data);
+    
+    const { error: resendError } = await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: ['projet.idee@ac-lille.fr', 'projet.idee@ac-amiens.fr'],
-      subject: `Nouveau message de ${formData.fullName} - ${formData.requestType}`,
+      subject: `Nouveau message de ${data.fullName} - ${data.requestType}`,
       html: `
         <h2>Nouveau message de contact</h2>
-        <p><strong>Nom:</strong> ${formData.fullName}</p>
-        <p><strong>Email:</strong> ${formData.email}</p>
-        ${formData.phone ? `<p><strong>Téléphone:</strong> ${formData.phone}</p>` : ''}
-        ${formData.region ? `<p><strong>Zone géographique:</strong> ${formData.region}</p>` : ''}
-        <p><strong>Type de demande:</strong> ${formData.requestType}</p>
-        ${formData.specificAction ? `<p><strong>Action spécifique:</strong> ${formData.specificAction}</p>` : ''}
+        <p><strong>Nom:</strong> ${data.fullName}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        ${data.phone ? `<p><strong>Téléphone:</strong> ${data.phone}</p>` : ''}
+        ${data.region ? `<p><strong>Zone géographique:</strong> ${data.region}</p>` : ''}
+        <p><strong>Type de demande:</strong> ${data.requestType}</p>
+        ${data.specificAction ? `<p><strong>Action spécifique:</strong> ${data.specificAction}</p>` : ''}
         <h3>Message:</h3>
-        <p>${formData.message.replace(/\n/g, '<br>')}</p>
+        <p>${data.message.replace(/\n/g, '<br>')}</p>
       `
     });
 
-    if (error) {
-      console.error('Error sending email:', error);
-      throw error;
+    if (resendError) {
+      console.error('Resend error:', resendError);
+      throw resendError;
     }
-
-    console.log('Email sent successfully:', data);
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       status: 200,
-    })
+    });
   } catch (error) {
-    console.error('Error in send-contact-email function:', error);
+    console.error('Function error:', error);
     return new Response(
       JSON.stringify({ error: error.message }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 500,
       }
-    )
+    );
   }
-})
+});

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Mail } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -166,7 +167,10 @@ export const Contact = () => {
         body: data
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error("Erreur Supabase:", error);
+        throw error;
+      }
       
       toast.dismiss(loadingToast);
       toast.success("Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.", {
