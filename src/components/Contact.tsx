@@ -20,6 +20,7 @@ import { esperActions } from "@/data/actions/esper";
 import { rnjaActions } from "@/data/actions/rnja";
 import { actions } from "@/data/actions";
 import { concours } from "@/data/concours";
+import { supabase } from "@/integrations/supabase/client";
 
 type ContactFormData = {
   fullName: string;
@@ -161,14 +162,12 @@ export const Contact = () => {
     const loadingToast = toast.loading("Envoi du message en cours...");
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      console.log('Envoi à projet.idee@ac-lille.fr et projet.idee@ac-amiens.fr:', {
-        to: 'projet.idee@ac-lille.fr, projet.idee@ac-amiens.fr',
-        subject: `Message de ${data.fullName}`,
-        ...data
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: data
       });
 
+      if (error) throw error;
+      
       toast.dismiss(loadingToast);
       toast.success("Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.", {
         duration: 5000,
@@ -176,11 +175,11 @@ export const Contact = () => {
       
       reset();
     } catch (error) {
+      console.error("Erreur d'envoi:", error);
       toast.dismiss(loadingToast);
       toast.error("Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.", {
         duration: 5000,
       });
-      console.error("Erreur d'envoi:", error);
     } finally {
       setIsSubmitting(false);
     }
