@@ -10,20 +10,17 @@ export default function Reseau() {
     {
       title: "Un réseau engagé pour la jeunesse",
       description: "Nos partenaires participent activement à l'accompagnement des élèves et des enseignants en proposant des actions pédagogiques concrètes et impactantes.",
-      icon: <Users className="h-8 w-8 text-primary" />,
-      image: "/lovable-uploads/b56b9788-f643-46c4-bc89-dbcb2aa22f3b.png"
+      icon: <Users className="h-8 w-8 text-primary" />
     },
     {
       title: "Des expériences uniques pour inspirer",
       description: "Grâce à l'expertise de nos partenaires, les élèves découvrent le monde professionnel, développent leur esprit d'initiative et se projettent dans des parcours entrepreneuriaux.",
-      icon: <Sparkles className="h-8 w-8 text-primary" />,
-      image: "/lovable-uploads/88200d9e-4b88-4cca-9e5f-d600c4eec002.png"
+      icon: <Sparkles className="h-8 w-8 text-primary" />
     },
     {
       title: "Une labellisation garante de la qualité",
       description: "Chaque partenaire a reçu une labellisation de la part de la région académique, attestant de la pertinence et de la valeur pédagogique des actions proposées.",
-      icon: <Award className="h-8 w-8 text-primary" />,
-      image: "/lovable-uploads/300b340b-9d6d-4fa2-93ae-0f792e250599.png"
+      icon: <Award className="h-8 w-8 text-primary" />
     }
   ];
 
@@ -51,13 +48,6 @@ export default function Reseau() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {networkPillars.map((pillar, index) => (
               <Card key={index} className="relative group hover:shadow-lg transition-all">
-                <div className="h-48 overflow-hidden">
-                  <img 
-                    src={pillar.image} 
-                    alt={pillar.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-3">
                     {pillar.icon}
