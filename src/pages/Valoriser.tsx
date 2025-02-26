@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Award, Users, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -18,7 +17,7 @@ export default function Valoriser() {
     },
     {
       title: "Un tremplin pour l'avenir",
-      description: "Être labellisé \"Jeunes et Audacieux\", c'est aussi une opportunité de rencontrer des acteurs du monde professionnel, de participer à des événements régionaux et d'intégrer un réseau dynamique via des événements multi partenariaux.",
+      description: "Les événements \"Jeunes et Audacieux\", sont l'opportunité de rencontrer des acteurs du monde professionnel, de participer à des événements régionaux et d'intégrer un réseau dynamique via des événements multi partenariaux.",
       icon: <Rocket className="h-8 w-8 text-primary" />
     }
   ];
