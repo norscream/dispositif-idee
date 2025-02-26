@@ -1,20 +1,22 @@
+
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Users, Calendar, Trophy, Linkedin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from 'embla-carousel-autoplay';
 
 const testimonials = [
-  {
-    name: "Formation IDEE",
-    description: "Organisation de groupes de travaux réunissant les acteurs de la sensibilisation à l'entrepreneuriat",
-    image: "/lovable-uploads/babffd42-c973-4990-a206-e07ed816e535.png"
-  },
   {
     name: "Présentation du dispositif IDEE et ses partenaires",
     description: "Lors de session de travail collaborative avec des enseignants",
     image: "/lovable-uploads/158335a3-36d1-4880-9ea2-2b2d6916df5d.png"
+  },
+  {
+    name: "Formation IDEE",
+    description: "Présentation de nos outils lors d'ateliers destinés aux enseignants",
+    image: "/lovable-uploads/babffd42-c973-4990-a206-e07ed816e535.png"
   },
   {
     name: "Ludopédagogie",
@@ -53,7 +55,14 @@ export default function Informer() {
 
           {/* Image Carousel */}
           <div className="mb-16">
-            <Carousel className="w-full max-w-3xl mx-auto">
+            <Carousel 
+              className="w-full max-w-3xl mx-auto"
+              plugins={[
+                Autoplay({
+                  delay: 4000,
+                })
+              ]}
+            >
               <CarouselContent>
                 {testimonials.map((item, index) => (
                   <CarouselItem key={index}>
