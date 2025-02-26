@@ -48,9 +48,14 @@ export default function Informer() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Informer et promouvoir
             </h1>
-            <p className="text-xl text-primary font-medium">
+            <p className="text-xl text-primary font-medium mb-8">
               Ensemble, développons l'esprit d'entreprendre dans l'éducation
             </p>
+            <div className="prose mx-auto text-gray-600 max-w-3xl">
+              <p className="text-lg">
+                Le dispositif IDEE de la région académique Hauts-de-France a pour mission de promouvoir et partager les initiatives d'éducation à l'entrepreneuriat au sein de notre territoire. Notre rôle est de sensibiliser les équipes éducatives à l'importance de développer l'esprit d'entreprendre et d'engagement chez les jeunes. À travers des actions ciblées, nous accompagnons le développement des compétences techniques entrepreneuriales et psychosociales, devenues des enjeux majeurs dans le contexte actuel d'évolution permanente de notre société.
+              </p>
+            </div>
           </div>
 
           {/* Image Carousel */}
