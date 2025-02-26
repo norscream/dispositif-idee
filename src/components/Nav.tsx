@@ -82,6 +82,12 @@ export const Nav = () => {
               Labellisation
             </Link>
             <Link 
+              to="/valoriser"
+              className="text-gray-700 hover:text-primary transition-colors"
+            >
+              Jeunes et audacieux
+            </Link>
+            <Link 
               to="/contact"
               className="text-gray-700 hover:text-primary transition-colors"
             >
@@ -133,6 +139,12 @@ export const Nav = () => {
                 className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
               >
                 Labellisation
+              </Link>
+              <Link
+                to="/valoriser"
+                className="px-4 py-2 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                Jeunes et audacieux
               </Link>
               <Link
                 to="/contact"
