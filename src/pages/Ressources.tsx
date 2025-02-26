@@ -34,7 +34,9 @@ const resourceTypes = [
     title: "Outils et formats pédagogiques variés",
     description: "Des ateliers interactifs, études de cas, défis et parcours gamifiés pour favoriser une approche ludique et engageante. Nos formats diversifiés s'adaptent à tous les contextes d'apprentissage.",
     icon: <Users className="h-8 w-8 text-primary" />,
-    image: "/lovable-uploads/d79f45ab-de8c-496f-a0ee-69e218347823.png"
+    image: "/lovable-uploads/d79f45ab-de8c-496f-a0ee-69e218347823.png",
+    link: "/contact",
+    linkText: "Nous contacter"
   }
 ];
 
