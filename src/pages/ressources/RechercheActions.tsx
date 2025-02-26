@@ -10,40 +10,32 @@ import { actionsPartenaires } from "@/data/actionsPartenaires";
 import { concours } from "@/data/concours";
 import { ConcoursCard } from "@/components/concours/ConcoursCard";
 
-// Combiner les deux types d'actions
 const allActions = [...actions, ...actionsPartenaires] as const;
 
-// Définir les types en utilisant les types exacts des données
 type ActionType = (typeof actions)[number] | (typeof actionsPartenaires)[number];
 type ZoneType = ActionType["zones"][number];
 type NiveauType = ActionType["niveaux"][number];
 
-// Définir l'ordre spécifique des zones
 const zoneOrder = [
   "Région académique Hauts-de-France",
   "Académie de Lille",
   "Académie d'Amiens"
 ] as const;
 
-// Définir l'ordre spécifique des niveaux
 const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const;
 
-// Type d'activité
-type ActivityType = "action" | "concours";
+type ActivityType = "action" | "concours" | "formation";
 
 export default function RechercheActions() {
   const [selectedZones, setSelectedZones] = useState<ZoneType[]>([]);
   const [selectedNiveaux, setSelectedNiveaux] = useState<NiveauType[]>([]);
   const [activityType, setActivityType] = useState<ActivityType>("action");
 
-  // Extraire et trier les critères uniques
   const uniqueZones = zoneOrder;
   const uniqueNiveaux = niveauOrder;
 
-  // Vérifier si au moins une case est cochée
   const hasActiveFilters = selectedZones.length > 0 || selectedNiveaux.length > 0;
 
-  // Filtrer les actions en fonction des critères sélectionnés
   const filteredActions = useMemo(() => {
     if (!hasActiveFilters) return [];
     if (activityType === "concours") return [];
@@ -70,7 +62,6 @@ export default function RechercheActions() {
     });
   }, [selectedZones, selectedNiveaux, hasActiveFilters, activityType]);
 
-  // Filtrer les concours en fonction des niveaux sélectionnés
   const filteredConcours = useMemo(() => {
     if (activityType !== "concours" || !hasActiveFilters) return [];
 
@@ -86,7 +77,6 @@ export default function RechercheActions() {
     });
   }, [selectedNiveaux, hasActiveFilters, activityType]);
 
-  // Gestionnaires pour la sélection multiple
   const handleZoneSelect = (zone: ZoneType) => {
     setSelectedZones(prev => 
       prev.includes(zone) 
@@ -122,7 +112,6 @@ export default function RechercheActions() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-            {/* Type d'activité */}
             <div className="space-y-2">
               <Label>Type d'activité</Label>
               <div className="space-y-2">
@@ -144,10 +133,18 @@ export default function RechercheActions() {
                   />
                   <span className="text-sm">Participation à un concours</span>
                 </label>
+                <label className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    checked={activityType === "formation"}
+                    onChange={() => setActivityType("formation")}
+                    className="rounded border-gray-300 text-primary focus:ring-primary"
+                  />
+                  <span className="text-sm">Formation</span>
+                </label>
               </div>
             </div>
 
-            {/* Zones */}
             <div className="space-y-2">
               <Label>Zones d'intervention</Label>
               <div className="space-y-2">
@@ -165,7 +162,6 @@ export default function RechercheActions() {
               </div>
             </div>
 
-            {/* Niveaux */}
             <div className="space-y-2">
               <Label>Niveaux</Label>
               <div className="space-y-2">

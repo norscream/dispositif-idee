@@ -22,6 +22,7 @@ import Ludopedagogie from "./pages/ressources/Ludopedagogie";
 import Labellisation from "./pages/ressources/Labellisation";
 import RechercheActions from "./pages/ressources/RechercheActions";
 import Concours from "./pages/ressources/Concours";
+import Formation from "./pages/ressources/Formation";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,6 +54,7 @@ const App = () => (
               <Route path="/ressources/labellisation" element={<Labellisation />} />
               <Route path="/ressources/recherche-actions" element={<RechercheActions />} />
               <Route path="/ressources/concours" element={<Concours />} />
+              <Route path="/ressources/formation" element={<Formation />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

@@ -8,6 +8,7 @@ const Actions = lazy(() => import("@/components/home/Actions"));
 const News = lazy(() => import("@/components/home/News"));
 const Team = lazy(() => import("@/components/home/Team"));
 const Resources = lazy(() => import("@/components/home/Resources"));
+const Formation = lazy(() => import("@/components/home/Formation"));
 const FAQ = lazy(() => import("@/components/home/FAQ"));
 
 // Loading fallback component
@@ -27,6 +28,9 @@ export default function Index() {
       </Suspense>
       <Suspense fallback={<LoadingFallback />}>
         <Resources />
+      </Suspense>
+      <Suspense fallback={<LoadingFallback />}>
+        <Formation />
       </Suspense>
       <Suspense fallback={<LoadingFallback />}>
         <News />

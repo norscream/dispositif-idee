@@ -22,6 +22,7 @@ const resourceLinks = [
   { href: "/ressources/actions-partenaires", label: "Les actions de nos partenaires" },
   { href: "/ressources/ludopedagogie", label: "Ludopédagogie" },
   { href: "/ressources/concours", label: "Concours" },
+  { href: "/ressources/formation", label: "Formation" },
   { href: "/ressources/recherche-actions", label: "Rechercher une action" }
 ];
 
