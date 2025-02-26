@@ -6,6 +6,39 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
+const testimonials = [
+  {
+    name: "Formation IDÉE",
+    description: "Séance de formation avec les enseignants pour découvrir les outils d'entrepreneuriat",
+    image: "/lovable-uploads/48ff9ed9-d34c-44db-8d17-3d72b72ed078.png"
+  },
+  {
+    name: "Session collaborative",
+    description: "Grande session de travail collaborative avec les lycéens",
+    image: "/lovable-uploads/158335a3-36d1-4880-9ea2-2b2d6916df5d.png"
+  },
+  {
+    name: "Présentation dispositif",
+    description: "Présentation du dispositif IDÉE aux équipes pédagogiques",
+    image: "/lovable-uploads/bf6db3d3-6734-4ca5-8447-195649d302e8.png"
+  },
+  {
+    name: "Ludopédagogie",
+    description: "Découverte des outils ludopédagogiques pour l'entrepreneuriat",
+    image: "/lovable-uploads/07cd5c26-d413-4265-bc6a-465dd48039c8.png"
+  },
+  {
+    name: "Intervention événement",
+    description: "Intervention lors d'un événement entrepreneurial régional",
+    image: "/lovable-uploads/1949c156-8c29-44f2-9c8e-c047a4a2ae85.png"
+  },
+  {
+    name: "Équipe IDÉE",
+    description: "L'équipe IDÉE au complet lors d'une journée de sensibilisation",
+    image: "/lovable-uploads/3e097d4a-4727-4a0d-b11f-2e5a2d4f3b60.png"
+  }
+];
+
 export default function Informer() {
   return (
     <div className="min-h-screen bg-white">
@@ -40,27 +73,23 @@ export default function Informer() {
           <div className="mb-16">
             <Carousel className="w-full max-w-3xl mx-auto">
               <CarouselContent>
-                <CarouselItem>
-                  <img 
-                    src="/placeholder.svg" 
-                    alt="Élèves en activité entrepreneuriale"
-                    className="w-full h-[400px] object-cover rounded-xl"
-                  />
-                </CarouselItem>
-                <CarouselItem>
-                  <img 
-                    src="/placeholder.svg" 
-                    alt="Événement entrepreneurial"
-                    className="w-full h-[400px] object-cover rounded-xl"
-                  />
-                </CarouselItem>
-                <CarouselItem>
-                  <img 
-                    src="/placeholder.svg" 
-                    alt="Collaboration éducative"
-                    className="w-full h-[400px] object-cover rounded-xl"
-                  />
-                </CarouselItem>
+                {testimonials.map((item, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-1">
+                      <div className="overflow-hidden rounded-xl">
+                        <img 
+                          src={item.image} 
+                          alt={item.name}
+                          className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="text-center mt-4">
+                        <h3 className="font-semibold text-lg text-primary">{item.name}</h3>
+                        <p className="text-gray-600">{item.description}</p>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
               </CarouselContent>
               <CarouselPrevious />
               <CarouselNext />
