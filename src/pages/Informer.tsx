@@ -155,7 +155,7 @@ export default function Informer() {
               className="bg-primary hover:bg-primary-dark text-white inline-flex items-center"
             >
               <a 
-                href="https://www.linkedin.com/company/idee-hdf/"
+                href="https://www.linkedin.com/in/dispositifidee/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
