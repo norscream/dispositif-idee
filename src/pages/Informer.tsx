@@ -9,6 +9,11 @@ import Autoplay from 'embla-carousel-autoplay';
 
 const testimonials = [
   {
+    name: "Stand IDEE",
+    description: "Présentation de nos outils lors de l'événement découverte des acteurs de sensibilisation de l'INSPEE",
+    image: "/lovable-uploads/3457e795-2747-4781-acfd-f82fbed4b822.png"
+  },
+  {
     name: "Présentation du dispositif IDEE et ses partenaires",
     description: "Lors de session de travail collaborative avec des enseignants",
     image: "/lovable-uploads/158335a3-36d1-4880-9ea2-2b2d6916df5d.png"
