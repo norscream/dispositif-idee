@@ -27,6 +27,26 @@ export default function Reseau() {
   return (
     <div className="min-h-screen bg-white">
       <Nav />
+      <div className="container mx-auto px-4">
+        <div className="py-16 max-w-4xl mx-auto">
+          <Link 
+            to="/" 
+            className="inline-flex items-center text-primary hover:text-primary-dark mb-8"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Retour
+          </Link>
+          
+          <h1 className="text-4xl font-bold mb-8">Mettre en lien</h1>
+          
+          <div className="prose max-w-none mb-12">
+            <p className="text-lg text-gray-600">
+              Le dispositif IDEE de la région académique Hauts-de-France travaille en étroite collaboration avec un réseau de partenaires engagés dans la sensibilisation à l'entrepreneuriat. Ces partenaires contribuent activement à faire vivre cette politique en proposant des expériences uniques aux élèves, fondées sur leur expertise et leur engagement pour la jeunesse.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div className="relative">
         <div 
           className="absolute inset-0 bg-fixed z-0"
@@ -39,23 +59,7 @@ export default function Reseau() {
           }}
         />
         <div className="container mx-auto py-16 px-4 relative z-10">
-          <Link 
-            to="/" 
-            className="inline-flex items-center text-primary hover:text-primary-dark mb-8"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Retour
-          </Link>
-          
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold mb-8">Mettre en lien</h1>
-            
-            <div className="prose max-w-none mb-12">
-              <p className="text-lg text-gray-600">
-                Le dispositif IDEE de la région académique Hauts-de-France travaille en étroite collaboration avec un réseau de partenaires engagés dans la sensibilisation à l'entrepreneuriat. Ces partenaires contribuent activement à faire vivre cette politique en proposant des expériences uniques aux élèves, fondées sur leur expertise et leur engagement pour la jeunesse.
-              </p>
-            </div>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               {networkPillars.map((pillar, index) => (
                 <Card key={index} className="relative group hover:shadow-lg transition-all bg-white/90 backdrop-blur-sm">
