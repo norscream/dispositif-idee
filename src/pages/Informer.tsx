@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Users, Calendar, Trophy, Linkedin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -8,19 +7,14 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const testimonials = [
   {
-    name: "Formation IDÉE",
-    description: "Séance de formation avec les enseignants pour découvrir les outils d'entrepreneuriat",
-    image: "/lovable-uploads/48ff9ed9-d34c-44db-8d17-3d72b72ed078.png"
+    name: "Formation IDEE",
+    description: "Organisation de groupes de travaux réunissant les acteurs de la sensibilisation à l'entrepreneuriat",
+    image: "/lovable-uploads/babffd42-c973-4990-a206-e07ed816e535.png"
   },
   {
-    name: "Session collaborative",
-    description: "Grande session de travail collaborative avec les lycéens",
+    name: "Présentation du dispositif IDEE et ses partenaires",
+    description: "Lors de session de travail collaborative avec des enseignants",
     image: "/lovable-uploads/158335a3-36d1-4880-9ea2-2b2d6916df5d.png"
-  },
-  {
-    name: "Présentation dispositif",
-    description: "Présentation du dispositif IDÉE aux équipes pédagogiques",
-    image: "/lovable-uploads/bf6db3d3-6734-4ca5-8447-195649d302e8.png"
   },
   {
     name: "Ludopédagogie",
@@ -28,14 +22,9 @@ const testimonials = [
     image: "/lovable-uploads/07cd5c26-d413-4265-bc6a-465dd48039c8.png"
   },
   {
-    name: "Intervention événement",
-    description: "Intervention lors d'un événement entrepreneurial régional",
+    name: "Comité de pilotage partenarial",
+    description: "Organisation de groupes de travaux réunissant les acteurs de la sensibilisation à l'entrepreneuriat",
     image: "/lovable-uploads/1949c156-8c29-44f2-9c8e-c047a4a2ae85.png"
-  },
-  {
-    name: "Équipe IDÉE",
-    description: "L'équipe IDÉE au complet lors d'une journée de sensibilisation",
-    image: "/lovable-uploads/3e097d4a-4727-4a0d-b11f-2e5a2d4f3b60.png"
   }
 ];
 
@@ -59,13 +48,6 @@ export default function Informer() {
             </h1>
             <p className="text-xl text-primary font-medium">
               Ensemble, développons l'esprit d'entreprendre dans l'éducation
-            </p>
-          </div>
-
-          {/* Introduction */}
-          <div className="prose max-w-none mb-16">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Le dispositif IDÉE de la région académique Hauts-de-France s'engage à promouvoir et à partager les initiatives d'éducation à l'entrepreneuriat auprès de la communauté éducative. Notre mission est de sensibiliser les équipes éducatives à l'importance cruciale de développer l'esprit d'entreprendre et d'engagement chez les jeunes. À travers des actions ciblées, nous visons à développer les compétences techniques entrepreneuriales et psychosociales, véritables enjeux majeurs de l'éducation d'aujourd'hui.
             </p>
           </div>
 
