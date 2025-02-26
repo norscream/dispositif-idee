@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from 'embla-carousel-autoplay';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
+// Déplacer les données statiques en dehors du composant
 const testimonials = [
   {
     name: "Collaboration IDEE",
@@ -39,24 +40,32 @@ const testimonials = [
     description: "Organisation de groupes de travaux réunissant les acteurs de la sensibilisation à l'entrepreneuriat",
     image: "/lovable-uploads/1949c156-8c29-44f2-9c8e-c047a4a2ae85.png"
   }
-];
+] as const;
+
+// Fonction de mélange pure
+const shuffleArray = (array: readonly any[]) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
 
 export default function Informer() {
   const [shuffledTestimonials, setShuffledTestimonials] = useState(testimonials);
 
+  // Utiliser useEffect uniquement pour le mélange initial
   useEffect(() => {
-    // Fisher-Yates shuffle algorithm
-    const shuffleArray = (array: typeof testimonials) => {
-      const newArray = [...array];
-      for (let i = newArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-      }
-      return newArray;
-    };
-
     setShuffledTestimonials(shuffleArray(testimonials));
   }, []);
+
+  // Mémoriser la configuration du plugin Autoplay
+  const carouselPlugins = useMemo(() => [
+    Autoplay({
+      delay: 4000,
+    })
+  ], []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -89,21 +98,18 @@ export default function Informer() {
           <div className="mb-16">
             <Carousel 
               className="w-full max-w-3xl mx-auto"
-              plugins={[
-                Autoplay({
-                  delay: 4000,
-                })
-              ]}
+              plugins={carouselPlugins}
             >
               <CarouselContent>
                 {shuffledTestimonials.map((item, index) => (
-                  <CarouselItem key={index}>
+                  <CarouselItem key={`${item.name}-${index}`}>
                     <div className="p-1">
                       <div className="overflow-hidden rounded-xl">
                         <img 
                           src={item.image} 
                           alt={item.name}
                           className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
                         />
                       </div>
                       <div className="text-center mt-4">
