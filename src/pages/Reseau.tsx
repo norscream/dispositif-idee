@@ -66,10 +66,11 @@ export default function Reseau() {
             <div className="flex flex-col md:flex-row justify-center gap-6">
               <Link 
                 to="/ressources/labellisation"
-                className="flex-1 flex flex-col items-center p-6 bg-white rounded-lg hover:shadow-lg transition-shadow text-center max-w-sm mx-auto"
+                className="flex-1 flex flex-col items-center p-6 bg-white rounded-lg hover:shadow-lg transition-shadow text-center max-w-sm mx-auto min-h-[280px]"
               >
                 <Award className="h-8 w-8 text-primary mb-4" />
                 <h3 className="text-xl font-medium mb-4">En savoir plus sur la labellisation</h3>
+                <div className="flex-grow"></div>
                 <Button className="w-full">
                   Découvrir le processus
                   <ArrowRight className="h-4 w-4 ml-2" />
@@ -77,10 +78,11 @@ export default function Reseau() {
               </Link>
               <Link 
                 to="/ressources/actions-partenaires"
-                className="flex-1 flex flex-col items-center p-6 bg-white rounded-lg hover:shadow-lg transition-shadow text-center max-w-sm mx-auto"
+                className="flex-1 flex flex-col items-center p-6 bg-white rounded-lg hover:shadow-lg transition-shadow text-center max-w-sm mx-auto min-h-[280px]"
               >
                 <Users className="h-8 w-8 text-primary mb-4" />
                 <h3 className="text-xl font-medium mb-4">Explorer les actions de nos partenaires</h3>
+                <div className="flex-grow"></div>
                 <Button className="w-full">
                   Voir les actions
                   <ArrowRight className="h-4 w-4 ml-2" />
