@@ -1,33 +1,28 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft, Lightbulb, UserSquare2, UsersRound, CheckCircle, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const steps = [
   {
-    icon: <Lightbulb className="h-8 w-8 text-[#ff9f1c]" />,
-    color: "bg-[#ff9f1c]",
-    title: "Étape 1 : Identification des besoins",
+    number: "01",
+    title: "Identification des besoins",
     description: "Un travail de diagnostic avec les équipes éducatives pour mieux cerner leurs attentes et leurs enjeux spécifiques."
   },
   {
-    icon: <UserSquare2 className="h-8 w-8 text-[#e71d36]" />,
-    color: "bg-[#e71d36]",
-    title: "Étape 2 : Une rencontre-diagnostic",
+    number: "02",
+    title: "Une rencontre-diagnostic",
     description: "Un premier échange pour définir ensemble les leviers d'action et les formations les plus adaptées."
   },
   {
-    icon: <UsersRound className="h-8 w-8 text-[#2ec4b6]" />,
-    color: "bg-[#2ec4b6]",
-    title: "Étape 3 : Co-construction des actions",
+    number: "03",
+    title: "Co-construction des actions",
     description: "Élaboration de projets pédagogiques adaptés aux besoins des enseignants et des élèves."
   },
   {
-    icon: <CheckCircle className="h-8 w-8 text-[#8338ec]" />,
-    color: "bg-[#8338ec]",
-    title: "Étape 4 : Mise en œuvre des actions",
+    number: "04",
+    title: "Mise en œuvre des actions",
     description: "Accompagnement des équipes éducatives dans le déploiement de leurs initiatives et suivi personnalisé pour assurer la réussite des projets."
   }
 ];
@@ -69,20 +64,21 @@ export default function Accompagner() {
             />
           </div>
 
-          {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          {/* Steps List */}
+          <div className="space-y-8 mb-16">
             {steps.map((step, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-shadow duration-300">
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className={`${step.color} p-3 rounded-lg group-hover:scale-110 transition-transform duration-300`}>
-                    {step.icon}
-                  </div>
-                  <CardTitle className="text-xl">{step.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
+              <div 
+                key={index} 
+                className="flex gap-6 p-6 hover:bg-gray-50 rounded-lg transition-colors duration-300"
+              >
+                <div className="text-4xl font-bold text-primary/20">
+                  {step.number}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                   <p className="text-gray-600">{step.description}</p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
 
