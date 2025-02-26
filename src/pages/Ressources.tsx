@@ -20,7 +20,7 @@ const resourceTypes = [
     icon: <Trophy className="h-8 w-8 text-primary" />,
     link: "/ressources/concours",
     linkText: "Découvrir les concours",
-    image: "/lovable-uploads/b56b9788-f643-46c4-bc89-dbcb2aa22f3b.png"
+    image: "/lovable-uploads/88200d9e-4b88-4cca-9e5f-d600c4eec002.png"
   },
   {
     title: "Ludothèque pédagogique",
