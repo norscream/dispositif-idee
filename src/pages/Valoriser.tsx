@@ -1,3 +1,4 @@
+
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Award, Users, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -50,7 +51,7 @@ export default function Valoriser() {
             <img 
               src="/lovable-uploads/42e47abf-c669-4bdc-bb30-865387e96edb.png"
               alt="Label Jeunes et Audacieux"
-              className="w-72 h-72 object-contain"
+              className="w-96 h-96 md:w-[500px] md:h-[500px] object-contain"
             />
           </div>
 
