@@ -49,6 +49,29 @@ const allPartnerActions = [
   ...rnjaActions
 ];
 
+// Définition des jeux depuis la page Ludopedagogie
+const ludopedagogieGames = [
+  {
+    value: "CONCEPT",
+    label: "CONCEPT"
+  },
+  {
+    value: "CONCEPT KIDS",
+    label: "CONCEPT KIDS"
+  },
+  {
+    value: "LITTLE SECRET",
+    label: "LITTLE SECRET"
+  },
+  {
+    value: "THE MIND",
+    label: "THE MIND"
+  }
+];
+
+// Import des concours depuis le fichier de données
+import { concours } from "@/data/concours";
+
 export const Contact = () => {
   const { register, handleSubmit, reset, formState: { errors }, setValue, watch } = useForm<ContactFormData>();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -68,17 +91,12 @@ export const Contact = () => {
           label: action.title
         }));
       case "Ludopedagogie":
-        return [
-          { value: "Escape Game", label: "Escape Game" },
-          { value: "Jeux de société", label: "Jeux de société" },
-          { value: "Jeux numériques", label: "Jeux numériques" }
-        ];
+        return ludopedagogieGames;
       case "Concours":
-        return [
-          { value: "Challenge IDEE", label: "Challenge IDEE" },
-          { value: "Concours de pitch", label: "Concours de pitch" },
-          { value: "Prix de l'innovation", label: "Prix de l'innovation" }
-        ];
+        return concours.map(concours => ({
+          value: concours.nom,
+          label: concours.nom
+        }));
       default:
         return null;
     }
