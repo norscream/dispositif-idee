@@ -3,7 +3,7 @@ import { Nav } from "@/components/Nav";
 import { ArrowLeft, Users, Award, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Reseau() {
   const networkPillars = [
@@ -39,7 +39,7 @@ export default function Reseau() {
           Retour
         </Link>
         
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-8">Mettre en lien</h1>
           
           <div className="prose max-w-none mb-12">
@@ -48,84 +48,54 @@ export default function Reseau() {
             </p>
           </div>
 
-          <div className="grid gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {networkPillars.map((pillar, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="order-2 md:order-1 p-6">
-                    <CardHeader className="p-0">
-                      <div className="flex items-center gap-4 mb-4">
-                        {pillar.icon}
-                        <CardTitle className="text-2xl">{pillar.title}</CardTitle>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="p-0">
-                      <p className="text-gray-600">{pillar.description}</p>
-                    </CardContent>
-                  </div>
-                  <div className="order-1 md:order-2 h-64 overflow-hidden">
-                    <img 
-                      src={pillar.image} 
-                      alt={pillar.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+              <Card key={index} className="relative group hover:shadow-lg transition-all">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={pillar.image} 
+                    alt={pillar.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    {pillar.icon}
+                    <h3 className="text-xl font-semibold">{pillar.title}</h3>
+                  </div>
+                  <p className="text-gray-600">{pillar.description}</p>
+                </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="bg-primary/5 rounded-xl p-8 mb-12">
-            <h2 className="text-2xl font-semibold mb-6">
+          <div className="bg-primary/5 rounded-xl p-8">
+            <h2 className="text-2xl font-semibold mb-6 text-center">
               Découvrez notre écosystème de partenaires
             </h2>
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="flex flex-col md:flex-row justify-center gap-6">
               <Link 
                 to="/ressources/labellisation"
-                className="flex flex-col items-center gap-4 p-6 bg-white rounded-lg hover:shadow-lg transition-shadow"
+                className="flex-1 flex flex-col items-center p-6 bg-white rounded-lg hover:shadow-lg transition-shadow text-center max-w-sm mx-auto"
               >
-                <Award className="h-8 w-8 text-primary" />
-                <h3 className="text-xl font-medium text-center">En savoir plus sur la labellisation</h3>
-                <Button className="mt-2">
+                <Award className="h-8 w-8 text-primary mb-4" />
+                <h3 className="text-xl font-medium mb-4">En savoir plus sur la labellisation</h3>
+                <Button className="w-full">
                   Découvrir le processus
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>
               <Link 
                 to="/ressources/actions-partenaires"
-                className="flex flex-col items-center gap-4 p-6 bg-white rounded-lg hover:shadow-lg transition-shadow"
+                className="flex-1 flex flex-col items-center p-6 bg-white rounded-lg hover:shadow-lg transition-shadow text-center max-w-sm mx-auto"
               >
-                <Users className="h-8 w-8 text-primary" />
-                <h3 className="text-xl font-medium text-center">Explorer les actions de nos partenaires</h3>
-                <Button className="mt-2">
+                <Users className="h-8 w-8 text-primary mb-4" />
+                <h3 className="text-xl font-medium mb-4">Explorer les actions de nos partenaires</h3>
+                <Button className="w-full">
                   Voir les actions
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>
-            </div>
-          </div>
-
-          <div className="bg-gray-50 rounded-xl p-8">
-            <h2 className="text-2xl font-semibold mb-6">Témoignages</h2>
-            <div className="grid gap-6">
-              <Card>
-                <CardContent className="p-6">
-                  <p className="italic text-gray-600 mb-4">
-                    "La collaboration avec IDEE nous permet de toucher un plus grand nombre d'élèves et de proposer des actions vraiment adaptées aux besoins du terrain."
-                  </p>
-                  <p className="font-medium">Marie D.</p>
-                  <p className="text-sm text-gray-500">Partenaire labellisé depuis 2022</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-6">
-                  <p className="italic text-gray-600 mb-4">
-                    "Les élèves sont plus motivés et développent de vraies compétences entrepreneuriales grâce aux actions proposées par les partenaires d'IDEE."
-                  </p>
-                  <p className="font-medium">Thomas L.</p>
-                  <p className="text-sm text-gray-500">Enseignant en lycée professionnel</p>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
