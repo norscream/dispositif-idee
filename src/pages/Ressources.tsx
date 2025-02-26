@@ -18,7 +18,7 @@ const resourceTypes = [
     title: "Outils et formats pédagogiques variés",
     description: "Des ateliers interactifs, études de cas, défis et parcours gamifiés pour favoriser une approche ludique et engageante. Nos formats diversifiés s'adaptent à tous les contextes d'apprentissage.",
     icon: <Users className="h-8 w-8 text-primary" />,
-    image: "/lovable-uploads/4f61846a-175f-42a8-92c6-edade2638e19.png"
+    image: "/lovable-uploads/d79f45ab-de8c-496f-a0ee-69e218347823.png"
   },
   {
     title: "Ludothèque pédagogique",
@@ -80,7 +80,7 @@ export default function Ressources() {
                         {resource.description}
                       </p>
                       {resource.link && (
-                        <Button asChild>
+                        <Button asChild className="text-white">
                           <Link to={resource.link} className="inline-flex items-center">
                             {resource.linkText}
                             <ArrowRight className="ml-2 h-4 w-4" />
@@ -109,7 +109,7 @@ export default function Ressources() {
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
               Notre équipe est à votre disposition pour vous présenter l'ensemble de nos ressources pédagogiques et vous accompagner dans leur utilisation.
             </p>
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="text-white">
               <Link to="/contact" className="inline-flex items-center">
                 Contactez-nous
                 <Send className="ml-2 h-4 w-4" />
