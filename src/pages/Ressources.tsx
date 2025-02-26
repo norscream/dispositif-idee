@@ -15,10 +15,12 @@ const resourceTypes = [
     image: "/lovable-uploads/b4dc5c3d-611e-4b86-bdf8-b7239716ea55.png"
   },
   {
-    title: "Outils et formats pédagogiques variés",
-    description: "Des ateliers interactifs, études de cas, défis et parcours gamifiés pour favoriser une approche ludique et engageante. Nos formats diversifiés s'adaptent à tous les contextes d'apprentissage.",
-    icon: <Users className="h-8 w-8 text-primary" />,
-    image: "/lovable-uploads/d79f45ab-de8c-496f-a0ee-69e218347823.png"
+    title: "Concours régionaux",
+    description: "Nous accompagnons la création et la mise en place de concours régionaux pour permettre aux élèves de travailler en mode projet. Une approche stimulante qui développe l'esprit d'initiative et la créativité.",
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    link: "/ressources/concours",
+    linkText: "Découvrir les concours",
+    image: "/lovable-uploads/b56b9788-f643-46c4-bc89-dbcb2aa22f3b.png"
   },
   {
     title: "Ludothèque pédagogique",
@@ -29,12 +31,10 @@ const resourceTypes = [
     image: "/lovable-uploads/482868a6-3a5d-43fb-bf9d-97b20e02a064.png"
   },
   {
-    title: "Concours régionaux",
-    description: "Nous accompagnons la création et la mise en place de concours régionaux pour permettre aux élèves de travailler en mode projet. Une approche stimulante qui développe l'esprit d'initiative et la créativité.",
-    icon: <Trophy className="h-8 w-8 text-primary" />,
-    link: "/ressources/concours",
-    linkText: "Découvrir les concours",
-    image: "/lovable-uploads/b56b9788-f643-46c4-bc89-dbcb2aa22f3b.png"
+    title: "Outils et formats pédagogiques variés",
+    description: "Des ateliers interactifs, études de cas, défis et parcours gamifiés pour favoriser une approche ludique et engageante. Nos formats diversifiés s'adaptent à tous les contextes d'apprentissage.",
+    icon: <Users className="h-8 w-8 text-primary" />,
+    image: "/lovable-uploads/d79f45ab-de8c-496f-a0ee-69e218347823.png"
   }
 ];
 
