@@ -26,7 +26,7 @@ const resourceTypes = [
     icon: <Puzzle className="h-8 w-8 text-primary" />,
     link: "/ressources/ludopedagogie",
     linkText: "Explorer la ludothèque",
-    image: "/lovable-uploads/230fe6fc-6ecf-4dac-b408-17438a968f22.png"
+    image: "/lovable-uploads/482868a6-3a5d-43fb-bf9d-97b20e02a064.png"
   }
 ];
 
