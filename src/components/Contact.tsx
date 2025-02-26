@@ -95,7 +95,10 @@ export const Contact = () => {
           }))
         ];
       case "Ludopedagogie":
-        return ludopedagogieGames;
+        return [
+          { value: "multiple", label: "Je suis intéressé(e) par plusieurs jeux" },
+          ...ludopedagogieGames
+        ];
       case "Concours":
         return concours.map(concours => ({
           value: concours.nom,
