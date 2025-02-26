@@ -100,10 +100,13 @@ export const Contact = () => {
           ...ludopedagogieGames
         ];
       case "Concours":
-        return concours.map(concours => ({
-          value: concours.nom,
-          label: concours.nom
-        }));
+        return [
+          { value: "multiple", label: "Je suis intéressé(e) par plusieurs concours" },
+          ...concours.map(concours => ({
+            value: concours.nom,
+            label: concours.nom
+          }))
+        ];
       default:
         return null;
     }
