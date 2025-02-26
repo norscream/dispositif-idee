@@ -13,6 +13,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { bgeActions } from "@/data/actions/bge";
+import { dreamakersActions } from "@/data/actions/dreamakers";
+import { cgenialActions } from "@/data/actions/cgenial";
+import { autresActions } from "@/data/actions/autres";
+import { esperActions } from "@/data/actions/esper";
+import { rnjaActions } from "@/data/actions/rnja";
+import { actions } from "@/data/actions";
 
 type ContactFormData = {
   fullName: string;
@@ -20,6 +27,7 @@ type ContactFormData = {
   phone?: string;
   region?: string;
   requestType: string;
+  specificAction?: string;
   message: string;
 };
 
@@ -32,9 +40,51 @@ const requestTypes = [
   "Information générale"
 ];
 
+const allPartnerActions = [
+  ...bgeActions,
+  ...dreamakersActions,
+  ...cgenialActions,
+  ...autresActions,
+  ...esperActions,
+  ...rnjaActions
+];
+
 export const Contact = () => {
-  const { register, handleSubmit, reset, formState: { errors }, setValue } = useForm<ContactFormData>();
+  const { register, handleSubmit, reset, formState: { errors }, setValue, watch } = useForm<ContactFormData>();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const requestType = watch("requestType");
+
+  const getSpecificOptions = () => {
+    switch(requestType) {
+      case "Action IDEE":
+        return actions.map(action => ({
+          value: action.title,
+          label: action.title
+        }));
+      case "Action partenaire":
+        return allPartnerActions.map(action => ({
+          value: action.title,
+          label: action.title
+        }));
+      case "Ludopedagogie":
+        return [
+          { value: "Escape Game", label: "Escape Game" },
+          { value: "Jeux de société", label: "Jeux de société" },
+          { value: "Jeux numériques", label: "Jeux numériques" }
+        ];
+      case "Concours":
+        return [
+          { value: "Challenge IDEE", label: "Challenge IDEE" },
+          { value: "Concours de pitch", label: "Concours de pitch" },
+          { value: "Prix de l'innovation", label: "Prix de l'innovation" }
+        ];
+      default:
+        return null;
+    }
+  };
+
+  const specificOptions = getSpecificOptions();
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
@@ -102,6 +152,27 @@ export const Contact = () => {
                 </SelectContent>
               </Select>
             </div>
+
+            {specificOptions && (
+              <div>
+                <Label htmlFor="specificAction">Action spécifique *</Label>
+                <Select 
+                  onValueChange={(value) => setValue('specificAction', value)}
+                  required
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Sélectionnez une action spécifique" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {specificOptions.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
 
             <div>
               <Label htmlFor="fullName">Nom et prénom *</Label>
