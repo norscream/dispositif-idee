@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 const eventImages = [
   "/lovable-uploads/d25323b1-8a8e-4c7f-9271-16284835c250.png",
@@ -23,6 +24,12 @@ const eventImages = [
 
 export default function Valoriser() {
   const [shuffledImages, setShuffledImages] = useState<string[]>([]);
+
+  const autoplayPlugin = Autoplay({
+    delay: 4000,
+    stopOnInteraction: true,
+    stopOnMouseEnter: true,
+  });
 
   useEffect(() => {
     // Fisher-Yates shuffle algorithm
@@ -78,7 +85,10 @@ export default function Valoriser() {
           </div>
 
           <div className="mb-8">
-            <Carousel className="w-full">
+            <Carousel 
+              className="w-full"
+              plugins={[autoplayPlugin]}
+            >
               <CarouselContent>
                 {shuffledImages.map((image, index) => (
                   <CarouselItem key={index}>
