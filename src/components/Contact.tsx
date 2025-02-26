@@ -20,6 +20,7 @@ import { autresActions } from "@/data/actions/autres";
 import { esperActions } from "@/data/actions/esper";
 import { rnjaActions } from "@/data/actions/rnja";
 import { actions } from "@/data/actions";
+import { concours } from "@/data/concours";
 
 type ContactFormData = {
   fullName: string;
@@ -69,9 +70,6 @@ const ludopedagogieGames = [
   }
 ];
 
-// Import des concours depuis le fichier de données
-import { concours } from "@/data/concours";
-
 export const Contact = () => {
   const { register, handleSubmit, reset, formState: { errors }, setValue, watch } = useForm<ContactFormData>();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -81,15 +79,21 @@ export const Contact = () => {
   const getSpecificOptions = () => {
     switch(requestType) {
       case "Action IDEE":
-        return actions.map(action => ({
-          value: action.title,
-          label: action.title
-        }));
+        return [
+          { value: "multiple", label: "Je suis intéressé(e) par plusieurs actions" },
+          ...actions.map(action => ({
+            value: action.title,
+            label: action.title
+          }))
+        ];
       case "Action partenaire":
-        return allPartnerActions.map(action => ({
-          value: action.title,
-          label: action.title
-        }));
+        return [
+          { value: "multiple", label: "Je suis intéressé(e) par plusieurs actions" },
+          ...allPartnerActions.map(action => ({
+            value: action.title,
+            label: action.title
+          }))
+        ];
       case "Ludopedagogie":
         return ludopedagogieGames;
       case "Concours":
