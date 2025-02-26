@@ -14,7 +14,7 @@ const allActions = [...actions, ...actionsPartenaires] as const;
 
 type ActionType = (typeof actions)[number] | (typeof actionsPartenaires)[number];
 type ZoneType = ActionType["zones"][number];
-type NiveauType = ActionType["niveaux"][number];
+type NiveauType = ActionType["niveaux"][number] | "Enseignant";
 
 const zoneOrder = [
   "Région académique Hauts-de-France",
@@ -22,7 +22,7 @@ const zoneOrder = [
   "Académie d'Amiens"
 ] as const;
 
-const niveauOrder = ["École", "Collège", "Lycée", "Post bac"] as const;
+const niveauOrder = ["École", "Collège", "Lycée", "Post bac", "Enseignant"] as const;
 
 type ActivityType = "action" | "concours" | "formation";
 
@@ -69,9 +69,21 @@ export default function RechercheActions() {
 
   const hasActiveFilters = selectedZones.length > 0 || selectedNiveaux.length > 0;
 
+  const handleNiveauSelect = (niveau: NiveauType) => {
+    const newSelectedNiveaux = selectedNiveaux.includes(niveau)
+      ? selectedNiveaux.filter(n => n !== niveau)
+      : [...selectedNiveaux, niveau];
+    
+    setSelectedNiveaux(newSelectedNiveaux);
+    
+    if (niveau === "Enseignant" && !selectedNiveaux.includes("Enseignant")) {
+      setActivityType("formation");
+    }
+  };
+
   const filteredActions = useMemo(() => {
     if (!hasActiveFilters) return [];
-    if (activityType === "concours" || activityType === "formation") return [];
+    if (activityType === "concours" || activityType === "formation" || selectedNiveaux.includes("Enseignant")) return [];
     
     return allActions.filter(action => {
       const matchesZones = selectedZones.length === 0 || 
@@ -96,7 +108,7 @@ export default function RechercheActions() {
   }, [selectedZones, selectedNiveaux, hasActiveFilters, activityType]);
 
   const filteredConcours = useMemo(() => {
-    if (activityType !== "concours" || !hasActiveFilters) return [];
+    if (activityType !== "concours" || !hasActiveFilters || selectedNiveaux.includes("Enseignant")) return [];
 
     return concours.filter(concours => {
       const matchesNiveaux = selectedNiveaux.length === 0 || 
@@ -111,7 +123,12 @@ export default function RechercheActions() {
   }, [selectedNiveaux, hasActiveFilters, activityType]);
 
   const filteredFormations = useMemo(() => {
-    if (activityType !== "formation" || !hasActiveFilters) return [];
+    if (!hasActiveFilters) return [];
+    if (!selectedNiveaux.includes("Enseignant") && activityType !== "formation") return [];
+
+    if (selectedNiveaux.includes("Enseignant")) {
+      return formations;
+    }
 
     return formations.filter(formation => {
       const matchesNiveaux = selectedNiveaux.length === 0 || 
@@ -128,14 +145,6 @@ export default function RechercheActions() {
       prev.includes(zone) 
         ? prev.filter(z => z !== zone)
         : [...prev, zone]
-    );
-  };
-
-  const handleNiveauSelect = (niveau: NiveauType) => {
-    setSelectedNiveaux(prev => 
-      prev.includes(niveau)
-        ? prev.filter(n => n !== niveau)
-        : [...prev, niveau]
     );
   };
 
@@ -167,6 +176,7 @@ export default function RechercheActions() {
                     checked={activityType === "action"}
                     onChange={() => setActivityType("action")}
                     className="rounded border-gray-300 text-primary focus:ring-primary"
+                    disabled={selectedNiveaux.includes("Enseignant")}
                   />
                   <span className="text-sm">Action de sensibilisation</span>
                 </label>
@@ -176,6 +186,7 @@ export default function RechercheActions() {
                     checked={activityType === "concours"}
                     onChange={() => setActivityType("concours")}
                     className="rounded border-gray-300 text-primary focus:ring-primary"
+                    disabled={selectedNiveaux.includes("Enseignant")}
                   />
                   <span className="text-sm">Participation à un concours</span>
                 </label>
