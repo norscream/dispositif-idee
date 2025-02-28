@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
@@ -22,8 +23,8 @@ type CarouselProps = {
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0]
   api: ReturnType<typeof useEmblaCarousel>[1]
-  scrollPrev: () => void
-  scrollNext: () => void
+  scrollPrev: (e?: React.MouseEvent) => void
+  scrollNext: (e?: React.MouseEvent) => void
   canScrollPrev: boolean
   canScrollNext: boolean
 } & CarouselProps
@@ -75,11 +76,17 @@ const Carousel = React.forwardRef<
       setCanScrollNext(api.canScrollNext())
     }, [])
 
-    const scrollPrev = React.useCallback(() => {
+    const scrollPrev = React.useCallback((e?: React.MouseEvent) => {
+      if (e) {
+        e.preventDefault();
+      }
       api?.scrollPrev()
     }, [api])
 
-    const scrollNext = React.useCallback(() => {
+    const scrollNext = React.useCallback((e?: React.MouseEvent) => {
+      if (e) {
+        e.preventDefault();
+      }
       api?.scrollNext()
     }, [api])
 
@@ -198,6 +205,11 @@ const CarouselPrevious = React.forwardRef<
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
+  const handlePrev = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    scrollPrev(e);
+  };
+
   return (
     <Button
       ref={ref}
@@ -211,7 +223,7 @@ const CarouselPrevious = React.forwardRef<
         className
       )}
       disabled={!canScrollPrev}
-      onClick={scrollPrev}
+      onClick={handlePrev}
       {...props}
     >
       <ArrowLeft className="h-4 w-4" />
@@ -227,6 +239,11 @@ const CarouselNext = React.forwardRef<
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
+  const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    scrollNext(e);
+  };
+
   return (
     <Button
       ref={ref}
@@ -240,7 +257,7 @@ const CarouselNext = React.forwardRef<
         className
       )}
       disabled={!canScrollNext}
-      onClick={scrollNext}
+      onClick={handleNext}
       {...props}
     >
       <ArrowRight className="h-4 w-4" />

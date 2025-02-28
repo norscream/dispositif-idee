@@ -45,6 +45,11 @@ export default function Valoriser() {
     setShuffledImages(shuffleArray(eventImages));
   }, []);
 
+  // Handler pour empêcher le comportement par défaut
+  const handleButtonClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+  };
+
   const labelBenefits = [
     {
       title: "Un label pour récompenser l'audace des jeunes",
@@ -102,8 +107,8 @@ export default function Valoriser() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious onClick={handleButtonClick} />
+              <CarouselNext onClick={handleButtonClick} />
             </Carousel>
           </div>
 
