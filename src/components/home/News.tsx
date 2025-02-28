@@ -1,7 +1,63 @@
 
 import { Newspaper, ArrowRight } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { getActiveLinkedInPosts, LinkedInPost } from "@/services/linkedinService";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const News = () => {
+  const { data: posts, isLoading, error } = useQuery({
+    queryKey: ['linkedinPosts'],
+    queryFn: getActiveLinkedInPosts,
+  });
+
+  const renderLinkedInPosts = () => {
+    if (isLoading) {
+      return (
+        <div className="grid md:grid-cols-3 gap-6">
+          {[...Array(3)].map((_, index) => (
+            <div key={index} className="rounded-xl shadow-sm bg-gray-100 h-[500px]">
+              <Skeleton className="h-full w-full rounded-xl" />
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    if (error) {
+      console.error("Erreur lors du chargement des posts LinkedIn:", error);
+      return (
+        <div className="text-center py-8">
+          <p className="text-gray-500">Impossible de charger les dernières actualités. Veuillez réessayer plus tard.</p>
+        </div>
+      );
+    }
+
+    if (!posts || posts.length === 0) {
+      return (
+        <div className="text-center py-8">
+          <p className="text-gray-500">Aucune actualité récente à afficher.</p>
+        </div>
+      );
+    }
+
+    return (
+      <div className="grid md:grid-cols-3 gap-6">
+        {posts.map((post: LinkedInPost) => (
+          <iframe 
+            key={post.id}
+            src={post.url} 
+            height="500" 
+            width="100%" 
+            frameBorder="0" 
+            allowFullScreen 
+            className="rounded-xl shadow-sm"
+            title={post.title}
+          ></iframe>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <section id="actualites" className="py-16 px-4">
       <div className="container mx-auto">
@@ -19,35 +75,7 @@ const News = () => {
             Suivez-nous sur LinkedIn <ArrowRight className="ml-2 h-4 w-4" />
           </a>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          <iframe 
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7293613919326142464?postView=IMAGES" 
-            height="500" 
-            width="100%" 
-            frameBorder="0" 
-            allowFullScreen 
-            className="rounded-xl shadow-sm"
-            title="Publication LinkedIn 1"
-          ></iframe>
-          <iframe 
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7287770276363206656?postView=IMAGES" 
-            height="500" 
-            width="100%" 
-            frameBorder="0" 
-            allowFullScreen 
-            className="rounded-xl shadow-sm"
-            title="Publication LinkedIn 2"
-          ></iframe>
-          <iframe 
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7269281787531464705?postView=IMAGES" 
-            height="500" 
-            width="100%" 
-            frameBorder="0" 
-            allowFullScreen 
-            className="rounded-xl shadow-sm"
-            title="Publication LinkedIn 3"
-          ></iframe>
-        </div>
+        {renderLinkedInPosts()}
       </div>
     </section>
   );
