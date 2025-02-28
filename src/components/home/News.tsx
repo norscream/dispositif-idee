@@ -13,10 +13,23 @@ const News = () => {
     if (!document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]')) {
       document.body.appendChild(script);
     }
+
+    // Ajouter un style pour cacher le watermark
+    const style = document.createElement("style");
+    style.textContent = `
+      .eapps-link, .eapps-remove-link {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+    `;
+    document.head.appendChild(style);
     
     return () => {
       // Nettoyer lors du démontage du composant si nécessaire
       // Note: Nous ne supprimons pas le script car il peut être utilisé par d'autres widgets
+      // Nous ne supprimons pas non plus le style pour maintenir la cohérence sur toutes les pages
     };
   }, []);
 
