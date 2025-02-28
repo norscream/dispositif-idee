@@ -10,8 +10,8 @@ interface ConcoursCardProps {
 
 export function ConcoursCard({ concours }: ConcoursCardProps) {
   return (
-    <Card className="h-[700px] flex flex-col transition-all duration-500 shadow-sm data-[state=active]:shadow-2xl data-[state=active]:scale-110 data-[state=inactive]:opacity-50 data-[state=inactive]:bg-gray-50">
-      <CardHeader className="text-center h-[180px]">
+    <Card className="h-full flex flex-col transition-all duration-500 shadow-sm data-[state=active]:shadow-2xl data-[state=active]:scale-110 data-[state=inactive]:opacity-50 data-[state=inactive]:bg-gray-50">
+      <CardHeader className="text-center">
         <div className="flex justify-center mb-4">
           <img 
             src={concours.logo} 
@@ -26,15 +26,15 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
       </CardHeader>
       <CardContent className="flex-1 flex flex-col">
         <div className="space-y-4 flex-1">
-          <div className="h-[100px] overflow-y-auto">
+          <div>
             <h4 className="font-semibold mb-2">Objectif</h4>
             <p className="text-sm text-gray-600">{concours.objectif}</p>
           </div>
-          <div className="h-[140px] overflow-y-auto">
+          <div>
             <h4 className="font-semibold mb-2">Présentation</h4>
             <p className="text-sm text-gray-600">{concours.presentation}</p>
           </div>
-          <div className="h-[140px] overflow-y-auto">
+          <div>
             <h4 className="font-semibold mb-2">Livrables attendus</h4>
             <ul className="text-sm text-gray-600 list-disc list-inside text-left">
               {concours.livrables.map((livrable, index) => (
@@ -43,10 +43,9 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
             </ul>
           </div>
         </div>
-        
-        <div className="mt-auto">
+        <div className="mt-auto pt-6">
           <h4 className="font-semibold mb-4 text-center">Concours porté par</h4>
-          <div className="flex justify-center items-center gap-8 h-16">
+          <div className="flex justify-center items-center gap-8">
             {concours.partenaires.map((partenaire, index) => (
               <img 
                 key={index}
@@ -58,7 +57,7 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="h-[80px]">
+      <CardFooter>
         <Button 
           className="w-full bg-primary text-white hover:bg-primary-dark" 
           asChild
