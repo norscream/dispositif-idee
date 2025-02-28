@@ -38,6 +38,9 @@ export const testimonials: readonly Testimonial[] = [
   }
 ];
 
-export const shuffleArray = (array: readonly Testimonial[]) => {
+/**
+ * Renvoie une copie aléatoirement mélangée du tableau fourni en paramètre
+ */
+export const shuffleArray = <T>(array: readonly T[]): T[] => {
   return [...array].sort(() => Math.random() - 0.5);
 };

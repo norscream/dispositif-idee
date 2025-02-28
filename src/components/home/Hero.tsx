@@ -9,6 +9,8 @@ export const Hero = () => {
           src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.png"
           alt="Background"
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-white/80"></div>
       </div>
@@ -23,6 +25,7 @@ export const Hero = () => {
           <a
             href="#actions"
             className="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors"
+            aria-label="Découvrir nos missions"
           >
             Découvrir <ChevronRight className="ml-2 h-4 w-4" />
           </a>
