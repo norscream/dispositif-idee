@@ -13,50 +13,10 @@ const News = () => {
     if (!document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]')) {
       document.body.appendChild(script);
     }
-
-    // Ajouter un style pour cacher uniquement le watermark
-    const style = document.createElement("style");
-    style.textContent = `
-      .eapps-linkedin-feed-header-bottom-link,
-      a.eapps-linkedin-feed-item-author-name-link > img,
-      .eapps-widget-toolbar,
-      .eapps-linkedin-feed-posts-item-shared-menu-link,
-      .eapps-linkedin-feed-posts-extra-small .eapps-linkedin-feed-posts-item-shared-item-link,
-      a[href*="elfsight.com"],
-      [class*="eapps-linkedin-feed"][class*="-link"],
-      .eapps-remove-link {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-    `;
-    document.head.appendChild(style);
-    
-    // Observer pour détecter et masquer les éléments watermark spécifiques
-    const observer = new MutationObserver(() => {
-      const elementsToHide = document.querySelectorAll(
-        '.eapps-linkedin-feed-header-bottom-link, a[href*="elfsight.com"], .eapps-remove-link, [class*="eapps-linkedin-feed"][class*="-link"]'
-      );
-      
-      elementsToHide.forEach(el => {
-        if (el instanceof HTMLElement) {
-          el.style.display = 'none';
-          el.style.visibility = 'hidden';
-          el.style.opacity = '0';
-          el.style.pointerEvents = 'none';
-        }
-      });
-    });
-    
-    // Commencer à observer le document
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
     
     return () => {
-      observer.disconnect();
+      // Nettoyer lors du démontage du composant si nécessaire
+      // Note: Nous ne supprimons pas le script car il peut être utilisé par d'autres widgets
     };
   }, []);
 
