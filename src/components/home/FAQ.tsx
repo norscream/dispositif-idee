@@ -8,7 +8,7 @@ const faqItems = [
   },
   {
     question: "Comment participer aux concours proposés ?",
-    answer: "Pour participer aux concours, vous pouvez consulter la page dédiée accessible depuis notre menu « Ressources » puis « Concours ». Chaque concours précise le public concerné, les objectifs et les livrables attendus. L'inscription se fait via la page de contact où vous pourrez préciser le concours qui vous intéresse.",
+    answer: "Pour participer aux concours, vous pouvez consulter la page dédiée accessible depuis notre menu « Actions disponibles » puis « Concours ». Chaque concours précise le public concerné, les objectifs et les livrables attendus. L'inscription se fait via la page de contact où vous pourrez préciser le concours qui vous intéresse.",
   },
   {
     question: "Quelles formations sont disponibles pour les enseignants ?",
@@ -20,7 +20,7 @@ const faqItems = [
   },
   {
     question: "Comment valoriser mon projet pédagogique ?",
-    answer: "Le dispositif IDEE vous offre plusieurs possibilités pour valoriser vos actions : participation à des concours, obtention de labels (E3D, Génération 2024, etc.), diffusion sur notre site et nos réseaux, et participation à des événements régionaux. N'hésitez pas à nous contacter pour présenter votre projet.",
+    answer: "Le dispositif IDEE vous offre plusieurs possibilités pour valoriser vos actions : participation à des concours, valorisation au niveau académique, diffusion sur notre site et nos réseaux, et participation à des événements régionaux. N'hésitez pas à nous contacter pour présenter votre projet.",
   },
 ];
 
