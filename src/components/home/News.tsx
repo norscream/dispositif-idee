@@ -1,7 +1,25 @@
 
 import { Newspaper, ArrowRight } from "lucide-react";
+import { useEffect } from "react";
 
 const News = () => {
+  useEffect(() => {
+    // Créer un élément script pour charger le SDK Elfsight
+    const script = document.createElement("script");
+    script.src = "https://static.elfsight.com/platform/platform.js";
+    script.async = true;
+    
+    // Vérifier si le script est déjà chargé pour éviter les doublons
+    if (!document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]')) {
+      document.body.appendChild(script);
+    }
+    
+    return () => {
+      // Nettoyer lors du démontage du composant si nécessaire
+      // Note: Nous ne supprimons pas le script car il peut être utilisé par d'autres widgets
+    };
+  }, []);
+
   return (
     <section id="actualites" className="py-16 px-4 bg-gray-50">
       <div className="container mx-auto">
@@ -23,34 +41,7 @@ const News = () => {
           </a>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7293613919326142464?postView=IMAGES",
-              title: "Publication LinkedIn 1"
-            },
-            {
-              url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7287770276363206656?postView=IMAGES",
-              title: "Publication LinkedIn 2"
-            },
-            {
-              url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7269281787531464705?postView=IMAGES",
-              title: "Publication LinkedIn 3"
-            }
-          ].map((post, index) => (
-            <iframe 
-              key={index}
-              src={post.url} 
-              height="500" 
-              width="100%" 
-              frameBorder="0" 
-              allowFullScreen 
-              className="rounded-xl shadow-sm"
-              title={post.title}
-              loading={index === 0 ? "eager" : "lazy"}
-            />
-          ))}
-        </div>
+        <div className="elfsight-app-092a5f50-2482-40c5-bd11-4b07dd3c5866" data-elfsight-app-lazy></div>
       </div>
     </section>
   );
