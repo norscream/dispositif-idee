@@ -10,7 +10,7 @@ interface ConcoursCardProps {
 
 export function ConcoursCard({ concours }: ConcoursCardProps) {
   return (
-    <Card className="h-[750px] flex flex-col transition-all duration-500 shadow-sm data-[state=active]:shadow-2xl data-[state=active]:scale-110 data-[state=inactive]:opacity-50 data-[state=inactive]:bg-gray-50">
+    <Card className="h-[850px] flex flex-col transition-all duration-500 shadow-sm data-[state=active]:shadow-2xl data-[state=active]:scale-110 data-[state=inactive]:opacity-50 data-[state=inactive]:bg-gray-50">
       <CardHeader className="text-center h-[180px]">
         <div className="flex justify-center mb-4 h-24">
           <img 
@@ -24,19 +24,19 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
           Public : {concours.public.join(", ")}
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex-1 flex flex-col justify-between h-[470px]">
-        <div className="space-y-4 h-[350px]">
-          <div className="h-[100px]">
-            <h4 className="font-semibold mb-2">Objectif</h4>
-            <p className="text-sm text-gray-600 overflow-y-auto max-h-[70px]">{concours.objectif}</p>
-          </div>
-          <div className="h-[120px]">
-            <h4 className="font-semibold mb-2">Présentation</h4>
-            <p className="text-sm text-gray-600 overflow-y-auto max-h-[90px]">{concours.presentation}</p>
-          </div>
+      <CardContent className="flex-1 flex flex-col justify-between h-[570px]">
+        <div className="space-y-4 h-[450px]">
           <div className="h-[130px]">
+            <h4 className="font-semibold mb-2">Objectif</h4>
+            <p className="text-sm text-gray-600">{concours.objectif}</p>
+          </div>
+          <div className="h-[150px]">
+            <h4 className="font-semibold mb-2">Présentation</h4>
+            <p className="text-sm text-gray-600">{concours.presentation}</p>
+          </div>
+          <div className="h-[170px]">
             <h4 className="font-semibold mb-2">Livrables attendus</h4>
-            <ul className="text-sm text-gray-600 list-disc list-inside text-left overflow-y-auto max-h-[100px]">
+            <ul className="text-sm text-gray-600 list-disc list-inside text-left">
               {concours.livrables.map((livrable, index) => (
                 <li key={index} className="mb-1">{livrable}</li>
               ))}
