@@ -211,7 +211,6 @@ const CarouselPrevious = React.forwardRef<
     e.preventDefault();
     e.stopPropagation();
     scrollPrev(e);
-    return false; // Empêche toute autre action
   };
 
   return (
@@ -247,7 +246,6 @@ const CarouselNext = React.forwardRef<
     e.preventDefault();
     e.stopPropagation();
     scrollNext(e);
-    return false; // Empêche toute autre action
   };
 
   return (
