@@ -14,31 +14,29 @@ const News = () => {
       document.body.appendChild(script);
     }
 
-    // Ajouter un style pour cacher le watermark
+    // Ajouter un style pour cacher uniquement le watermark
     const style = document.createElement("style");
     style.textContent = `
-      .eapps-link, .eapps-remove-link, 
-      .eapps-widget-toolbar, .eapps-instagram-feed-posts-small-item-link,
-      .eapps-instagram-feed-container a[target="_blank"],
-      .eapps-social-feed-posts-item-shared-menu-link,
+      .eapps-linkedin-feed-header-bottom-link,
+      a.eapps-linkedin-feed-item-author-name-link > img,
+      .eapps-widget-toolbar,
+      .eapps-linkedin-feed-posts-item-shared-menu-link,
+      .eapps-linkedin-feed-posts-extra-small .eapps-linkedin-feed-posts-item-shared-item-link,
       a[href*="elfsight.com"],
-      div[class*="-remove-link"],
-      div[class*="-link"] {
+      [class*="eapps-linkedin-feed"][class*="-link"],
+      .eapps-remove-link {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
         pointer-events: none !important;
-        height: 0 !important;
-        position: absolute !important;
-        z-index: -1 !important;
       }
     `;
     document.head.appendChild(style);
     
-    // Observer pour détecter et masquer les éléments qui apparaissent après le chargement
-    const observer = new MutationObserver((mutations) => {
+    // Observer pour détecter et masquer les éléments watermark spécifiques
+    const observer = new MutationObserver(() => {
       const elementsToHide = document.querySelectorAll(
-        '.eapps-link, .eapps-remove-link, a[href*="elfsight.com"], div[class*="-remove-link"], div[class*="-link"]'
+        '.eapps-linkedin-feed-header-bottom-link, a[href*="elfsight.com"], .eapps-remove-link, [class*="eapps-linkedin-feed"][class*="-link"]'
       );
       
       elementsToHide.forEach(el => {
@@ -51,17 +49,14 @@ const News = () => {
       });
     });
     
-    // Commencer à observer le document avec la configuration décrite ci-dessus
+    // Commencer à observer le document
     observer.observe(document.body, {
       childList: true,
       subtree: true
     });
     
     return () => {
-      // Nettoyer lors du démontage du composant
       observer.disconnect();
-      // Nous ne supprimons pas le script car il peut être utilisé par d'autres widgets
-      // Nous ne supprimons pas non plus le style pour maintenir la cohérence sur toutes les pages
     };
   }, []);
 
