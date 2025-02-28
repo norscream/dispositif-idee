@@ -79,6 +79,7 @@ const Carousel = React.forwardRef<
     const scrollPrev = React.useCallback((e?: React.MouseEvent) => {
       if (e) {
         e.preventDefault();
+        e.stopPropagation();
       }
       api?.scrollPrev()
     }, [api])
@@ -86,6 +87,7 @@ const Carousel = React.forwardRef<
     const scrollNext = React.useCallback((e?: React.MouseEvent) => {
       if (e) {
         e.preventDefault();
+        e.stopPropagation();
       }
       api?.scrollNext()
     }, [api])
@@ -207,7 +209,9 @@ const CarouselPrevious = React.forwardRef<
 
   const handlePrev = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    e.stopPropagation();
     scrollPrev(e);
+    return false; // Empêche toute autre action
   };
 
   return (
@@ -241,7 +245,9 @@ const CarouselNext = React.forwardRef<
 
   const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    e.stopPropagation();
     scrollNext(e);
+    return false; // Empêche toute autre action
   };
 
   return (

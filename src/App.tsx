@@ -43,7 +43,9 @@ function ScrollToTop() {
     window.scrollTo(0, 0);
   }, [location]);
 
-  // Handle button clicks
+  // Désactivation du comportement automatique de scroll vers le haut sur les clics de boutons
+  // Ce code a été commenté pour éviter le défilement vers le haut lors de l'utilisation des carrousels
+  /*  
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (e.target instanceof HTMLButtonElement || e.target instanceof HTMLAnchorElement) {
@@ -57,6 +59,7 @@ function ScrollToTop() {
       document.removeEventListener('click', handleClick);
     };
   }, []);
+  */
 
   return null;
 }
