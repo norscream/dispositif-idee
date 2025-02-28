@@ -20,11 +20,6 @@ import { toast } from "sonner";
 export default function Concours() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Handler pour empêcher le comportement par défaut
-  const handleButtonClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -83,14 +78,12 @@ export default function Concours() {
               <CarouselPrevious 
                 className="relative inset-0 translate-y-0 bg-white hover:bg-gray-100"
                 variant="outline"
-                onClick={handleButtonClick}
               >
                 <ChevronLeft className="w-4 h-4" />
               </CarouselPrevious>
               <CarouselNext 
                 className="relative inset-0 translate-y-0 bg-white hover:bg-gray-100"
                 variant="outline"
-                onClick={handleButtonClick}
               >
                 <ChevronRight className="w-4 h-4" />
               </CarouselNext>

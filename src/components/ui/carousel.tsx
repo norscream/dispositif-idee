@@ -23,8 +23,8 @@ type CarouselProps = {
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0]
   api: ReturnType<typeof useEmblaCarousel>[1]
-  scrollPrev: (e?: React.MouseEvent) => void
-  scrollNext: (e?: React.MouseEvent) => void
+  scrollPrev: () => void
+  scrollNext: () => void
   canScrollPrev: boolean
   canScrollNext: boolean
 } & CarouselProps
@@ -76,19 +76,11 @@ const Carousel = React.forwardRef<
       setCanScrollNext(api.canScrollNext())
     }, [])
 
-    const scrollPrev = React.useCallback((e?: React.MouseEvent) => {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
+    const scrollPrev = React.useCallback(() => {
       api?.scrollPrev()
     }, [api])
 
-    const scrollNext = React.useCallback((e?: React.MouseEvent) => {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
+    const scrollNext = React.useCallback(() => {
       api?.scrollNext()
     }, [api])
 
@@ -207,10 +199,11 @@ const CarouselPrevious = React.forwardRef<
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
-  const handlePrev = (e: React.MouseEvent<HTMLButtonElement>) => {
+  // Remplaçons la fonction onClick standard pour éviter la propagation
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    scrollPrev(e);
+    scrollPrev();
   };
 
   return (
@@ -226,7 +219,8 @@ const CarouselPrevious = React.forwardRef<
         className
       )}
       disabled={!canScrollPrev}
-      onClick={handlePrev}
+      onClick={handleClick}
+      type="button" // Ajouter explicitement le type pour éviter le comportement de soumission
       {...props}
     >
       <ArrowLeft className="h-4 w-4" />
@@ -242,10 +236,11 @@ const CarouselNext = React.forwardRef<
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
-  const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+  // Remplaçons la fonction onClick standard pour éviter la propagation
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    scrollNext(e);
+    scrollNext();
   };
 
   return (
@@ -261,7 +256,8 @@ const CarouselNext = React.forwardRef<
         className
       )}
       disabled={!canScrollNext}
-      onClick={handleNext}
+      onClick={handleClick}
+      type="button" // Ajouter explicitement le type pour éviter le comportement de soumission
       {...props}
     >
       <ArrowRight className="h-4 w-4" />

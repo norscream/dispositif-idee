@@ -15,11 +15,6 @@ export const ImageCarousel = ({ testimonials }: ImageCarouselProps) => {
     })
   ], []);
 
-  // Fonction pour empêcher le comportement par défaut et donc le scroll en haut de page
-  const handleButtonClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-  };
-
   return (
     <div className="mb-16">
       <Carousel 
@@ -49,14 +44,8 @@ export const ImageCarousel = ({ testimonials }: ImageCarouselProps) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious 
-          onClick={handleButtonClick} 
-          aria-label="Image précédente"
-        />
-        <CarouselNext 
-          onClick={handleButtonClick} 
-          aria-label="Image suivante"
-        />
+        <CarouselPrevious aria-label="Image précédente" />
+        <CarouselNext aria-label="Image suivante" />
       </Carousel>
     </div>
   );
