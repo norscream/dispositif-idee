@@ -2,19 +2,13 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Concours } from "@/types/concours";
+import { Link } from "react-router-dom";
 
 interface ConcoursCardProps {
   concours: Concours;
 }
 
 export function ConcoursCard({ concours }: ConcoursCardProps) {
-  const scrollToForm = () => {
-    const form = document.getElementById('inscription-form');
-    if (form) {
-      form.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <Card className="h-full flex flex-col transition-all duration-500 shadow-sm data-[state=active]:shadow-2xl data-[state=active]:scale-110 data-[state=inactive]:opacity-50 data-[state=inactive]:bg-gray-50">
       <CardHeader className="text-center">
@@ -49,7 +43,7 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
             </ul>
           </div>
         </div>
-        <div className="mt-auto pt-6">
+        <div className="mt-8 pt-6">
           <h4 className="font-semibold mb-4 text-center">Concours porté par</h4>
           <div className="flex justify-center items-center gap-8">
             {concours.partenaires.map((partenaire, index) => (
@@ -63,12 +57,12 @@ export function ConcoursCard({ concours }: ConcoursCardProps) {
           </div>
         </div>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="pt-4">
         <Button 
           className="w-full bg-primary text-white hover:bg-primary-dark" 
-          onClick={scrollToForm}
+          asChild
         >
-          S'inscrire au concours
+          <Link to="/contact">S'inscrire au concours</Link>
         </Button>
       </CardFooter>
     </Card>
