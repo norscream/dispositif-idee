@@ -22,21 +22,28 @@ import { Loader2 } from "lucide-react";
 export const ContactForm = () => {
   const { register, handleSubmit, reset, formState: { errors }, setValue, watch } = useForm<ContactFormData>();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [debugInfo, setDebugInfo] = useState<string | null>(null);
   
   const requestType = watch("requestType");
   const specificOptions = getSpecificOptions(requestType);
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+    setDebugInfo(null);
     const loadingToast = toast.loading("Envoi du message en cours...");
     
     try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
+      console.log("Envoi des données:", data);
+      
+      const { data: responseData, error } = await supabase.functions.invoke('send-contact-email', {
         body: data
       });
 
+      console.log("Réponse reçue:", responseData, "Erreur:", error);
+
       if (error) {
         console.error("Erreur Supabase:", error);
+        setDebugInfo(`Erreur Supabase: ${JSON.stringify(error)}`);
         throw error;
       }
       
@@ -48,6 +55,7 @@ export const ContactForm = () => {
       reset();
     } catch (error) {
       console.error("Erreur d'envoi:", error);
+      setDebugInfo(`Erreur d'envoi: ${JSON.stringify(error)}`);
       toast.dismiss(loadingToast);
       toast.error("Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.", {
         duration: 5000,
@@ -185,6 +193,13 @@ export const ContactForm = () => {
       <div className="text-sm text-gray-500 mb-4">
         * Champs obligatoires
       </div>
+
+      {debugInfo && (
+        <div className="p-3 bg-gray-100 text-xs text-gray-700 rounded overflow-auto max-h-32">
+          <p className="font-bold">Informations de débogage:</p>
+          <pre>{debugInfo}</pre>
+        </div>
+      )}
 
       <Button
         type="submit"

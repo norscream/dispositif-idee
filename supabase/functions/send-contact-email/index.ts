@@ -23,7 +23,7 @@ serve(async (req) => {
       console.error('RESEND_API_KEY is not set');
       throw new Error('Configuration error: RESEND_API_KEY is missing');
     }
-    console.log('RESEND_API_KEY is present');
+    console.log('RESEND_API_KEY is present:', resendApiKey.substring(0, 5) + '...');
 
     const resend = new Resend(resendApiKey);
     
@@ -43,7 +43,7 @@ serve(async (req) => {
     `;
     
     try {
-      console.log('Sending email...');
+      console.log('Sending email to projet.idee@ac-lille.fr...');
       const result = await resend.emails.send({
         from: 'IDÉE <onboarding@resend.dev>',
         to: ['projet.idee@ac-lille.fr'],
@@ -52,10 +52,10 @@ serve(async (req) => {
         html: emailHtml
       });
 
-      console.log('Email result:', result);
+      console.log('Email result:', JSON.stringify(result));
 
       // Envoyer un email de confirmation à l'expéditeur
-      console.log('Sending confirmation email...');
+      console.log('Sending confirmation email to', data.email);
       const confirmationResult = await resend.emails.send({
         from: 'IDÉE <onboarding@resend.dev>',
         to: [data.email],
@@ -71,24 +71,30 @@ serve(async (req) => {
         `
       });
 
-      console.log('Confirmation email result:', confirmationResult);
+      console.log('Confirmation email result:', JSON.stringify(confirmationResult));
 
       return new Response(JSON.stringify({ success: true, result, confirmationResult }), {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 200,
       });
 
-    } catch (emailError) {
-      console.error('Resend API error:', emailError);
-      throw new Error(`Failed to send email: ${emailError.message}`);
+    } catch (error) {
+      console.error('Resend API error:', error);
+      return new Response(
+        JSON.stringify({ error: 'Failed to send email', details: error.message }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 500,
+        }
+      );
     }
 
   } catch (error) {
     console.error('Function error:', error);
     return new Response(
       JSON.stringify({ 
-        error: error.message,
-        stack: error.stack
+        error: 'Server error',
+        details: error.message,
       }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
