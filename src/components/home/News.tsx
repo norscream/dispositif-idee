@@ -4,19 +4,30 @@ import { useEffect } from "react";
 
 const News = () => {
   useEffect(() => {
-    // Créer un élément script pour charger le SDK Elfsight
-    const script = document.createElement("script");
-    script.src = "https://static.elfsight.com/platform/platform.js";
-    script.async = true;
-    
-    // Vérifier si le script est déjà chargé pour éviter les doublons
+    // Load Elfsight script only once
     if (!document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]')) {
+      const script = document.createElement("script");
+      script.src = "https://static.elfsight.com/platform/platform.js";
+      script.async = true;
       document.body.appendChild(script);
     }
-    
+
+    // Add CSS to hide the watermark
+    const style = document.createElement("style");
+    style.textContent = `
+      .eapps-link, .eapps-widget-toolbar, .elfsight-app-powered-by {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Clean up on unmount
     return () => {
-      // Nettoyer lors du démontage du composant si nécessaire
-      // Note: Nous ne supprimons pas le script car il peut être utilisé par d'autres widgets
+      if (style.parentNode) {
+        document.head.removeChild(style);
+      }
     };
   }, []);
 
@@ -35,7 +46,6 @@ const News = () => {
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center text-primary hover:text-primary-dark transition-colors"
-            aria-label="Suivez-nous sur LinkedIn"
           >
             Suivez-nous sur LinkedIn <ArrowRight className="ml-2 h-4 w-4" />
           </a>
