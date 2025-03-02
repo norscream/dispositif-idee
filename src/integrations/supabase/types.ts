@@ -9,30 +9,7 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      linkedin_posts: {
-        Row: {
-          active: boolean | null
-          created_at: string
-          id: number
-          title: string
-          url: string
-        }
-        Insert: {
-          active?: boolean | null
-          created_at?: string
-          id?: number
-          title?: string
-          url: string
-        }
-        Update: {
-          active?: boolean | null
-          created_at?: string
-          id?: number
-          title?: string
-          url?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never

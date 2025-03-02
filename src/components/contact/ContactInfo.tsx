@@ -8,10 +8,6 @@ export const ContactInfo = () => {
         <Mail className="h-6 w-6 text-primary mr-3" />
         <span className="text-gray-600">projet.idee@ac-lille.fr</span>
       </div>
-      <div className="flex items-center">
-        <Mail className="h-6 w-6 text-primary mr-3" />
-        <span className="text-gray-600">projet.idee@ac-amiens.fr</span>
-      </div>
     </div>
   );
 };
