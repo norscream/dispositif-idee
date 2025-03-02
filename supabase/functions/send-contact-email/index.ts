@@ -42,17 +42,30 @@ serve(async (req) => {
       <p>${data.message.replace(/\n/g, '<br>')}</p>
     `;
     
+    let notificationResult = null;
+    
     try {
-      console.log('Sending email to projet.idee@ac-lille.fr...');
-      const result = await resend.emails.send({
+      // Dans l'environnement de test, nous envoyons le courriel de notification à l'expéditeur 
+      // avec un sujet spécial pour indiquer que c'est une copie destinée à l'admin
+      console.log('Sending notification email...');
+      notificationResult = await resend.emails.send({
         from: 'IDÉE <onboarding@resend.dev>',
-        to: ['projet.idee@ac-lille.fr'],
+        to: [data.email], // En mode test, on envoie à l'expéditeur (c'est la seule adresse autorisée)
         reply_to: data.email,
-        subject: `Nouveau message de ${data.fullName} - ${data.requestType}`,
-        html: emailHtml
+        subject: `[COPIE ADMIN] Nouveau message de ${data.fullName} - ${data.requestType}`,
+        html: `
+          <p><strong>REMARQUE:</strong> En environnement de test, ce message est envoyé à l'expéditeur au lieu de projet.idee@ac-lille.fr</p>
+          <p><strong>Pour que les messages soient envoyés à projet.idee@ac-lille.fr :</strong></p>
+          <ol>
+            <li>Vérifiez un domaine sur <a href="https://resend.com/domains">Resend.com/domains</a></li>
+            <li>Changez l'adresse d'expéditeur pour utiliser ce domaine</li>
+          </ol>
+          <hr>
+          ${emailHtml}
+        `
       });
 
-      console.log('Email result:', JSON.stringify(result));
+      console.log('Notification email result:', JSON.stringify(notificationResult));
 
       // Envoyer un email de confirmation à l'expéditeur
       console.log('Sending confirmation email to', data.email);
@@ -73,7 +86,7 @@ serve(async (req) => {
 
       console.log('Confirmation email result:', JSON.stringify(confirmationResult));
 
-      return new Response(JSON.stringify({ success: true, result, confirmationResult }), {
+      return new Response(JSON.stringify({ success: true, notificationResult, confirmationResult }), {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 200,
       });
