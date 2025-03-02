@@ -17,7 +17,7 @@ serve(async (req) => {
     const data = await req.json();
     console.log('Received data:', data);
 
-    // Vérifier si la clé API Resend est présente
+    // Initialize Resend with the API key
     const resendApiKey = Deno.env.get('RESEND_API_KEY');
     if (!resendApiKey) {
       console.error('RESEND_API_KEY is not set');
@@ -25,7 +25,6 @@ serve(async (req) => {
     }
     console.log('RESEND_API_KEY is present');
 
-    // Initialiser Resend avec la clé API
     const resend = new Resend(resendApiKey);
     
     console.log('Attempting to send email...');
@@ -44,21 +43,21 @@ serve(async (req) => {
     `;
     
     try {
-      console.log('Sending main email...');
+      console.log('Sending email...');
       const result = await resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to: ['projet.idee@ac-lille.fr', 'projet.idee@ac-amiens.fr'],
+        from: 'IDÉE <onboarding@resend.dev>',
+        to: ['projet.idee@ac-lille.fr'],
         reply_to: data.email,
         subject: `Nouveau message de ${data.fullName} - ${data.requestType}`,
         html: emailHtml
       });
 
-      console.log('Main email result:', result);
+      console.log('Email result:', result);
 
       // Envoyer un email de confirmation à l'expéditeur
       console.log('Sending confirmation email...');
       const confirmationResult = await resend.emails.send({
-        from: 'onboarding@resend.dev',
+        from: 'IDÉE <onboarding@resend.dev>',
         to: [data.email],
         subject: 'Confirmation de votre message - IDÉE',
         html: `
