@@ -46,8 +46,8 @@ serve(async (req) => {
     try {
       console.log('Sending main email...');
       const result = await resend.emails.send({
-        from: 'IDEE <onboarding@resend.dev>',
-        to: ['projet.idee@ac-lille.fr'],
+        from: 'onboarding@resend.dev',
+        to: ['projet.idee@ac-lille.fr', 'projet.idee@ac-amiens.fr'],
         reply_to: data.email,
         subject: `Nouveau message de ${data.fullName} - ${data.requestType}`,
         html: emailHtml
@@ -58,7 +58,7 @@ serve(async (req) => {
       // Envoyer un email de confirmation à l'expéditeur
       console.log('Sending confirmation email...');
       const confirmationResult = await resend.emails.send({
-        from: 'IDEE <onboarding@resend.dev>',
+        from: 'onboarding@resend.dev',
         to: [data.email],
         subject: 'Confirmation de votre message - IDÉE',
         html: `
@@ -79,12 +79,12 @@ serve(async (req) => {
         status: 200,
       });
 
-    } catch (emailError) {
+    } catch (emailError: any) {
       console.error('Resend API error:', emailError);
       throw new Error(`Failed to send email: ${emailError.message}`);
     }
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('Function error:', error);
     return new Response(
       JSON.stringify({ 
