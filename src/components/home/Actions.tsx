@@ -51,34 +51,31 @@ const Actions = () => {
     <section id="actions" className="py-16 px-4 bg-gray-50">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">Nos missions</h2>
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
-            {actions.map((action, index) => (
-              <Link
-                key={index}
-                to={action.href}
-                className="group flex flex-col items-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {actions.map((action, index) => (
+            <Link
+              key={index}
+              to={action.href}
+              className="group flex flex-col items-center p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-all"
+            >
+              <div 
+                className="w-16 h-16 rounded-full flex items-center justify-center mb-4"
+                style={{ backgroundColor: action.iconColor }}
               >
-                <div 
-                  className="w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-colors overflow-hidden"
-                  style={{ backgroundColor: action.iconColor }}
-                >
-                  <img 
-                    src={action.imagePath} 
-                    alt={action.title}
-                    className="w-10 h-10 object-contain"
-                    loading={index < 3 ? "eager" : "lazy"}
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-center mb-2">{action.title}</h3>
-                <p className="text-gray-600 text-center">{action.description}</p>
-                <div className="mt-4 inline-flex items-center text-primary group-hover:text-primary-dark transition-colors">
-                  En savoir plus <span className="ml-2">→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
+                <img 
+                  src={action.imagePath} 
+                  alt={action.title}
+                  className="w-10 h-10 object-contain"
+                  loading={index < 3 ? "eager" : "lazy"}
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-center mb-2">{action.title}</h3>
+              <p className="text-gray-600 text-center">{action.description}</p>
+              <span className="mt-4 text-primary group-hover:text-primary-dark transition-colors">
+                En savoir plus →
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

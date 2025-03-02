@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const News = () => {
   useEffect(() => {
-    // Load Elfsight script only once
+    // Load Elfsight script once if not already present
     if (!document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]')) {
       const script = document.createElement("script");
       script.src = "https://static.elfsight.com/platform/platform.js";
@@ -12,22 +12,14 @@ const News = () => {
       document.body.appendChild(script);
     }
 
-    // Add CSS to hide the watermark
+    // Add simple CSS to hide watermarks
     const style = document.createElement("style");
-    style.textContent = `
-      .eapps-link, .eapps-widget-toolbar, .elfsight-app-powered-by {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-      }
-    `;
+    style.textContent = `.eapps-link, .eapps-widget-toolbar, .elfsight-app-powered-by { display: none !important; }`;
     document.head.appendChild(style);
 
-    // Clean up on unmount
+    // Clean up
     return () => {
-      if (style.parentNode) {
-        document.head.removeChild(style);
-      }
+      if (style.parentNode) document.head.removeChild(style);
     };
   }, []);
 

@@ -7,18 +7,11 @@ const Formation = () => {
     <section className="py-16 px-4 bg-white">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <BookOpen className="h-8 w-8 text-primary" />
-          </div>
+          <BookOpen className="h-8 w-8 text-primary mx-auto mb-6" />
           <h2 className="text-3xl font-bold mb-6">Nos Formations</h2>
-          <p className="text-lg text-gray-600 mb-6">
-            Découvrez nos formations spécialisées pour développer vos compétences
-            en entrepreneuriat et en pédagogie innovante.
-          </p>
           <p className="text-lg text-gray-600 mb-8">
             Développez vos compétences et enrichissez votre pratique pédagogique grâce à notre offre de formation 
-            dédiée aux équipes éducatives. Découvrez des parcours adaptés, des outils innovants et des méthodologies 
-            éprouvées pour accompagner vos élèves dans une dynamique entrepreneuriale et réflexive.
+            dédiée aux équipes éducatives.
           </p>
           <Link
             to="/ressources/formation"

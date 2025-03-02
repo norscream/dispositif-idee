@@ -10,7 +10,6 @@ export const Hero = () => {
           alt="Background"
           className="w-full h-full object-cover"
           loading="eager"
-          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-white/80"></div>
       </div>
@@ -21,15 +20,12 @@ export const Hero = () => {
         <p className="text-lg md:text-xl text-neutral mb-8 max-w-4xl mx-auto leading-relaxed">
           Aider l'élève à devenir un adulte/citoyen responsable en le mettant au coeur d'un dispositif pédagogique qui donne du sens aux apprentissages.
         </p>
-        <div className="flex justify-center gap-4">
-          <a
-            href="#actions"
-            className="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors"
-            aria-label="Découvrir nos missions"
-          >
-            Découvrir <ChevronRight className="ml-2 h-4 w-4" />
-          </a>
-        </div>
+        <a
+          href="#actions"
+          className="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors"
+        >
+          Découvrir <ChevronRight className="ml-2 h-4 w-4" />
+        </a>
       </div>
     </section>
   );
