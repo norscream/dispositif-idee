@@ -78,12 +78,12 @@ serve(async (req) => {
         status: 200,
       });
 
-    } catch (emailError: any) {
+    } catch (emailError) {
       console.error('Resend API error:', emailError);
       throw new Error(`Failed to send email: ${emailError.message}`);
     }
 
-  } catch (error: any) {
+  } catch (error) {
     console.error('Function error:', error);
     return new Response(
       JSON.stringify({ 
