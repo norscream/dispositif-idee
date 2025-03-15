@@ -1,4 +1,3 @@
-
 import { formations } from "@/data/formations";
 import { bgeActions } from "@/data/actions/bge";
 import { dreamakersActions } from "@/data/actions/dreamakers";
@@ -25,7 +24,8 @@ export const ludopedagogieGames = [
   { value: "CONCEPT KIDS", label: "CONCEPT KIDS" },
   { value: "TOUR DE FROBEL", label: "TOUR DE FROBEL" },
   { value: "CRAYON COOPÉRATIF", label: "CRAYON COOPÉRATIF" },
-  { value: "TOTEM", label: "TOTEM" }
+  { value: "TOTEM", label: "TOTEM" },
+  { value: "IMAGINE", label: "IMAGINE" }
 ];
 
 export const allPartnerActions = [

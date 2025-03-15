@@ -66,6 +66,16 @@ const jeux: Jeu[] = [
     competences: ["Confiance en soi", "Estime de soi", "Connaissance de soi", "Connaissance des autres"],
     niveau: ["Primaire", "Collège", "Lycée", "BTS"],
     image: "/lovable-uploads/75a6887f-c73a-4718-8898-7444a311e730.png"
+  },
+  {
+    id: 6,
+    titre: "IMAGINE",
+    description: "Imagine est un jeu d'ambiance faisant appel à la créativité et à l'imagination. Les joueurs ont pour objectif de gagner le plus grand nombre de points en devinant et faisant deviner des énigmes à l'aide des cartes transparentes. Superposez, assemblez, combinez et même animez ! Des possibilités infinies ! Le jeu comprend plus de 1000 énigmes à faire deviner, alors, exprimez-vous, tout est permis !",
+    joueurs: "3-8",
+    age: "12+",
+    competences: ["Créativité", "Rapidité", "Observation"],
+    niveau: ["Collège", "Lycée", "BTS"],
+    image: "/lovable-uploads/bc5554c1-68be-497d-92bf-24b18ba2bed2.png"
   }
 ];
 
