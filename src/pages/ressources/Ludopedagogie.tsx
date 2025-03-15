@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Send, Users, Clock, Gamepad2 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -66,6 +65,16 @@ const jeux: Jeu[] = [
     competences: ["Coopération", "Motricité fine", "Coordination", "Patience"],
     niveau: ["Primaire", "Collège", "Lycée"],
     image: "/lovable-uploads/887abcf0-daa6-437f-ba17-b43629d218f5.png"
+  },
+  {
+    id: 6,
+    titre: "CRAYON COOPÉRATIF",
+    description: "Un jeu créatif où les participants manipulent ensemble un crayon géant attaché à des ficelles. Chaque joueur tient une ficelle et doit coopérer avec les autres pour dessiner des formes ou écrire des mots. Ce jeu renforce la coordination, la communication et la coopération entre les participants.",
+    joueurs: "4-8",
+    age: "4+",
+    competences: ["Coopération", "Coordination", "Communication", "Créativité"],
+    niveau: ["Primaire", "Collège", "Lycée"],
+    image: "/lovable-uploads/68ff67a6-fbb9-48ad-abcf-b6c010feb575.png"
   }
 ];
 
