@@ -48,20 +48,18 @@ export default function Labellisation() {
                 <CheckCircle2 className="h-5 w-5 mr-2 mt-0.5 text-primary" />
                 <span>Valorisation de votre action lors d'événements et dans les médias</span>
               </li>
-              <li className="flex items-start">
-                <CheckCircle2 className="h-5 w-5 mr-2 mt-0.5 text-primary" />
-                <span>Communication via l'Espace Numérique de Travail (ENT)</span>
-              </li>
+              {/* Removing the ENT communication line as requested */}
             </ul>
           </Card>
 
           <div className="mb-12">
             <h2 className="text-2xl font-semibold mb-6">Processus de labellisation</h2>
+            {/* Increasing image size for better readability */}
             <div className="flex justify-center mb-8">
               <img 
                 src="/lovable-uploads/300b340b-9d6d-4fa2-93ae-0f792e250599.png" 
                 alt="Processus de labellisation en 5 étapes" 
-                className="w-full object-contain rounded-lg"
+                className="w-full max-w-3xl object-contain rounded-lg shadow-md"
               />
             </div>
             <p className="text-sm text-gray-500 italic text-center mt-4">
