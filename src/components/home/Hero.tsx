@@ -5,20 +5,13 @@ export const Hero = () => {
   return (
     <section className="relative pt-32 pb-16 px-4">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="relative w-full h-full">
-          {/* Intégration d'une vidéo via iframe */}
-          <div className="absolute inset-0 w-full h-full">
-            <iframe
-              src="https://www.youtube.com/embed/ZE-Oi8TsH0M?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=ZE-Oi8TsH0M"
-              title="Background video"
-              className="w-full h-full object-cover"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <div className="absolute inset-0 bg-white/80"></div>
-        </div>
+        <img 
+          src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.png"
+          alt="Background"
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-white/80"></div>
       </div>
       <div className="container mx-auto text-center relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-dark">
