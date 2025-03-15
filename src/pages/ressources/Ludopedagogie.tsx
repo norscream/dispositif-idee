@@ -76,6 +76,16 @@ const jeux: Jeu[] = [
     competences: ["Créativité", "Rapidité", "Observation"],
     niveau: ["Collège", "Lycée", "BTS"],
     image: "/lovable-uploads/bc5554c1-68be-497d-92bf-24b18ba2bed2.png"
+  },
+  {
+    id: 7,
+    titre: "DIXIT",
+    description: "Laissez-vous inspirer par ses illustrations poétiques..! Dixit est un jeu de société qui vous emmène dans un monde onirique où de douces illustrations vous serviront d'inspiration pour de belles envolées poétiques.",
+    joueurs: "3-6",
+    age: "8+",
+    competences: ["Communication", "Créativité", "Ecoute de l'autre"],
+    niveau: ["Primaire", "Collège", "Lycée", "BTS"],
+    image: ""
   }
 ];
 
