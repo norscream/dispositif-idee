@@ -38,26 +38,6 @@ const jeux: Jeu[] = [
   },
   {
     id: 3,
-    titre: "LITTLE SECRET",
-    description: "Le Grand Maître organise une réunion : il souhaite vérifier l'appartenance des Disciples à son organisation secrète ! Il confie à tous les membres un mot de passe que seuls les Disciples peuvent comprendre, et ainsi démasquer les Infiltrés et Journaliste.",
-    joueurs: "3-15",
-    age: "10+",
-    competences: ["Créativité", "Communication"],
-    niveau: ["Collège", "Lycée", "BTS"],
-    image: "/lovable-uploads/d1ac5413-a415-4f5a-8a9f-9956a87c2a07.png"
-  },
-  {
-    id: 4,
-    titre: "THE MIND",
-    description: "Un jeu coopératif unique où les joueurs doivent jouer leurs cartes dans l'ordre croissant sans communiquer.",
-    joueurs: "2-4",
-    age: "8+",
-    competences: ["Coopération", "Communication", "Ecoute de l'autre"],
-    niveau: ["Primaire", "Collège", "Lycée", "BTS"],
-    image: "/lovable-uploads/8a9ba909-7f5b-45d2-9be1-de66b0fb0cc9.png"
-  },
-  {
-    id: 5,
     titre: "TOUR DE FROBEL",
     description: "Un jeu de coopération et de coordination où les joueurs doivent construire une tour en utilisant des blocs de bois, mais avec une contrainte : chaque joueur tient une ficelle reliée à un anneau central qui sert à soulever et placer les blocs. Une collaboration parfaite est nécessaire pour réussir cette construction collective.",
     joueurs: "4-10",
@@ -67,7 +47,7 @@ const jeux: Jeu[] = [
     image: "/lovable-uploads/887abcf0-daa6-437f-ba17-b43629d218f5.png"
   },
   {
-    id: 6,
+    id: 4,
     titre: "CRAYON COOPÉRATIF",
     description: "Un jeu créatif où les participants manipulent ensemble un crayon géant attaché à des ficelles. Chaque joueur tient une ficelle et doit coopérer avec les autres pour dessiner des formes ou écrire des mots. Ce jeu renforce la coordination, la communication et la coopération entre les participants.",
     joueurs: "4-8",

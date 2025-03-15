@@ -23,8 +23,6 @@ export const requestTypes = [
 export const ludopedagogieGames = [
   { value: "CONCEPT", label: "CONCEPT" },
   { value: "CONCEPT KIDS", label: "CONCEPT KIDS" },
-  { value: "LITTLE SECRET", label: "LITTLE SECRET" },
-  { value: "THE MIND", label: "THE MIND" },
   { value: "TOUR DE FROBEL", label: "TOUR DE FROBEL" },
   { value: "CRAYON COOPÉRATIF", label: "CRAYON COOPÉRATIF" }
 ];
