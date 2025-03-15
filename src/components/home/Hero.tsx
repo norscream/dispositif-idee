@@ -12,7 +12,10 @@ export const Hero = () => {
           playsInline
           className="w-full h-full object-cover"
         >
+          {/* Essayer avec plusieurs formats de vidéo pour une meilleure compatibilité */}
           <source src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.mp4" type="video/mp4" />
+          <source src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.webm" type="video/webm" />
+          <source src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.mov" type="video/quicktime" />
           {/* Fallback pour les navigateurs qui ne supportent pas la vidéo */}
           <img 
             src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.png"
