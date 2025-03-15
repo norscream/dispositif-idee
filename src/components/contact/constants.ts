@@ -29,7 +29,8 @@ export const ludopedagogieGames = [
   { value: "IMAGINE", label: "IMAGINE" },
   { value: "DIXIT", label: "DIXIT" },
   { value: "STORY CUBES", label: "STORY CUBES" },
-  { value: "SPLENDOR", label: "SPLENDOR" }
+  { value: "SPLENDOR", label: "SPLENDOR" },
+  { value: "KONTOUR", label: "KONTOUR" }
 ];
 
 export const allPartnerActions = [

@@ -106,6 +106,16 @@ const jeux: Jeu[] = [
     competences: ["Stratégie", "Prise de décision", "Négociation", "Imagination"],
     niveau: ["Lycée"],
     image: "/lovable-uploads/6290c83f-db53-4105-b42c-efaf5fabc708.png"
+  },
+  {
+    id: 10,
+    titre: "KONTOUR",
+    description: "Kontour est un jeu dans lequel les joueurs devront faire appel à leur créativité et leur esprit de synthèse. Faites deviner un mot avec un dessin. Vous avez 30 secondes et 15 traits pour y parvenir.",
+    joueurs: "3-7",
+    age: "10+",
+    competences: ["Créativité"],
+    niveau: ["Primaire", "Collège", "Lycée", "BTS"],
+    image: "/lovable-uploads/75f8ed57-a36e-470f-9cd9-26ae5d05134a.png"
   }
 ];
 
