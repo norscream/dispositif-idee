@@ -31,7 +31,7 @@ export const formations = [
     public: "Personnel éducatif du secondaire"
   },
   {
-    title: "Sensibilisation à la pédagogie entreprenante entrepreneuriale",
+    title: "Sensibilisation à la pédagogie entrepreneuriale",
     description: "Découvrez l'outil 'Fresque de l'esprit d'entreprendre' et apprenez à mettre en place une pédagogie qui développe l'esprit d'entreprendre chez les élèves.",
     duration: "3h (Présentiel)",
     public: "Enseignants de tous niveaux"
