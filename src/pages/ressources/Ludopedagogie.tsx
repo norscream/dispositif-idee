@@ -96,6 +96,16 @@ const jeux: Jeu[] = [
     competences: ["Créativité", "Imagination"],
     niveau: ["Primaire", "Collège", "Lycée"],
     image: "/lovable-uploads/a0e4f280-bb2e-44f8-a6c2-fc8c62fb3fa0.png"
+  },
+  {
+    id: 9,
+    titre: "SPLENDOR",
+    description: "Incarnez un riche marchand de la Renaissance...! Splendor est un jeu de stratégie de développement accessible et rapide qui vous plonge dans la Renaissance et dans l'univers des pierres précieuses.",
+    joueurs: "2-4",
+    age: "10+",
+    competences: ["Stratégie", "Prise de décision", "Négociation", "Imagination"],
+    niveau: ["Lycée"],
+    image: "/lovable-uploads/6290c83f-db53-4105-b42c-efaf5fabc708.png"
   }
 ];
 
