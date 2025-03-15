@@ -5,25 +5,20 @@ export const Hero = () => {
   return (
     <section className="relative pt-32 pb-16 px-4">
       <div className="absolute inset-0 overflow-hidden">
-        <video 
-          autoPlay 
-          muted 
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          {/* Essayer avec plusieurs formats de vidéo pour une meilleure compatibilité */}
-          <source src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.mp4" type="video/mp4" />
-          <source src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.webm" type="video/webm" />
-          <source src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.mov" type="video/quicktime" />
-          {/* Fallback pour les navigateurs qui ne supportent pas la vidéo */}
-          <img 
-            src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.png"
-            alt="Background"
-            className="w-full h-full object-cover"
-          />
-        </video>
-        <div className="absolute inset-0 bg-white/80"></div>
+        <div className="relative w-full h-full">
+          {/* Intégration d'une vidéo via iframe */}
+          <div className="absolute inset-0 w-full h-full">
+            <iframe
+              src="https://www.youtube.com/embed/VOTRE_ID_VIDEO?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=VOTRE_ID_VIDEO"
+              title="Background video"
+              className="w-full h-full object-cover"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="absolute inset-0 bg-white/80"></div>
+        </div>
       </div>
       <div className="container mx-auto text-center relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-dark">
