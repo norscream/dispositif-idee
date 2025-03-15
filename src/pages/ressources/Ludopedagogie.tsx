@@ -1,3 +1,4 @@
+
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, Send, Users, Clock, Gamepad2 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -55,6 +56,16 @@ const jeux: Jeu[] = [
     competences: ["Coopération", "Coordination", "Communication", "Créativité"],
     niveau: ["Primaire", "Collège", "Lycée"],
     image: "/lovable-uploads/68ff67a6-fbb9-48ad-abcf-b6c010feb575.png"
+  },
+  {
+    id: 5,
+    titre: "TOTEM",
+    description: "Dans Totem, les joueurs se révèlent mutuellement leurs forces et leurs qualités en formant des totems, des combinaisons d'une carte animal (représentant une force) et d'une carte qualité. Chaque joueur contribue avec une carte animal et une carte de qualité au totem de l'autre joueur.",
+    joueurs: "3-8",
+    age: "8+",
+    competences: ["Confiance en soi", "Estime de soi", "Connaissance de soi", "Connaissance des autres"],
+    niveau: ["Primaire", "Collège", "Lycée", "BTS"],
+    image: "/lovable-uploads/75a6887f-c73a-4718-8898-7444a311e730.png"
   }
 ];
 

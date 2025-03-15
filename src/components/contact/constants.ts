@@ -24,7 +24,8 @@ export const ludopedagogieGames = [
   { value: "CONCEPT", label: "CONCEPT" },
   { value: "CONCEPT KIDS", label: "CONCEPT KIDS" },
   { value: "TOUR DE FROBEL", label: "TOUR DE FROBEL" },
-  { value: "CRAYON COOPÉRATIF", label: "CRAYON COOPÉRATIF" }
+  { value: "CRAYON COOPÉRATIF", label: "CRAYON COOPÉRATIF" },
+  { value: "TOTEM", label: "TOTEM" }
 ];
 
 export const allPartnerActions = [
