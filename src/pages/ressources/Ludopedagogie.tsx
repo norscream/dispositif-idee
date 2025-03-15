@@ -86,6 +86,16 @@ const jeux: Jeu[] = [
     competences: ["Communication", "Créativité", "Ecoute de l'autre"],
     niveau: ["Primaire", "Collège", "Lycée", "BTS"],
     image: "/lovable-uploads/10b9f632-6c92-4558-8c65-049dc74c4495.png"
+  },
+  {
+    id: 8,
+    titre: "STORY CUBES",
+    description: "Pour commencer la partie, lancez les dés et avec les symboles apparus sur les cubes, il faut créer une histoire : il était une fois... et imaginez la suite en se référant aux 9 symboles. Set de 9 dés, jeu Rory's Story Cubes Classic. Dés à jouer 18 mm avec faces spéciales de différentes images : pied, main, étoile, œil, tour, éclair... Jeu qui réveille l'imagination des enfants et des grands.",
+    joueurs: "1+",
+    age: "6+",
+    competences: ["Créativité", "Imagination"],
+    niveau: ["Primaire", "Collège", "Lycée"],
+    image: "/lovable-uploads/a0e4f280-bb2e-44f8-a6c2-fc8c62fb3fa0.png"
   }
 ];
 

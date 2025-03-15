@@ -27,7 +27,8 @@ export const ludopedagogieGames = [
   { value: "CRAYON COOPÉRATIF", label: "CRAYON COOPÉRATIF" },
   { value: "TOTEM", label: "TOTEM" },
   { value: "IMAGINE", label: "IMAGINE" },
-  { value: "DIXIT", label: "DIXIT" }
+  { value: "DIXIT", label: "DIXIT" },
+  { value: "STORY CUBES", label: "STORY CUBES" }
 ];
 
 export const allPartnerActions = [
