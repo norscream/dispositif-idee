@@ -85,7 +85,7 @@ const jeux: Jeu[] = [
     age: "8+",
     competences: ["Communication", "Créativité", "Ecoute de l'autre"],
     niveau: ["Primaire", "Collège", "Lycée", "BTS"],
-    image: ""
+    image: "/lovable-uploads/10b9f632-6c92-4558-8c65-049dc74c4495.png"
   }
 ];
 
