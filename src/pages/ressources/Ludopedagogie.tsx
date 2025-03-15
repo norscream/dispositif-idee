@@ -56,6 +56,16 @@ const jeux: Jeu[] = [
     competences: ["Coopération", "Communication", "Ecoute de l'autre"],
     niveau: ["Primaire", "Collège", "Lycée", "BTS"],
     image: "/lovable-uploads/8a9ba909-7f5b-45d2-9be1-de66b0fb0cc9.png"
+  },
+  {
+    id: 5,
+    titre: "TOUR DE FROBEL",
+    description: "Un jeu de coopération et de coordination où les joueurs doivent construire une tour en utilisant des blocs de bois, mais avec une contrainte : chaque joueur tient une ficelle reliée à un anneau central qui sert à soulever et placer les blocs. Une collaboration parfaite est nécessaire pour réussir cette construction collective.",
+    joueurs: "4-10",
+    age: "4+",
+    competences: ["Coopération", "Motricité fine", "Coordination", "Patience"],
+    niveau: ["Primaire", "Collège", "Lycée"],
+    image: "/lovable-uploads/887abcf0-daa6-437f-ba17-b43629d218f5.png"
   }
 ];
 
