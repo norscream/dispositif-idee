@@ -54,16 +54,21 @@ export default function Labellisation() {
 
           <div className="mb-12">
             <h2 className="text-2xl font-semibold mb-6">Processus de labellisation</h2>
-            {/* Increasing image size for better readability */}
+            {/* Further increasing image size and improving readability */}
             <div className="flex justify-center mb-8">
-              <img 
-                src="/lovable-uploads/300b340b-9d6d-4fa2-93ae-0f792e250599.png" 
-                alt="Processus de labellisation en 5 étapes" 
-                className="w-full max-w-3xl object-contain rounded-lg shadow-md"
-              />
+              <a href="/lovable-uploads/300b340b-9d6d-4fa2-93ae-0f792e250599.png" target="_blank" rel="noopener noreferrer" className="block w-full">
+                <img 
+                  src="/lovable-uploads/300b340b-9d6d-4fa2-93ae-0f792e250599.png" 
+                  alt="Processus de labellisation en 5 étapes" 
+                  className="w-full object-contain rounded-lg shadow-lg border border-gray-200"
+                />
+              </a>
             </div>
-            <p className="text-sm text-gray-500 italic text-center mt-4">
+            <p className="text-sm text-gray-500 italic text-center">
               La labellisation est accordée pour 3 ans, renouvelable
+            </p>
+            <p className="text-sm text-primary italic text-center mt-2">
+              (Cliquez sur l'image pour l'agrandir en plein écran)
             </p>
           </div>
 
