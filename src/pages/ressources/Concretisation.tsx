@@ -1,4 +1,3 @@
-
 import { Nav } from "@/components/Nav";
 import { ArrowLeft, GraduationCap, Wallet, Users, LineChart, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -40,7 +39,7 @@ export default function Concretisation() {
           <div className="prose max-w-none">
             <div className="bg-primary/5 rounded-xl p-8 mb-12">
               <p className="text-lg leading-relaxed mb-0">
-                Le dispositif IDÉE s'engage pleinement dans l'accompagnement des élèves pour la concrétisation de leurs projets entrepreneuriaux. Notre mission est de transformer les idées innovantes en réalisations tangibles en apportant un soutien matériel et financier essentiel. Nous croyons en la capacité des jeunes à façonner l'avenir, et nous leur donnons les moyens de leurs ambitions.
+                Le dispositif IDEE s'engage pleinement dans l'accompagnement des élèves pour la concrétisation de leurs projets entrepreneuriaux. Notre mission est de transformer les idées innovantes en réalisations tangibles en apportant un soutien matériel et financier essentiel. Nous croyons en la capacité des jeunes à façonner l'avenir, et nous leur donnons les moyens de leurs ambitions.
               </p>
             </div>
 
@@ -163,7 +162,7 @@ export default function Concretisation() {
                   Critères de financement
                 </h2>
                 <p className="text-gray-600 mb-6">
-                  Découvrez les modalités et conditions pour bénéficier d'un financement IDÉE.
+                  Découvrez les modalités et conditions pour bénéficier d'un financement IDEE.
                 </p>
                 <Button variant="outline" size="lg" asChild>
                   <Link to="/contact">Voir les critères</Link>
