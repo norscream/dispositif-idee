@@ -3,6 +3,35 @@ import { Concours } from "@/types/concours";
 
 export const concours: Concours[] = [
   {
+    nom: "Skillbot",
+    objectif: "Le Challenge Skillbot est une initiative des académies d'Amiens et de Lille, en partenariat avec l'UIMM Hauts-de-France, visant à promouvoir les sciences, la technologie et l'innovation auprès des élèves. En concevant un robot personnalisé, les participants développent des compétences en créativité, autonomie, travail d'équipe et gestion de projet, tout en découvrant les métiers industriels.",
+    public: ["École", "Collège"],
+    presentation: "L'édition 2024-2025 met l'accent sur l'énergie de demain, en lien avec l'essor de l'électromobilité dans la région. Avec l'implantation de trois gigafactories (ACC, Envision, Verkor), plus de 13 000 emplois qualifiés seront créés d'ici 2026. Skillbot s'inscrit ainsi dans cette transformation industrielle en sensibilisant les jeunes aux opportunités du secteur.",
+    livrables: [
+      "Fiche de progression à renseigner sur le site",
+      "Carnet de bord numérique sur l'Espace membre",
+      "Point d'avancement avec présentation du projet",
+      "Récit d'expérience sous format libre",
+      "Vidéo de présentation du robot de 5 minutes maximum",
+      "Démonstration et mise en scène sur le thème L'énergie de demain",
+      "Visite d'un site industriel ou technique",
+      "Travail interdisciplinaire",
+      "Personnalisation du robot avec des pièces spécifiques",
+      "Activité spécifique pour le cycle 4"
+    ],
+    logo: "/lovable-uploads/d8fb6b95-dc32-47b0-927c-cd99291ba590.png",
+    partenaires: [
+      {
+        nom: "UIMM",
+        logo: "/lovable-uploads/bb1de82e-2f89-4c74-b37a-ae31bf2e0f1f.png"
+      },
+      {
+        nom: "Région Académique Hauts-de-France",
+        logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
+      }
+    ]
+  },
+  {
     nom: "Course en Cours",
     objectif: "Course en Cours est un dispositif pédagogique original qui permet aux collégiens et lycéens de s'investir dans un projet pluridisciplinaire de conception d'une mini voiture de course. Ce concours vise à susciter des vocations pour les filières scientifiques et techniques tout en développant l'esprit d'équipe et d'innovation.",
     public: ["Collège", "Lycée"],
@@ -38,35 +67,6 @@ export const concours: Concours[] = [
     ],
     logo: "/lovable-uploads/89ff74ef-4757-43de-85f7-4c784c02a0d1.png",
     partenaires: [
-      {
-        nom: "Région Académique Hauts-de-France",
-        logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
-      }
-    ]
-  },
-  {
-    nom: "Skillbot",
-    objectif: "Le Challenge Skillbot est une initiative des académies d'Amiens et de Lille, en partenariat avec l'UIMM Hauts-de-France, visant à promouvoir les sciences, la technologie et l'innovation auprès des élèves. En concevant un robot personnalisé, les participants développent des compétences en créativité, autonomie, travail d'équipe et gestion de projet, tout en découvrant les métiers industriels.",
-    public: ["École", "Collège"],
-    presentation: "L'édition 2024-2025 met l'accent sur l'énergie de demain, en lien avec l'essor de l'électromobilité dans la région. Avec l'implantation de trois gigafactories (ACC, Envision, Verkor), plus de 13 000 emplois qualifiés seront créés d'ici 2026. Skillbot s'inscrit ainsi dans cette transformation industrielle en sensibilisant les jeunes aux opportunités du secteur.",
-    livrables: [
-      "Fiche de progression à renseigner sur le site",
-      "Carnet de bord numérique sur l'Espace membre",
-      "Point d'avancement avec présentation du projet",
-      "Récit d'expérience sous format libre",
-      "Vidéo de présentation du robot de 5 minutes maximum",
-      "Démonstration et mise en scène sur le thème L'énergie de demain",
-      "Visite d'un site industriel ou technique",
-      "Travail interdisciplinaire",
-      "Personnalisation du robot avec des pièces spécifiques",
-      "Activité spécifique pour le cycle 4"
-    ],
-    logo: "/lovable-uploads/d8fb6b95-dc32-47b0-927c-cd99291ba590.png",
-    partenaires: [
-      {
-        nom: "UIMM",
-        logo: "/lovable-uploads/bb1de82e-2f89-4c74-b37a-ae31bf2e0f1f.png"
-      },
       {
         nom: "Région Académique Hauts-de-France",
         logo: "/lovable-uploads/2c57a758-2b10-4be6-b7d1-feabaad1d0a9.png"
@@ -205,24 +205,4 @@ export const concours: Concours[] = [
       }
     ]
   },
-  {
-    nom: "Olympiades des Sciences de l'Ingénieur",
-    objectif: "Les Olympiades des Sciences de l'Ingénieur (OSI) sont un concours national ouvert aux lycéens des classes de première et de terminale des séries générales et technologiques. Ce concours vise à valoriser les projets expérimentaux pluritechnologiques en Sciences de l'Ingénieur.",
-    public: ["Lycée"],
-    presentation: "Les équipes participantes doivent concevoir et réaliser un projet innovant répondant à une problématique d'actualité. Ce concours permet aux élèves de développer leur créativité et leur esprit d'innovation tout en travaillant en équipe. Les projets sont présentés devant un jury lors d'une finale académique, puis les meilleurs projets sont sélectionnés pour participer à la finale nationale.",
-    livrables: [
-      "Prototype ou maquette du projet",
-      "Dossier technique détaillé",
-      "Support de présentation",
-      "Présentation orale devant un jury",
-      "Démonstration du projet"
-    ],
-    logo: "/lovable-uploads/4f61846a-175f-42a8-92c6-edade2638e19.png",
-    partenaires: [
-      {
-        nom: "UPSTI",
-        logo: "/lovable-uploads/c59ce0a8-070c-4d32-a0c2-47411b16be0f.png"
-      }
-    ]
-  }
 ] as const;

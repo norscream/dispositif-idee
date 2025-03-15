@@ -27,7 +27,7 @@ export default function Concours() {
           </div>
           <Carousel
             opts={{
-              align: "center",
+              align: "start",
               loop: true
             }}
             className="w-full"
