@@ -5,12 +5,21 @@ export const Hero = () => {
   return (
     <section className="relative pt-32 pb-16 px-4">
       <div className="absolute inset-0 overflow-hidden">
-        <img 
-          src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.png"
-          alt="Background"
+        <video 
+          autoPlay 
+          muted 
+          loop
+          playsInline
           className="w-full h-full object-cover"
-          loading="eager"
-        />
+        >
+          <source src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.mp4" type="video/mp4" />
+          {/* Fallback pour les navigateurs qui ne supportent pas la vidéo */}
+          <img 
+            src="/lovable-uploads/32613d5b-d63d-4b78-a8a8-ab321702a5aa.png"
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+        </video>
         <div className="absolute inset-0 bg-white/80"></div>
       </div>
       <div className="container mx-auto text-center relative z-10">
