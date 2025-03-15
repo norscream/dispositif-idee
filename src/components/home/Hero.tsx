@@ -9,7 +9,7 @@ export const Hero = () => {
           {/* Intégration d'une vidéo via iframe */}
           <div className="absolute inset-0 w-full h-full">
             <iframe
-              src="https://www.youtube.com/embed/VOTRE_ID_VIDEO?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=VOTRE_ID_VIDEO"
+              src="https://www.youtube.com/embed/ZE-Oi8TsH0M?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=ZE-Oi8TsH0M"
               title="Background video"
               className="w-full h-full object-cover"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
