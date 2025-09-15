@@ -14,7 +14,8 @@ const actionLinks = [
   { href: "/accompagner", label: "Accompagner et former les enseignants" },
   { href: "/ressources", label: "Créer des ressources pédagogiques innovantes" },
   { href: "/reseau", label: "Mettre en lien les acteurs territoriaux de la pédagogie entrepreneuriale" },
-  { href: "/valoriser", label: "Célébrer et valoriser les actions des élèves" }
+  { href: "/valoriser", label: "Célébrer et valoriser les actions des élèves" },
+  { href: "/ressources/concretisation", label: "Concrétiser des projets" }
 ];
 
 const resourceLinks = [
