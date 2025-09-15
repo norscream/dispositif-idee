@@ -6,7 +6,7 @@ export const actions = [
     niveaux: ["École", "Collège", "Lycée", "Post bac"],
     objectifs: ["À définir selon vos besoins"],
     duree: "À définir selon vos besoins",
-    image: "/lovable-uploads/9ce46cc4-d3b9-4966-aded-9d01616c349e.png"
+    image: "/logo-idee.png"
   },
   {
     title: "À la découverte de nos forces et talents",
@@ -20,7 +20,7 @@ export const actions = [
       "Développer la confiance en soi et la reconnaissance mutuelle"
     ],
     duree: "2 heures",
-    image: "/lovable-uploads/e2b19488-8bdd-41d2-a01c-c20e851507a6.png"
+    image: "/logo-idee.png"
   },
   {
     title: "Prévention et gestion des conflits avec les messages clairs",
@@ -34,7 +34,7 @@ export const actions = [
       "Renforcer la coopération et le respect mutuel"
     ],
     duree: "3 heures",
-    image: "/lovable-uploads/218ad44a-ae33-4006-bcf5-95e50107fca8.png"
+    image: "/logo-idee.png"
   },
   {
     title: "Gestion de Projet : l'Idéation",
@@ -48,7 +48,7 @@ export const actions = [
       "S'initier aux techniques de brainstorming et de facilitation"
     ],
     duree: "2 heures",
-    image: "/lovable-uploads/d36c06a4-c430-479a-8879-82548d3ce9a7.png"
+    image: "/logo-idee.png"
   },
   {
     title: "L'esprit d'entreprendre en action",
@@ -62,7 +62,7 @@ export const actions = [
       "Appliquer l'esprit d'entreprise au quotidien"
     ],
     duree: "3 heures",
-    image: "/lovable-uploads/9a678b00-249f-4d38-98b0-196b51ed6e65.png"
+    image: "/logo-idee.png"
   },
   {
     title: "Workshop LinkedIn",
@@ -76,7 +76,7 @@ export const actions = [
       "Maîtriser les fonctionnalités de LinkedIn"
     ],
     duree: "4 heures",
-    image: "/lovable-uploads/4f60bfcf-7ba7-4565-8db5-3b47322c6691.png"
+    image: "/logo-idee.png"
   },
   {
     title: "Cultiver sa confiance en soi",
@@ -89,7 +89,7 @@ export const actions = [
       "S'ouvrir à de nouvelles perspectives professionnelles"
     ],
     duree: "2 heures",
-    image: "/lovable-uploads/b4dc5c3d-611e-4b86-bdf8-b7239716ea55.png"
+    image: "/logo-idee.png"
   },
   {
     title: "Gestion de l'échec",
@@ -102,6 +102,6 @@ export const actions = [
       "S'ouvrir à de nouvelles perspectives professionnelles"
     ],
     duree: "2 heures",
-    image: "/lovable-uploads/e39bebb6-c473-41bd-8d20-821b6d04fb78.png"
+    image: "/logo-idee.png"
   }
 ] as const;
