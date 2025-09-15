@@ -2,13 +2,6 @@ import { Users, Mail } from "lucide-react";
 
 const teamMembers = [
   {
-    image: "/lovable-uploads/fe9fd95f-f1bb-4ae4-9398-89a620fb046e.png",
-    name: "Margot Veiler",
-    role: "Chargée de projet Oise",
-    email: "margot.veiler@idee.fr",
-    position: { top: "70%", left: "30%" }
-  },
-  {
     image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.png",
     name: "Anna Guillouard",
     role: "Chargée de projet Amiens",
@@ -46,6 +39,12 @@ const teamMembers = [
 ];
 
 const newTeamMembers = [
+  {
+    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
+    name: "Anaïs Darras",
+    role: "Chargée de mesure d'impact",
+    email: "anais.darras@idee.fr"
+  },
   {
     image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png",
     name: "Vincent Pouliquen",
