@@ -19,7 +19,7 @@ const actionLinks = [
 ];
 
 const resourceLinks = [
-  { href: "/ressources/nos-actions", label: "Nos actions" },
+  { href: "/ressources/nos-actions", label: "Les actions IDEE" },
   { href: "/ressources/actions-partenaires", label: "Les actions de nos partenaires" },
   { href: "/ressources/ludopedagogie", label: "Ludopédagogie" },
   { href: "/ressources/concours", label: "Concours" },
