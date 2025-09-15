@@ -3,43 +3,43 @@ import { Link } from "react-router-dom";
 
 const actions = [
   {
-    title: "Informer et promouvoir",
-    description: "l'éducation à l'entrepreneuriat",
+    title: "Informer et promouvoir l'éducation à l'entrepreneuriat",
+    description: "",
     href: "/informer",
     iconColor: "#D3E4FD",
     imagePath: "/lovable-uploads/11433d4b-5cf6-4ea7-a413-23f513bb987e.png"
   },
   {
-    title: "Accompagner et former",
-    description: "conseiller et former les enseignants",
+    title: "Accompagner et former les enseignants",
+    description: "",
     href: "/accompagner",
     iconColor: "#FEC6A1",
     imagePath: "/lovable-uploads/82502928-6d0a-44b8-924b-cefe58f7c3dd.png"
   },
   {
-    title: "Créer des ressources",
-    description: "pédagogiques innovantes",
+    title: "Créer des ressources pédagogiques innovantes",
+    description: "",
     href: "/ressources",
     iconColor: "#FEF7CD",
     imagePath: "/lovable-uploads/1a52c073-f1a5-417d-b32b-1f294c1aa80f.png"
   },
   {
-    title: "Mettre en lien",
-    description: "les acteurs territoriaux de la pédagogie entrepreneuriale",
+    title: "Mettre en lien les acteurs territoriaux de la pédagogie entrepreneuriale",
+    description: "",
     href: "/reseau",
     iconColor: "#F1F0FB",
     imagePath: "/lovable-uploads/514b916d-23ef-4f86-b41a-e4060bb693a2.png"
   },
   {
-    title: "Célébrer et valoriser",
-    description: "les actions des élèves",
+    title: "Célébrer et valoriser les actions des élèves",
+    description: "",
     href: "/valoriser",
     iconColor: "#F2FCE2",
     imagePath: "/lovable-uploads/126a6c28-7f40-427b-821d-49be85a8c0f4.png"
   },
   {
     title: "Concrétiser des projets",
-    description: "pour permettre aux projets de prendre vie",
+    description: "",
     href: "/concretisation",
     iconColor: "#FFDEE2",
     imagePath: "/lovable-uploads/31c9ae34-cb8c-40c1-8e58-7210ed22678b.png"

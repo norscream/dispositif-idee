@@ -10,11 +10,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const actionLinks = [
-  { href: "/informer", label: "Informer et promouvoir" },
-  { href: "/accompagner", label: "Accompagner et former" },
-  { href: "/ressources", label: "Créer des ressources" },
-  { href: "/reseau", label: "Mettre en lien" },
-  { href: "/valoriser", label: "Célébrer et valoriser" }
+  { href: "/informer", label: "Informer et promouvoir l'éducation à l'entrepreneuriat" },
+  { href: "/accompagner", label: "Accompagner et former les enseignants" },
+  { href: "/ressources", label: "Créer des ressources pédagogiques innovantes" },
+  { href: "/reseau", label: "Mettre en lien les acteurs territoriaux de la pédagogie entrepreneuriale" },
+  { href: "/valoriser", label: "Célébrer et valoriser les actions des élèves" }
 ];
 
 const resourceLinks = [
