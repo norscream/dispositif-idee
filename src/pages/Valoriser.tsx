@@ -1,8 +1,9 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
@@ -60,6 +61,39 @@ export default function Valoriser() {
     }
   ];
 
+  const events2025_2026 = [
+    {
+      title: "Atelier Fresque de l'esprit d'entreprendre",
+      location: "La turbine - Dunkerque",
+      date: "18 Septembre"
+    },
+    {
+      title: "Hackathon IDEE",
+      location: "La plaine image - Tourcoing",
+      date: "2 et 3 octobre"
+    },
+    {
+      title: "Hackathon IDEE",
+      location: "Laon",
+      date: "25 novembre et 8 décembre"
+    },
+    {
+      title: "Concours Graines d'entrepreneur",
+      location: "Palais des arts - Capelle-la-grande",
+      date: "7 mai"
+    },
+    {
+      title: "Festival des Mini-Entreprises",
+      location: "Lille",
+      date: "19 mai"
+    },
+    {
+      title: "Festival des Mini-Entreprises",
+      location: "CCI Amiens",
+      date: "21 mai"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Nav />
@@ -78,10 +112,24 @@ export default function Valoriser() {
             Osez entreprendre, innovez, et transformez vos idées en actions concrètes !
           </p>
 
-          <div className="prose max-w-none mb-12">
+          <div className="prose max-w-none mb-8">
             <p className="text-lg text-gray-600">
               La région Hauts-de-France a créé le label "Jeunes et Audacieux" pour reconnaître et valoriser l'engagement des élèves dans des projets entrepreneuriaux et citoyens. Ce label met en lumière les jeunes qui osent entreprendre, innover et s'investir pour transformer leurs idées en actions concrètes.
             </p>
+          </div>
+
+          <div className="text-center mb-12">
+            <Button 
+              onClick={() => {
+                const eventsSection = document.getElementById('events-2025-2026');
+                eventsSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              size="lg"
+              className="bg-primary text-white hover:bg-primary/90"
+            >
+              <Calendar className="h-5 w-5 mr-2" />
+              Découvrir les événements 2025-2026
+            </Button>
           </div>
 
           <div className="mb-8">
@@ -107,7 +155,7 @@ export default function Valoriser() {
             </Carousel>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
             {labelBenefits.map((benefit, index) => (
               <Card key={index} className="bg-white hover:shadow-lg transition-all">
                 <CardContent className="p-6">
@@ -123,6 +171,29 @@ export default function Valoriser() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          <div id="events-2025-2026" className="bg-gray-50 rounded-lg p-8">
+            <h2 className="text-3xl font-bold text-center mb-8">Événements Jeunes et Audacieux 2025-2026</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {events2025_2026.map((event, index) => (
+                <Card key={index} className="bg-white hover:shadow-md transition-all">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-semibold mb-3 text-primary">{event.title}</h3>
+                    <div className="space-y-2">
+                      <div className="flex items-center text-gray-600">
+                        <MapPin className="h-4 w-4 mr-2 text-primary" />
+                        <span>{event.location}</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <Calendar className="h-4 w-4 mr-2 text-primary" />
+                        <span>{event.date}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </div>
