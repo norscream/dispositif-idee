@@ -40,12 +40,6 @@ const teamMembers = [
 
 const newTeamMembers = [
   {
-    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
-    name: "Anaïs Darras",
-    role: "Chargée de mesure d'impact",
-    email: "anais.darras@idee.fr"
-  },
-  {
     image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png",
     name: "Vincent Pouliquen",
     role: "Chef de projet IDEE",
@@ -68,6 +62,12 @@ const newTeamMembers = [
     name: "Manon MARTINEZ",
     role: "Chargée de suivi de projet IDEE",
     email: "manon.martinez@idee.fr"
+  },
+  {
+    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
+    name: "Anaïs Darras",
+    role: "Chargée de mesure d'impact",
+    email: "anais.darras@idee.fr"
   }
 ];
 
