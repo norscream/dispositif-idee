@@ -41,8 +41,8 @@ export default function Concours() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-0" />
-            <CarouselNext className="right-0" />
+            <CarouselPrevious className="left-0 bg-white shadow-lg border-2 border-primary/20 hover:bg-primary hover:text-white h-12 w-12" />
+            <CarouselNext className="right-0 bg-white shadow-lg border-2 border-primary/20 hover:bg-primary hover:text-white h-12 w-12" />
           </Carousel>
         </div>
       </div>
