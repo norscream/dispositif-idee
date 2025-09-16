@@ -41,20 +41,8 @@ export default function Concours() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="flex items-center justify-center gap-4 mt-6">
-              <CarouselPrevious 
-                className="relative inset-0 translate-y-0 bg-white hover:bg-gray-100"
-                variant="outline"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </CarouselPrevious>
-              <CarouselNext 
-                className="relative inset-0 translate-y-0 bg-white hover:bg-gray-100"
-                variant="outline"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </CarouselNext>
-            </div>
+            <CarouselPrevious className="left-0" />
+            <CarouselNext className="right-0" />
           </Carousel>
         </div>
       </div>
