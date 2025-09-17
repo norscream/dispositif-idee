@@ -8,6 +8,7 @@ import { ActionsManager } from "./ActionsManager";
 import { ConcoursManager } from "./ConcoursManager";
 import { EvenementsManager } from "./EvenementsManager";
 import { EquipeManager } from "./EquipeManager";
+import { DataMigration } from "./DataMigration";
 import { LogOut, Users, Trophy, Calendar, Briefcase } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
@@ -104,11 +105,12 @@ export function AdminDashboard({ user }: AdminDashboardProps) {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="actions">Actions Partenaires</TabsTrigger>
             <TabsTrigger value="concours">Concours</TabsTrigger>
             <TabsTrigger value="evenements">Événements J&A</TabsTrigger>
             <TabsTrigger value="equipe">Équipe</TabsTrigger>
+            <TabsTrigger value="migration">Migration</TabsTrigger>
           </TabsList>
 
           <TabsContent value="actions" className="mt-6">
@@ -125,6 +127,10 @@ export function AdminDashboard({ user }: AdminDashboardProps) {
 
           <TabsContent value="equipe" className="mt-6">
             <EquipeManager />
+          </TabsContent>
+
+          <TabsContent value="migration" className="mt-6">
+            <DataMigration />
           </TabsContent>
         </Tabs>
       </div>

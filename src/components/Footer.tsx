@@ -187,6 +187,14 @@ export function Footer() {
             </div>
           </div>
         </div>
+        <div className="mt-8 pt-4 border-t border-gray-200 text-center">
+          <Link 
+            to="/admin" 
+            className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            Administration
+          </Link>
+        </div>
       </div>
     </footer>
   );

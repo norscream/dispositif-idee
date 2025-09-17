@@ -4,9 +4,37 @@ import { ArrowLeft, MapPin, Clock, BookOpen, Mail, Building, Search } from "luci
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { actionsPartenaires } from "@/data/actionsPartenaires";
+import { useActions } from "@/hooks/useActions";
 
 export default function ActionsPartenaires() {
+  const { actions, loading, error } = useActions();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Nav />
+        <div className="container mx-auto py-16 px-4">
+          <div className="flex items-center justify-center py-16">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Nav />
+        <div className="container mx-auto py-16 px-4">
+          <div className="text-center py-16">
+            <p className="text-red-600 mb-4">Erreur lors du chargement des actions</p>
+            <p className="text-gray-600">{error}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-white">
       <Nav />
@@ -44,7 +72,7 @@ export default function ActionsPartenaires() {
           </div>
           
           <div className="space-y-8">
-            {actionsPartenaires.map((action, index) => (
+            {actions.map((action, index) => (
               <Card key={index} className="overflow-hidden flex flex-col">
                 <div className="h-64 overflow-hidden relative">
                   <img 

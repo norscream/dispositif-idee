@@ -9,9 +9,37 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ConcoursCard } from "@/components/concours/ConcoursCard";
-import { concours } from "@/data/concours";
+import { useConcours } from "@/hooks/useConcours";
 
 export default function Concours() {
+  const { concours, loading, error } = useConcours();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Nav />
+        <div className="container mx-auto px-4 pt-24 pb-16">
+          <div className="flex items-center justify-center py-16">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Nav />
+        <div className="container mx-auto px-4 pt-24 pb-16">
+          <div className="text-center py-16">
+            <p className="text-red-600 mb-4">Erreur lors du chargement des concours</p>
+            <p className="text-gray-600">{error}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-white">
       <Nav />

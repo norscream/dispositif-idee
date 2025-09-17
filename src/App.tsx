@@ -15,6 +15,7 @@ import Accompagner from "./pages/Accompagner";
 import Ressources from "./pages/Ressources";
 import Reseau from "./pages/Reseau";
 import Valoriser from "./pages/Valoriser";
+import Admin from "./pages/Admin";
 
 // Resource page imports
 import NosActions from "./pages/ressources/NosActions";
@@ -88,6 +89,7 @@ const App = () => (
               <Route path="/ressources/concours" element={<Concours />} />
               <Route path="/ressources/formation" element={<Formation />} />
               <Route path="/ressources/concretisation" element={<Concretisation />} />
+              <Route path="/admin" element={<Admin />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
