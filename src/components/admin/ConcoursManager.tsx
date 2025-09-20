@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus, Edit, Trash2 } from "lucide-react";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 
 interface Concours {
   id: string;
@@ -38,7 +38,11 @@ export function ConcoursManager() {
 
       setConcours(data || []);
     } catch (error) {
-      toast("Erreur lors du chargement des concours");
+      toast({
+        title: "Erreur",
+        description: "Erreur lors du chargement des concours",
+        variant: "destructive"
+      });
       console.error('Error fetching concours:', error);
     } finally {
       setLoading(false);
@@ -61,9 +65,16 @@ export function ConcoursManager() {
       }
 
       setConcours(concours.filter(c => c.id !== id));
-      toast("Concours supprimé avec succès");
+      toast({
+        title: "Succès",
+        description: "Concours supprimé avec succès"
+      });
     } catch (error) {
-      toast("Erreur lors de la suppression");
+      toast({
+        title: "Erreur",
+        description: "Erreur lors de la suppression",
+        variant: "destructive"
+      });
       console.error('Error deleting concours:', error);
     }
   };

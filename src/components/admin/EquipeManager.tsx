@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus, Edit, Trash2, Mail, User } from "lucide-react";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 
 interface MembreEquipe {
   id: string;
@@ -40,7 +40,11 @@ export function EquipeManager() {
 
       setEquipe(data || []);
     } catch (error) {
-      toast("Erreur lors du chargement de l'équipe");
+      toast({
+        title: "Erreur",
+        description: "Erreur lors du chargement de l'équipe",
+        variant: "destructive"
+      });
       console.error('Error fetching equipe:', error);
     } finally {
       setLoading(false);
@@ -63,9 +67,16 @@ export function EquipeManager() {
       }
 
       setEquipe(equipe.filter(membre => membre.id !== id));
-      toast("Membre supprimé avec succès");
+      toast({
+        title: "Succès",
+        description: "Membre supprimé avec succès"
+      });
     } catch (error) {
-      toast("Erreur lors de la suppression");
+      toast({
+        title: "Erreur",
+        description: "Erreur lors de la suppression",
+        variant: "destructive"
+      });
       console.error('Error deleting membre:', error);
     }
   };

@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus, Edit, Trash2 } from "lucide-react";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 
 interface ActionPartenaire {
   id: string;
@@ -40,7 +40,11 @@ export function ActionsManager() {
 
       setActions(data || []);
     } catch (error) {
-      toast("Erreur lors du chargement des actions");
+      toast({
+        title: "Erreur",
+        description: "Erreur lors du chargement des actions",
+        variant: "destructive"
+      });
       console.error('Error fetching actions:', error);
     } finally {
       setLoading(false);
@@ -63,9 +67,16 @@ export function ActionsManager() {
       }
 
       setActions(actions.filter(action => action.id !== id));
-      toast("Action supprimée avec succès");
+      toast({
+        title: "Succès",
+        description: "Action supprimée avec succès"
+      });
     } catch (error) {
-      toast("Erreur lors de la suppression");
+      toast({
+        title: "Erreur",
+        description: "Erreur lors de la suppression",
+        variant: "destructive"
+      });
       console.error('Error deleting action:', error);
     }
   };

@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus, Edit, Trash2, Calendar } from "lucide-react";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 
 interface Evenement {
   id: string;
@@ -39,7 +39,11 @@ export function EvenementsManager() {
 
       setEvenements(data || []);
     } catch (error) {
-      toast("Erreur lors du chargement des événements");
+      toast({
+        title: "Erreur",
+        description: "Erreur lors du chargement des événements",
+        variant: "destructive"
+      });
       console.error('Error fetching evenements:', error);
     } finally {
       setLoading(false);
@@ -62,9 +66,16 @@ export function EvenementsManager() {
       }
 
       setEvenements(evenements.filter(e => e.id !== id));
-      toast("Événement supprimé avec succès");
+      toast({
+        title: "Succès",
+        description: "Événement supprimé avec succès"
+      });
     } catch (error) {
-      toast("Erreur lors de la suppression");
+      toast({
+        title: "Erreur",
+        description: "Erreur lors de la suppression",
+        variant: "destructive"
+      });
       console.error('Error deleting evenement:', error);
     }
   };

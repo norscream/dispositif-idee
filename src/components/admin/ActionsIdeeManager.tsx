@@ -68,10 +68,10 @@ export function ActionsIdeeManager() {
                   </div>
                 </div>
                 <div className="flex space-x-2">
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={() => console.log('Modifier action:', action.id)}>
                     <Edit className="h-4 w-4" />
                   </Button>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={() => console.log('Supprimer action:', action.id)}>
                     <Trash2 className="h-4 w-4" />
                   </Button>
                 </div>

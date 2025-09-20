@@ -14,7 +14,7 @@ import { ActionsIdeeManager } from "./ActionsIdeeManager";
 import { LudopedagogieManager } from "./LudopedagogieManager";
 import { ConcretisationManager } from "./ConcretisationManager";
 import { LogOut, Users, Trophy, Calendar, Briefcase } from "lucide-react";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 
 interface AdminDashboardProps {
   user: User;
@@ -26,9 +26,16 @@ export function AdminDashboard({ user }: AdminDashboardProps) {
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
-      toast("Impossible de se déconnecter");
+      toast({
+        title: "Erreur",
+        description: "Impossible de se déconnecter",
+        variant: "destructive"
+      });
     } else {
-      toast("Vous avez été déconnecté avec succès.");
+      toast({
+        title: "Succès",
+        description: "Vous avez été déconnecté avec succès."
+      });
     }
   };
 
@@ -109,7 +116,7 @@ export function AdminDashboard({ user }: AdminDashboardProps) {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-3 lg:grid-cols-9">
+          <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8">
             <TabsTrigger value="actions">Actions Partenaires</TabsTrigger>
             <TabsTrigger value="actions-idee">Actions IDÉE</TabsTrigger>
             <TabsTrigger value="formations">Formations</TabsTrigger>
@@ -118,7 +125,6 @@ export function AdminDashboard({ user }: AdminDashboardProps) {
             <TabsTrigger value="concours">Concours</TabsTrigger>
             <TabsTrigger value="evenements">Événements J&A</TabsTrigger>
             <TabsTrigger value="equipe">Équipe</TabsTrigger>
-            <TabsTrigger value="migration">Migration</TabsTrigger>
           </TabsList>
 
           <TabsContent value="actions" className="mt-6">
@@ -153,9 +159,6 @@ export function AdminDashboard({ user }: AdminDashboardProps) {
             <EquipeManager />
           </TabsContent>
 
-          <TabsContent value="migration" className="mt-6">
-            <DataMigration />
-          </TabsContent>
         </Tabs>
       </div>
     </div>
