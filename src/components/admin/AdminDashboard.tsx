@@ -9,6 +9,10 @@ import { ConcoursManager } from "./ConcoursManager";
 import { EvenementsManager } from "./EvenementsManager";
 import { EquipeManager } from "./EquipeManager";
 import { DataMigration } from "./DataMigration";
+import { FormationsManager } from "./FormationsManager";
+import { ActionsIdeeManager } from "./ActionsIdeeManager";
+import { LudopedagogieManager } from "./LudopedagogieManager";
+import { ConcretisationManager } from "./ConcretisationManager";
 import { LogOut, Users, Trophy, Calendar, Briefcase } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
@@ -105,8 +109,12 @@ export function AdminDashboard({ user }: AdminDashboardProps) {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-5">
+          <TabsList className="grid w-full grid-cols-3 lg:grid-cols-9">
             <TabsTrigger value="actions">Actions Partenaires</TabsTrigger>
+            <TabsTrigger value="actions-idee">Actions IDÉE</TabsTrigger>
+            <TabsTrigger value="formations">Formations</TabsTrigger>
+            <TabsTrigger value="ludopedagogie">Ludopédagogie</TabsTrigger>
+            <TabsTrigger value="concretisations">Concrétisations</TabsTrigger>
             <TabsTrigger value="concours">Concours</TabsTrigger>
             <TabsTrigger value="evenements">Événements J&A</TabsTrigger>
             <TabsTrigger value="equipe">Équipe</TabsTrigger>
@@ -115,6 +123,22 @@ export function AdminDashboard({ user }: AdminDashboardProps) {
 
           <TabsContent value="actions" className="mt-6">
             <ActionsManager />
+          </TabsContent>
+
+          <TabsContent value="actions-idee" className="mt-6">
+            <ActionsIdeeManager />
+          </TabsContent>
+
+          <TabsContent value="formations" className="mt-6">
+            <FormationsManager />
+          </TabsContent>
+
+          <TabsContent value="ludopedagogie" className="mt-6">
+            <LudopedagogieManager />
+          </TabsContent>
+
+          <TabsContent value="concretisations" className="mt-6">
+            <ConcretisationManager />
           </TabsContent>
 
           <TabsContent value="concours" className="mt-6">
