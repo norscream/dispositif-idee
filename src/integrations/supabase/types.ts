@@ -207,21 +207,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      get_equipe_public_columns: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          created_at: string
-          fonction: string
-          id: string
-          image: string
-          is_new_member: boolean
-          nom: string
-          position_x: number
-          position_y: number
-          prenom: string
-          updated_at: string
-        }[]
-      }
+      [_ in never]: never
     }
     Enums: {
       [_ in never]: never

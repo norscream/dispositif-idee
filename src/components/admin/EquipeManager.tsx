@@ -29,6 +29,7 @@ export function EquipeManager() {
 
   const fetchEquipe = async () => {
     try {
+      // Admin access - select all fields including email
       const { data, error } = await supabase
         .from('equipe')
         .select('*')
