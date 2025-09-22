@@ -94,9 +94,26 @@ export function ConcoursManager() {
           <h2 className="text-2xl font-bold">Concours</h2>
           <p className="text-gray-600">Gérez les concours disponibles</p>
         </div>
-        <Button>
+        <Button onClick={async () => {
+          try {
+            const { migrateConcours } = await import('@/utils/migrateData');
+            await migrateConcours();
+            await fetchConcours();
+            toast({
+              title: "Succès",
+              description: "Données d'exemple importées avec succès"
+            });
+          } catch (error) {
+            console.error('Import error:', error);
+            toast({
+              title: "Erreur",
+              description: "Erreur lors de l'import des données",
+              variant: "destructive"
+            });
+          }
+        }}>
           <Plus className="h-4 w-4 mr-2" />
-          Ajouter un concours
+          Importer données d'exemple
         </Button>
       </div>
 

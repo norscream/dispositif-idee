@@ -29,16 +29,20 @@ export function ActionsManager() {
 
   const fetchActions = async () => {
     try {
+      console.log('Fetching actions partenaires...');
       const { data, error } = await supabase
         .from('actions_partenaires')
         .select('*')
         .order('created_at', { ascending: false });
+
+      console.log('Actions fetch result:', { data, error });
 
       if (error) {
         throw error;
       }
 
       setActions(data || []);
+      console.log(`Loaded ${(data || []).length} actions`);
     } catch (error) {
       toast({
         title: "Erreur",
@@ -96,9 +100,27 @@ export function ActionsManager() {
           <h2 className="text-2xl font-bold">Actions Partenaires</h2>
           <p className="text-gray-600">Gérez les actions proposées par les partenaires</p>
         </div>
-        <Button>
+        <Button onClick={async () => {
+          console.log('Importing sample data...');
+          try {
+            const { migrateActionsPartenaires } = await import('@/utils/migrateData');
+            await migrateActionsPartenaires();
+            await fetchActions();
+            toast({
+              title: "Succès",
+              description: "Données d'exemple importées avec succès"
+            });
+          } catch (error) {
+            console.error('Import error:', error);
+            toast({
+              title: "Erreur",
+              description: "Erreur lors de l'import des données",
+              variant: "destructive"
+            });
+          }
+        }}>
           <Plus className="h-4 w-4 mr-2" />
-          Ajouter une action
+          Importer données d'exemple
         </Button>
       </div>
 

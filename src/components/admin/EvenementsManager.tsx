@@ -99,9 +99,26 @@ export function EvenementsManager() {
           <h2 className="text-2xl font-bold">Événements Jeunes et Audacieux</h2>
           <p className="text-gray-600">Gérez les événements à venir</p>
         </div>
-        <Button>
+        <Button onClick={async () => {
+          try {
+            const { migrateEvenements } = await import('@/utils/migrateData');
+            await migrateEvenements();
+            await fetchEvenements();
+            toast({
+              title: "Succès",
+              description: "Données d'exemple importées avec succès"
+            });
+          } catch (error) {
+            console.error('Import error:', error);
+            toast({
+              title: "Erreur",
+              description: "Erreur lors de l'import des données",
+              variant: "destructive"
+            });
+          }
+        }}>
           <Plus className="h-4 w-4 mr-2" />
-          Ajouter un événement
+          Importer données d'exemple
         </Button>
       </div>
 

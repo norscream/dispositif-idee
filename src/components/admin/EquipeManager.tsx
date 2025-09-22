@@ -97,9 +97,26 @@ export function EquipeManager() {
           <h2 className="text-2xl font-bold">Équipe</h2>
           <p className="text-gray-600">Gérez les membres de l'équipe</p>
         </div>
-        <Button>
+        <Button onClick={async () => {
+          try {
+            const { migrateEquipe } = await import('@/utils/migrateData');
+            await migrateEquipe();
+            await fetchEquipe();
+            toast({
+              title: "Succès",
+              description: "Données d'exemple importées avec succès"
+            });
+          } catch (error) {
+            console.error('Import error:', error);
+            toast({
+              title: "Erreur",
+              description: "Erreur lors de l'import des données",
+              variant: "destructive"
+            });
+          }
+        }}>
           <Plus className="h-4 w-4 mr-2" />
-          Ajouter un membre
+          Importer données d'exemple
         </Button>
       </div>
 
