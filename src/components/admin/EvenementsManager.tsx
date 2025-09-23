@@ -106,7 +106,7 @@ export function EvenementsManager() {
             await fetchEvenements();
             toast({
               title: "Succès",
-              description: "Données d'exemple importées avec succès"
+              description: "Événements importés depuis les données du site"
             });
           } catch (error) {
             console.error('Import error:', error);
@@ -118,7 +118,7 @@ export function EvenementsManager() {
           }
         }}>
           <Plus className="h-4 w-4 mr-2" />
-          Importer données d'exemple
+          Importer les données du site
         </Button>
       </div>
 

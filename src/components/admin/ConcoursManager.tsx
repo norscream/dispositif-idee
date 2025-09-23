@@ -101,7 +101,7 @@ export function ConcoursManager() {
             await fetchConcours();
             toast({
               title: "Succès",
-              description: "Données d'exemple importées avec succès"
+              description: "Concours importés depuis les données du site"
             });
           } catch (error) {
             console.error('Import error:', error);
@@ -113,7 +113,7 @@ export function ConcoursManager() {
           }
         }}>
           <Plus className="h-4 w-4 mr-2" />
-          Importer données d'exemple
+          Importer les données du site
         </Button>
       </div>
 

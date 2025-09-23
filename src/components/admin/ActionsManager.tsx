@@ -101,14 +101,14 @@ export function ActionsManager() {
           <p className="text-gray-600">Gérez les actions proposées par les partenaires</p>
         </div>
         <Button onClick={async () => {
-          console.log('Importing sample data...');
+          console.log('Importing actions from site data...');
           try {
             const { migrateActionsPartenaires } = await import('@/utils/migrateData');
             await migrateActionsPartenaires();
             await fetchActions();
             toast({
               title: "Succès",
-              description: "Données d'exemple importées avec succès"
+              description: "Actions partenaires importées depuis les données du site"
             });
           } catch (error) {
             console.error('Import error:', error);
@@ -120,7 +120,7 @@ export function ActionsManager() {
           }
         }}>
           <Plus className="h-4 w-4 mr-2" />
-          Importer données d'exemple
+          Importer les données du site
         </Button>
       </div>
 

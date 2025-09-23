@@ -104,7 +104,7 @@ export function EquipeManager() {
             await fetchEquipe();
             toast({
               title: "Succès",
-              description: "Données d'exemple importées avec succès"
+              description: "Équipe importée depuis les données du site"
             });
           } catch (error) {
             console.error('Import error:', error);
@@ -116,7 +116,7 @@ export function EquipeManager() {
           }
         }}>
           <Plus className="h-4 w-4 mr-2" />
-          Importer données d'exemple
+          Importer les données du site
         </Button>
       </div>
 

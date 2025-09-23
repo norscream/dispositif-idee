@@ -112,22 +112,51 @@ export async function migrateConcours() {
   }
 }
 
-// Sample events data for migration (you can add more)
-const sampleEvents = [
+// Real events data from the site
+const realEvents = [
   {
-    titre: "Forum Jeunes et Audacieux 2024",
-    date_debut: "2024-06-15",
-    date_fin: "2024-06-16",
-    lieu: "Lille Grand Palais",
-    description: "Le plus grand rassemblement de jeunes entrepreneurs et innovateurs de la région Hauts-de-France.",
-    lien_inscription: "https://example.com/inscription-forum-ja"
+    titre: "Atelier Fresque de l'esprit d'entreprendre",
+    date_debut: "2024-09-18",
+    lieu: "La turbine - Dunkerque",
+    description: "Atelier interactif pour développer l'esprit d'entreprendre chez les jeunes.",
+    lien_inscription: null
   },
   {
-    titre: "Bootcamp Innovation Sociale",
-    date_debut: "2024-09-20",
-    lieu: "Campus de Valenciennes",
-    description: "Une semaine intensive pour développer des projets à impact social positif.",
-    lien_inscription: "https://example.com/bootcamp-innovation"
+    titre: "Hackathon IDEE",
+    date_debut: "2024-10-02",
+    date_fin: "2024-10-03",
+    lieu: "La plaine image - Tourcoing",
+    description: "Hackathon pour développer des projets innovants avec l'équipe IDEE.",
+    lien_inscription: null
+  },
+  {
+    titre: "Hackathon IDEE",
+    date_debut: "2024-11-25",
+    date_fin: "2024-12-08",
+    lieu: "Laon",
+    description: "Hackathon pour développer des projets innovants avec l'équipe IDEE.",
+    lien_inscription: null
+  },
+  {
+    titre: "Concours Graines d'entrepreneur",
+    date_debut: "2025-05-07",
+    lieu: "Palais des arts - Capelle-la-grande",
+    description: "Concours destiné aux jeunes entrepreneurs en herbe.",
+    lien_inscription: null
+  },
+  {
+    titre: "Festival des Mini-Entreprises",
+    date_debut: "2025-05-19",
+    lieu: "Lille",
+    description: "Festival célébrant les mini-entreprises créées par les élèves.",
+    lien_inscription: null
+  },
+  {
+    titre: "Festival des Mini-Entreprises",
+    date_debut: "2025-05-21",
+    lieu: "CCI Amiens",
+    description: "Festival célébrant les mini-entreprises créées par les élèves.",
+    lien_inscription: null
   }
 ];
 
@@ -150,50 +179,124 @@ export async function migrateEvenements() {
       return;
     }
     
-    // Insert sample events
+    // Insert real events
     const { error } = await supabase
       .from('evenements_jeunes_audacieux')
-      .insert(sampleEvents);
+      .insert(realEvents);
     
     if (error) {
       throw error;
     }
     
-    console.log(`Successfully migrated ${sampleEvents.length} evenements`);
+    console.log(`Successfully migrated ${realEvents.length} evenements`);
   } catch (error) {
     console.error('Error migrating evenements:', error);
     throw error;
   }
 }
 
-// Sample team data for migration (you can customize this)
-const sampleTeam = [
+// Real team data from the site
+const realTeamMembers = [
+  // Team members with positions on the map
   {
-    nom: "Dupont",
-    prenom: "Marie",
-    fonction: "Directrice",
-    email: "marie.dupont@example.com",
-    image: "/placeholder.svg",
+    nom: "Guillouard",
+    prenom: "Anna",
+    fonction: "Chargée de projet Amiens",
+    email: "anna.guillouard@idee.fr",
+    image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.png",
     position_x: 50,
-    position_y: 30,
+    position_y: 55,
     is_new_member: false
   },
   {
-    nom: "Martin",
-    prenom: "Jean",
-    fonction: "Chef de projet",
-    email: "jean.martin@example.com",
-    image: "/placeholder.svg",
-    position_x: 70,
-    position_y: 60,
+    nom: "Lefevre",
+    prenom: "Pascal",
+    fonction: "Chargé de mission Aisne",
+    email: "pascal.lefevre@idee.fr",
+    image: "/lovable-uploads/68ecf923-3ab3-47f4-9090-9a9a83d1f3c0.png",
+    position_x: 75,
+    position_y: 70,
     is_new_member: false
   },
   {
-    nom: "Bernard",
-    prenom: "Sophie",
-    fonction: "Coordinatrice",
-    email: "sophie.bernard@example.com",
-    image: "/placeholder.svg",
+    nom: "Zuliani",
+    prenom: "Sylvie",
+    fonction: "Chargée de mission Valenciennois",
+    email: "sylvie.zuliani@idee.fr",
+    image: "/lovable-uploads/d30e3c4d-b90b-4cb3-a2eb-ebbb32b01edd.png",
+    position_x: 65,
+    position_y: 35,
+    is_new_member: false
+  },
+  {
+    nom: "Clerbout",
+    prenom: "Chloé",
+    fonction: "Chargée de mission MEL",
+    email: "chloe.clerbout@idee.fr",
+    image: "/lovable-uploads/bb242a05-95e3-4d12-8dfe-564390ea4bd5.png",
+    position_x: 55,
+    position_y: 25,
+    is_new_member: false
+  },
+  {
+    nom: "Madani",
+    prenom: "Norman",
+    fonction: "Chargé de mission côte d'opale",
+    email: "norman.madani@idee.fr",
+    image: "/lovable-uploads/f1165429-3de0-4ed3-b276-91b014ca1e80.png",
+    position_x: 20,
+    position_y: 25,
+    is_new_member: false
+  },
+  // New team members (without positions)
+  {
+    nom: "Pouliquen",
+    prenom: "Vincent",
+    fonction: "Chef de projet IDEE",
+    email: "vincent.pouliquen@idee.fr",
+    image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png",
+    position_x: null,
+    position_y: null,
+    is_new_member: true
+  },
+  {
+    nom: "DJOUBI",
+    prenom: "Massine",
+    fonction: "Chargé de projet Mecalive",
+    email: "massine.djoubi@idee.fr",
+    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
+    position_x: null,
+    position_y: null,
+    is_new_member: true
+  },
+  {
+    nom: "LEROY",
+    prenom: "Coline",
+    fonction: "Chargée de suivi de projet IDEE",
+    email: "coline.leroy@idee.fr",
+    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
+    position_x: null,
+    position_y: null,
+    is_new_member: true
+  },
+  {
+    nom: "MARTINEZ",
+    prenom: "Manon",
+    fonction: "Chargée de suivi de projet IDEE",
+    email: "manon.martinez@idee.fr",
+    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
+    position_x: null,
+    position_y: null,
+    is_new_member: true
+  },
+  {
+    nom: "Darras",
+    prenom: "Anaïs",
+    fonction: "Chargée de mesure d'impact",
+    email: "anais.darras@idee.fr",
+    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
+    position_x: null,
+    position_y: null,
     is_new_member: true
   }
 ];
@@ -217,16 +320,16 @@ export async function migrateEquipe() {
       return;
     }
     
-    // Insert sample team members
+    // Insert real team members
     const { error } = await supabase
       .from('equipe')
-      .insert(sampleTeam);
+      .insert(realTeamMembers);
     
     if (error) {
       throw error;
     }
     
-    console.log(`Successfully migrated ${sampleTeam.length} team members`);
+    console.log(`Successfully migrated ${realTeamMembers.length} team members`);
   } catch (error) {
     console.error('Error migrating equipe:', error);
     throw error;
