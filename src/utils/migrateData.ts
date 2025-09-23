@@ -7,20 +7,18 @@ export async function migrateActionsPartenaires() {
   try {
     console.log('Migrating actions partenaires...');
     
-    // Check if data already exists
-    const { data: existing, error: checkError } = await supabase
+    // Clear existing data first
+    const { error: deleteError } = await supabase
       .from('actions_partenaires')
-      .select('id')
-      .limit(1);
+      .delete()
+      .neq('id', '00000000-0000-0000-0000-000000000000');
     
-    if (checkError) {
-      throw checkError;
+    if (deleteError) {
+      console.error('Error clearing existing data:', deleteError);
+      throw deleteError;
     }
     
-    if (existing && existing.length > 0) {
-      console.log('Actions partenaires already exist, skipping migration');
-      return;
-    }
+    console.log('Cleared existing actions partenaires data');
     
     // Insert actions
     const { error } = await supabase
@@ -53,20 +51,28 @@ export async function migrateConcours() {
   try {
     console.log('Migrating concours...');
     
-    // Check if data already exists
-    const { data: existingConcours, error: checkError } = await supabase
+    // Clear existing data first
+    const { error: deletePartenaireError } = await supabase
+      .from('concours_partenaires')
+      .delete()
+      .neq('id', '00000000-0000-0000-0000-000000000000');
+    
+    if (deletePartenaireError) {
+      console.error('Error clearing existing partenaires:', deletePartenaireError);
+      throw deletePartenaireError;
+    }
+    
+    const { error: deleteConcoursError } = await supabase
       .from('concours')
-      .select('id')
-      .limit(1);
+      .delete()
+      .neq('id', '00000000-0000-0000-0000-000000000000');
     
-    if (checkError) {
-      throw checkError;
+    if (deleteConcoursError) {
+      console.error('Error clearing existing concours:', deleteConcoursError);
+      throw deleteConcoursError;
     }
     
-    if (existingConcours && existingConcours.length > 0) {
-      console.log('Concours already exist, skipping migration');
-      return;
-    }
+    console.log('Cleared existing concours data');
     
     // Insert concours
     for (const concoursItem of concours) {
@@ -164,20 +170,18 @@ export async function migrateEvenements() {
   try {
     console.log('Migrating evenements...');
     
-    // Check if data already exists
-    const { data: existing, error: checkError } = await supabase
+    // Clear existing data first
+    const { error: deleteError } = await supabase
       .from('evenements_jeunes_audacieux')
-      .select('id')
-      .limit(1);
+      .delete()
+      .neq('id', '00000000-0000-0000-0000-000000000000');
     
-    if (checkError) {
-      throw checkError;
+    if (deleteError) {
+      console.error('Error clearing existing data:', deleteError);
+      throw deleteError;
     }
     
-    if (existing && existing.length > 0) {
-      console.log('Evenements already exist, skipping migration');
-      return;
-    }
+    console.log('Cleared existing evenements data');
     
     // Insert real events
     const { error } = await supabase
@@ -305,20 +309,18 @@ export async function migrateEquipe() {
   try {
     console.log('Migrating equipe...');
     
-    // Check if data already exists
-    const { data: existing, error: checkError } = await supabase
+    // Clear existing data first
+    const { error: deleteError } = await supabase
       .from('equipe')
-      .select('id')
-      .limit(1);
+      .delete()
+      .neq('id', '00000000-0000-0000-0000-000000000000');
     
-    if (checkError) {
-      throw checkError;
+    if (deleteError) {
+      console.error('Error clearing existing data:', deleteError);
+      throw deleteError;
     }
     
-    if (existing && existing.length > 0) {
-      console.log('Equipe already exists, skipping migration');
-      return;
-    }
+    console.log('Cleared existing equipe data');
     
     // Insert real team members
     const { error } = await supabase
