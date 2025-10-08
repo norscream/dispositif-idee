@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { migrateAllData } from "@/utils/migrateData";
-import { toast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Database, CheckCircle, AlertCircle } from "lucide-react";
 
 export function DataMigration() {
+  const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [status, setStatus] = useState<'idle' | 'migrating' | 'success' | 'error'>('idle');
@@ -30,10 +31,17 @@ export function DataMigration() {
       clearInterval(progressInterval);
       setProgress(100);
       setStatus('success');
-      toast("Migration des données terminée avec succès!");
+      toast({
+        title: "Migration réussie !",
+        description: "Toutes les données du site ont été importées dans Supabase.",
+      });
     } catch (error) {
       setStatus('error');
-      toast("Erreur lors de la migration des données");
+      toast({
+        title: "Erreur",
+        description: "Erreur lors de la migration des données",
+        variant: "destructive",
+      });
       console.error('Migration error:', error);
     } finally {
       setIsLoading(false);
@@ -54,11 +62,11 @@ export function DataMigration() {
       <CardContent className="space-y-4">
         <div className="space-y-2">
           <p className="text-sm text-gray-600">
-            Cette opération va importer toutes les données existantes (actions, concours, événements, équipe) 
-            depuis les fichiers statiques vers la base de données.
+            Cette opération va importer toutes les données du site (actions partenaires, concours, événements, équipe) 
+            depuis les fichiers statiques vers la base de données Supabase.
           </p>
           <p className="text-sm text-yellow-600 font-medium">
-            ⚠️ Cette migration ne sera effectuée que si les tables sont vides.
+            ⚠️ Attention : Cette opération remplacera toutes les données existantes dans les tables.
           </p>
         </div>
 
