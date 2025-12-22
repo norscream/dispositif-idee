@@ -47,13 +47,13 @@ const newTeamMembers = [
   },
   {
     image: "/lovable-uploads/massine-djoubi.jpeg",
-    name: "Massine DJOUBI",
+    name: "Massine Djoubi",
     role: "Chargé de projet Mecalive",
     email: "massine.djoubi@idee.fr"
   },
   {
     image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
-    name: "Coline LEROY",
+    name: "Coline Leroy",
     role: "Chargée de suivi de projet IDEE",
     email: "coline.leroy@idee.fr"
   },
