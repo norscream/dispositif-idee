@@ -23,7 +23,7 @@ const teamMembers = [
     position: { top: "35%", left: "65%" }
   },
   {
-    image: "/lovable-uploads/bb242a05-95e3-4d12-8dfe-564390ea4bd5.png",
+    image: "/lovable-uploads/chloe-clerbout.jpeg",
     name: "Chloé Clerbout",
     role: "Chargée de mission MEL",
     email: "chloe.clerbout@idee.fr",
@@ -46,7 +46,7 @@ const newTeamMembers = [
     email: "vincent.pouliquen@idee.fr"
   },
   {
-    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
+    image: "/lovable-uploads/massine-djoubi.jpeg",
     name: "Massine DJOUBI",
     role: "Chargé de projet Mecalive",
     email: "massine.djoubi@idee.fr"
@@ -64,7 +64,7 @@ const newTeamMembers = [
     email: "manon.martinez@idee.fr"
   },
   {
-    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
+    image: "/lovable-uploads/anais-darras.jpeg",
     name: "Anaïs Darras",
     role: "Chargée de mesure d'impact",
     email: "anais.darras@idee.fr"
