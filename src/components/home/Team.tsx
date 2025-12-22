@@ -58,12 +58,6 @@ const newTeamMembers = [
     email: "coline.leroy@idee.fr"
   },
   {
-    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
-    name: "Manon MARTINEZ",
-    role: "Chargée de suivi de projet IDEE",
-    email: "manon.martinez@idee.fr"
-  },
-  {
     image: "/lovable-uploads/anais-darras.jpeg",
     name: "Anaïs Darras",
     role: "Chargée de mesure d'impact",
