@@ -47,7 +47,7 @@ const newTeamMembers = [
   },
   {
     image: "/lovable-uploads/massine-djoubi.jpeg",
-    name: "Massine Djoubi",
+    name: "Massine Djoudi",
     role: "Chargé de projet Mecalive",
     email: "massine.djoubi@idee.fr"
   },
@@ -59,7 +59,7 @@ const newTeamMembers = [
   },
   {
     image: "/lovable-uploads/anais-darras.jpeg",
-    name: "Anaïs Darras",
+    name: "Anaïs D'arras",
     role: "Chargée de mesure d'impact",
     email: "anais.darras@idee.fr"
   }
