@@ -23,7 +23,6 @@ export function Footer() {
           <div className="text-center flex flex-col items-center">
             <h3 className="text-gray-800 font-semibold mb-4">Académie de Lille</h3>
             <ul className="space-y-1 text-sm">
-              <li><a href="mailto:projet.idee@ac-lille.fr" className="hover:text-gray-900 transition-colors">projet.idee@ac-lille.fr</a></li>
               <li className="text-center">144 Rue de Bavay<br />59000 Lille</li>
               <li>03 20 15 60 00</li>
               <li><a href="https://www1.ac-lille.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">Site de l'académie de Lille</a></li>
@@ -32,7 +31,6 @@ export function Footer() {
           <div className="text-center flex flex-col items-center">
             <h3 className="text-gray-800 font-semibold mb-4">Académie d'Amiens</h3>
             <ul className="space-y-1 text-sm">
-              <li><a href="mailto:projet.idee@ac-amiens.fr" className="hover:text-gray-900 transition-colors">projet.idee@ac-amiens.fr</a></li>
               <li className="text-center">20 Bd d'Alsace Lorraine<br />80000 Amiens</li>
               <li>03 22 82 38 23</li>
               <li><a href="https://www.ac-amiens.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">Site de l'académie d'Amiens</a></li>
