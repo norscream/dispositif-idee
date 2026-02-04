@@ -106,7 +106,7 @@ const Team = () => {
                       <h3 className="font-semibold text-sm text-center">{member.name}</h3>
                       <p className="text-gray-600 text-xs text-center mb-2">{member.role}</p>
                       <a
-                        href={`mailto:${member.email}`}
+                        href="/contact"
                         className="flex items-center justify-center text-xs text-primary hover:text-primary-dark transition-colors"
                       >
                         <Mail className="h-3 w-3 mr-1" />
@@ -144,7 +144,7 @@ const Team = () => {
                     <h3 className="font-semibold text-lg">{member.name}</h3>
                     <p className="text-gray-600 text-sm">{member.role}</p>
                     <a
-                      href={`mailto:${member.email}`}
+                      href="/contact"
                       className="flex items-center text-primary hover:text-primary-dark transition-colors mt-2 text-sm"
                     >
                       <Mail className="h-4 w-4 mr-1" />
