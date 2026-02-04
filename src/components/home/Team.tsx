@@ -52,7 +52,7 @@ const newTeamMembers = [
     email: "massine.djoubi@idee.fr"
   },
   {
-    image: "/lovable-uploads/dc34d90b-85d5-46dd-b9a4-fa1bd0f64f34.png",
+    image: "/lovable-uploads/coline-leroy.png",
     name: "Coline Leroy",
     role: "Chargée de suivi de projet IDEE",
     email: "coline.leroy@idee.fr"
