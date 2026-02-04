@@ -40,7 +40,7 @@ const actions = [
   {
     title: "Concrétiser des projets",
     description: "",
-    href: "/concretisation",
+    href: "/ressources/concretisation",
     iconColor: "#FFDEE2",
     imagePath: "/lovable-uploads/31c9ae34-cb8c-40c1-8e58-7210ed22678b.png"
   },
