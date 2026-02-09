@@ -225,7 +225,45 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      equipe_public: {
+        Row: {
+          created_at: string | null
+          fonction: string | null
+          id: string | null
+          image: string | null
+          is_new_member: boolean | null
+          nom: string | null
+          position_x: number | null
+          position_y: number | null
+          prenom: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          fonction?: string | null
+          id?: string | null
+          image?: string | null
+          is_new_member?: boolean | null
+          nom?: string | null
+          position_x?: number | null
+          position_y?: number | null
+          prenom?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          fonction?: string | null
+          id?: string | null
+          image?: string | null
+          is_new_member?: boolean | null
+          nom?: string | null
+          position_x?: number | null
+          position_y?: number | null
+          prenom?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       has_role: {
