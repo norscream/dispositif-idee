@@ -1,28 +1,7 @@
 
 import { Newspaper, ArrowRight } from "lucide-react";
-import { useEffect } from "react";
 
 const News = () => {
-  useEffect(() => {
-    // Load Elfsight script once if not already present
-    if (!document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]')) {
-      const script = document.createElement("script");
-      script.src = "https://static.elfsight.com/platform/platform.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
-    // Add simple CSS to hide watermarks
-    const style = document.createElement("style");
-    style.textContent = `.eapps-link, .eapps-widget-toolbar, .elfsight-app-powered-by { display: none !important; }`;
-    document.head.appendChild(style);
-
-    // Clean up
-    return () => {
-      if (style.parentNode) document.head.removeChild(style);
-    };
-  }, []);
-
   return (
     <section id="actualites" className="py-16 px-4 bg-gray-50">
       <div className="container mx-auto">
@@ -43,7 +22,16 @@ const News = () => {
           </a>
         </div>
         
-        <div className="elfsight-app-092a5f50-2482-40c5-bd11-4b07dd3c5866" data-elfsight-app-lazy></div>
+        {/* Sandboxed iframe prevents third-party script from accessing the main page */}
+        <iframe
+          sandbox="allow-scripts allow-same-origin allow-popups"
+          src="/elfsight-widget.html"
+          title="LinkedIn feed"
+          className="w-full border-0"
+          style={{ minHeight: "500px" }}
+          loading="lazy"
+          referrerPolicy="no-referrer"
+        />
       </div>
     </section>
   );
