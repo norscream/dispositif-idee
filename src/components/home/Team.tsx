@@ -5,35 +5,30 @@ const teamMembers = [
     image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.png",
     name: "Anna Guillouard",
     role: "Chargée de projet Amiens",
-    email: "anna.guillouard@idee.fr",
     position: { top: "55%", left: "50%" }
   },
   {
     image: "/lovable-uploads/68ecf923-3ab3-47f4-9090-9a9a83d1f3c0.png",
     name: "Pascal Lefevre",
     role: "Chargé de mission Aisne",
-    email: "pascal.lefevre@idee.fr",
     position: { top: "70%", left: "75%" }
   },
   {
     image: "/lovable-uploads/d30e3c4d-b90b-4cb3-a2eb-ebbb32b01edd.png",
     name: "Sylvie Zuliani",
     role: "Chargée de mission Valenciennois",
-    email: "sylvie.zuliani@idee.fr",
     position: { top: "35%", left: "65%" }
   },
   {
     image: "/lovable-uploads/chloe-clerbout.jpeg",
     name: "Chloé Clerbout",
     role: "Chargée de mission MEL",
-    email: "chloe.clerbout@idee.fr",
     position: { top: "25%", left: "55%" }
   },
   {
     image: "/lovable-uploads/f1165429-3de0-4ed3-b276-91b014ca1e80.png",
     name: "Norman Madani",
     role: "Chargé de mission côte d'opale",
-    email: "norman.madani@idee.fr",
     position: { top: "25%", left: "20%" }
   }
 ];
@@ -42,26 +37,22 @@ const newTeamMembers = [
   {
     image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png",
     name: "Vincent Pouliquen",
-    role: "Chef de projet IDEE",
-    email: "vincent.pouliquen@idee.fr"
+    role: "Chef de projet IDEE"
   },
   {
     image: "/lovable-uploads/massine-djoubi.jpeg",
     name: "Massine Djoudi",
-    role: "Chargé de projet Mecalive",
-    email: "massine.djoubi@idee.fr"
+    role: "Chargé de projet Mecalive"
   },
   {
     image: "/lovable-uploads/coline-leroy.png",
     name: "Coline Leroy",
-    role: "Chargée de suivi de projet IDEE",
-    email: "coline.leroy@idee.fr"
+    role: "Chargée de suivi de projet IDEE"
   },
   {
     image: "/lovable-uploads/anais-darras.jpeg",
     name: "Anaïs D'arras",
-    role: "Chargée de mesure d'impact",
-    email: "anais.darras@idee.fr"
+    role: "Chargée de mesure d'impact"
   }
 ];
 
