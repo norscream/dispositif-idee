@@ -93,7 +93,6 @@ export default function RechercheActions() {
   };
 
   const filteredActions = useMemo(() => {
-    if (!hasActiveFilters) return [];
     if (activityType === "concours" || activityType === "formation" || selectedNiveaux.includes("Enseignant")) return [];
     
     return allActions.filter(action => {
@@ -122,22 +121,20 @@ export default function RechercheActions() {
   }, [selectedZones, selectedNiveaux, selectedPartenaires, hasActiveFilters, activityType]);
 
   const filteredConcours = useMemo(() => {
-    if (activityType !== "concours" || !hasActiveFilters || selectedNiveaux.includes("Enseignant")) return [];
+    if (activityType !== "concours" || selectedNiveaux.includes("Enseignant")) return [];
 
-    return concours.filter(concours => {
+    return concours.filter(c => {
       const matchesNiveaux = selectedNiveaux.length === 0 || 
-        concours.public.some(niveau => 
+        c.public.some(niveau => 
           selectedNiveaux.some(selectedNiveau => 
             niveau.toLowerCase().includes(selectedNiveau.toLowerCase())
           )
         );
-
       return matchesNiveaux;
     });
-  }, [selectedNiveaux, hasActiveFilters, activityType]);
+  }, [selectedNiveaux, activityType]);
 
   const filteredFormations = useMemo(() => {
-    if (!hasActiveFilters) return [];
     if (!selectedNiveaux.includes("Enseignant") && activityType !== "formation") return [];
 
     if (selectedNiveaux.includes("Enseignant")) {
@@ -149,10 +146,9 @@ export default function RechercheActions() {
         selectedNiveaux.some(niveau => 
           formation.public.toLowerCase().includes(niveau.toLowerCase())
         );
-
       return matchesNiveaux;
     });
-  }, [selectedNiveaux, hasActiveFilters, activityType]);
+  }, [selectedNiveaux, activityType]);
 
   const handleZoneSelect = (zone: ZoneType) => {
     setSelectedZones(prev => 
@@ -271,145 +267,137 @@ export default function RechercheActions() {
           </div>
 
           <div className="space-y-8">
-            {!hasActiveFilters ? (
-              <div className="text-center py-12">
-                <p className="text-lg text-gray-600">
-                  Sélectionnez au moins un critère pour voir les actions correspondantes.
-                </p>
-              </div>
-            ) : (
-              <>
-                <p className="text-gray-600 text-center">
-                  {activityType === "action" ? 
-                    `${filteredActions.length} action${filteredActions.length > 1 ? 's' : ''} trouvée${filteredActions.length > 1 ? 's' : ''}` :
-                    activityType === "formation" ?
-                    `${filteredFormations.length} formation${filteredFormations.length > 1 ? 's' : ''} trouvée${filteredFormations.length > 1 ? 's' : ''}` :
-                    `${filteredConcours.length} concours trouvé${filteredConcours.length > 1 ? 's' : ''}`
-                  }
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {activityType === "action" && (
-                    filteredActions.map((action, index) => (
-                      <Card 
-                        key={index} 
-                        className={`overflow-hidden flex flex-col h-full ${action.title === "Action sur mesure" ? 'bg-[#E6F4FF]' : ''}`}
-                      >
-                        <div className="h-64 overflow-hidden relative bg-gray-50">
-                          <img 
-                            src={action.image} 
-                            alt={action.title} 
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <CardHeader>
-                          <CardTitle className="text-2xl">{action.title}</CardTitle>
-                          <CardDescription className="text-base">{action.description}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="flex-1">
-                          <div className="space-y-4">
-                            <div>
-                              <p className="font-medium mb-2">Zones d'intervention :</p>
-                              <div className="flex flex-wrap gap-2">
-                                {action.zones.map((zone, i) => (
-                                  <Badge key={i} variant="secondary">{zone}</Badge>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div>
-                              <p className="font-medium mb-2">Niveaux :</p>
-                              <div className="flex flex-wrap gap-2">
-                                {action.niveaux.map((niveau, i) => (
-                                  <Badge key={i} variant="secondary">{niveau}</Badge>
-                                ))}
-                              </div>
-                            </div>
-                            
-                            <div>
-                              <p className="font-medium mb-2">Objectifs :</p>
-                              <div className="flex flex-wrap gap-2">
-                                {action.objectifs.map((objectif, i) => (
-                                  <Badge key={i} variant="outline">{objectif}</Badge>
-                                ))}
-                              </div>
-                            </div>
-                            
-                            <div className="flex items-center">
-                              <p><span className="font-medium">Durée :</span> {action.duree}</p>
-                            </div>
-
-                            {"partenaire" in action && (
-                              <div className="flex items-center">
-                                <p><span className="font-medium">Partenaire :</span> {action.partenaire}</p>
-                              </div>
-                            )}
-                          </div>
-                        </CardContent>
-                        <CardFooter>
-                          <Link
-                            to="/contact"
-                            className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
-                          >
-                            Je suis intéressé(e) par cette action
-                          </Link>
-                        </CardFooter>
-                      </Card>
-                    ))
-                  )}
-
-                  {activityType === "concours" && (
-                    filteredConcours.map((concours, index) => (
-                      <div key={index} className="group">
-                        <ConcoursCard concours={concours} />
+            <>
+              <p className="text-gray-600 text-center">
+                {activityType === "action" ? 
+                  `${filteredActions.length} action${filteredActions.length > 1 ? 's' : ''} trouvée${filteredActions.length > 1 ? 's' : ''}` :
+                  activityType === "formation" ?
+                  `${filteredFormations.length} formation${filteredFormations.length > 1 ? 's' : ''} trouvée${filteredFormations.length > 1 ? 's' : ''}` :
+                  `${filteredConcours.length} concours trouvé${filteredConcours.length > 1 ? 's' : ''}`
+                }
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {activityType === "action" && (
+                  filteredActions.map((action, index) => (
+                    <Card 
+                      key={index} 
+                      className={`overflow-hidden flex flex-col h-full ${action.title === "Action sur mesure" ? 'bg-[#E6F4FF]' : ''}`}
+                    >
+                      <div className="h-64 overflow-hidden relative bg-gray-50">
+                        <img 
+                          src={action.image} 
+                          alt={action.title} 
+                          className="w-full h-full object-contain"
+                        />
                       </div>
-                    ))
-                  )}
-
-                  {activityType === "formation" && (
-                    filteredFormations.map((formation, index) => (
-                      <Card 
-                        key={index} 
-                        className="flex flex-col hover:shadow-lg transition-shadow duration-300 border-gray-200 animate-fade-in"
-                        style={{ animationDelay: `${index * 100}ms` }}
-                      >
-                        <CardHeader className="pb-4">
-                          <CardTitle className="text-xl font-semibold text-primary mb-3">
-                            {formation.title}
-                          </CardTitle>
-                          <CardDescription className="text-base text-gray-600 leading-relaxed">
-                            {formation.description}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardContent className="mt-auto pt-6 border-t border-gray-100">
-                          <div className="space-y-3">
-                            <div className="flex items-center gap-3 text-gray-600">
-                              <Clock className="h-5 w-5 text-primary/70" />
-                              <span className="text-sm font-medium">{formation.duration}</span>
-                            </div>
-                            <div className="flex items-center gap-3 text-gray-600">
-                              <Users className="h-5 w-5 text-primary/70" />
-                              <span className="text-sm font-medium">{formation.public}</span>
+                      <CardHeader>
+                        <CardTitle className="text-2xl">{action.title}</CardTitle>
+                        <CardDescription className="text-base">{action.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent className="flex-1">
+                        <div className="space-y-4">
+                          <div>
+                            <p className="font-medium mb-2">Zones d'intervention :</p>
+                            <div className="flex flex-wrap gap-2">
+                              {action.zones.map((zone, i) => (
+                                <Badge key={i} variant="secondary">{zone}</Badge>
+                              ))}
                             </div>
                           </div>
-                        </CardContent>
-                      </Card>
-                    ))
-                  )}
-                </div>
 
-                {((activityType === "action" && filteredActions.length === 0) ||
-                  (activityType === "concours" && filteredConcours.length === 0) ||
-                  (activityType === "formation" && filteredFormations.length === 0)) && (
-                  <div className="text-center py-12">
-                    <p className="text-lg text-gray-600">
-                      Aucune {activityType === "action" ? "action" : activityType === "formation" ? "formation" : "concours"} ne correspond à vos critères. 
-                      Essayez de modifier vos filtres.
-                    </p>
-                  </div>
+                          <div>
+                            <p className="font-medium mb-2">Niveaux :</p>
+                            <div className="flex flex-wrap gap-2">
+                              {action.niveaux.map((niveau, i) => (
+                                <Badge key={i} variant="secondary">{niveau}</Badge>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <p className="font-medium mb-2">Objectifs :</p>
+                            <div className="flex flex-wrap gap-2">
+                              {action.objectifs.map((objectif, i) => (
+                                <Badge key={i} variant="outline">{objectif}</Badge>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center">
+                            <p><span className="font-medium">Durée :</span> {action.duree}</p>
+                          </div>
+
+                          {"partenaire" in action && (
+                            <div className="flex items-center">
+                              <p><span className="font-medium">Partenaire :</span> {action.partenaire}</p>
+                            </div>
+                          )}
+                        </div>
+                      </CardContent>
+                      <CardFooter>
+                        <Link
+                          to="/contact"
+                          className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
+                        >
+                          Je suis intéressé(e) par cette action
+                        </Link>
+                      </CardFooter>
+                    </Card>
+                  ))
                 )}
-              </>
-            )}
+
+                {activityType === "concours" && (
+                  filteredConcours.map((concours, index) => (
+                    <div key={index} className="group">
+                      <ConcoursCard concours={concours} />
+                    </div>
+                  ))
+                )}
+
+                {activityType === "formation" && (
+                  filteredFormations.map((formation, index) => (
+                    <Card 
+                      key={index} 
+                      className="flex flex-col hover:shadow-lg transition-shadow duration-300 border-gray-200 animate-fade-in"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <CardHeader className="pb-4">
+                        <CardTitle className="text-xl font-semibold text-primary mb-3">
+                          {formation.title}
+                        </CardTitle>
+                        <CardDescription className="text-base text-gray-600 leading-relaxed">
+                          {formation.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="mt-auto pt-6 border-t border-gray-100">
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-3 text-gray-600">
+                            <Clock className="h-5 w-5 text-primary/70" />
+                            <span className="text-sm font-medium">{formation.duration}</span>
+                          </div>
+                          <div className="flex items-center gap-3 text-gray-600">
+                            <Users className="h-5 w-5 text-primary/70" />
+                            <span className="text-sm font-medium">{formation.public}</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))
+                )}
+              </div>
+
+              {((activityType === "action" && filteredActions.length === 0) ||
+                (activityType === "concours" && filteredConcours.length === 0) ||
+                (activityType === "formation" && filteredFormations.length === 0)) && (
+                <div className="text-center py-12">
+                  <p className="text-lg text-gray-600">
+                    Aucune {activityType === "action" ? "action" : activityType === "formation" ? "formation" : "concours"} ne correspond à vos critères. 
+                    Essayez de modifier vos filtres.
+                  </p>
+                </div>
+              )}
+            </>
           </div>
         </div>
       </div>
