@@ -59,15 +59,18 @@ const formations = [
   }
 ];
 
+const uniquePartenaires = [...new Set(actionsPartenaires.map(a => a.partenaire))].sort();
+
 export default function RechercheActions() {
   const [selectedZones, setSelectedZones] = useState<ZoneType[]>([]);
   const [selectedNiveaux, setSelectedNiveaux] = useState<NiveauType[]>([]);
+  const [selectedPartenaires, setSelectedPartenaires] = useState<string[]>([]);
   const [activityType, setActivityType] = useState<ActivityType>("action");
 
   const uniqueZones = zoneOrder;
   const uniqueNiveaux = niveauOrder;
 
-  const hasActiveFilters = selectedZones.length > 0 || selectedNiveaux.length > 0;
+  const hasActiveFilters = selectedZones.length > 0 || selectedNiveaux.length > 0 || selectedPartenaires.length > 0;
 
   const handleNiveauSelect = (niveau: NiveauType) => {
     const newSelectedNiveaux = selectedNiveaux.includes(niveau)
@@ -79,6 +82,14 @@ export default function RechercheActions() {
     if (niveau === "Enseignant" && !selectedNiveaux.includes("Enseignant")) {
       setActivityType("formation");
     }
+  };
+
+  const handlePartenaireSelect = (partenaire: string) => {
+    setSelectedPartenaires(prev =>
+      prev.includes(partenaire)
+        ? prev.filter(p => p !== partenaire)
+        : [...prev, partenaire]
+    );
   };
 
   const filteredActions = useMemo(() => {
@@ -103,9 +114,12 @@ export default function RechercheActions() {
       const matchesNiveaux = selectedNiveaux.length === 0 || 
         action.niveaux.some(niveau => selectedNiveaux.includes(niveau));
 
-      return matchesZones && matchesNiveaux;
+      const matchesPartenaires = selectedPartenaires.length === 0 ||
+        ("partenaire" in action && selectedPartenaires.includes(action.partenaire));
+
+      return matchesZones && matchesNiveaux && matchesPartenaires;
     });
-  }, [selectedZones, selectedNiveaux, hasActiveFilters, activityType]);
+  }, [selectedZones, selectedNiveaux, selectedPartenaires, hasActiveFilters, activityType]);
 
   const filteredConcours = useMemo(() => {
     if (activityType !== "concours" || !hasActiveFilters || selectedNiveaux.includes("Enseignant")) return [];
@@ -166,7 +180,7 @@ export default function RechercheActions() {
             Sélectionnez vos critères pour découvrir les actions qui correspondent le mieux à vos besoins.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
             <div className="space-y-2">
               <Label>Type d'activité</Label>
               <div className="space-y-2">
@@ -181,10 +195,10 @@ export default function RechercheActions() {
                   <span className="text-sm">Action de sensibilisation</span>
                 </label>
                 <label className="flex items-center space-x-2">
-                  <input
+                   <input
                     type="radio"
                     checked={activityType === "concours"}
-                    onChange={() => setActivityType("concours")}
+                    onChange={() => { setActivityType("concours"); setSelectedPartenaires([]); }}
                     className="rounded border-gray-300 text-primary focus:ring-primary"
                     disabled={selectedNiveaux.includes("Enseignant")}
                   />
@@ -194,7 +208,7 @@ export default function RechercheActions() {
                   <input
                     type="radio"
                     checked={activityType === "formation"}
-                    onChange={() => setActivityType("formation")}
+                    onChange={() => { setActivityType("formation"); setSelectedPartenaires([]); }}
                     className="rounded border-gray-300 text-primary focus:ring-primary"
                   />
                   <span className="text-sm">Formation</span>
@@ -235,6 +249,25 @@ export default function RechercheActions() {
                 ))}
               </div>
             </div>
+
+            {activityType === "action" && (
+              <div className="space-y-2">
+                <Label>Partenaire</Label>
+                <div className="space-y-2">
+                  {uniquePartenaires.map((partenaire) => (
+                    <label key={partenaire} className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        checked={selectedPartenaires.includes(partenaire)}
+                        onChange={() => handlePartenaireSelect(partenaire)}
+                        className="rounded border-gray-300 text-primary focus:ring-primary"
+                      />
+                      <span className="text-sm">{partenaire}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="space-y-8">
