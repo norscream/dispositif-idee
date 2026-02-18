@@ -14,5 +14,19 @@ export const bgeActions: ActionPartenaire[] = [
     duree: "Année scolaire",
     partenaire: "Entreprendre Pour Apprendre (EPA)",
     image: "/lovable-uploads/49c9461f-5267-4211-a969-9ca51a7a9459.png"
+  },
+  {
+    title: "J'OSE",
+    description: "L'action J'OSE, portée par BGE, vise à sensibiliser les jeunes à l'esprit d'entreprendre en développant la confiance en soi, l'initiative et l'audace. À travers des ateliers ludiques et participatifs, les participants apprennent à mieux se connaître, à dépasser leurs freins et à envisager l'entrepreneuriat comme un levier de compétences et d'orientation, au-delà de la seule création d'entreprise.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["Collège", "Lycée"],
+    objectifs: [
+      "Renforcer la confiance en soi",
+      "Développer l'esprit d'initiative et l'audace",
+      "Découvrir l'entrepreneuriat autrement que par la création d'entreprise"
+    ],
+    duree: "Variable (atelier ou parcours)",
+    partenaire: "BGE",
+    image: "/lovable-uploads/logo-bge.jpg"
   }
 ] as const;
