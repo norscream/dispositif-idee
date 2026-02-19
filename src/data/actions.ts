@@ -103,5 +103,19 @@ export const actions = [
     ],
     duree: "2 heures",
     image: "/logo-idee.png"
+  },
+  {
+    title: "Égalité filles-garçons : comprendre et agir ensemble",
+    description: "Une action de sensibilisation et de mise en projet permettant aux élèves de comprendre les stéréotypes de genre, d'analyser les inégalités vécues au quotidien et de concevoir collectivement des actions concrètes pour favoriser l'égalité au sein de leur établissement.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["École", "Collège", "Lycée", "Post bac"],
+    objectifs: [
+      "Comprendre les stéréotypes de genre et leurs impacts",
+      "Développer l'esprit critique et le respect de l'autre",
+      "Encourager la prise d'initiative et l'engagement citoyen",
+      "Concevoir une action ou un message favorisant l'égalité"
+    ],
+    duree: "2 heures",
+    image: "/logo-idee.png"
   }
 ] as const;
