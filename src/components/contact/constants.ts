@@ -1,4 +1,5 @@
 
+
 import { formations } from "@/data/formations";
 import { bgeActions } from "@/data/actions/bge";
 import { dreamakersActions } from "@/data/actions/dreamakers";
@@ -6,6 +7,7 @@ import { cgenialActions } from "@/data/actions/cgenial";
 import { autresActions } from "@/data/actions/autres";
 import { esperActions } from "@/data/actions/esper";
 import { rnjaActions } from "@/data/actions/rnja";
+import { choisisTaPlaneteActions } from "@/data/actions/choisistaplanete";
 import { actions } from "@/data/actions";
 import { concours } from "@/data/concours";
 
@@ -35,9 +37,11 @@ export const ludopedagogieGames = [
 
 export const allPartnerActions = [
   ...bgeActions,
+  ...choisisTaPlaneteActions,
   ...dreamakersActions,
   ...cgenialActions,
   ...autresActions,
   ...esperActions,
   ...rnjaActions
 ];
+
