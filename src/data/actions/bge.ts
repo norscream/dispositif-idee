@@ -13,7 +13,7 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "Année scolaire",
     partenaire: "Entreprendre Pour Apprendre (EPA)",
-    image: "/lovable-uploads/49c9461f-5267-4211-a969-9ca51a7a9459.png"
+    image: "/lovable-uploads/logo-epa.png"
   },
   {
     title: "J'OSE",
