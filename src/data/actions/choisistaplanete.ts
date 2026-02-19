@@ -5,7 +5,7 @@ export const choisisTaPlaneteActions: ActionPartenaire[] = [
   {
     title: "Challenge Planète",
     description: "Un programme éducatif de sensibilisation au développement durable et au vivre-ensemble qui accompagne les classes tout au long de l'année scolaire pour s'approprier les Objectifs de Développement Durable et conduire un projet éco-citoyen concret porté par les élèves.",
-    zones: ["Académie de Lille"],
+    zones: ["Région académique Hauts-de-France"],
     niveaux: ["École primaire (CM1-CM2)"],
     objectifs: [
       "Sensibiliser les élèves aux enjeux du développement durable",
