@@ -62,7 +62,15 @@ export const Nav = () => {
     <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-lg z-50 border-b border-gray-100">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
+            <Link to="/" className="h-10 flex items-center">
+              <img
+                src="/lovable-uploads/logo-region-academique-hdf.png"
+                alt="Région académique Hauts-de-France"
+                className="h-full w-auto object-contain"
+                loading="eager"
+              />
+            </Link>
             <Link to="/" className="h-8">
               <img 
                 src="/lovable-uploads/bc160d8a-3124-44e1-b43d-725c8f2f2e29.png" 
@@ -72,6 +80,7 @@ export const Nav = () => {
               />
             </Link>
           </div>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
