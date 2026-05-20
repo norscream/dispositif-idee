@@ -2,31 +2,31 @@ import { Users, Mail } from "lucide-react";
 
 const teamMembers = [
   {
-    image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.png",
+    image: "/lovable-uploads/001aacb9-ceb3-42e5-9060-efcd1d2ce801.webp",
     name: "Anna Guillouard",
     role: "Chargée de projet Amiens",
     position: { top: "55%", left: "50%" }
   },
   {
-    image: "/lovable-uploads/68ecf923-3ab3-47f4-9090-9a9a83d1f3c0.png",
+    image: "/lovable-uploads/68ecf923-3ab3-47f4-9090-9a9a83d1f3c0.webp",
     name: "Pascal Lefevre",
     role: "Chargé de mission Aisne",
     position: { top: "70%", left: "75%" }
   },
   {
-    image: "/lovable-uploads/d30e3c4d-b90b-4cb3-a2eb-ebbb32b01edd.png",
+    image: "/lovable-uploads/d30e3c4d-b90b-4cb3-a2eb-ebbb32b01edd.webp",
     name: "Sylvie Zuliani",
     role: "Chargée de mission Valenciennois",
     position: { top: "35%", left: "65%" }
   },
   {
-    image: "/lovable-uploads/chloe-clerbout.jpeg",
+    image: "/lovable-uploads/chloe-clerbout.webp",
     name: "Chloé Clerbout",
     role: "Chargée de mission MEL",
     position: { top: "25%", left: "55%" }
   },
   {
-    image: "/lovable-uploads/f1165429-3de0-4ed3-b276-91b014ca1e80.png",
+    image: "/lovable-uploads/f1165429-3de0-4ed3-b276-91b014ca1e80.webp",
     name: "Norman Madani",
     role: "Chargé de mission côte d'opale",
     position: { top: "25%", left: "20%" }
@@ -35,22 +35,22 @@ const teamMembers = [
 
 const newTeamMembers = [
   {
-    image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.png",
+    image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.webp",
     name: "Vincent Pouliquen",
     role: "Chef de projet IDEE"
   },
   {
-    image: "/lovable-uploads/massine-djoubi.jpeg",
+    image: "/lovable-uploads/massine-djoubi.webp",
     name: "Massine Djoudi",
     role: "Chargé de projet Mecalive"
   },
   {
-    image: "/lovable-uploads/coline-leroy.png",
+    image: "/lovable-uploads/coline-leroy.webp",
     name: "Coline Leroy",
     role: "Chargée de suivi de projet IDEE"
   },
   {
-    image: "/lovable-uploads/anais-darras.jpeg",
+    image: "/lovable-uploads/anais-darras.webp",
     name: "Anaïs D'arras",
     role: "Chargée de mesure d'impact"
   }
@@ -71,7 +71,7 @@ const Team = () => {
           <div className="w-full md:w-2/3">
             <div className="relative">
               <img 
-                src="/lovable-uploads/26f2746a-4702-43bc-9634-c9b3340c20ef.png" 
+                src="/lovable-uploads/26f2746a-4702-43bc-9634-c9b3340c20ef.webp" 
                 alt="Carte de la région" 
                 className="w-full"
               />
@@ -113,7 +113,7 @@ const Team = () => {
           {/* Logo et nouveaux membres à droite */}
           <div className="w-full md:w-1/3 md:-mt-12">
             <img 
-              src="/lovable-uploads/34d9cf68-0334-436b-8ace-aca6e8e890f1.png"
+              src="/lovable-uploads/34d9cf68-0334-436b-8ace-aca6e8e890f1.webp"
               alt="Logo IDEE"
               className="w-full max-w-[280px] mx-auto mb-8"
             />

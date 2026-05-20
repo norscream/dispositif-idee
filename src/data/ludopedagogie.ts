@@ -10,7 +10,7 @@ export const jeux: Game[] = [
     age: "10+",
     competences: ["Créativité", "Communication"],
     niveau: ["Lycée", "BTS"],
-    image: "/lovable-uploads/230fe6fc-6ecf-4dac-b408-17438a968f22.png"
+    image: "/lovable-uploads/230fe6fc-6ecf-4dac-b408-17438a968f22.webp"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ export const jeux: Game[] = [
     age: "4+",
     competences: ["Communication"],
     niveau: ["Primaire"],
-    image: "/lovable-uploads/6e0be2d3-7793-4d11-a6d9-29520d01f0be.png"
+    image: "/lovable-uploads/6e0be2d3-7793-4d11-a6d9-29520d01f0be.webp"
   },
   {
     id: 3,
@@ -50,7 +50,7 @@ export const jeux: Game[] = [
     age: "8+",
     competences: ["Confiance en soi", "Estime de soi", "Connaissance de soi", "Connaissance des autres"],
     niveau: ["Primaire", "Collège", "Lycée", "BTS"],
-    image: "/lovable-uploads/75a6887f-c73a-4718-8898-7444a311e730.png"
+    image: "/lovable-uploads/75a6887f-c73a-4718-8898-7444a311e730.webp"
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ export const jeux: Game[] = [
     age: "12+",
     competences: ["Créativité", "Rapidité", "Observation"],
     niveau: ["Collège", "Lycée", "BTS"],
-    image: "/lovable-uploads/bc5554c1-68be-497d-92bf-24b18ba2bed2.png"
+    image: "/lovable-uploads/bc5554c1-68be-497d-92bf-24b18ba2bed2.webp"
   },
   {
     id: 7,
@@ -80,7 +80,7 @@ export const jeux: Game[] = [
     age: "6+",
     competences: ["Créativité", "Imagination"],
     niveau: ["Primaire", "Collège", "Lycée"],
-    image: "/lovable-uploads/a0e4f280-bb2e-44f8-a6c2-fc8c62fb3fa0.png"
+    image: "/lovable-uploads/a0e4f280-bb2e-44f8-a6c2-fc8c62fb3fa0.webp"
   },
   {
     id: 9,
@@ -90,7 +90,7 @@ export const jeux: Game[] = [
     age: "10+",
     competences: ["Stratégie", "Prise de décision", "Négociation", "Imagination"],
     niveau: ["Lycée"],
-    image: "/lovable-uploads/6290c83f-db53-4105-b42c-efaf5fabc708.png"
+    image: "/lovable-uploads/6290c83f-db53-4105-b42c-efaf5fabc708.webp"
   },
   {
     id: 10,
@@ -100,6 +100,6 @@ export const jeux: Game[] = [
     age: "10+",
     competences: ["Créativité"],
     niveau: ["Primaire", "Collège", "Lycée", "BTS"],
-    image: "/lovable-uploads/75f8ed57-a36e-470f-9cd9-26ae5d05134a.png"
+    image: "/lovable-uploads/75f8ed57-a36e-470f-9cd9-26ae5d05134a.webp"
   }
 ];

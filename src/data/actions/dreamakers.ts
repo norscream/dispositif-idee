@@ -14,7 +14,7 @@ export const dreamakersActions: ActionPartenaire[] = [
     ],
     duree: "30 heures",
     partenaire: "Dreamakers",
-    image: "/lovable-uploads/25d67512-8fb6-4188-a743-a79ff2ed0184.png"
+    image: "/lovable-uploads/25d67512-8fb6-4188-a743-a79ff2ed0184.webp"
   },
   {
     title: "Décrypte !",
@@ -28,7 +28,7 @@ export const dreamakersActions: ActionPartenaire[] = [
     ],
     duree: "10 heures",
     partenaire: "Dreamakers",
-    image: "/lovable-uploads/25d67512-8fb6-4188-a743-a79ff2ed0184.png"
+    image: "/lovable-uploads/25d67512-8fb6-4188-a743-a79ff2ed0184.webp"
   },
   {
     title: "Vis !",
@@ -42,6 +42,6 @@ export const dreamakersActions: ActionPartenaire[] = [
     ],
     duree: "Année scolaire",
     partenaire: "Dreamakers",
-    image: "/lovable-uploads/25d67512-8fb6-4188-a743-a79ff2ed0184.png"
+    image: "/lovable-uploads/25d67512-8fb6-4188-a743-a79ff2ed0184.webp"
   }
 ] as const;

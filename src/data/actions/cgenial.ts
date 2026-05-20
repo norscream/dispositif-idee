@@ -14,6 +14,6 @@ export const cgenialActions: ActionPartenaire[] = [
     ],
     duree: "Année scolaire",
     partenaire: "Fondation CGénial",
-    image: "/lovable-uploads/709103e0-429a-4f7e-b8bb-92cd8eae1c52.png"
+    image: "/lovable-uploads/709103e0-429a-4f7e-b8bb-92cd8eae1c52.webp"
   }
 ] as const;

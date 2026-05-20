@@ -28,6 +28,6 @@ export const autresActions: ActionPartenaire[] = [
     ],
     duree: "5 à 6 mois",
     partenaire: "Enactus France",
-    image: "/lovable-uploads/5220c30b-a33a-413b-aa44-443361dd431b.png"
+    image: "/lovable-uploads/5220c30b-a33a-413b-aa44-443361dd431b.webp"
   }
 ] as const;

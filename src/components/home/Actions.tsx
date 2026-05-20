@@ -14,7 +14,7 @@ const actions = [
     description: "",
     href: "/accompagner",
     iconColor: "#FEC6A1",
-    imagePath: "/lovable-uploads/82502928-6d0a-44b8-924b-cefe58f7c3dd.png"
+    imagePath: "/lovable-uploads/82502928-6d0a-44b8-924b-cefe58f7c3dd.webp"
   },
   {
     title: "Créer des ressources pédagogiques innovantes",
@@ -28,21 +28,21 @@ const actions = [
     description: "",
     href: "/reseau",
     iconColor: "#F1F0FB",
-    imagePath: "/lovable-uploads/514b916d-23ef-4f86-b41a-e4060bb693a2.png"
+    imagePath: "/lovable-uploads/514b916d-23ef-4f86-b41a-e4060bb693a2.webp"
   },
   {
     title: "Célébrer et valoriser les actions des élèves",
     description: "",
     href: "/valoriser",
     iconColor: "#F2FCE2",
-    imagePath: "/lovable-uploads/126a6c28-7f40-427b-821d-49be85a8c0f4.png"
+    imagePath: "/lovable-uploads/126a6c28-7f40-427b-821d-49be85a8c0f4.webp"
   },
   {
     title: "Concrétiser des projets",
     description: "",
     href: "/ressources/concretisation",
     iconColor: "#FFDEE2",
-    imagePath: "/lovable-uploads/31c9ae34-cb8c-40c1-8e58-7210ed22678b.png"
+    imagePath: "/lovable-uploads/31c9ae34-cb8c-40c1-8e58-7210ed22678b.webp"
   },
 ];
 

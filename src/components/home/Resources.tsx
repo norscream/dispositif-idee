@@ -7,25 +7,25 @@ const resources = [
     title: "Nos actions",
     description: "Découvrez l'ensemble des actions menées par IDÉE",
     href: "/ressources/nos-actions",
-    bgImage: "/lovable-uploads/bbfadd31-7762-4fc4-bdcd-05aca7a4deed.png"
+    bgImage: "/lovable-uploads/bbfadd31-7762-4fc4-bdcd-05aca7a4deed.webp"
   },
   {
     title: "Les actions de nos partenaires",
     description: "Explorez les initiatives de nos partenaires",
     href: "/ressources/actions-partenaires",
-    bgImage: "/lovable-uploads/c151f1c6-25f8-42a5-ab3a-9770211f48c6.png"
+    bgImage: "/lovable-uploads/c151f1c6-25f8-42a5-ab3a-9770211f48c6.webp"
   },
   {
     title: "Ludopédagogie",
     description: "Apprenez par le jeu et l'expérimentation",
     href: "/ressources/ludopedagogie",
-    bgImage: "/lovable-uploads/aa3900a3-0ef2-457c-bd2c-99a09d896586.png"
+    bgImage: "/lovable-uploads/aa3900a3-0ef2-457c-bd2c-99a09d896586.webp"
   },
   {
     title: "Concours",
     description: "Participez à nos concours et challenges entrepreneuriaux",
     href: "/ressources/concours",
-    bgImage: "/lovable-uploads/b56b9788-f643-46c4-bc89-dbcb2aa22f3b.png"
+    bgImage: "/lovable-uploads/b56b9788-f643-46c4-bc89-dbcb2aa22f3b.webp"
   }
 ];
 

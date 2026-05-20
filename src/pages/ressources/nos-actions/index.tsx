@@ -12,7 +12,7 @@ const actions = [
     zones: ["Amiens", "Oise", "MEL"],
     competences: ["Créativité", "Travail d'équipe", "Communication", "Gestion de projet"],
     duree: "1 année scolaire",
-    image: "/lovable-uploads/1d7f478b-967c-4c57-b2fa-7a57ce7ff060.png"
+    image: "/lovable-uploads/1d7f478b-967c-4c57-b2fa-7a57ce7ff060.webp"
   },
   {
     title: "Hackathon de l'innovation",
@@ -20,7 +20,7 @@ const actions = [
     zones: ["Valenciennes", "Aisne", "Côte d'Opale"],
     competences: ["Innovation", "Problem solving", "Pitch", "Design thinking"],
     duree: "2 jours",
-    image: "/lovable-uploads/34478c1f-75ee-4e13-9a72-4e28d99a3069.png"
+    image: "/lovable-uploads/34478c1f-75ee-4e13-9a72-4e28d99a3069.webp"
   },
   {
     title: "Entrepreneuriat social",
@@ -28,7 +28,7 @@ const actions = [
     zones: ["Amiens", "MEL", "Valenciennes"],
     competences: ["Responsabilité sociale", "Innovation sociale", "Gestion de projet", "Communication"],
     duree: "6 mois",
-    image: "/lovable-uploads/80178065-322a-4a85-9708-9ff2cef122e6.png"
+    image: "/lovable-uploads/80178065-322a-4a85-9708-9ff2cef122e6.webp"
   }
 ];
 

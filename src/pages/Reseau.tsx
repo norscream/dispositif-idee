@@ -51,7 +51,7 @@ export default function Reseau() {
         <div 
           className="absolute inset-0 bg-fixed z-0"
           style={{
-            backgroundImage: 'url(/lovable-uploads/c151f1c6-25f8-42a5-ab3a-9770211f48c6.png)',
+            backgroundImage: 'url(/lovable-uploads/c151f1c6-25f8-42a5-ab3a-9770211f48c6.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
