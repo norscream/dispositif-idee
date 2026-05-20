@@ -15,7 +15,7 @@ const equipeStatique: MembreEquipePublic[] = [
     nom: "Équipe",
     prenom: "IDÉE",
     fonction: "Coordinateur",
-    image: "/logo-idee.png"
+    image: "/logo-idee.webp"
   }
 ];
 

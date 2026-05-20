@@ -13,7 +13,7 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "Année scolaire",
     partenaire: "Entreprendre Pour Apprendre (EPA)",
-    image: "/lovable-uploads/logo-epa.png"
+    image: "/lovable-uploads/logo-epa.webp"
   },
   {
     title: "J'OSE",
@@ -27,7 +27,7 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "Variable (atelier ou parcours)",
     partenaire: "BGE",
-    image: "/lovable-uploads/logo-bge.jpg"
+    image: "/lovable-uploads/logo-bge.webp"
   },
   {
     title: "Opportun Avenir",
@@ -41,7 +41,7 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "Variable selon le format",
     partenaire: "BGE",
-    image: "/lovable-uploads/logo-bge.jpg"
+    image: "/lovable-uploads/logo-bge.webp"
   },
   {
     title: "Je découvre",
@@ -55,7 +55,7 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "1 séance",
     partenaire: "BGE",
-    image: "/lovable-uploads/logo-bge.jpg"
+    image: "/lovable-uploads/logo-bge.webp"
   },
   {
     title: "J'éveille",
@@ -69,7 +69,7 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "1 à plusieurs séances",
     partenaire: "BGE",
-    image: "/lovable-uploads/logo-bge.jpg"
+    image: "/lovable-uploads/logo-bge.webp"
   },
   {
     title: "Busy et NESS",
@@ -83,7 +83,7 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "Plusieurs séances",
     partenaire: "BGE",
-    image: "/lovable-uploads/logo-bge.jpg"
+    image: "/lovable-uploads/logo-bge.webp"
   },
   {
     title: "Le plus compétent des entrepreneurs",
@@ -97,7 +97,7 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "1 demi-journée",
     partenaire: "BGE",
-    image: "/lovable-uploads/logo-bge.jpg"
+    image: "/lovable-uploads/logo-bge.webp"
   },
   {
     title: "J'entreprends",
@@ -111,7 +111,7 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "Plusieurs séances",
     partenaire: "BGE",
-    image: "/lovable-uploads/logo-bge.jpg"
+    image: "/lovable-uploads/logo-bge.webp"
   },
   {
     title: "Je gère",
@@ -125,7 +125,7 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "Plusieurs séances",
     partenaire: "BGE",
-    image: "/lovable-uploads/logo-bge.jpg"
+    image: "/lovable-uploads/logo-bge.webp"
   },
   {
     title: "Mon projet entrepreneurial",
@@ -139,6 +139,6 @@ export const bgeActions: ActionPartenaire[] = [
     ],
     duree: "Année scolaire",
     partenaire: "BGE",
-    image: "/lovable-uploads/logo-bge.jpg"
+    image: "/lovable-uploads/logo-bge.webp"
   }
 ] as const;

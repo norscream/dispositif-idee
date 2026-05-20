@@ -6,7 +6,7 @@ export const actions = [
     niveaux: ["École", "Collège", "Lycée", "Post bac"],
     objectifs: ["À définir selon vos besoins"],
     duree: "À définir selon vos besoins",
-    image: "/logo-idee.png"
+    image: "/logo-idee.webp"
   },
   {
     title: "À la découverte de nos forces et talents",
@@ -20,7 +20,7 @@ export const actions = [
       "Développer la confiance en soi et la reconnaissance mutuelle"
     ],
     duree: "2 heures",
-    image: "/logo-idee.png"
+    image: "/logo-idee.webp"
   },
   {
     title: "Prévention et gestion des conflits avec les messages clairs",
@@ -34,7 +34,7 @@ export const actions = [
       "Renforcer la coopération et le respect mutuel"
     ],
     duree: "3 heures",
-    image: "/logo-idee.png"
+    image: "/logo-idee.webp"
   },
   {
     title: "Gestion de Projet : l'Idéation",
@@ -48,7 +48,7 @@ export const actions = [
       "S'initier aux techniques de brainstorming et de facilitation"
     ],
     duree: "2 heures",
-    image: "/logo-idee.png"
+    image: "/logo-idee.webp"
   },
   {
     title: "L'esprit d'entreprendre en action",
@@ -62,7 +62,7 @@ export const actions = [
       "Appliquer l'esprit d'entreprise au quotidien"
     ],
     duree: "3 heures",
-    image: "/logo-idee.png"
+    image: "/logo-idee.webp"
   },
   {
     title: "Workshop LinkedIn",
@@ -76,7 +76,7 @@ export const actions = [
       "Maîtriser les fonctionnalités de LinkedIn"
     ],
     duree: "4 heures",
-    image: "/logo-idee.png"
+    image: "/logo-idee.webp"
   },
   {
     title: "Cultiver sa confiance en soi",
@@ -89,7 +89,7 @@ export const actions = [
       "S'ouvrir à de nouvelles perspectives professionnelles"
     ],
     duree: "2 heures",
-    image: "/logo-idee.png"
+    image: "/logo-idee.webp"
   },
   {
     title: "Gestion de l'échec",
@@ -102,7 +102,7 @@ export const actions = [
       "S'ouvrir à de nouvelles perspectives professionnelles"
     ],
     duree: "2 heures",
-    image: "/logo-idee.png"
+    image: "/logo-idee.webp"
   },
   {
     title: "Égalité filles-garçons : comprendre et agir ensemble",
@@ -116,6 +116,6 @@ export const actions = [
       "Concevoir une action ou un message favorisant l'égalité"
     ],
     duree: "2 heures",
-    image: "/logo-idee.png"
+    image: "/logo-idee.webp"
   }
 ] as const;

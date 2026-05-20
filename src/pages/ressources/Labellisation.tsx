@@ -56,9 +56,9 @@ export default function Labellisation() {
             <h2 className="text-2xl font-semibold mb-6">Processus de labellisation</h2>
             {/* Further increasing image size and improving readability */}
             <div className="flex justify-center mb-8">
-              <a href="/lovable-uploads/300b340b-9d6d-4fa2-93ae-0f792e250599.png" target="_blank" rel="noopener noreferrer" className="block w-full">
+              <a href="/lovable-uploads/300b340b-9d6d-4fa2-93ae-0f792e250599.webp" target="_blank" rel="noopener noreferrer" className="block w-full">
                 <img 
-                  src="/lovable-uploads/300b340b-9d6d-4fa2-93ae-0f792e250599.png" 
+                  src="/lovable-uploads/300b340b-9d6d-4fa2-93ae-0f792e250599.webp" 
                   alt="Processus de labellisation en 5 étapes" 
                   className="w-full object-contain rounded-lg shadow-lg border border-gray-200"
                 />

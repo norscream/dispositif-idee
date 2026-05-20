@@ -65,7 +65,7 @@ export const Nav = () => {
           <div className="flex items-center gap-3">
             <Link to="/" className="h-10 flex items-center">
               <img
-                src="/lovable-uploads/logo-region-academique-hdf.png"
+                src="/lovable-uploads/logo-region-academique-hdf.webp"
                 alt="Région académique Hauts-de-France"
                 className="h-full w-auto object-contain"
                 loading="eager"
@@ -73,7 +73,7 @@ export const Nav = () => {
             </Link>
             <Link to="/" className="h-8">
               <img 
-                src="/lovable-uploads/bc160d8a-3124-44e1-b43d-725c8f2f2e29.png" 
+                src="/lovable-uploads/bc160d8a-3124-44e1-b43d-725c8f2f2e29.webp" 
                 alt="IDÉE - Engager la jeunesse pour l'avenir" 
                 className="h-full w-auto"
                 loading="eager"

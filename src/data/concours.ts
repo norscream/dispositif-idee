@@ -44,7 +44,7 @@ export const concours: Concours[] = [
       "Stand de présentation",
       "Épreuves de course chronométrées"
     ],
-    logo: "/lovable-uploads/72df0592-8681-471c-897b-9f49582923bf.png",
+    logo: "/lovable-uploads/72df0592-8681-471c-897b-9f49582923bf.webp",
     partenaires: [
       {
         nom: "Région Académique Hauts-de-France",
@@ -65,7 +65,7 @@ export const concours: Concours[] = [
       "Démonstration pratique",
       "Journal de bord de l'équipe"
     ],
-    logo: "/lovable-uploads/89ff74ef-4757-43de-85f7-4c784c02a0d1.png",
+    logo: "/lovable-uploads/89ff74ef-4757-43de-85f7-4c784c02a0d1.webp",
     partenaires: [
       {
         nom: "Région Académique Hauts-de-France",
@@ -83,11 +83,11 @@ export const concours: Concours[] = [
       "Documentation du projet : présentation détaillée du processus de conception, des choix techniques et des rôles au sein de l'équipe",
       "Participation aux courses : présence aux événements compétitifs pour évaluer les performances du véhicule et de l'équipe"
     ],
-    logo: "/lovable-uploads/c72085c2-8055-4598-aae0-5330981ab08f.png",
+    logo: "/lovable-uploads/c72085c2-8055-4598-aae0-5330981ab08f.webp",
     partenaires: [
       {
         nom: "GIP FCIP Lille Hauts-de-France",
-        logo: "/lovable-uploads/5d2ac1aa-961c-45e5-849d-3feea8cddb4c.png"
+        logo: "/lovable-uploads/5d2ac1aa-961c-45e5-849d-3feea8cddb4c.webp"
       },
       {
         nom: "Région Académique Hauts-de-France",
@@ -133,7 +133,7 @@ export const concours: Concours[] = [
       "Fiche d'évaluation des besoins",
       "Documentation sur l'impact attendu"
     ],
-    logo: "/lovable-uploads/cecf8b67-bb1e-4c36-9369-2a10297f0c88.png",
+    logo: "/lovable-uploads/cecf8b67-bb1e-4c36-9369-2a10297f0c88.webp",
     partenaires: [
       {
         nom: "Académie de Lille",
@@ -155,11 +155,11 @@ export const concours: Concours[] = [
       "Poster de présentation du projet",
       "Présentation orale devant un jury"
     ],
-    logo: "/lovable-uploads/f546683e-084f-4a0e-a959-b60a2fdc3c6f.png",
+    logo: "/lovable-uploads/f546683e-084f-4a0e-a959-b60a2fdc3c6f.webp",
     partenaires: [
       {
         nom: "Fondation CGénial",
-        logo: "/lovable-uploads/709103e0-429a-4f7e-b8bb-92cd8eae1c52.png"
+        logo: "/lovable-uploads/709103e0-429a-4f7e-b8bb-92cd8eae1c52.webp"
       }
     ]
   },
@@ -176,7 +176,7 @@ export const concours: Concours[] = [
       "Analyse des impacts environnementaux",
       "Planning prévisionnel"
     ],
-    logo: "/lovable-uploads/3cd6663f-e088-4761-88a5-4138ee393ecf.png",
+    logo: "/lovable-uploads/3cd6663f-e088-4761-88a5-4138ee393ecf.webp",
     partenaires: [
       {
         nom: "Région Académique Hauts-de-France",
@@ -197,11 +197,11 @@ export const concours: Concours[] = [
       "Prototype ou maquette du produit/service",
       "Plan de communication"
     ],
-    logo: "/lovable-uploads/167b90e5-a16f-4159-a31d-4f4980e1c427.png",
+    logo: "/lovable-uploads/167b90e5-a16f-4159-a31d-4f4980e1c427.webp",
     partenaires: [
       {
         nom: "Rencontres Entreprises Enseignants",
-        logo: "/lovable-uploads/167b90e5-a16f-4159-a31d-4f4980e1c427.png"
+        logo: "/lovable-uploads/167b90e5-a16f-4159-a31d-4f4980e1c427.webp"
       }
     ]
   },

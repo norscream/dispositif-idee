@@ -62,7 +62,7 @@ export default function Accompagner() {
           {/* Process Image */}
           <div className="mb-16">
             <img 
-              src="/lovable-uploads/32f61937-a587-4c0b-8340-846d3488164f.png" 
+              src="/lovable-uploads/32f61937-a587-4c0b-8340-846d3488164f.webp" 
               alt="Processus d'accompagnement en 4 étapes"
               className="w-full max-w-3xl mx-auto"
             />

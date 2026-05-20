@@ -6,7 +6,7 @@ export const Hero = () => {
     <section className="relative pt-32 pb-16 px-4">
       <div className="absolute inset-0 overflow-hidden">
         <img 
-          src="/fond-site-idee.png"
+          src="/fond-site-idee.webp"
           alt="Background IDEE"
           className="w-full h-full object-cover"
           loading="eager"

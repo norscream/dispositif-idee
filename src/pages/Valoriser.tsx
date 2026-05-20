@@ -9,18 +9,18 @@ import { useEffect, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 const eventImages = [
-  "/lovable-uploads/d25323b1-8a8e-4c7f-9271-16284835c250.png",
-  "/lovable-uploads/2b3c612b-b068-47d2-b8f9-1d4c10f88540.png",
-  "/lovable-uploads/29594d33-1cce-4a12-bf1c-2dd7787ec5de.png",
-  "/lovable-uploads/667ef80a-5fb0-4319-bf8a-f0cb881fa8db.png",
-  "/lovable-uploads/da6a8351-8cc7-4b05-90c8-b5eace2be8ca.png",
-  "/lovable-uploads/3c41785b-130c-47c0-88b7-786af814c934.png",
-  "/lovable-uploads/ee21d5b1-59e5-4d84-a7d5-576f1274d7dd.png",
-  "/lovable-uploads/87ca8540-88af-4e1a-83f4-dc3ccb4093f4.png",
-  "/lovable-uploads/c47322fa-c9e4-4ab6-9c47-60694edb21a9.png",
-  "/lovable-uploads/b3a85764-b287-439e-b02c-d010943becd0.png",
-  "/lovable-uploads/911149dd-8c50-4d33-b8e3-eeac78fd6022.png",
-  "/lovable-uploads/4e1dd86d-d102-4fc1-af69-ae45447a75aa.png"
+  "/lovable-uploads/d25323b1-8a8e-4c7f-9271-16284835c250.webp",
+  "/lovable-uploads/2b3c612b-b068-47d2-b8f9-1d4c10f88540.webp",
+  "/lovable-uploads/29594d33-1cce-4a12-bf1c-2dd7787ec5de.webp",
+  "/lovable-uploads/667ef80a-5fb0-4319-bf8a-f0cb881fa8db.webp",
+  "/lovable-uploads/da6a8351-8cc7-4b05-90c8-b5eace2be8ca.webp",
+  "/lovable-uploads/3c41785b-130c-47c0-88b7-786af814c934.webp",
+  "/lovable-uploads/ee21d5b1-59e5-4d84-a7d5-576f1274d7dd.webp",
+  "/lovable-uploads/87ca8540-88af-4e1a-83f4-dc3ccb4093f4.webp",
+  "/lovable-uploads/c47322fa-c9e4-4ab6-9c47-60694edb21a9.webp",
+  "/lovable-uploads/b3a85764-b287-439e-b02c-d010943becd0.webp",
+  "/lovable-uploads/911149dd-8c50-4d33-b8e3-eeac78fd6022.webp",
+  "/lovable-uploads/4e1dd86d-d102-4fc1-af69-ae45447a75aa.webp"
 ];
 
 export default function Valoriser() {
@@ -161,7 +161,7 @@ export default function Valoriser() {
                 <CardContent className="p-6">
                   <div className="flex flex-col items-center gap-4 mb-4">
                     <img 
-                      src="/lovable-uploads/636abdb5-7a0d-4125-9a06-33a8ea2c0298.png"
+                      src="/lovable-uploads/636abdb5-7a0d-4125-9a06-33a8ea2c0298.webp"
                       alt="Label Jeunes et Audacieux"
                       className="w-24 h-24 object-contain"
                     />

@@ -12,7 +12,7 @@ const resourceTypes = [
     icon: <BookOpen className="h-8 w-8 text-primary" />,
     link: "/ressources/nos-actions",
     linkText: "Découvrir nos actions",
-    image: "/lovable-uploads/b4dc5c3d-611e-4b86-bdf8-b7239716ea55.png"
+    image: "/lovable-uploads/b4dc5c3d-611e-4b86-bdf8-b7239716ea55.webp"
   },
   {
     title: "Concours régionaux",
@@ -20,7 +20,7 @@ const resourceTypes = [
     icon: <Trophy className="h-8 w-8 text-primary" />,
     link: "/ressources/concours",
     linkText: "Découvrir les concours",
-    image: "/lovable-uploads/88200d9e-4b88-4cca-9e5f-d600c4eec002.png"
+    image: "/lovable-uploads/88200d9e-4b88-4cca-9e5f-d600c4eec002.webp"
   },
   {
     title: "Ludothèque pédagogique",
@@ -34,7 +34,7 @@ const resourceTypes = [
     title: "Outils et formats pédagogiques variés",
     description: "Des ateliers interactifs, études de cas, défis et parcours gamifiés pour favoriser une approche ludique et engageante. Nos formats diversifiés s'adaptent à tous les contextes d'apprentissage.",
     icon: <Users className="h-8 w-8 text-primary" />,
-    image: "/lovable-uploads/d79f45ab-de8c-496f-a0ee-69e218347823.png",
+    image: "/lovable-uploads/d79f45ab-de8c-496f-a0ee-69e218347823.webp",
     link: "/contact",
     linkText: "Nous contacter"
   }
