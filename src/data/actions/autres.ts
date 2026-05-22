@@ -29,5 +29,20 @@ export const autresActions: ActionPartenaire[] = [
     duree: "5 à 6 mois",
     partenaire: "Enactus France",
     image: "/lovable-uploads/5220c30b-a33a-413b-aa44-443361dd431b.webp"
+  },
+  {
+    title: "Speed Meeting",
+    description: "Témoignages d'entrepreneurs et d'intrapreneurs (chefs d'entreprise, responsables associatifs, porteurs de projet au sein d'un groupe ou de la fonction publique), dans les établissements scolaires de la région Hauts-de-France, afin de transmettre la culture et l'envie d'entreprendre aux jeunes de 13 à 25 ans.",
+    zones: ["Région académique Hauts-de-France"],
+    niveaux: ["Collège", "Lycée"],
+    objectifs: [
+      "Sensibiliser aux enjeux économiques et sociaux",
+      "Découvrir le fonctionnement d'une entreprise",
+      "Apprendre à monter et gérer des projets",
+      "Découverte du monde économique"
+    ],
+    duree: "2 heures",
+    partenaire: "100 000 entrepreneurs",
+    image: "/lovable-uploads/logo-100000-entrepreneurs.png"
   }
 ] as const;
