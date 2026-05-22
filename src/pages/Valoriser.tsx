@@ -1,6 +1,6 @@
 
 import { Nav } from "@/components/Nav";
-import { ArrowLeft, Calendar, MapPin } from "lucide-react";
+import { ArrowLeft, Calendar, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -61,38 +61,6 @@ export default function Valoriser() {
     }
   ];
 
-  const events2025_2026 = [
-    {
-      title: "Atelier Fresque de l'esprit d'entreprendre",
-      location: "La turbine - Dunkerque",
-      date: "18 Septembre"
-    },
-    {
-      title: "Hackathon IDEE",
-      location: "La plaine image - Tourcoing",
-      date: "2 et 3 octobre"
-    },
-    {
-      title: "Hackathon IDEE",
-      location: "Laon",
-      date: "25 novembre et 8 décembre"
-    },
-    {
-      title: "Concours Graines d'entrepreneur",
-      location: "Palais des arts - Capelle-la-grande",
-      date: "7 mai"
-    },
-    {
-      title: "Festival des Mini-Entreprises",
-      location: "Lille",
-      date: "19 mai"
-    },
-    {
-      title: "Festival des Mini-Entreprises",
-      location: "CCI Amiens",
-      date: "21 mai"
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -128,9 +96,10 @@ export default function Valoriser() {
               className="bg-primary text-white hover:bg-primary/90"
             >
               <Calendar className="h-5 w-5 mr-2" />
-              Découvrir les événements 2025-2026
+              Découvrir les événements près de chez vous
             </Button>
           </div>
+
 
           <div className="mb-8">
             <Carousel 
@@ -173,28 +142,20 @@ export default function Valoriser() {
             ))}
           </div>
 
-          <div id="events-2025-2026" className="bg-gray-50 rounded-lg p-8">
-            <h2 className="text-3xl font-bold text-center mb-8">Événements Jeunes et Audacieux 2025-2026</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {events2025_2026.map((event, index) => (
-                <Card key={index} className="bg-white hover:shadow-md transition-all">
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold mb-3 text-primary">{event.title}</h3>
-                    <div className="space-y-2">
-                      <div className="flex items-center text-gray-600">
-                        <MapPin className="h-4 w-4 mr-2 text-primary" />
-                        <span>{event.location}</span>
-                      </div>
-                      <div className="flex items-center text-gray-600">
-                        <Calendar className="h-4 w-4 mr-2 text-primary" />
-                        <span>{event.date}</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+          <div id="events-2025-2026" className="bg-gray-50 rounded-lg p-8 text-center">
+            <h2 className="text-3xl font-bold mb-4">Découvrez les événements près de chez vous</h2>
+            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+              Vous souhaitez connaître les prochains événements "Jeunes et Audacieux" organisés près de chez vous ? Contactez-nous pour en savoir plus et participer aux rencontres de votre territoire.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg transition-colors shadow-lg hover:shadow-xl"
+            >
+              <Mail className="h-5 w-5" />
+              Nous contacter
+            </Link>
           </div>
+
         </div>
       </div>
     </div>
