@@ -40,19 +40,9 @@ const newTeamMembers = [
     role: "Chef de projet IDEE"
   },
   {
-    image: "/lovable-uploads/massine-djoubi.webp",
-    name: "Massine Djoudi",
-    role: "Chargé de projet Mecalive"
-  },
-  {
     image: "/lovable-uploads/coline-leroy.webp",
     name: "Coline Leroy",
     role: "Chargée de suivi de projet IDEE"
-  },
-  {
-    image: "/lovable-uploads/anais-darras.webp",
-    name: "Anaïs D'arras",
-    role: "Chargée de mesure d'impact"
   }
 ];
 
