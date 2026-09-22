@@ -1,5 +1,7 @@
 
 import { Game } from "@/components/ludopedagogie/GameCard";
+import brickLikeThis from "@/assets/brick-like-this.webp.asset.json";
+
 
 export const jeux: Game[] = [
   {
@@ -101,5 +103,15 @@ export const jeux: Game[] = [
     competences: ["Créativité"],
     niveau: ["Primaire", "Collège", "Lycée", "BTS"],
     image: "/lovable-uploads/75f8ed57-a36e-470f-9cd9-26ae5d05134a.webp"
+  },
+  {
+    id: 11,
+    titre: "BRICK LIKE THIS!",
+    description: "Un jeu de construction rapide et communicatif LEGO : par équipes, un joueur décrit le modèle à construire et les autres doivent le réaliser le plus vite possible. Vitesse, écoute et précision sont les clés de la victoire dans ce party-game effréné de la gamme LEGO Party Games.",
+    joueurs: "4-8",
+    age: "8+",
+    competences: ["Communication", "Coordination", "Créativité"],
+    niveau: ["Primaire", "Collège", "Lycée", "BTS"],
+    image: brickLikeThis.url
   }
 ];
