@@ -1,6 +1,6 @@
 
 import { Game } from "@/components/ludopedagogie/GameCard";
-import brickLikeThis from "@/assets/brick-like-this.webp.asset.json";
+
 
 
 export const jeux: Game[] = [
@@ -112,6 +112,6 @@ export const jeux: Game[] = [
     age: "8+",
     competences: ["Communication", "Coordination", "Créativité"],
     niveau: ["Primaire", "Collège", "Lycée", "BTS"],
-    image: brickLikeThis.url
+    image: "/lovable-uploads/brick-like-this.webp"
   }
 ];
