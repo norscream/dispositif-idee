@@ -35,7 +35,7 @@ const teamMembers = [
 
 const newTeamMembers = [
   {
-    image: "/lovable-uploads/53127e3b-f7d1-41e0-aa50-b879e49850b7.webp",
+    image: "/lovable-uploads/vincent-pouliquen.webp",
     name: "Vincent Pouliquen",
     role: "Chef de projet IDEE"
   },
