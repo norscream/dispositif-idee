@@ -43,6 +43,11 @@ const newTeamMembers = [
     image: "/lovable-uploads/coline-leroy.webp",
     name: "Coline Leroy",
     role: "Chargée de suivi de projet IDEE"
+  },
+  {
+    image: "/lovable-uploads/ambre-quique.webp",
+    name: "Ambre Quique",
+    role: "Chargée d'étude d'impact et communication"
   }
 ];
 
